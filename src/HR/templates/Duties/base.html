@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>{% block title %}معماری سازمانی{% endblock %}</title>
+    <!-- MDB icon -->
+    <link rel="icon" href="/static_eit/EIT/images/favicon.ico" type="image/x-icon" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="/static_eit/EIT/css/all.css" />
+    <link rel="stylesheet" href="/static_eit/EIT/css/fontawesome.css" />
+    <link rel="stylesheet" href="/static_eit/EIT/css/mdb.rtl.min.css" />
+    <link rel="stylesheet" href="/static_eit/EIT/css/jquery-confirm.css" />
+    <link rel="stylesheet" href="/static_eit/EIT/css/font-style.css" />
+    <link rel="stylesheet" href="/static_eit/EIT/css/common-style.css" />
+    <link rel="stylesheet" href="{% static 'Duties/css/style.css' %}" />
+    {% block importstyle %} {% endblock %}
+    <script type="text/javascript" src="/static_eit/EIT/js/mdb.min.js"></script>
+    <script src="/static_eit/EIT/js/jquery-3.6.0.min.js" ></script>
+  <script src="/static_eit/EIT/js/jquery-confirm.js" ></script>
+    <script type="text/javascript" src="/static_eit/EIT/js/common.js"></script>
+    {% block importscript %} {% endblock %}
+    {% block style %} {% endblock %}
+    {% block script %} {% endblock %}
+    {% block  jquery %} {% endblock %}
+  </head>
+  <body>
+
+        {% block content %}
+
+        {% endblock %}
+
+  </body>
+</html>

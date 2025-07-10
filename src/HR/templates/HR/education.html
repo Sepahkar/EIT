@@ -1,0 +1,143 @@
+{% extends "HR/detail-layout.html" %}
+{%  load static %}
+{% block legend %}سوابق تحصيلی{% endblock %}
+{% block form_name1 %}education{% endblock %}
+{% block form_name2 %}education{% endblock %}
+{% block form_name3 %}education{% endblock %}
+{% block form_name4 %}education{% endblock %}
+{% block form_name5 %}education{% endblock %}
+{% block form_name6 %}education{% endblock %}
+{% block form_name7 %}education{% endblock %}
+{% block form_name8 %}education{% endblock %}
+{% block form_name9 %}education{% endblock %}
+{% block form_name10 %}education{% endblock %}
+
+{% block table_header %}
+    <th class="Textlist" data-field="UniversityName">دانشگاه</th>
+    <th class="Textlist" data-field="DegreeTitle">مقطع</th>
+    <th class="Textlist" data-field="EducationTendency">رشته </th>
+    <th class="Textlist" data-field="EndYear">سال خاتمه</th>
+{% endblock %}
+
+{% block table_body %}
+    {% for obj in education_history %}
+         <tr data-key="{{ obj.id }}">
+             <td>{{ obj.University.Title}}</td>
+             <td>{{ obj.Degree_Type.Caption}}</td>
+             <td>{{ obj.EducationTendency }}</td>
+             <td>{{ obj.EndYear|default_if_none:'' }}</td>
+             <td class="hidden">
+                 <input type="hidden" name="DetailType" value="education">
+                 <input type="hidden" name="educationId" value="{{ obj.id }}"/>
+                 <input type="hidden" name="UniProvince" value="{{ obj.UniversityCity.Province.id }}">
+                 <input type="hidden" name="UniCity" value="{{ obj.UniversityCity.id }}">
+                 <input type="hidden" name="UniversityType" value="{{ obj.University_Type.id }}">
+                 <input type="hidden" name="Uni" value="{{ obj.University.id }}">
+                 <input type="hidden" name="field_of_study" value="{{ obj.EducationTendency.FieldOfStudy.id }}">
+                 <input type="hidden" name="Tendency" value="{{ obj.EducationTendency.id }}">
+                 <input type="hidden" name="IsStudent"  value="{{ obj.IsStudent }}"/>
+                 <input type="hidden" name="DegreeType"  value="{{ obj.Degree_Type.id }}"/>
+                 <input type="hidden" name="StartYear"  value="{{ obj.StartYear }}"/>
+                 <input type="hidden" name="EndYear"  value="{{ obj.EndYear }}"/>
+                 <input type="hidden" name="GPA"  value="{{ obj.GPA }}"/>
+             </td>
+            {% include "HR/gird-button.html" with form_name='education' %}
+         </tr>
+    {% endfor %}
+{% endblock %}
+
+{% block fieldes %}
+    <div class="row mt-3">
+        <div class="col-4">
+            <label for="UniProvince" >استان دانشگاه: </label>
+            <select class="ParentCombo" name="UniProvince" id="UniProvince" data-child="UniCity">
+                <option  value="0">انتخاب کنید</option>
+                {% for p in province %}
+                <option  value="{{ p.id }}">{{ p.ProvinceTitle }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-4">
+            <label for="UniCity" >شهر دانشگاه: </label>
+                <select  name="UniCity" id="UniCity" >
+                    <option class="p" value="0">انتخاب کنید</option>
+                    {% for C in city %}
+                    <option  value="{{ C.id }}" class="p{{ C.Province_id }}"> {{ C.CityTitle }}</option>
+                    {% endfor %}
+                </select>
+        </div>
+        <div class="col-4">
+            <label for="UniversityType" class="Required">نوع دانشگاه: </label>
+                <select name="UniversityType" id="UniversityType"  class="ParentCombo" data-child="Uni">
+                    <option value="0" class="p">انتخاب کنید</option>
+                        {% for ut in university_type %}
+                    <option  value="{{ ut.id }}" {% if education_history.University_Type_id == ut.id %} selected {% endif %}>{{ ut.Caption}}</option>
+                        {% endfor %}
+                </select>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-4">
+            <label for="Uni">دانشگاه: </label>
+                <select name="Uni" id="Uni" class="ParentType UniPlace w-100">
+                    <option class="p" value="0">انتخاب کنید</option>
+                    {% for U in university %}
+                    <option  value="{{ U.id }}" class="C_{{ U.UniversityCity_id }}_UT_{{ U.University_Type_id }}"> {{ U.Title }}</option>
+                    {% endfor %}
+                </select>
+        </div>
+        <div class="col-4">
+                <label for="FieldOfStudy">رشته: </label>
+                <select name="field_of_study" id="field_of_study" class="EducationTendency-select ParentCombo  w-100" data-child="Tendency">
+                    <option value="0">انتخاب کنید</option>
+                    {% for F in field_of_study %}
+                    <option  value="{{ F.id }}" > {{ F.Title }}</option>
+                    {% endfor %}
+                </select>
+        </div>
+
+        <div class="col-4">
+            <label for="Tendency" class="Required">گرایش: </label>
+                <select name="Tendency" id="Tendency" class="w-100">
+                    <option value="0">انتخاب کنید</option>
+                    {% for T in tendency %}
+                    <option  value="{{ T.id }}" class="p{{ T.FieldOfStudy_id }}"> {{ T.Title }}</option>
+                    {% endfor %}
+                </select>
+        </div>
+    </div>
+    <div class="mt-3">
+        <label for="DegreeType" class="Required">مقطع: </label>
+        <select name="DegreeType" id="DegreeType" >
+            <option value="0">انتخاب کنید</option>
+            {% for D in degree_Type %}
+            <option  value="{{ D.id }}" {% if obj_edit.Degree_Type_id == D.id %} selected {% endif %}>{{ D.Caption}}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="mt-3">
+        <span class="text">هنوز مشغول به تحصیل می باشد</span>
+        <label class="me-2 ms-4">
+            <input type="radio" name="IsStudent" class="IsStudent custom-img-radio" value="1" checked>
+            <img src="{% static '/HR/images/Icon/study.png' %}" class="study"  title="مشغول به تحصیل میباشد" alt="مشغول به تحصیل میباشد">
+        </label>
+        <label class="mx-2">
+            <input type="radio" name="IsStudent" class="IsStudent custom-img-radio" value="0" checked>
+            <img src="{% static '/HR/images/Icon/edu.png' %}" class="edu"  title="مشغول به تحصیل نمیباشد" alt="مشغول به تحصیل نمیباشد">
+        </label>
+   </div>
+    <div class="row mt-3">
+        <div class="col-4">
+            <label for="StartYear">سال ورود: </label>
+            <input type="number" max="{{ CurrentYear }}" min="1360" id="StartYear" name="StartYear" value="{{ obj_uni.StartYear }}">
+        </div>
+        <div class="col-4">
+            <label for="EndYear">سال خاتمه: </label>
+            <input type="number" max="{{ CurrentYear }}" min="1360"  id="EndYear" name="EndYear" value="{{ obj_uni.EndYear }}">
+        </div>
+        <div class="col-4">
+            <label for="GPA">معدل: </label>
+            <input type="text" min="0" max="20" id="GPA" name="GPA" value="{{ obj_uni.GPA }}">
+        </div>
+    </div>
+{% endblock %}

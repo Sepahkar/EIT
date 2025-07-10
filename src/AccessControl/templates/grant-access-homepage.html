@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Grant Access > Home page</title>
+    <style>
+        * {
+            direction: rtl;
+            text-align: right;
+        }
+
+        body {
+            margin: 200px;
+            margin-top: 32px;
+        }
+
+        td {
+            padding: 5px 5px 5px 5px;
+        }
+
+        .address {
+            text-align: right;
+            direction: ltr;
+            padding-left: 50px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+<h1>دسترسی های کاربران > دسترسی های میزکار</h1>
+<ul>
+    <li>دسترسی های موردی کاربران با استفاده از نام کاربری آنها با استفاده از فرم صورت می گیرد</li>
+    <li style="color:red">توجه شود که دسترسی های از نوع میز کار فقط نمایش داده شده اند</li>
+</ul>
+<table width="100%">
+
+
+    <tr>
+        <td>عنوان برنامه</td>
+        <td>سیستم</td>
+        <td>آدرس</td>
+        <td>نوع دسترسی</td>
+        <td>عملیات</td>
+
+    </tr>
+    {% for permission, url, title, system in title_associated_urls %}
+        <tr>
+            <td>{{ title }}</td>
+            <td>{{ system }}</td>
+            <td class="address">{{ url }}</td>
+            <td>میزکار</td>
+            <td>
+                <form action="{% url 'AccessControl:permission_users' %} " method="get">
+                    <input type="hidden" value="{{ title }}" name="title">
+                    <input type="hidden" value="{{ permission }}" name="permission">
+                    <input type="submit" value="اعطای دسترسی">
+                </form>
+            </td>
+
+        </tr>
+
+    {% endfor %}
+</table>
+
+</body>
+</html>

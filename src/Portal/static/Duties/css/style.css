@@ -1,0 +1,159 @@
+.main-all{
+    background-color: #eafffd;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top:0;
+}
+.circlenot{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    position: absolute;
+    border-radius: 100%;
+    justify-content: center;
+    align-items: center;
+    z-index: 11;
+}
+.circlenot.top-left{
+    left:-0%;
+    top:-10%;
+}
+.circlenot.top-right{
+    right:-0%;
+    top:-10%;
+}
+.circlenot.bot-left{
+    left:-0%;
+    bottom:-10%;
+}
+.circlenot.bot-right{
+    right:-0%;
+    bottom:-10%;
+}
+
+.parent-level{
+    width: 12%;
+}
+.parent-level:hover{
+
+}
+.title-level{
+    font-size: 17px;
+    color:midnightblue;
+}
+
+.parent-level-img{
+    opacity:0.7;
+}
+
+.parent-level-img:hover{
+    opacity: 1;
+    cursor: pointer;
+}
+
+
+.parentbackleft{
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+}
+
+.parent-header-shadow{
+    box-shadow: 5px 5px 5px #ddd;
+    border-radius: 10px;
+}
+
+.custom-for-page{
+    position:fixed;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+}
+
+.parentbackleft:hover{
+    padding: 10px;
+    background-color: #ddd;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.itemheader-top{
+    width: 60%;left: 20%;height: 100%;bottom: 0;background-color: #0b3d91;border-top-right-radius: 25px;border-top-left-radius: 25px;z-index: 6;
+}
+
+.itemheader-bot{
+    width: 70%;left: 15%;height: 65%;bottom: 0;background-color: #0b3d91;z-index: 5;
+}
+
+.itemheader{
+    height: 55px;margin-bottom: -8px;z-index: 10;
+}
+
+.itemcontent{
+    z-index: 9;border: 1px solid #ddd;background-color: white;min-height: 150px;
+}
+
+.samplelistuseritem-img{
+    border-radius: 100%;border: 4px solid white;
+}
+
+.sampleuserdiv .item-header{
+    background-color: #0b3d91;border-top-left-radius: 15px;border-top-right-radius: 15px;
+}
+
+.fix-input-to-line{
+    border-bottom: 1px solid #ddd !important;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+
+.fix-input-to-outline{
+    border: 1px solid #ddd !important;
+    border-bottom-left-radius: 5px !important;
+    border-bottom-right-radius: 5px !important;
+}
+
+.fix-input-to-outline + label{
+    background-color: white !important;
+    padding: 0 !important;
+    margin-top: 5px !important;
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+}
+
+.squre-hover:hover{
+    padding: 8px;
+    background-color: #ddd;
+    border-radius: 8px;
+}
+
+.circle-hover:hover{
+    padding: 8px;
+    background-color: #ddd;
+    border-radius: 100%;
+}
+
+.opacity-50.change-cd-du:hover{
+    opacity: 1 !important;
+}
+
+.btnLevel{
+    cursor: pointer;
+}
+
+.sptextlevelbeforshow{
+    color: purple;z-index: 10000;font-size: 80px;
+}
+.spimglevelbeforshow{
+
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    left: 5px;
+    top: 20px;
+    z-index: 500;
+}

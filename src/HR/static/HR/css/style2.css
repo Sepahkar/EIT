@@ -1,0 +1,382 @@
+/****************************Menu Start****************************/
+.Menu-Row
+{
+    background-color: #ffffff;
+    box-shadow: grey 5px 2px 5px;
+}
+.Menu
+{
+    text-align: center!important;
+    font-family: Defined-Titr;
+    display: inline-block!important;
+
+}
+.Menu ul {
+    list-style-type: none;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #e7e7e7;
+    background-color: #ffffff;
+    display: inline;
+    text-align: center!important;
+    height: 60px;
+
+
+}
+
+.Menu li {
+  float: left;
+  padding : 0px 5px 0px 5px;
+}
+
+.Menu li a {
+  display: block;
+  color: #666;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+
+}
+
+.Menu li a:hover:not(.active) {
+    background-color: #ddd;
+    height: 60px;
+}
+
+.Menu li a.active {
+    color: white;
+    background-color: #04AA6D;
+    height: 60px;
+}
+
+
+/****************************insert****************************/
+
+body{
+    direction: rtl;
+    text-align: justify;
+    font-family: Tahoma;
+    background: #dbe6e6;
+}
+
+
+.parent{
+
+    padding: 10px;
+    box-shadow: 2px 2px #888888;
+    margin: 30px;
+    width : 60%;
+    margin-left: auto;
+    margin-right: auto;
+    background: white;
+}
+.container{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    width: 100%;
+}
+.Text{
+    font-size: 15pt;
+    color: white;
+    text-align: center;
+    padding-right: 75px;
+    width: 100%;
+}
+.Title{
+    background: #011f60;
+    height: 40px;
+    vertical-align: middle;
+    border-radius: 30px;
+    margin-top: 20px;
+    padding-top: 5px;
+    margin-bottom: 20px;
+    cursor: pointer!important;
+    display: flex;
+}
+.Title div,.Title label{
+    cursor: pointer!important;
+}
+
+
+.inserttext{
+    border:none;
+    width: 300px;
+}
+
+.Required::before
+{
+    content: "*";
+    color: red;
+    font-size: 15pt;
+}
+.Avatar
+{
+    margin-top: 10px;
+    width: 100px;
+    cursor: pointer;
+}
+input[type='text'],select {
+    min-width: 50px !important;
+    max-width: 200px;
+    width: 80%;
+    padding: 5px;
+    margin-bottom: 30px;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #454545;
+    outline: none;
+    font-family: Traffic;
+    font-size: 10pt;
+}
+textarea {
+    border: gray 1px solid;
+    width:500px !important;
+}
+label
+{
+    width: 100%;
+}
+.label {
+    font-family: Defined-Titr;
+    font-size: 10pt;
+    color: #000745;
+}
+.dropdown {
+  display: inline-block;
+  /*position: relative;*/
+  overflow: hidden;
+  height: 28px;
+  width: 150px;
+  background: #f2f2f2;
+  border: 1px solid;
+  border-color: white #f7f7f7 whitesmoke;
+  border-radius: 3px;
+  background-image: -webkit-linear-gradient(top, transparent, rgba(0, 0, 0, 0.06));
+  background-image: -moz-linear-gradient(top, transparent, rgba(0, 0, 0, 0.06));
+  background-image: -o-linear-gradient(top, transparent, rgba(0, 0, 0, 0.06));
+  background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.06));
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+}
+
+.dropdown:before, .dropdown:after {
+  content: '';
+  /*position: absolute;*/
+  z-index: 2;
+  top: 9px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 4px dashed;
+  border-color: #888888 transparent;
+  pointer-events: none;
+}
+
+.dropdown:before {
+  border-bottom-style: solid;
+  border-top: none;
+}
+
+.dropdown:after {
+  margin-top: 7px;
+  border-top-style: solid;
+  border-bottom: none;
+}
+
+.dropdown-select {
+  /*position: relative;*/
+  width: 130%;
+  margin: 0;
+  padding: 6px 8px 6px 10px;
+  height: 28px;
+  line-height: 14px;
+  font-size: 12px;
+  color: #62717a;
+  text-shadow: 0 1px white;
+  background: #f2f2f2; /* Fallback for IE 8 */
+  background: rgba(0, 0, 0, 0) !important; /* "transparent" doesn't work with Opera */
+  border: 0;
+  border-radius: 0;
+  -webkit-appearance: none;
+}
+
+.dropdown-select:focus {
+  z-index: 3;
+  width: 100%;
+  color: #394349;
+  outline: 2px solid #49aff2;
+  outline: 2px solid -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+
+.dropdown-select > option {
+  margin: 3px;
+  padding: 6px 8px;
+  text-shadow: none;
+  background: #f2f2f2;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.Icon
+{
+    width: 30px;
+    cursor: pointer;
+}
+.Icon:hover
+{
+    width: 30px;
+    cursor: pointer;
+}
+
+/****************************list****************************/
+table {
+  border-spacing: 1;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 6px;
+  overflow: hidden;
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  margin-top: 2%;
+}
+table * {
+  position: relative;
+}
+table td,
+table th {
+  padding-left: 8px;
+}
+table thead tr {
+  height: 60px;
+  background:#011f60;
+  font-size: 16px;
+
+
+}
+table tbody tr {
+  height: 48px;
+  border-bottom: 1px solid #e3f1d5;
+}
+table tbody tr:last-child {
+  border: 0;
+}
+table td,
+table th {
+  text-align: left;
+}
+table td.l,
+table th.l {
+  text-align: right;
+}
+table td.c,
+table th.c {
+  text-align: center;
+}
+table td.r,
+table th.r {
+  text-align: center;
+
+}
+
+@media screen and (max-width: 35.5em) {
+  table {
+    display: block;
+  }
+  table > *,
+table tr,
+table td,
+table th {
+    display: block;
+  }
+  table thead {
+    display: none;
+  }
+  table tbody tr {
+    height: auto;
+    padding: 8px 0;
+
+  }
+  table tbody tr td {
+    padding-left: 45%;
+    margin-bottom: 12px;
+  }
+  table tbody tr td:last-child {
+    margin-bottom: 0;
+  }
+  table tbody tr td:before {
+    position: absolute;
+    font-weight: 700;
+    width: 40%;
+    left: 10px;
+    top: 10%;
+    cursor: pointer;
+
+  }
+  table tbody tr td:nth-child(1):before {
+    content: "Code";
+  }
+  table tbody tr td:nth-child(2):before {
+    content: "Stock";
+  }
+  table tbody tr td:nth-child(3):before {
+    content: "Cap";
+  }
+  table tbody tr td:nth-child(4):before {
+    content: "Inch";
+  }
+  table tbody tr td:nth-child(5):before {
+    content: "Box Type";
+  }
+}
+.Textlist{
+    font-size: 10pt;
+    color: white;
+    text-align: center;
+    padding-right: 75px;
+    width: 100%;
+}
+
+blockquote {
+  color: white;
+  text-align: center;
+}
+.TableShow{
+    border: 2px!important;
+    border-radius: 6px!important;
+}
+.ErrorBorder
+{
+    border: red solid 2px!important;
+}
+
+.ErrorMessage
+{
+    font-family: Defined-Nazanin;
+    color: #2f73c1;
+    font-size: 15pt;
+    padding-top: 100px;
+    color: #7b0000;
+}
+.ErrorMessage a img
+{
+    height: 40px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.RequiredError::before
+{
+    content: "لطفا این فیلد را تکمیل کنید";
+    color: red;
+    font-size: 10pt;
+    font-family: Tahoma;
+    text-align: right;
+}
+
+.justify-content-lg-center, .jconfirm-box-container
+{
+    width: 100%!important;
+}

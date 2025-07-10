@@ -1,0 +1,261 @@
+/*  ------------------------------------------------ Table Options */
+/*  ------------------------------------------------ جدول */
+table {
+  border-collapse: collapse;
+}
+th,
+td {
+  background-color: #00277ccc;
+  color: white;
+  width: 150px;
+  min-width: 150px;
+  max-width: 150px;
+  height: 150px;
+  min-height: 150px;
+  max-height: 150px;
+  border: 1px solid white;
+  position: relative;
+  overflow-wrap: break-word;
+}
+
+/*  ------------------------------------------------ Table First Square, Team / Role */
+/*  ------------------------------------------------ مربع سمت / تیم در جدول */
+
+#role_team_header {
+  position: relative;
+  font-family: "IRAmir";
+  font-weight: normal;
+}
+
+#role_team_header::after {
+  content: " ";
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform-origin: right;
+  width: 200%;
+  border-bottom: 1px solid white;
+  transform: rotate(-45deg);
+}
+
+#role_team_header #role_text {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  font-size: 20px;
+}
+
+#role_team_header #team_text {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  font-size: 20px;
+}
+
+#allowedParent {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #6b92e7cc;
+  justify-content: space-evenly;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.itemContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  gap: 5px;
+}
+
+.itemContainer div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: unset;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 10px;
+}
+
+.itemContainer #editIcon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+#hiddenContainer {
+  display: none;
+}
+
+#allowedParent input {
+  width: 126px;
+  height: 30px;
+  border: none;
+  border-radius: 30px;
+  background-color: white;
+  outline: none;
+  font-size: 15px;
+  font-family: "Vazirmtn";
+  font-weight: 700;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+#allowedParent p {
+  transform: rotate(270deg);
+  font-size: 6px;
+  font-family: "IRAmir";
+  font-weight: normal;
+  color: #000;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.allowedParentIcon {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+}
+
+#submitBtn {
+  display: none;
+  padding: 0.5rem 1rem;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  border-radius: 0.3rem;
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+  font-weight: 400;
+  text-align: center;
+}
+
+.teamContainer,
+.roleContainer {
+    position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  font-family: "IRAmir";
+  font-weight: normal;
+}
+
+.teamInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.teamFunctions {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.teamFunctions div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 5px;
+}
+
+.roleContainer div:not(.textContainer) {
+  width: 100%;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+  gap: 5px;
+}
+
+.textContainer {
+  width: 90%;
+  margin: 0 auto;
+  font-size: 20px;
+  text-align: center;
+}
+
+.icon {
+    cursor: pointer;
+    font-size: 14px;
+    transition: all .3s ease-in-out;
+}.icon:hover{
+    color: red;
+}
+#deleteTeam{
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+#deleteRole{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+
+/* -------------------------------- قسمت پایین جدول دکمه های تایید و رد درخواست -------------------------------- */
+#finalSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  gap: 50px;
+}
+#acceptRequest,
+#rejectRequest {
+  box-shadow: 0 0 4px #059212;
+  background-color: unset;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 48px;
+  font-size: 18px;
+  font-weight: 700;
+  font-family: "Vazirmtn";
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+#acceptRequest:hover {
+  background-color: #059212;
+  color: white;
+}
+#rejectRequest {
+  box-shadow: 0 0 4px red;
+}
+#rejectRequest:hover {
+  background-color: red;
+  color: white;
+}
+
+#green{
+    width: 100px;
+    height: 100px;
+    background-color: #c3cbd9;
+}

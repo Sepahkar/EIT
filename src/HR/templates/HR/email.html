@@ -1,0 +1,52 @@
+{% extends "HR/detail-layout.html" %}
+{%  load static %}
+{% block legend %}آدرس های الکترونیکی {% endblock %}
+{% block form_name1 %}EmailAddress{% endblock %}
+{% block form_name2 %}EmailAddress{% endblock %}
+{% block form_name3 %}EmailAddress{% endblock %}
+{% block form_name4 %}EmailAddress{% endblock %}
+{% block form_name5 %}EmailAddress{% endblock %}
+{% block form_name6 %}EmailAddress{% endblock %}
+{% block form_name7 %}EmailAddress{% endblock %}
+{% block form_name8 %}EmailAddress{% endblock %}
+{% block form_name9 %}EmailAddress{% endblock %}
+{% block form_name10 %}EmailAddress{% endblock %}
+{% block table_header %}
+    <th class="Textlist" data-field="Email">ادرس الکترونیکی</th>
+    <th class="Textlist" data-field="EmailTitle">عنوان</th>
+    <th class="Textlist" data-field="IsDefault">پیش فرض </th>
+{% endblock %}
+{% block table_body %}
+    {% for obj in emails %}
+   <tr data-key="{{ obj.id }}">
+        <td>{{ obj.Email}}</td>
+        <td>{{ obj.Title }}</td>
+        <td>{% if obj.IsDefault %}
+               <i class="fa-solid fa-check"></i>
+        {% else %}
+               <i class="fa-solid fa-check"></i>
+        {% endif %}</td>
+            <td class="hidden">
+                <input type="hidden" name="DetailType" value="EmailAddress">
+                <input type="hidden" name="EmailAddressId" value="{{ obj.id }}"/>
+                <input type="hidden" name="Email" value="{{ obj.Email }}"/>
+                <input type="hidden" name="EmailTitle" value="{{ obj.Title }}"/>
+                <input type="hidden" name="IsDefault" {% if obj.IsDefault %} checked {% endif %} value="on">
+            </td>
+            {% include "HR/gird-button.html" with form_name='EmailAddress' %}
+         </tr>
+        {% endfor %}
+{% endblock %}
+{% block fieldes %}
+            <div class="col-12 mt-3">
+                <label for="EmailTitle"> عنوان: </label>
+                <input type="text" minlength="2" maxlength="100" class='insert_text' id="EmailTitle" name="EmailTitle" >
+                <label for="Email" class="Required">آدرس ایمیل: </label>
+                <input type="email" minlength="5" maxlength="254" class='insert_text' id="Email" name="Email" >
+            </div>
+
+            <div class="d-flex flex-row justify-content-star mt-3">
+                <input type="checkbox" class="is_default" class='IsDefault' id="IsDefault" name="IsDefault" >
+                <label for="IsDefault" >ایمیل پیش فرض می باشد؟</label>
+            </div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "Portal/layout.html" %}
+{%  load static %}
+{% block MainContent %}
+<div class="SystemList">
+<button class="up-btn btn btn-info mt-2 mb-4 me-2" >
+    یک سطح بالاتر
+</button>
+<div class="d-flex flex-row flex-wrap w-80" style="margin-left: 8%;margin-right: 8%;">
+     {% for s in SystemList %}
+         <div class="w-25 mb-4 parent-div-item Hide" >
+            {% if s.HasURL %} 
+                {% if '14000' in s.FullURL or '42000' in s.FullURL or '17000' in s.FullURL or '10000' in s.FullURL or '50000' in s.FullURL %} 
+                    <a href="{{ s.FullURL }}" target="_blank">                 
+                    {% else %}
+                    <a href="{{ s.FullURL }}" target="_blank"> 
+                    {% endif %}
+                {% endif %}
+                <div parentid="{{ s.Parent }}" class="SystemInfo CheckParent {% if s.HasURL %} HasURL {% endif %}w-100 Parent-{{ s.Parent }} Level-{{ s.Level }}" id="SystemInfo-{{ s.id }}">
+                    <img src="/{{ s.Icon|default:'media/default.jpg' }}" alt="{{ s.Title }}" class="SystemIcon">
+                    {{ s.Title }}
+                </div>
+            {% if s.HasURL %} </a> {% endif %}
+         </div>
+    {% endfor %}
+</div>
+ </div>
+{% endblock %}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{%  load static %}
+<html dir="rtl" lang="fa-IR">
+<head>
+    <meta charset="utf-8">
+    <title>اطلاعات کاربران</title>
+    <link href="{% static 'HR/css/bootstrap.css' %}" type="text/css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'HR/css/fontawesome.css' %}" >
+    <link href="{% static 'HR/css/bootstrap.rtl.css' %}" type="text/css" rel="stylesheet"/>
+    <link href="{% static 'HR/css/bootstrap-grid.css' %}" type="text/css" rel="stylesheet"/>
+    <link href="{% static 'HR/css/bootstrap-utilities.css' %}" type="text/css" rel="stylesheet"/>
+    <link href="{% static 'HR/css/bootstrap-utilities.rtl.css' %}" type="text/css" rel="stylesheet"/>
+    <link href="{% static 'HR/css/bootstrap-reboot.css' %}" type="text/css" rel="stylesheet"/>
+    <link href="{% static 'HR/css/bootstrap-reboot.rtl.css' %}" type="text/css" rel="stylesheet"/>
+    <link href="{% static 'HR/css/bootstrap-theme.min.css' %}" type="text/css" rel="stylesheet"/>
+    <link href="{% static 'HR/css/bootstrap-grid.rtl.css' %}" type="text/css" rel="stylesheet"/>
+    <link href="{% static 'HR/css/style.css' %}" type="text/css" rel="stylesheet"/>
+    <link rel="stylesheet" href="{% static 'HR/css/persian-datepicker.min.css'%}" />
+    <link rel="stylesheet" href="{% static 'HR/css/jquery-confirm.css' %}" >
+    <link href="/static/Fa/css/all.css" rel="stylesheet">
+    <meta name="robots" content="max-image-preview:large">
+    {% block Head %}{% endblock %}
+    {% include 'HR/font-style.html' %}
+</head>
+<body class="body_list">
+    <div class="container">
+    {% block MainContent %}
+    {% endblock %}
+    </div>
+</body>
+<script src="{% static '/HR/js/jquery-3.6.0.min.js' %}"></script>
+<script src="{% static '/HR/js/bootstrap.bundle.js' %}"></script>
+<script src="{% static '/HR/js/fontawesome.js' %}"></script>
+<script src="{% static '/HR/js/jquery-confirm.js' %}"></script>
+<script src="{% static '/HR/js/FarsiType.js' %}"></script>
+<script src="{% static '/HR/js/select2.js' %}" type='text/javascript'></script>
+<script type="text/javascript" src="{% static 'HR/js/persian-date.min.js'%}"></script>
+<script type="text/javascript" src="{% static 'HR/js/persian-datepicker.min.js'%}"></script>
+<script src="{% static '/HR/js/MyCode.js' %}" type="text/javascript"></script>
+<script type="text/javascript">
+{% block Script%}{% endblock %}
+</script>
+</html>

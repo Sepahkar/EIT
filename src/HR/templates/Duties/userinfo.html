@@ -1,0 +1,7 @@
+{% load custom_tags_duties %}
+
+{% for item in data %}
+    <p>{{ item.UserName }} {{item.UserName.FieldOfStudy}} {{ item.UserName.DegreeType }} {{ item.duration|timedelta_to_years }} {{ item.duration_contract|timedelta_to_years }} </p>
+{% endfor %}
+
+

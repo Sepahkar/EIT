@@ -1,0 +1,304 @@
+[
+{
+    "model": "email_service.emailtemplate",
+    "pk": 1,
+    "fields": {
+        "code": "HRXHRXNMEM",
+        "subject": "اطلاع رسانی ورود به تیم {{EmployeeName}}",
+        "body": "<div style=\"direction: rtl;\">\r\n    <p>با سلام،</p>\r\n    \r\n    <p>به اطلاع می‌رساند <strong>{{ EmployeeName }}</strong> با نام کاربری <strong>{{ UserName }}</strong> به عنوان <strong>{{ EmployeeRole }}</strong> به تیم <strong>{{ TeamName }}</strong> ملحق شده است.</p>\r\n    \r\n    <table cellpadding=\"5\" border=\"1\" dir=\"rtl\">\r\n        <tr>\r\n            <th>نام</th>\r\n            <th>سمت</th>\r\n            <th>تیم</th>\r\n            <th>سطح</th>\r\n        </tr>\r\n        <tr>\r\n            <td>{{ EmployeeName }}</td>\r\n            <td>{{ EmployeeRole }}</td>\r\n            <td>{{ TeamName }}</td>\r\n            <td>{{ EmployeeLevel }}</td>\r\n        </tr>\r\n    </table>\r\n\r\n    <p>خواهشمند است اقدامات و هماهنگی های لازم جهت تخصیص دسترسی و امکانات مورد نیاز به ایشان صورت پذیرد.</p>\r\n    <p>با تشکر</p>\r\n    <p>تیم BPMS</p>\r\n</div>",
+        "to": "PMM,EVO,Manager,User,TFS,NPA,NPB,NPC,EV2",
+        "cc": null,
+        "bcc": "BPMSEMAIL",
+        "max_retries": 3,
+        "retry_delay": 10
+    }
+},
+{
+    "model": "email_service.emailvariable",
+    "pk": 1,
+    "fields": {
+        "code": "CAO",
+        "description": "مدیر تیم اداری",
+        "value": "k.hosseinpour@iraneit.com"
+    }
+},
+{
+    "model": "email_service.emailvariable",
+    "pk": 2,
+    "fields": {
+        "code": "CEO",
+        "description": "مدیریت ارشد",
+        "value": "M.khakvar@iraneit.com"
+    }
+},
+{
+    "model": "email_service.emailvariable",
+    "pk": 3,
+    "fields": {
+        "code": "CLO",
+        "description": "مدیر جذب و آموزش",
+        "value": "z.moeini@iraneit.com"
+    }
+},
+{
+    "model": "email_service.emailvariable",
+    "pk": 4,
+    "fields": {
+        "code": "CIO",
+        "description": "مدیر تیم IT",
+        "value": "a.khamoosh@iraneit.com"
+    }
+},
+{
+    "model": "email_service.emailvariable",
+    "pk": 5,
+    "fields": {
+        "code": "PMO",
+        "description": "کارشناس تیم PM",
+        "value": "m.ghasemzadeh@iraneit.com"
+    }
+},
+{
+    "model": "email_service.emailvariable",
+    "pk": 6,
+    "fields": {
+        "code": "OFO",
+        "description": "کارشناس حقوق و دستمزد",
+        "value": "k.hosseinpour@iraneit.com"
+    }
+},
+{
+    "model": "email_service.emailvariable",
+    "pk": 7,
+    "fields": {
+        "code": "OTO",
+        "description": "کارشناس اداری-جابه جایی فیزیکی",
+        "value": "k.hosseinpour@iraneit.com"
+    }
+},
+{
+    "model": "email_service.emailvariable",
+    "pk": 8,
+    "fields": {
+        "code": "EVO",
+        "description": "کارشناس ارزیابی",
+        "value": "m.sepahkar@iraneit.com"
+    }
+},
+{
+    "model": "email_service.emailvariable",
+    "pk": 9,
+    "fields": {
+        "code": "PMM",
+        "description": "کارشناس PMO",
+        "value": "o.khabbaz@iraneit.com"
+    }
+},
+{
+    "model": "email_service.emailvariable",
+    "pk": 10,
+    "fields": {
+        "code": "NFO",
+        "description": "اطلاع رسانی - کارشناس صدور حکم",
+        "value": "s.khodaparast@iraneit.com"
+    }
+},
+{
+    "model": "email_service.emailvariable",
+    "pk": 11,
+    "fields": {
+        "code": "NTO",
+        "description": "اطلاع رسانی - کارشناس حقوق دستمزد",
+        "value": "f.yousefi@iraneit.com"
+    }
+},
+{
+    "model": "email_service.emailvariable",
+    "pk": 12,
+    "fields": {
+        "code": "NPA",
+        "description": "اطلاع رسانی - PMO",
+        "value": "a.abdinejad@iraneit.com"
+    }
+},
+{
+    "model": "email_service.emailvariable",
+    "pk": 13,
+    "fields": {
+        "code": "NPB",
+        "description": "اطلاع رسانی - PMO",
+        "value": "Sa.Hosseini@iraneit.com"
+    }
+},
+{
+    "model": "email_service.emailvariable",
+    "pk": 14,
+    "fields": {
+        "code": "NPC",
+        "description": "اطلاع رسانی - PMO",
+        "value": "a.rahimi@iraneit.com"
+    }
+},
+{
+    "model": "email_service.emailvariable",
+    "pk": 15,
+    "fields": {
+        "code": "NDO",
+        "description": "اداری - امور جابجایی فیزیکی",
+        "value": "m.abangah@iraneit.com"
+    }
+},
+{
+    "model": "email_service.emailvariable",
+    "pk": 16,
+    "fields": {
+        "code": "TFS",
+        "description": "کارشناس نسخه-دسترسی TFS",
+        "value": "h.goudarzi@iraneit.com"
+    }
+},
+{
+    "model": "email_service.emailvariable",
+    "pk": 17,
+    "fields": {
+        "code": "EV2",
+        "description": "کارشناس سیستم ارزیابی",
+        "value": "e.rezaee@iraneit.com"
+    }
+},
+{
+    "model": "email_service.emailvariable",
+    "pk": 18,
+    "fields": {
+        "code": "CAOT",
+        "description": "کد مدیر تیم اداری",
+        "value": "OFF"
+    }
+},
+{
+    "model": "email_service.emailvariable",
+    "pk": 19,
+    "fields": {
+        "code": "CAOR",
+        "description": "کد رول مدیر تیم اداری",
+        "value": "83"
+    }
+},
+{
+    "model": "email_service.emailvariable",
+    "pk": 20,
+    "fields": {
+        "code": "CEOR",
+        "description": "کد رول مدیر عامل",
+        "value": "82"
+    }
+},
+{
+    "model": "email_service.emailvariable",
+    "pk": 21,
+    "fields": {
+        "code": "CEOT",
+        "description": "کد تیم مدیر عامل",
+        "value": "MAN"
+    }
+},
+{
+    "model": "email_service.emailvariable",
+    "pk": 22,
+    "fields": {
+        "code": "CLOT",
+        "description": "کد تیم مدیر آموزش",
+        "value": "EDU"
+    }
+},
+{
+    "model": "email_service.emailvariable",
+    "pk": 23,
+    "fields": {
+        "code": "CLOR",
+        "description": "کد رول مدیر آموزش",
+        "value": "88"
+    }
+},
+{
+    "model": "email_service.emailvariable",
+    "pk": 24,
+    "fields": {
+        "code": "CIOT",
+        "description": "کد تیم مدیر ای تی",
+        "value": "ITT"
+    }
+},
+{
+    "model": "email_service.emailvariable",
+    "pk": 25,
+    "fields": {
+        "code": "CIOR",
+        "description": "کد رول مدیر آی تی",
+        "value": "84"
+    }
+},
+{
+    "model": "email_service.emailvariable",
+    "pk": 26,
+    "fields": {
+        "code": "OTOT",
+        "description": "کد تیم کارشناس جابهجایی فیزیکی",
+        "value": "OFF"
+    }
+},
+{
+    "model": "email_service.emailvariable",
+    "pk": 27,
+    "fields": {
+        "code": "OTOR",
+        "description": "کد رول کارشناس جابهجایی فیزیکی",
+        "value": "98"
+    }
+},
+{
+    "model": "email_service.emailvariable",
+    "pk": 28,
+    "fields": {
+        "code": "OFOT",
+        "description": "کد تیم کارشناس حقوق و دستمزد",
+        "value": "OFF"
+    }
+},
+{
+    "model": "email_service.emailvariable",
+    "pk": 29,
+    "fields": {
+        "code": "OFOR",
+        "description": "کد رول کارشناس حقوق و دستمزد",
+        "value": "86"
+    }
+},
+{
+    "model": "email_service.emailvariable",
+    "pk": 30,
+    "fields": {
+        "code": "PMOT",
+        "description": "کد تیم کارشناس PM",
+        "value": "PMA"
+    }
+},
+{
+    "model": "email_service.emailvariable",
+    "pk": 31,
+    "fields": {
+        "code": "PMOR",
+        "description": "کد رول کارشناس PM",
+        "value": "69"
+    }
+},
+{
+    "model": "email_service.emailvariable",
+    "pk": 32,
+    "fields": {
+        "code": "BPMSEMAIL",
+        "description": "آدرس ایمیل BPMS",
+        "value": "bpms@iraneit.com"
+    }
+}
+]

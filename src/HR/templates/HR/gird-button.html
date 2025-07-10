@@ -1,0 +1,10 @@
+{% if edit_permission %}
+    <td>
+{#        <img src="/static/HR/images/Icon/edit.svg" class="icon edit"#}
+{#        title="ویرایش" alt="ویرایش" data-type="{{ form_name }}" >#}
+{#        <img src="/static/HR/images/Icon/del.svg" class="icon delete"#}
+{#        title="حذف" alt="حذف" data-type="{{ form_name }}" >#}
+        <i class="fa-solid fa-edit icon edit" data-type="{{ form_name }}"></i>
+        <i class="fa-solid fa-trash icon delete" data-type="{{ form_name }}"></i>
+    </td>
+{% endif %}

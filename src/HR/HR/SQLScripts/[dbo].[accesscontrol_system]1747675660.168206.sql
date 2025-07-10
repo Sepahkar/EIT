@@ -1,0 +1,10 @@
+CREATE TABLE [dbo].[AccessControl_system](
+	[Code] [nvarchar](3) NOT NULL,
+	[Title] [nvarchar](100) NOT NULL,
+	[PortNumber] [int] NOT NULL,
+	[Logo] [nvarchar](100) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Code] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]

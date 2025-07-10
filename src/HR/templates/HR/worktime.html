@@ -1,0 +1,68 @@
+{% extends "HR/detail-layout.html" %}
+{%  load static %}
+{% load tag_library %}
+{% block legend %}کارکرد {% endblock %}
+{% block form_name1 %}WorkTimeHistory{% endblock %}
+{% block form_name2 %}WorkTimeHistory{% endblock %}
+{% block form_name3 %}WorkTimeHistory{% endblock %}
+{% block form_name4 %}WorkTimeHistory{% endblock %}
+{% block form_name5 %}WorkTimeHistory{% endblock %}
+{% block form_name6 %}WorkTimeHistory{% endblock %}
+{% block form_name7 %}WorkTimeHistory{% endblock %}
+{% block form_name8 %}WorkTimeHistory{% endblock %}
+{% block form_name9 %}WorkTimeHistory{% endblock %}
+{% block form_name10 %}WorkTimeHistory{% endblock %}
+{% block table_header %}
+   <tr class="work-time">
+            <th>سال</th>
+            <th>ماه</th>
+            <th>(ساعت)دورکاری</th>
+            <th>حضور</th>
+            <th>اضافه کاری</th>
+            <th>کسر کار </th>
+            <th>ساعت مرخصی </th>
+            <th>روز مرخصی </th>
+    </tr>
+{% endblock %}
+{% block table_body %}
+            {% for obj in obj_work_time_detail %}
+           <tr>
+                <td>{{ obj.YearNo}}</td>
+                <td>{{ obj.MonthNo }}</td>
+                <td>{{ obj.RemoteHours }}</td>
+                <td>{{ obj.WorkHours }}</td>
+                <td>{{ obj.OverTime }}</td>
+                <td>{{ obj.DeductionTime }}</td>
+                <td>{{ obj.OffTimeHourly }}</td>
+                <td>{{ obj.OffTimeDaily }}</td>
+           </tr>
+        {% endfor %}
+{% endblock %}
+{% block table_pageing %}
+        <span class="icon add">
+            <i class="fa-solid fa-plus"></i>
+        </span>
+     {% if obj_work_time_detail.has_other_pages %}
+      <ul class="pagination">
+        {% if obj_work_time_detail.has_previous %}
+          <li><a href="?page={{ obj_work_time_detail.previous_page_number }}">&laquo;</a></li>
+
+        {% else %}
+          <li class="disabled"><span>&laquo;</span></li>
+        {% endif %}
+        {% for i in obj_work_time_detail.paginator.page_range %}
+          {% if obj_work_time_detail.number == i %}
+
+            <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+          {% else %}
+            <li><a href="?page={{ i }}">{{ i }}</a></li>
+          {% endif %}
+        {% endfor %}
+        {% if obj_work_time_detail.has_next %}
+          <li><a href="?page={{ obj_work_time_detail.next_page_number }}">&raquo;</a></li>
+        {% else %}
+          <li class="disabled"><span>&raquo;</span></li>
+        {% endif %}
+      </ul>
+    {% endif %}
+{% endblock %}

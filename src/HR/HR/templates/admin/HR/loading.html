@@ -1,0 +1,29 @@
+    <div x-show="showLoading" class="div-loader">
+        <div class="div-loader-black"></div>
+        <div class="div-loader-content">
+            <button class="btn btn-primary div-loader-button" type="button" disabled>
+              <span class="spinner-grow spinner-grow-sm div-loader-spinner-grow" role="status" aria-hidden="true"></span>
+              لطفا صبر کنید...
+            </button>
+        </div>
+    </div>
+
+    <style>
+        .div-loader-button{
+            font-size: 20px !important;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+        .div-loader-spinner-grow{
+            margin-left: 20px;
+            width: 50px;
+            height: 50px;
+        }
+        .div-loader-black{
+            position:fixed;left: 0;top: 0;width: 100%;height: 100%;background-color: black;opacity: 0.3;z-index:100;
+        }
+        .div-loader-content{
+            z-index: 101;position: fixed;left:0;top:0;width: 100%;height: 100%;display: flex;flex-direction: row;justify-content: center;align-items: center;
+        }
+    </style>

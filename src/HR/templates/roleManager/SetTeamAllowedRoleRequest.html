@@ -1,0 +1,862 @@
+{% extends 'roleManager/base.html' %}
+{% load static %} 
+{% block title %}فناوران{% endblock %}
+{%block style%} <link href="{% static "roleManager/css/SetTeamAllowedRoleRequestStyle.css" %}" rel="stylesheet"/>{%endblock%}
+{% block content %} 
+{% if currentUser_request.Status%}
+<div>
+  <p>{{currentUser_request.Message}}</p>
+  <p>
+    برای رفتن به صفحه درخواست اینجا کلیک کنید
+    <a
+      href="{% url 'RoleManager_ChangeAllowedRole:showSetTeamAllowedRoleRequest' currentUser_request.requestID %}"
+      >درخواست</a
+    >
+  </p>
+</div>
+{%elif currentUser_request.Error%}
+<div>
+  <p>{{currentUser_request.Message}}</p>
+</div>
+{%else%}
+<form>
+  <div style="direction: ltr">
+    <input type="submit" id="submitBtn" value="شروع فرآیند" />
+  </div>
+  <table>
+    <thead>
+      <tr id="table_header">
+        <th id="role_team_header">
+          <small id="role_text">سمت</small>
+          <small id="team_text">تیم</small>
+        </th>
+        <th id="teamBtn">
+            <img class="plusButton" id="teamPlusButton" src="{% static "roleManager/images/Icons/plusButton.png" %}">
+        </th>
+        <th class="plusButton-container">
+            <div class="search-container" id="teamList">
+                <input type="text" class = "searchInput" id="teamSearchInput" placeholder="جستجو...">
+                <div class="search-suggestions">
+                    <div class="items-list">
+                    {% for team in Teams%}
+                        <div teamCode="{{ team.TeamCode }}" class="team-item">{{team}}</div>
+                    {% endfor %}
+                    </div>
+                    <div class="no-results">نتیجه ای یافت نشد</div>
+                </div>
+            </div>
+        </th>
+
+      </tr>
+    </thead>
+    <tbody id="tbody">
+      <tr id="roleBtn">
+        <td id="rolePlusButton">
+            <img class="plusButton" id="rolePlusButton" src="{% static "roleManager/images/Icons/plusButton.png" %}">
+        </td>
+        <td class="plusButton-container">
+            <div class="search-container" id="roleList">
+                <input type="text" class = "searchInput" id="roleSearchInput" placeholder="جستجو...">
+                <div class="search-suggestions">
+                    <div class="items-list">
+                    {% for role in Roles%}
+                        <div roleID="{{ role.RoleId }}" class="role-item">{{role}}</div>
+                    {% endfor %}
+                    </div>
+                    <div class="no-results">نتیجه ای یافت نشد</div>
+                </div>
+            </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</form>
+
+<!-- اینجا برای زمانیه که خواستم کد های JS رو جابجا کنم -->
+<!-- 
+  <script>
+      window.ALLOWED_TEAM = {{ allowedTeam|safe }};
+      window.TEAM_NAMES   = {{ teamNames|safe }};
+      window.ROLE_NAMES   = {{ roleNames|safe }};
+      window.STATIC_URL = "{% static '' %}";
+  </script>
+  <script src="{% static 'roleManager/js/SetTeamAllowedRoleRequest.js' %}"></script>
+-->
+<script>
+  const allowedTeam = JSON.parse("{{ allowedTeam|escapejs }}");
+  const teamNames = JSON.parse("{{ teamNames|escapejs }}");
+  const roleNames = JSON.parse("{{ roleNames|escapejs }}");
+  //form setting
+  $(document).ready(function () {
+    $("form").on("submit", function (event) {
+      event.preventDefault();
+    });
+    $("#submitBtn").on("click", function (event) {
+      let formData = [];
+      $("input[modified='true']").each(function () {
+        let teamCode = $(this).attr("teamCode");
+        let roleId = $(this).attr("roleID");
+        let value = $(this).val();
+        let prevValue = $(this).attr("prevValue");
+
+        let team = formData.find((val) => val.TeamCode === teamCode);
+        if (!team) {
+          formData.push({
+            TeamCode: teamCode,
+            Roles: [
+              { RoleId: roleId, RoleCount: value, PrevRoleCount: prevValue },
+            ],
+          });
+        } else {
+          team.Roles.push({
+            RoleId: roleId,
+            RoleCount: value,
+            PrevRoleCount: prevValue,
+          });
+        }
+      });
+
+      $.ajax({
+        url: window.location.href,
+        type: "POST",
+        contentType: "application/json",
+        data: JSON.stringify(formData),
+        headers: {
+          "X-CSRFToken": $("meta[name='csrf_holder']").attr("content"),
+          "Content-Type": "application/json",
+        },
+        beforeSend: function() {
+          $.LoadingOverlay("show");
+        },
+        complete: function() {
+          $.LoadingOverlay("hide");
+        },
+        success: function (response) {
+          let error = response.Error;
+          $.confirm({
+            title: error ? "❌ خطا" : "✅ موفقیت",
+            content: response.Message,
+            type: error ? "red" : "green",
+            theme: "modern",
+            columnClass: "medium",
+            boxWidth: "400px",
+            useBootstrap: false,
+            buttons: {
+              ok: {
+                text: "باشه",
+                btnClass: error ? "btn-red" : "btn-green",
+                action: function () {
+                  $.LoadingOverlay("show");
+                  window.location.reload();
+                },
+              },
+            },
+          });
+        },
+        error: function (error) {
+          $.confirm({
+            title: "❌ خطا در ارتباط",
+            content: "خطایی در ارتباط با سرور رخ داده است.",
+            type: "red",
+            theme: "modern",
+            columnClass: "medium",
+            boxWidth: "400px",
+            useBootstrap: false,
+            buttons: {
+              ok: {
+                text: "باشه",
+                btnClass: "btn-red",
+              },
+            },
+          });
+        },
+      });
+    });
+  });
+
+  //for input and text in allowedParent
+  $(document).ready(function () {
+    $(document).on("mouseenter", "#allowedParent", function () {
+      var currentBg = $(this).css("background-color");
+      if (!$(this).data("bgColor")) {
+        $(this).data("bgColor", currentBg);
+      }
+      var darkerBg = darkenColor(currentBg, 10);
+      $(this).css("background-color", darkerBg);
+    });
+
+    $(document).on("mouseleave", "#allowedParent", function () {
+      $(this).css("background-color", $(this).data("bgColor"));
+    });
+
+    $(document).on("focus", "#allowedParent input", function () {
+      let darkerBg = darkenColor($(this).css("background-color"), 50);
+      $(this).css("box-shadow", "inset 0 0 5px " + darkerBg);
+    });
+    $(document).on("blur", "#allowedParent input", function () {
+      $(this).css("box-shadow", "none");
+      if ($(this).val() == "") {
+        const parent = $("div#allowedParent").has(
+          `input[teamCode= ${$(this).attr("teamCode")}][roleId=${$(this).attr(
+            "roleId"
+          )}]`
+        );
+        $(this).attr("modified", false);
+        checkModified();
+        if ($(this).attr("prevValue") == 0) {
+          $(this)
+            .val($(this).attr("prevValue"))
+            .css("background-color", "#bfbfbf");
+          $(parent).find("small").css("display", "none");
+          $(parent)
+            .css("background-color", "#c3cbd9")
+            .data("bgColor", "#c3cbd9");
+          if (isLightColor($(this).css("background-color"))) {
+            $(this).css("color", "black");
+          } else {
+            $(this).css("color", "white");
+          }
+        } else {
+          $(this)
+            .val($(this).attr("prevValue"))
+            .css("background-color", "#9EDDFF");
+          $(parent).find("small").css("display", "none");
+          $(parent)
+            .css("background-color", "#6EACDA")
+            .data("bgColor", "#6EACDA");
+          if (isLightColor($(this).css("background-color"))) {
+            $(this).css("color", "black");
+          } else {
+            $(this).css("color", "white");
+          }
+        }
+      }
+      if ($(this).val() == 0) {
+        $(this).val(0);
+      }
+    });
+
+    $(document).on("input", "#allowedParent input", function () {
+      if ($(this).val() != $(this).attr("prevValue")) {
+        $(this).attr("modified", true);
+        const parent = $("div#allowedParent").has(
+          `input[teamCode= ${$(this).attr("teamCode")}][roleId=${$(this).attr(
+            "roleId"
+          )}]`
+        );
+        $(this).css("background-color", "#348144");
+        $(parent).css("background-color", "#4E9F3D").data("bgColor", "#4E9F3D");
+        $(parent).find("small").css("display", "block");
+        if (isLightColor($(this).css("background-color"))) {
+          $(this).css("color", "black");
+          $(parent).find("small").css("color", "black");
+        } else {
+          $(this).css("color", "white");
+          $(parent).find("small").css("color", "white");
+        }
+        checkModified();
+      } else {
+        $(this).attr("modified", false);
+        const parent = $("div#allowedParent").has(
+          `input[teamCode= ${$(this).attr("teamCode")}][roleId=${$(this).attr(
+            "roleId"
+          )}]`
+        );
+        if ($(this).attr("prevValue") == 0) {
+          $(this)
+            .val($(this).attr("prevValue"))
+            .css("background-color", "#bfbfbf");
+          $(parent).find("small").css("display", "none");
+          $(parent)
+            .css("background-color", "#c3cbd9")
+            .data("bgColor", "#c3cbd9");
+          if (isLightColor($(this).css("background-color"))) {
+            $(this).css("color", "black");
+          } else {
+            $(this).css("color", "white");
+          }
+        } else {
+          $(this)
+            .val($(this).attr("prevValue"))
+            .css("background-color", "#9EDDFF");
+          $(parent).find("small").css("display", "none");
+          $(parent)
+            .css("background-color", "#6EACDA")
+            .data("bgColor", "#6EACDA");
+          if (isLightColor($(this).css("background-color"))) {
+            $(this).css("color", "black");
+          } else {
+            $(this).css("color", "white");
+          }
+        }
+        checkModified();
+      }
+      if ($(this).val() < 0) {
+        $(this).val(0);
+      } else if ($(this).val() > 100) {
+        $(this).val(100);
+      }
+    });
+  });
+
+  //for delete header and row and plus rows for team, plus teams for row
+  $(document).ready(function () {
+    $(document).on("click", "#deleteTeam", function () {
+      const teamCode = $(this).attr("teamCode");
+      const teamName = $(`th[teamCode=${teamCode}] p#teamName`).text();
+      const teamItem = $("<div>").attr({
+        teamCode: teamCode,
+        class: "team-item"
+      }).text(teamName);
+
+
+      $(`th[teamCode=${teamCode}]`).fadeOut(500, function(){
+        $(this).remove()
+      })
+      $(`td[teamCode=${teamCode}]`).fadeOut(500, function(){
+        $(this).remove()
+      })
+      
+      $("#teamList .items-list").prepend(teamItem.hide())
+      teamItem.fadeIn("slow")
+    });
+    $(document).on("click", "#deleteRole", function () {
+      const roleID = $(this).attr("roleID");
+      const roleName = $(`tr[roleID=${roleID}] p#roleID`).text();
+      const roleItem = $("<div>").attr({
+        roleID: roleID,
+        class: "role-item"
+      }).text(roleName);
+
+      $(`tr[roleID = ${roleID}]`).remove();
+
+      $("#roleList .items-list").prepend(roleItem.hide())
+      roleItem.fadeIn("slow")
+      
+    });
+  });
+
+  // رویدادی که بعد از کلیک روی آیتم های لیست تیم یا سمت رخ میدهد
+  $(document).ready(function () {
+    // اضافه کردن اطلاعات تیم در هدر و روبروی سمت های آن
+    $(document).on("click", ".team-item", function (event) {
+      newHeader = createHeader(
+        teamCode = $(this).attr("teamCode"),
+        teamName = $(this).text()
+      );
+
+      if (
+        !checkDuplicate(
+          "#table_header",
+          "teamCode",
+          newHeader.attr("teamCode"),
+          "تیم"
+        )
+      ) {
+        let teamCode = newHeader.attr("teamCode");
+
+        // اضافه کردن سلول‌ها
+        if ($("#tbody").children().length - 1) {
+          for (let i = 0; i <= $("#tbody").children().length - 1; i++) {
+            let roleId = $($("#tbody").children()[i]).attr("roleID");
+            let finder = allowedTeam.find(
+              (obj) => obj.TeamCode === teamCode && obj.RoleId == roleId
+            );
+            $(`tr[roleId="${roleId}"]`).append(
+                createAllowedCell(teamCode, roleId, finder)
+              );
+          }
+        }
+        newHeader.hide().insertBefore("#teamBtn").fadeIn(500);
+
+        // حذف آیتم از لیست تیم ها
+        $(this).slideUp(1000, function() {
+          $(this).remove(); 
+        });
+      }
+    });
+    // اضافه کردن اطلاعات سمت در ردیف و زیر تیم های آن
+    $(document).on("click", ".role-item", function (event) {
+      newRow = createRow(
+        roleID = $(this).attr("roleID"),
+        roleName = $(this).text()
+      );
+
+      if (
+        !checkDuplicate(
+          "#tbody",
+          "roleID",
+          newRow.attr("roleID"),
+          "سمت"
+        )
+      ) {
+        let roleId = newRow.attr("roleID");
+
+        // اضافه کردن سلول‌ها
+        if ($("#table_header").children().length - 3) {
+          for (let i = 1; i <= $("#table_header").children().length - 3; i++) {
+            let teamCode = $($("#table_header").children()[i]).attr("teamCode");
+            let finder = allowedTeam.find(
+              (obj) => obj.TeamCode === teamCode && obj.RoleId == roleId
+            );
+            newRow.append(createAllowedCell(teamCode, roleId, finder));
+          }
+        }
+        newRow.hide().insertBefore("#roleBtn").fadeIn(500);
+
+        // حذف آیتم از لیست سمت ها
+        $(this).slideUp(1000, function(){
+          $(this).remove()
+        });
+
+        
+      }
+    });
+  });
+  
+  // برای آیکون مداد، که وقتی روی اون کلیک میشه اینپوت تغییر نماییان میشه
+  $(document).ready(function(){
+    $(document).on("click", ".editIcon", function(){
+      const selectedRow = $("#tbody").find(`tr[roleId='${$(this).attr("roleID")}']`)
+      const selectedContainer = selectedRow.find(`td[teamCode='${$(this).attr("teamCode")}']`)
+      
+      selectedContainer.find("#lowerContainer").slideUp("slow", function(){
+        selectedContainer.find("#hiddenContainer").slideDown("slow", function() {
+          $(this).css("display", "flex");
+        });
+      })
+    })
+  })
+  //  تغییر رنک سلول وقتی که هاور میشه روش
+  function darkenColor(color, amount) {
+    var col = color.match(/\d+/g);
+    var r = Math.min(255, parseInt(col[0]) - amount);
+    var g = Math.min(255, parseInt(col[1]) - amount);
+    var b = Math.min(255, parseInt(col[2]) - amount);
+    return "rgb(" + r + "," + g + "," + b + ")";
+  }
+  function isLightColor(color) {
+    var rgb = color.match(/^rgba?\((\d+), (\d+), (\d+)/);
+
+    if (rgb) {
+      var r = parseInt(rgb[1]);
+      var g = parseInt(rgb[2]);
+      var b = parseInt(rgb[3]);
+      var brightness = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+
+      return brightness > 128;
+    }
+    return false;
+  }
+
+  // چک کن اکر تمام اینپوت ها تغییر نکردن دکمه سابمیت رو نشون نده
+  function checkModified() {
+    let allUnmodified = true;
+
+    $("#allowedParent input").each(function () {
+      if ($(this).attr("modified") === "true") {
+        allUnmodified = false;
+        return false;
+      } else {
+        allUnmodified = true;
+      }
+    });
+    if (!allUnmodified) {
+      $("#submitBtn").slideDown("slow");
+    } else {
+      $("#submitBtn").slideUp("slow");
+    }
+  }
+
+  // ایجاد سلول در هدر برای تیم
+  function createHeader(teamCode, teamName) {
+    const newHeader = $("<th>").attr("teamCode", teamCode);
+
+    const teamContainer = $("<div>").attr("class", "teamContainer");
+    const teamInfo = $("<div>").attr("class", "teamInfo");
+    const teamFunctions = $("<div>").attr("class", "teamFunctions");
+    const teamText = $("<p>").attr("id", "teamName").text(teamName);
+    const teamImage = $("<img>")
+      .attr({
+        alt: "Team Image",
+        src: `{% static 'roleManager/images/TeamIcon'%}/${teamCode}.png`,
+      })
+      .css("width", "50px");
+    
+    const deleteContainer = $("<div>")
+    const deleteAllText = $("<p>").attr("class", "deleteAllText").text("حذف همه")
+    const deleteAllIcon = $("<img>").attr({
+      alt:"Delete All Icon",
+      src:"{% static 'roleManager/images/Icons/deleteAll_Icon.png'%}",
+      class: "icon",
+      teamCode: teamCode,
+      id:"deleteTeam",
+    })
+
+    const showContainer = $("<div>")
+    const showAllText = $("<p>").attr("class", "showAllText").text("نمایش همه")
+    const showAllIcon = $("<img>").attr({
+      alt:"Show All Icon",
+      src:"{% static 'roleManager/images/Icons/showAll_Ico.png'%}",
+      class: "icon",
+      id:"plusRole_forTeam",
+      teamCode: teamCode,
+    })
+
+    teamInfo.append(teamImage, teamText);
+    deleteContainer.append(deleteAllText, deleteAllIcon)
+    showContainer.append(showAllText, showAllIcon)
+    teamFunctions.append(deleteContainer, showContainer)
+
+    teamContainer.append(teamInfo, teamFunctions);
+    newHeader.append(teamContainer);
+    return newHeader;
+  }
+  // ایجاد سلول در ردیف برای سمت
+  function createRow(roleID, roleName) {
+    const newRowLine = $("<tr>").attr("roleID", roleID);
+    const newRow = $("<td>");
+    const roleContainer = $("<div>").attr("class", "roleContainer");
+
+    const deleteContainer = $("<div>").attr("class", "deleteContainer")
+    const deleteAllText = $("<p>").attr("class", "deleteAllText").text("حذف همه")
+    const deleteAllIcon = $("<img>").attr({
+      alt:"Delete All Icon",
+      src:"{% static 'roleManager/images/Icons/deleteAll_Icon.png'%}",
+      class: "icon",
+      id: "deleteRole",
+      roleID: roleID,
+    })
+
+    const textContainer = $("<div>").attr("class", "textContainer")
+    const roleText = $("<p>").attr("id", "roleID").text(roleName);
+
+    const showContainer = $("<div>").attr("class", "showContainer")
+    const showAllText = $("<p>").attr("class", "showAllText").text("نمایش همه")
+    const showAllIcon = $("<img>").attr({
+      alt:"Show All Icon",
+      src:"{% static 'roleManager/images/Icons/showAll_Ico.png'%}",
+      class: "icon",
+      id: "plusTeam_forRole",
+      roleId : roleID,
+    })
+    
+    deleteContainer.append(deleteAllText, deleteAllIcon)
+    textContainer.append(roleText)
+    showContainer.append(showAllText, showAllIcon)
+    roleContainer.append(deleteContainer, textContainer, showContainer)
+    newRow.append(roleContainer)
+    newRowLine.append(newRow)
+    return newRowLine;
+  }
+
+  // تابع مشترک برای چک کردن تکراری بودن و نمایش خطا
+  function checkDuplicate(selector, attrName, value, type) {
+    let isDuplicated =
+      $(selector)
+        .children()
+        .filter(function () {
+          return $(this).attr(attrName) === value;
+        }).length > 0;
+
+    if (isDuplicated) {
+      $.confirm({
+        title: `❌ خطا در اضافه کردن ${type}`,
+        content: `شما نمیتوانید ${type} تکراری اضافه کنید.`,
+        type: "red",
+        theme: "modern",
+        columnClass: "medium",
+        boxWidth: "400px",
+        useBootstrap: false,
+        buttons: {
+          ok: {
+            text: "باشه",
+            btnClass: "btn-red",
+          },
+        },
+      });
+    }
+    return isDuplicated;
+  }
+
+  // تابع مشترک برای ساخت سلول جدید با اطلاعات مجوز
+  function createAllowedCell(teamCode, roleId, finder) {
+
+    const newData = $("<td>").attr("teamCode", teamCode);
+      const allowedParent = $("<div>")
+        .attr("id", "allowedParent")
+        .css(
+          "background-color",
+          finder ? finder.AllowedRoleCount == 0 ? "#AEAEAE69" : "#6B92E7CC" : "#6B92E7CC"
+        );
+      
+      const upperContainer = $("<div>").attr("class", "itemContainer")
+      const upperTextContainer = $("<div>")
+      const upperText = $("<p>").text("ظرفیت کل")
+      const upperInput = $("<input>")
+        .attr({
+          class: "allowedParentInput",
+          type: "number",
+          value: finder ? finder.AllowedRoleCount : 0,
+          disabled: true,
+        }) 
+      const editIcon = $("<img>").attr({"src": "{% static 'roleManager/images/Icons/editIcon.png' %}", id:"editIcon", class: "editIcon", "teamCode": teamCode, "roleID": roleId})
+      const blueUserIcon = $("<img>").attr({
+        "src": "{% static 'roleManager/images/Icons/blueUserIcon.png' %}",
+        "class": "allowedParentIcon"
+      })
+
+      const middleContainer = $("<div>").attr("class", "itemContainer")
+        const middleTextContainer = $("<div>")
+        const middleText = $("<p>").text("نفرات فعلی")
+        const middleInput = $("<input>")
+          .attr({
+            class: "allowedParentInput",
+            type: "number",
+            value: finder ? finder.EntryCount : 0,
+            disabled: "true"
+          })
+        const yellowUserIcon = $("<img>").attr({
+            "src": "{% static 'roleManager/images/Icons/yellowUserIcon.png' %}",
+            "class": "allowedParentIcon"
+        })
+
+      const hiddenContainer = $("<div>").attr({"class": "itemContainer", "id": "hiddenContainer"})
+      const hiddenTextContainer = $("<div>")
+      const hiddenText = $("<p>").text("تغییر ظرفیت کل")
+      const hiddenInput = $("<input>")
+      .attr({
+        class: "allowedParentInput",
+        type: "number",
+        value: finder ? finder.AllowedRoleCount : 0,
+        prevValue: finder ? finder.AllowedRoleCount : 0,
+        modified: false,
+        teamCode: teamCode,
+        roleId: roleId,
+        min: middleInput.val(),
+        max: 100,
+      }) 
+      const hiddenBlueUserIcon = $("<img>").attr({
+        "src": "{% static 'roleManager/images/Icons/blueUserIcon.png' %}",
+        "class": "allowedParentIcon"
+      })
+
+      const lowerContainer = $("<div>").attr({"class": "itemContainer", "id": "lowerContainer"})
+      const lowerTextContainer = $("<div>")
+      const lowerText = $("<p>").text("ظرفیت باقی مانده")
+      const lowerInput = $("<input>").attr({
+          class: "allowedParentInput",
+          type: "number",
+          disabled: "true"
+      })
+      const greenUserIcon = $("<img>").attr({
+          "src": "{% static 'roleManager/images/Icons/greenUserIcon.png' %}",
+          "class": "allowedParentIcon"
+      })
+
+      calculateLowerInputValue(upperInput, middleInput, lowerInput)
+      
+      upperTextContainer.append(upperText)
+      hiddenTextContainer.append(hiddenText)
+      middleTextContainer.append(middleText)
+      lowerTextContainer.append(lowerText)
+      
+      
+      upperContainer.append(upperTextContainer, blueUserIcon, upperInput, editIcon)
+      hiddenContainer.append(hiddenTextContainer, hiddenBlueUserIcon, hiddenInput)
+      middleContainer.append(middleTextContainer, middleInput, yellowUserIcon)
+      lowerContainer.append(lowerTextContainer, lowerInput, greenUserIcon)
+
+      allowedParent.append(upperContainer, hiddenContainer, middleContainer, lowerContainer);
+      newData.append(allowedParent);
+      return newData;
+  }
+
+  // محاسبه ظرفیت کل و نفرات فعلی 
+  function calculateLowerInputValue(upperInput, middleInput, lowerInput) {
+    const up = parseFloat(upperInput.val())  || 0;
+    const mid= parseFloat(middleInput.val()) || 0;
+    let result = up - mid
+    if(result < 0){
+      lowerInput.val(0);
+    }else{
+      lowerInput.val(result);
+    }
+  }
+
+  function addAllowedRolesForTeam(teamCode) {
+    const allowedRoles = allowedTeam.filter(
+      (item) => item.TeamCode === teamCode && item.AllowedRoleCount > 0
+    );
+
+    allowedRoles.forEach((data) => {
+      if (!$(`tr[roleId="${data.RoleId}"]`).length) {
+        newRow = createRow(
+          data.RoleId,
+          roleNames.find((item) => item.RoleId == data.RoleId).RoleName
+        );
+
+        if ($("#table_header").children().length - 3) {
+          for (let i = 1; i <= $("#table_header").children().length - 3; i++) {
+            let currentTeamCode = $($("#table_header").children()[i]).attr(
+              "teamCode"
+            );
+            let finder = allowedTeam.find(
+              (obj) =>
+                obj.TeamCode === currentTeamCode && obj.RoleId == data.RoleId
+            );
+            newRow.append(
+              createAllowedCell(currentTeamCode, data.RoleId, finder)
+            );
+          }
+        }
+
+        $("#roleBtn").before(newRow);
+
+        // حذف اسم سمت از لیست سمت ها 
+        $(`.items-list div[roleID="${data.RoleId}"]`).remove()
+      }
+    });
+  }
+
+  //نمایش تمامی سمت هایی که  در آن تیم وجود دارند
+  $(document).on("click", "#plusRole_forTeam", function () {
+    const teamCode = $(this).attr("teamCode");
+
+    if (teamCode) {
+      addAllowedRolesForTeam(teamCode);
+    } else {
+      $.confirm({
+        title: "❌ خطا",
+        content: "کد تیم یافت نشد.",
+        type: "red",
+        theme: "modern",
+        columnClass: "medium",
+        boxWidth: "400px",
+        useBootstrap: false,
+        buttons: {
+          ok: {
+            text: "باشه",
+            btnClass: "btn-red",
+          },
+        },
+      });
+    }
+  });
+
+  function addAllowedTeamsForRole(roleId) {
+    const allowedTeams = allowedTeam.filter(
+      (item) => item.RoleId == roleId && item.AllowedRoleCount > 0
+    );
+
+    allowedTeams.forEach((data) => {
+      if (!$(`th[teamCode="${data.TeamCode}"]`).length) {
+        newHeader = createHeader(
+          teamCode = data.TeamCode,
+          teamNames.find((item) => item.TeamCode == data.TeamCode).TeamName
+        );
+
+        // اضافه کردن سلول‌ها برای همه سمت‌های موجود
+        if ($("#tbody").children().length - 1) {
+          for (let i = 0; i <= $("#tbody").children().length - 1; i++) {
+            let currentRoleId = $($("#tbody").children()[i]).attr("roleID");
+            let finder = allowedTeam.find(
+              (obj) =>
+                obj.TeamCode === data.TeamCode && obj.RoleId == currentRoleId
+            );
+            if (finder) {
+              $(`tr[roleId="${currentRoleId}"]`).append(
+                createAllowedCell(data.TeamCode, currentRoleId, finder)
+              );
+            }
+          }
+        }
+
+        $("#teamBtn").before(newHeader);
+
+        // حذف اسم تیم از لیست تیم ها 
+        $(`.items-list div[teamCode="${data.TeamCode}"]`).remove()
+
+
+      }
+    });
+  }
+
+  //نمایش تمامی تیم هایی که در آن سمت وجود دارند
+  $(document).on("click", "#plusTeam_forRole", function () {
+    const roleId = $(this).attr("roleID");
+
+    if (roleId) {
+      addAllowedTeamsForRole(roleId);
+    } else {
+      $.confirm({
+        title: "❌ خطا",
+        content: "کد سمت یافت نشد.",
+        type: "red",
+        theme: "modern",
+        columnClass: "medium",
+        boxWidth: "400px",
+        useBootstrap: false,
+        buttons: {
+          ok: {
+            text: "باشه",
+            btnClass: "btn-red",
+          },
+        },
+      });
+    }
+  });
+
+    // رویداد کلیک بر روی دکمه مثبت
+    // وقتی کلیک میشه روشون لیست اسم تیم ها یا سمت ها باز میشه
+  $(document).ready(function(){
+        $("#teamPlusButton").on("click", function(){
+            $("#teamList").slideToggle("slow")
+        })
+        $("#rolePlusButton").on("click", function(){
+            $("#roleList").slideToggle("slow")
+        })
+        $('#teamSearchInput').on('input', function(){
+            let searchTerm = $(this).val().trim().toLowerCase();
+            let hasResults = false;
+            
+            $('#teamList .team-item').each(function(){
+                let itemText = $(this).text().toLowerCase();
+                
+                let cleanSearch = searchTerm.replace(/\s+/g, '');
+                let cleanItem = itemText.replace(/\s+/g, '');
+                
+                if(cleanItem.includes(cleanSearch)) {
+                    $(this).show();
+                    hasResults = true;
+                } else {
+                    $(this).hide();
+                }
+            });
+
+            $('.no-results').toggle(!hasResults);
+        });
+        $('#roleSearchInput').on('input', function(){
+            let searchTerm = $(this).val().trim().toLowerCase();
+            let hasResults = false;
+            
+            $('#roleList .role-item').each(function(){
+                let itemText = $(this).text().toLowerCase();
+                
+                let cleanSearch = searchTerm.replace(/\s+/g, '');
+                let cleanItem = itemText.replace(/\s+/g, '');
+                
+                if(cleanItem.includes(cleanSearch)) {
+                    $(this).show();
+                    hasResults = true;
+                } else {
+                    $(this).hide();
+                }
+            });
+
+            $('.no-results').toggle(!hasResults);
+        });
+  });
+</script>
+{%endif%} 
+{% endblock %}

@@ -1,0 +1,361 @@
+{% extends 'Cartable/base.html' %}
+{% load static %}
+{% load cartable_tags %}
+
+{% block content %}
+
+    <div class="d-flex flex-row" style="margin-top: 1px;">
+  <div style="width: 14%;">
+    <!-- Tab navs -->
+    <div
+      class="nav flex-column nav-tabs text-center mt-1"
+      id="v-tabs-tab"
+      role="tablist"
+      aria-orientation="vertical"
+    >
+      <a
+        class="nav-link active"
+        id="v-tabs-home-tab"
+        data-mdb-toggle="tab"
+        href="#v-tabs-home"
+        role="tab"
+        aria-controls="v-tabs-home"
+        aria-selected="true"
+        >کارتابل ورودی</a
+      >
+      <a
+        class="nav-link"
+        id="v-tabs-profile-tab"
+        data-mdb-toggle="tab"
+        href="#v-tabs-profile"
+        role="tab"
+        aria-controls="v-tabs-profile"
+        aria-selected="false"
+        >کارتابل خروجی</a
+      >
+      <a
+        class="nav-link"
+        id="v-tabs-messages-tab"
+        data-mdb-toggle="tab"
+        href="#v-tabs-messages"
+        role="tab"
+        aria-controls="v-tabs-messages"
+        aria-selected="false"
+        >درخواست های من</a
+      >
+        {% if request.user.is_superuser %}
+      <a
+        class="nav-link d-none"
+        href="http://{{ server_ip }}:50000/admin/WorkflowEngine/timedemailproxy/"
+        target="_blank"
+        >
+          <span style="color: red;">ایمیل های ناموفق:</span><br><br>
+          <span style="color: red;" id="count-unsuccess-timed-email"></span>
+      </a
+      >
+        {% endif %}
+    </div>
+    <!-- Tab navs -->
+  </div>
+
+  <div style="width: 86%;">
+    <!-- Tab content -->
+    <div class="tab-content" id="v-tabs-tabContent">
+      <div
+        class="tab-pane fade show active"
+        id="v-tabs-home"
+        role="tabpanel"
+        aria-labelledby="v-tabs-home-tab"
+      >
+      {% if rows %}
+        <table class="table table-bordered w-100 table-catable" >
+        <tr>
+            <th>وضعیت</th>
+            <th>شناسه مدرک</th>
+            <th>عنوان مدرک</th>
+            <th>نوع مدرک</th>
+            <th style="width: 12% !important;">تاریخ دریافت</th>
+            <th style="width: 12% !important;">ارسال کننده</th>
+            <th>مهلت زمان پاسخ</th>
+            <th>اولویت</th>
+            <th>مرحله</th>
+            <th>عملیات</th>
+        </tr>
+        {% for row in rows %}
+        <tr class="{% if row.IsRead == False %}tr-unread{% else %}tr-read{% endif %}" >
+            <td>
+                {% if row.IsRead == False %}
+                    <div class="div-read" >
+                        <img src="/static/Cartable/images/unread.png"  />
+                        <span>&nbsp;</span>
+                    </div>
+                {% else %}
+                    <img src="/static/Cartable/images/read.png" style="width: 40px;height: 40px;" />
+                {% endif %}
+            </td>
+            <td>{{ row.DocumentId.AppDocId }}</td>
+            <td>{{ row.DocumentId.DocumentTitle|default_if_none:"" }}</td>
+            <td>{{ row.DocumentId.AppCode.Title }}</td>
+            <td style="width: 12% !important;">{{ row.PersianReciveDate }}</td>
+            <td class="sender-name-from-cache" style="width: 12% !important;">{{ all_users|get_full_name_of_user:row.SenderUser }} </td>
+            <td>{{ row.DueDate|default_if_none:"" }}</td>
+            {#<td>{{ row.DocumentId.Priority }}</td>#}<td>عادی</td>
+            <td>{{ row.DocumentId.DocState }}</td>
+            <td>
+                <a class="a-show-req" style="display: none;" data-docflow="{{row.id}}" target="_blank" href="http://{% if row.DocumentId.AppCode not in 'WFECTRSLMCRPORGRCMORGNRL' %}{{server_ip}}{% else %}eit-app{% endif %}:{{all_apps_urls|get_system_port:row.DocumentId.AppCode}}{{ all_apps_urls|get_app_url:row.DocumentId.AppCode }}Inbox/{{ row.DocumentId.AppDocId }}/?doc_flow={{row.id}}&role_id={{row.RoleId}}&team_code={{row.TeamCode}}">
+                </a>
+{#                    <img style="width: 40px;height: 40px;" src="/static/Cartable/images/view.png" />#}
+{#                    <b>مشاهده</b>#}
+                <div class="dropdown">
+                  <button
+                    class="btn btn-primary dropdown-toggle"
+                    type="button"
+                    id="dropdownMenuButton"
+                    data-mdb-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    عملیات
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <li><a class="dropdown-item" target="_blank" href="http://{% if row.DocumentId.AppCode not in 'WFECTRSLMCRPORGRCMORGNRL' %}{{server_ip}}{% else %}eit-app{% endif %}:{{all_apps_urls|get_system_port:row.DocumentId.AppCode}}{{ all_apps_urls|get_app_url:row.DocumentId.AppCode }}Inbox/{{ row.DocumentId.AppDocId }}/?doc_flow={{row.id}}&role_id={{row.RoleId}}&team_code={{row.TeamCode}}">مشاهده</a></li>
+                        <li><a class="dropdown-item" target="_blank" href="{% url 'Cartable:workflow_visual' doc_id=row.DocumentId_id %}">گردش مدرک</a></li>
+                        <li><b class="dropdown-item" href="#">تایید</b></li>
+                        <li><b class="dropdown-item exit-from-cartable" data-id="{{ row.id }}" >خروج از کارتابل</b></li>
+                  </ul>
+                </div>
+
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+        {% else %}
+            <p class="text-center notfound">موردی یافت نشد</p>
+      {% endif %}
+      </div>
+      <div
+        class="tab-pane fade"
+        id="v-tabs-profile"
+        role="tabpanel"
+        aria-labelledby="v-tabs-profile-tab"
+      >
+        {% if sender_rows %}
+            <table class="table table-bordered w-95" >
+        <tr>
+            <th>شناسه مدرک</th>
+            <th>عنوان مدرک</th>
+            <th>نوع مدرک</th>
+            <th style="width: 12% !important;">تاریخ ارسال</th>
+            <th style="width: 12% !important;">ارسال شده به</th>
+            <th>مهلت زمان پاسخ</th>
+            <th>اولویت</th>
+            <th>مرحله</th>
+            <th>عملیات</th>
+        </tr>
+        {% for row in sender_rows %}
+        <tr class="trtr" >
+            <td>{{ row.DocumentId.AppDocId }}</td>
+            <td>{{ row.DocumentId.DocumentTitle|default_if_none:"" }}</td>
+            <td>{{ row.DocumentId.AppCode.Title }}</td>
+            <td style="width: 12% !important;">{% if row.is_parallel %} {{ row.PersianSendDate }} {% else %} {{ row.PersianReciveDate }} {% endif %} </td>
+            <td class="sender-name-from-cache" style="width: 12% !important;">{% if row.is_parallel %} {{ all_users|get_full_name_of_user:row.parallel_user }} {% else %}{{ all_users|get_full_name_of_user:row.InboxOwner }}{% endif %}</td>
+            <td>{{ row.DueDate|default_if_none:"" }}</td>
+            {#<td>{{ row.DocumentId.Priority }}</td>#}<td>عادی</td>
+            <td>{{ row.DocumentId.DocState }}</td>
+            <td>
+                <a class="a-show-req" style="display: none;" target="_blank" href="http://{% if row.DocumentId.AppCode not in 'WFECTRSLMCRPORGRCMORGNRL' %}{{server_ip}}{% else %}eit-app{% endif %}:{{all_apps_urls|get_system_port:row.DocumentId.AppCode}}{{ all_apps_urls|get_app_url:row.DocumentId.AppCode }}Outbox/{{ row.DocumentId.AppDocId }}/?role_id={{row.RoleId}}&team_code={{row.TeamCode}}">
+                </a>
+{#                    <img style="width: 40px;height: 40px;" src="/static/Cartable/images/view.png"  />#}
+{#                    <b>مشاهده</b>#}
+                <div class="dropdown">
+                  <button
+                    class="btn btn-primary dropdown-toggle"
+                    type="button"
+                    id="dropdownMenuButton"
+                    data-mdb-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    عملیات
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <li><a class="dropdown-item" target="_blank" href="http://{% if row.DocumentId.AppCode not in 'WFECTRSLMCRPORGRCMORGNRL' %}{{server_ip}}{% else %}eit-app{% endif %}:{{all_apps_urls|get_system_port:row.DocumentId.AppCode}}{{ all_apps_urls|get_app_url:row.DocumentId.AppCode }}Outbox/{{ row.DocumentId.AppDocId }}/?role_id={{row.RoleId}}&team_code={{row.TeamCode}}">مشاهده</a></li>
+                        <li><a class="dropdown-item" target="_blank" href="{% url 'Cartable:workflow_visual' doc_id=row.DocumentId_id %}">گردش مدرک</a></li>
+                        <li><b class="dropdown-item" href="#">تایید</b></li>
+                        <li><b class="dropdown-item exit-from-cartable" data-id="{{ row.id }}" >خروج از کارتابل</b></li>
+                  </ul>
+                </div>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+        {% else %}
+            <p class="text-center notfound">موردی یافت نشد</p>
+        {% endif %}
+      </div>
+      <div
+        class="tab-pane fade"
+        id="v-tabs-messages"
+        role="tabpanel"
+        aria-labelledby="v-tabs-messages-tab"
+      >
+        {% if my_cartable_rows %}
+        <table class="table table-bordered w-95" >
+        <tr>
+            <th>شناسه مدرک</th>
+            <th>عنوان مدرک</th>
+            <th>نوع مدرک</th>
+            <th style="width: 12% !important;">تاریخ ایجاد</th>
+            <th style="width: 12% !important;">ایجاد کننده</th>
+            <th>اولویت</th>
+            <th>مرحله</th>
+            <th>عملیات</th>
+        </tr>
+        {% for row in my_cartable_rows %}
+        <tr class="trtr" >
+            <td>{{ row.DocumentId.AppDocId }}</td>
+            <td>{{ row.DocumentId.DocumentTitle|default_if_none:"" }}</td>
+            <td>{{ row.DocumentId.AppCode.Title }}</td>
+            <td style="width: 12% !important;">{{ row.PersianReciveDate }}</td>
+            <td class="sender-name-from-cache" style="width: 12% !important;">{{ all_users|get_full_name_of_user:row.SenderUser }}</td>
+            {#<td>{{ row.DocumentId.Priority }}</td>#}<td>عادی</td>
+            <td>{{ row.DocumentId.DocState }}</td>
+            <td>
+                <a class="a-show-req" style="display: none;" target="_blank" href="http://{% if row.DocumentId.AppCode not in 'WFECTRSLMCRPORGRCMORGNRL' %}{{server_ip}}{% else %}eit-app{% endif %}:{{all_apps_urls|get_system_port:row.DocumentId.AppCode}}{{ all_apps_urls|get_app_url:row.DocumentId.AppCode }}Mybox/{{ row.DocumentId.AppDocId }}/?role_id={{row.RoleId}}&team_code={{row.TeamCode}}">
+                </a>
+{#                    <img style="width: 40px;height: 40px;" src="/static/Cartable/images/view.png"  />#}
+{#                    <b>مشاهده</b>#}
+                <div class="dropdown">
+                  <button
+                    class="btn btn-primary dropdown-toggle"
+                    type="button"
+                    id="dropdownMenuButton"
+                    data-mdb-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    عملیات
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <li><a class="dropdown-item" target="_blank" href="http://{% if row.DocumentId.AppCode not in 'WFECTRSLMCRPORGRCMORGNRL' %}{{server_ip}}{% else %}eit-app{% endif %}:{{all_apps_urls|get_system_port:row.DocumentId.AppCode}}{{ all_apps_urls|get_app_url:row.DocumentId.AppCode }}Mybox/{{ row.DocumentId.AppDocId }}/?role_id={{row.RoleId}}&team_code={{row.TeamCode}}">مشاهده</a></li>
+                        <li><a class="dropdown-item" target="_blank" href="{% url 'Cartable:workflow_visual' doc_id=row.DocumentId_id %}">گردش مدرک</a></li>
+                        <li><b class="dropdown-item" href="#">تایید</b></li>
+                        <li><b class="dropdown-item exit-from-cartable" data-id="{{ row.id }}" >خروج از کارتابل</b></li>
+                  </ul>
+                </div>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+        {% else %}
+            <p class="text-center notfound">موردی یافت نشد</p>
+        {% endif %}
+      </div>
+    </div>
+    <!-- Tab content -->
+  </div>
+</div>
+
+{% endblock %}
+
+    {% block jquery %}
+        <script>
+        var all_users = JSON.parse('{{ all_users_json|safe }}');
+        var prefix_url_get_timed_email = "{{ prefix_url_get_timed_email }}";
+        $(document).ready(function(){
+            //$(document).delegate(".a-show-req",'click',function(){
+                setInterval(function(){
+                    var active_id = $(".nav-link.active").attr("id");
+                    $.get('{% url "Cartable:my_cartable_ajax" %}',{'activeid':$(".tab-pane.show.active").attr("id")},function(data){
+                        
+                        {% comment %} added to fix Cartable tab switching bug {% endcomment %}
+                        var afterResponseActiveId = $(".nav-link.active").attr("id");
+                        if (afterResponseActiveId != active_id) return 
+                        
+                        $(".tab-content").html(data);
+                        $(".nav-link").removeClass("active");
+                        $("#"+active_id).trigger("click");
+                        $("#"+active_id).addClass("active");
+
+                        $(".sender-name-from-cache").each(function(){
+                           if($(this).attr("data-value") != undefined){
+                                var text = (all_users.hasOwnProperty($(this).attr("data-value").toString())) ? all_users[$(this).attr("data-value").toString()]['FullName'] : '';
+                                $(this).html(text);
+                           }
+
+                        });
+
+                    });
+                    /*$.get(prefix_url_get_timed_email+"WorkflowEngine/api/get-unsuccess-timed-email/",{},function(data){
+                        $("#count-unsuccess-timed-email").parent().removeClass("d-none");
+                        $("#count-unsuccess-timed-email").html(data['data']);
+                    })*/
+                },10000);
+            //});
+
+            /*$(document).delegate(".tr-read,.tr-unread,.trtr","click",function(){
+                $(this).find(".a-show-req")[0].click();
+            })*/
+
+
+
+                function changeAlertText(){
+        setTimeout(function(){
+            $(".jconfirm-buttons").find("button").html('تایید');
+        },200);
+
+    }
+            $(document).delegate(".exit-from-cartable","click",function(){
+                var cur_elm = $(this);
+                var id = $(this).attr("data-id");
+                var url = "/Cartable/ExitFromCartable/" + id + "/";
+                $.get(url,{},function(data){
+                    if(data.state == "ok" && data.hasOwnProperty('not_change_this') && parseInt(data.not_change_this) == 1){
+                        $.alert("  خروج از کارتابل  برای این پرونده امکان پذیر نیست");
+                        changeAlertText();
+                    }
+
+                    else if(data.state == "ok" && data.hasOwnProperty('updated_before') && parseInt(data.updated_before) == 1){
+                        $.alert("خروج این پرونده قبلا ثبت شده است");
+                        changeAlertText();
+                    }
+
+                    else if(data.state == "ok" && parseInt(data.updated_before) == 0){
+                        $.get('{% url "Cartable:my_cartable_ajax" %}',{'activeid':$(".tab-pane.show.active").attr("id")},function(data){
+                            $(".tab-content").html(data);
+                        })
+                        $.alert("با موفقیت انجام شد");
+                        changeAlertText();
+                    }
+
+                })
+            });
+
+            $(document).delegate("#v-tabs-home table tr td","click",function(){
+                if($(this).is(":last-child")){} else {
+                    var url = $(this).parent().find("td:last-child").find("a").attr("href");
+                    var docFlowId = $(this).parent().find("td:last-child").find("a").attr("data-docflow");
+                    var readApiUrl = '{% url "Cartable:ReadDocFlow" 1 %}'.replace("/1/", `/${docFlowId}/`) 
+                    $.post(readApiUrl)
+                    window.open(url,'_blank');
+                }
+            });
+
+            $(document).delegate("#v-tabs-profile table tr td","click",function(){
+                if($(this).is(":last-child")){} else {
+                    var url = $(this).parent().find("td:last-child").find("a").attr("href");
+                    window.open(url,'_blank');
+                }
+            });
+
+            $(document).delegate("#v-tabs-messages table tr td","click",function(){
+                if($(this).is(":last-child")){} else {
+                    var url = $(this).parent().find("td:last-child").find("a").attr("href");
+                    window.open(url,'_blank');
+                }
+            });
+            $(".select-user-for-translate").select2();
+
+        });
+
+
+
+        </script>
+    {% endblock %}

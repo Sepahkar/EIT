@@ -1,0 +1,63 @@
+{%  load static %}
+{% block MainContent%}
+
+<body>
+<div class="background">
+    <div class="file">
+        <div class="profile">
+            <div class="title">پرونده پرسنلی</div>
+
+            <div class="frame">
+                    <img class="profile" src="/media/HR/PersonalPhoto/{{ obj_History_name.UserName.user_image_name }}" alt="{{ obj_History_name.UserName.FullName }}" title="{{ obj_History_name.UserName.FullName }}">
+            </div>
+
+                <div class="fullname">{{ obj_History_name.UserName.FullName }}</div>
+            {% for obj in obj_History %}
+                <div class="role">
+                  {{ obj.RoleId.RoleName }}  {{ obj.TeamCode.TeamName }}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="bookmarks">
+        <div class="bookmark color1">
+            <a href="Address.html">
+                <label>مشخصات شناسنامه ای</label>
+                <img class="img-bookmark" src="{% static '/HR/images/bookmark/Identity.svg' %}" alt="مشخصات شناسنامه ای" title="مشخصات شناسنامه ای">
+            </a>
+        </div>
+        <div class="bookmark color2">
+            <label>اطلاعات شخصی</label>
+            <img class="img-bookmark" src="{% static '/HR/images/bookmark/Personalnfo.svg' %}" alt="اطلاعات شخصی" title="اطلاعات شخصی">
+        </div>
+        <div class="bookmark color3">
+            <label>سوابق تحصیلی</label>
+            <img class="img-bookmark" src="{% static '/HR/images/bookmark/Education.svg' %}" alt="سوابق تحصیلی" title="سوابق تحصیلی">
+        </div>
+
+        <div class="bookmark color4">
+            <label>لیست الکترونیکی</label>
+            <img class="img-bookmark" src="{% static '/HR/images/bookmark/Mail.svg' %}" alt="لیست الکترونیکی" title="لیست الکترونیکی">
+        </div>
+        <div class="bookmark color5">
+            <label>شماره های تماس</label>
+            <img class="img-bookmark" src="{% static '/HR/images/bookmark/Phone.svg' %}" alt="شماره های تماس" title="شماره های تماس">
+        </div>
+        <div class="bookmark color6">
+            <label>آدرس های شسنیتشسمیتسشم</label>
+            <img class="img-bookmark" src="{% static '/HR/images/bookmark/Address.svg' %}" alt="آدرس های پستی" title="آدرس های پستی">
+        </div>
+        <div class="bookmark color7">
+            <label>سوابق شغلی</label>
+            <img class="img-bookmark" src="{% static '/HR/images/bookmark/Job.svg' %}" alt="سوابق شغلی" title="سوابق شغلی">
+        </div>
+        <div class="bookmark color8">
+            <label>بهای تمام شده</label>
+            <img class="img-bookmark" src="{% static '/HR/images/bookmark/Value.svg' %}" alt="بهای تمام شده" title="بهای تمام شده">
+        </div>
+    </div>
+</div>
+
+</body>
+
+{% endblock %}

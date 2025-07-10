@@ -1,0 +1,9 @@
+CREATE TABLE [dbo].[TEMP_CMP_Company](
+	[Id] [nvarchar](255) NULL,
+	[CompanyName] [nvarchar](255) NULL,
+	[IsForeign] [nvarchar](255) NULL,
+	[CompanyTypeId] [nvarchar](255) NULL,
+	[RegisterNumber] [nvarchar](255) NULL,
+	[RegisterDate] [nvarchar](255) NULL,
+	[RegisterCityId] [nvarchar](255) NULL
+) ON [PRIMARY]

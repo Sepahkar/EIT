@@ -1,0 +1,63 @@
+.headerColor {
+  background: rgb(54, 108, 144);
+}
+
+.title-icon {
+  width: 16px;
+  height: 55px;
+  background-color: #366C90;
+  position: absolute;
+  right: 56px;
+  top: 140px;
+}
+
+.keyMembers {
+  background: rgba(231, 231, 237, 0.32);
+}
+.keyMembers h3 {
+  color: rgb(54, 108, 144);
+}
+.keyMembers .titleStyle {
+  position: absolute;
+  width: 90%;
+  height: 2px;
+  background-color: rgb(54, 108, 144);
+  display: block;
+}
+.keyMembers > div :nth-child(1) span {
+  left: 0;
+}
+.keyMembers .memberKeyTable .member {
+  width: 200px;
+  background-color: white;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 22px;
+}
+.keyMembers .memberKeyTable .member > div {
+  height: auto;
+}
+.keyMembers .memberKeyTable .member > div img {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 20px;
+}
+.keyMembers .memberKeyTable .member > div h4 {
+  margin-bottom: 2px;
+}
+
+.nowMembers {
+  background: white;
+}
+.nowMembers h3 {
+  color: rgb(54, 108, 144);
+}
+.nowMembers .titleStyle {
+  position: absolute;
+  width: 90%;
+  height: 2px;
+  background-color: rgb(54, 108, 144);
+  display: block;
+}
+.nowMembers > div :nth-child(1) span {
+  left: 0;
+}/*# sourceMappingURL=teamStyle.css.map */

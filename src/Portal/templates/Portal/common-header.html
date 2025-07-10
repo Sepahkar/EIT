@@ -1,0 +1,81 @@
+{% load static %}
+{% load custom_template_tag_systems %}
+{% block style %}
+    <link href="{% static 'Portal/css/common-header.css' %}" type="text/css" rel="stylesheet"/>
+{% endblock %}
+<div class="Menu-Row" style="display: flex;flex-direction: row;align-items: center;justify-content: space-around;background-color: white;padding: 5px;">
+          <div>
+                  <img src="/static/Portal/images/EIT.png" alt="فناوران اطلاعات خبره"
+                  title="فناوران اطلاعات خبره" height="50px"/>
+          </div>
+        <div class="row Menu">
+
+                <ul class="horizontal Menu-pic" >
+
+                    <li >
+                        <img class="Menu-Icon Icon-hover" src="/static/Portal/images/Icon/mizekar.svg" alt="میزکار"
+                         height="30px"/>
+                        <a   href="{{ request.scheme }}://{{ request.get_host }}/AuthUser/">میزکار</a></li>
+                    <li >
+                         <img class="Menu-Icon Icon-hover" src="/static/Portal/images/Icon/kartabl.svg" alt="کارتابل"
+                         height="30px"/>
+                        <a  href="{% url 'Cartable:my_cartable' %}">کارتابل</a></li>
+                    <li >
+                         <img class="Menu-Icon Icon-hover" src="/static/Portal/images/Icon/Info.svg" alt="اطلاعیه ها"
+                         height="30px"/>
+                        <a target="_blank" href="#home">اطلاعیه ها</a></li>
+                    <li>
+                         <img class="Menu-Icon Icon-hover" src="/static/Portal/images/Icon/systems.svg" alt="سیستم ها"
+                         height="30px"/>
+                        <a target="_blank" href="#home">سیستم ها</a></li>
+                    <li>
+                         <img class="Menu-Icon Icon-hover" src="/static/Portal/images/Icon/setting.svg" alt="تنظیمات"
+                         height="30px"/>
+                        <a target="_blank" href="#home">تنظیمات </a></li>
+                </ul>
+
+
+        </div>
+        <div style="display: flex;flex-direction: column;justify-content: center;align-items: center;align-self: end;">
+
+                <img class="img-profile" gender="{% if cnt_user_Gender %}m{% else %}f{% endif %}"  default-src="{% if cnt_user_Gender %}/media/HR/PersonalPhoto/no-profile-m.png{% else %}/media/HR/PersonalPhoto/no-profile-f.jpg{% endif %}" src="{{ cnt_username|lower|get_user_profile_img }}" width="80" height="80" style="border-radius: 50%;"/>
+                <a href="http://eit-app:14000/HR/profile/user/{{cnt_username}}/" style="margin-top: 5px;">{{ cnt_user_FullName }} {% if cnt_team_role_info|length is 1 %} ({{ cnt_team_role_info.0.team_name }}) {% endif %}</a>
+        </div>
+
+
+        {% if cnt_team_role_info|remove_duplicate_team|length > 1 %}
+            <div class="d-flex flex-column">
+                <span>تیم من</span>
+            <form action="{% url 'Systems:change_my_team' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="next_url" value="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}">
+                <select style="width: 100% !important;" name="selected_team" onchange="this.parentNode.submit()">
+                    {% for item in cnt_team_role_info|remove_duplicate_team %}
+                    <option {% if request.COOKIES.team == item.TeamCode %} selected {% endif %} value="{{ item.TeamCode }}">{{ item.TeamName }}</option>
+                    {% endfor %}
+                </select>
+            </form>
+            </div>
+        {% endif %}
+
+        <div class="d-flex flex-column">
+        {% if cnt_username|check_is_superuser %}
+            {% csrf_token %}
+
+                <select id="fake_user_combo">
+                    <option value="0">انتخاب کاربر</option>
+                    {% for item in request|get_all_users %}
+                    <option value="{{ item.username|lower }}@eit">{{ item.fullname }}</option>
+                    {% endfor %}
+                </select>
+        {% endif %}
+                <span id="exit_current_login" style="color: cornflowerblue;cursor: pointer;" >خروج</span>
+                <div class="div-loader-base">
+                    <div class="black"></div>
+                    <div class="divloader">
+                    <img class="imgloader" src="{% static 'Portal/images/loader.gif' %}"/>
+                        <b>لطفا صبر کنید...</b>
+                </div>
+                </div>
+        </div>
+    </div>

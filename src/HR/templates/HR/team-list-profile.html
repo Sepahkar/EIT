@@ -1,0 +1,62 @@
+{% load tag_library %}
+
+<section class="w-full flex flex-col">
+    <div class="w-full h-auto flex justify-center items-center mt-5">
+        <h3 class="text-xl font-semibold secondaryColor">تیم ها</h3>
+    </div>
+    <div class="w-full flex justify-center items-center flex-col ">
+        <div class="w-full flex flex-row teamBanner text-white mt-3 justify-center py-4">
+            <div class="w-[90%] flex flex-row rounded-sm ">
+                <div class="flex w-1/12 justify-center">
+                    <div class="flex items-center py-1 text-gray-900 whitespace-nowrap team-profile">
+                    </div>
+                </div>
+                <div class="flex w-2/12 items-center ">
+                    <p class="px-10 w-full">
+                        نام تیم
+                    </p>
+                </div>
+                <div class="flex w-3/12 items-center justify-center">
+                    <div class="flex flex-grow justify-center">تعداد اعضای تیم</div>
+                </div>
+                <div class="flex  w-6/12 items-center justify-center">
+                    <div class="flex flex-grow justify-center">شرح مختصر تیم</div>
+                </div>
+            </div>
+        </div>
+        <div class="w-[90%] overflow-x-auto shadow-md sm:rounded-lg">
+            <div class="w-full flex flex-col">
+                {% for team_info in teams_information %}
+                <a href="/HR/profile/team/{{team_info.TeamCode}}">
+                    <div class="w-full h-auto bg-white flex flex-row mt-3 rounded-sm py-2 cursor-pointer">
+                        <div class="flex w-1/12 justify-center">
+                            <div class="flex items-center py-1 text-gray-900 whitespace-nowrap team-profile">
+                                <img src="{{PROCESS_MANAGEMENT_STATIC_IMAGES}}{{team_info.TeamCode}}.png"
+                                    alt="" class="w-10 h-10 rounded-full object-contain">
+                            </div>
+                        </div>
+
+                        <div class="flex w-2/12 items-center">
+                            <p class="px-10 w-full">
+                                {{team_info.TeamName}}
+                            </p>
+                        </div>
+
+                        <div class="flex w-3/12 items-center justify-center">
+                            <div class="flex flex-grow justify-center">
+                                {{team_info.TeamCount|to_persian}} نفر
+                            </div>
+                        </div>
+
+                        <div class="flex  w-6/12 items-center justify-center px-4">
+                            <div class="flex flex-grow  text-xs">
+                                {% if team_info.ShortDesc %}{{team_info.ShortDesc}}{% else %} - {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>

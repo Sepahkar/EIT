@@ -1,0 +1,120 @@
+{% extends "HR/layout.html" %}
+{% block information%}
+{#    {% include 'HR/facilities.html' %}#}
+
+   <div class="facilities-page">
+        <div class="filter">
+            <div class="navigation menu">
+                <span data-key="insurance-cost-chart" {% if current_chart == 'insurance-cost-chart' %}class="active"{% endif %}>
+                    بیمه تکمیل درمان
+                </span>
+                <span data-key="nahar-time-chart" {% if current_chart == 'nahar-time-chart' %}class="active"{% endif %}>
+                    ناهارتایم
+                </span>
+                <span data-key="" {% if current_chart == '' %}class="active"{% endif %}>
+                    وام ها
+                </span>
+             </div>
+        </div>
+        <form name="chart_data" method="post">
+            {% csrf_token %}
+            <input name="year_number" type="hidden" value="{{ year_number }}">
+            <input name="role_id" type="hidden" value="{{ role_id }}">
+            <input name="role_title" type="hidden" value="{{ role_title }}">
+            <input name="level_id" type="hidden" value="{{ level_id }}">
+            <input name="level_title" type="hidden" value="{{ level_title }}">
+            <input name="current_chart" type="hidden" value="{{ current_chart }}">
+        </form>
+
+        <input name="nahar_time_EIT" type="hidden" value="{{ nahar_time_EIT }}">
+        <input name="nahar_time_user" type="hidden" value="{{ nahar_time_user }}">
+        <input name="month_name_nahar_time" type="hidden" value="{{ month_name_nahar_time }}">
+
+        <input name="nahar_time_average_EIT" type="hidden" value="{{ nahar_time_average_EIT }}">
+        <input name="nahar_time_average_user" type="hidden" value="{{ nahar_time_average_user }}">
+        <input name="month_name_nahar_time_average" type="hidden" value="{{ month_name_nahar_time_average }}">
+
+        <input name="insurance_cost_EIT" type="hidden" value="{{ insurance_cost_EIT }}">
+        <input name="insurance_cost_user" type="hidden" value="{{ insurance_cost_user }}">
+        <input name="month_name_insurance_cost" type="hidden" value="{{ month_name_insurance_cost }}">
+
+        <input name="insurance_cost_average_EIT" type="hidden" value="{{ insurance_cost_average_EIT }}">
+        <input name="insurance_cost_average_user" type="hidden" value="{{ insurance_cost_average_user }}">
+        <input name="month_name_insurance_average_cost" type="hidden" value="{{ month_name_insurance_average_cost }}">
+
+        <input name="year_list" type="hidden" value="{{ year_list }}">
+        <input name="year_number" type="hidden" value="{{ year_number }}">
+        {% if message|default:'' != ''  %}
+            <h3>{{ message }}</h3>
+        {% else %}
+        <div class="view-chart">
+            <div class="filter">
+                <div class="navigation top col-12">
+                    {% if has_more_than_one_role %}
+                        <div class="roles ">
+                            {% for role in role_list %}
+                                <span {% if role.0 == role_id %}class="active"{% endif %} data-level="{{ role.2 }}">
+                                    {{ role.1 }} {{ role.3|default:'' }}
+                                </span>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                    {% if has_more_than_one_year %}
+                        <div class="years ">
+                            {% for year in year_list %}
+                            <span {% if year.0 == year_number %}class="active"{% endif %}>{{ year.0}}</span>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <figure class="highcharts-figure" pie-chart style="display: none">
+                <div id="nahar-time-chart"></div>
+                <p class="highcharts-description">
+                    <ul>
+                        <li><b>هزینه پرداختی فرد:</b>مبلغی است که از خود فرد کسر گردیده است.</li>
+                        <li><b>هزینه پرداختی شرکت:</b>مبلغی است که شرکت به عنوان سوبسید برای شخص پرداخت کرده است.</li>
+                    </ul>
+                </p>
+            </figure>
+            <figure class="highcharts-figure" style="display: none">
+                <div id="nahar-time-average-chart"></div>
+                <p class="highcharts-description">
+                    <ul>
+                        <li><b>میانگین پرداختی افراد:</b>میانگین مبلغی است که افرادی با سمت  {{ role_title }} {{ level_title|default:'' }} پرداخت کرده اند.</li>
+                        <li><b>میانگین پرداختی شرکت:</b>میانگین مبلغی است که شرکت برای افرادی با سمت  {{ role_title }} {{ level_title|default:'' }} پرداخت کرده است.</li>
+                    </ul>
+                </p>
+            </figure>
+            <figure class="highcharts-figure" style="display: none">
+                <div id="insurance-cost-chart"></div>
+                <p class="highcharts-description">
+                    <ul>
+                        <li><b>خالص دریافتی:</b> مبلغ خالص دریافتی فرد پس از انجام کسور بیمه و مالیات و ...</li>
+                        <li><b>مبلغ حکم:</b> مبلغ حکم معادل حقوق پایه فرد است. حقوق پایه در سه ماه دوم سال به خاطر کوتاه بودن ماه ها افزایش اندکی دارد</li>
+                        <li><b>میانگین دریافتی شرکت:</b> میانگین دریافتی حقوق پرسنل شرکت </li>
+                        <li><b>میانگین دریافتی این سمت:</b> میانگین حقوق دریافتی افرادی با سمت {{ role_title }} {{ level_title|default:'' }}</li>
+                    </ul>
+                </p>
+            </figure>
+            <figure class="highcharts-figure" style="display: none">
+                <div id="insurance-cost-average-chart"></div>
+                <p class="highcharts-description">
+                    <ul>
+                        <li><b>میانگین پرداختی افراد:</b>میانگین مبلغی است که افرادی با سمت  {{ role_title }} {{ level_title|default:'' }} پرداخت کرده اند.</li>
+                        <li><b>میانگین پرداختی شرکت:</b>میانگین مبلغی است که شرکت برای افرادی با سمت  {{ role_title }} {{ level_title|default:'' }} پرداخت کرده است.</li>
+                    </ul>
+                </p>
+            </figure>
+        </div>
+        {% endif %}
+        </div>
+
+
+
+
+    </div>
+
+
+{% endblock %}

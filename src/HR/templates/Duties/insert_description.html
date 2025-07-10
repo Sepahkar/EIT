@@ -1,0 +1,101 @@
+{% load static %}
+
+<div class="row">
+<div class="col-2 parent-right-sidebar position-relative">
+    {% include 'Duties/right_sidebar.html' %}
+</div>
+<div class="col-1">
+
+</div>
+<div class="col-6 d-flex flex-column ">
+    {% include 'Duties/common_header.html' %}
+
+    <div class="row d-flex flex-row justify-content-center flex-wrap mt-5 ">
+
+        <div class="d-flex flex-column w-100">
+            <div class="itemheader position-relative w-100"  >
+                <div class="position-absolute itemheader-top text-white text-center font-Titr font-size-20 pt-2" >
+                    <span>{% if "view" in request.GET %}{% if request.GET.view == "du" %}شرح وظایف{% else %}شرایط احراز{% endif %}{% else %}شرح وظایف{% endif %}</span>
+                </div>
+                <div class="itemheader-bot position-absolute " >
+                </div>
+            </div>
+
+            <div class="itemcontent parentitemsdescription w-100 position-relative px-3 py-5 overflow-auto" >
+
+                <!-- old data -->
+                    {% for description in descriptions %}
+                        <div data-role-id="{{ description.RoleId }}" data-id="{{ description.id }}" class="ms-2 row everyrow d-flex flex-row justify-content-between align-items-center mb-4">
+                            <div class="w-75 d-flex flex-row justify-content-between position-relative">
+                                <span class="NUMBER w-5 font-Titr font-size-20">{{ forloop.counter }}</span>
+                                <span class="w-60 position-relative">
+                                    <div class="form-outline">
+                                        <textarea rows="1" class="auto_height form-control fix-input-to-line title-description"  >{{ description.Title }}</textarea>
+                                    </div>
+                                </span>
+                                <span class=" w-30 position-relative">
+                                    <select class="form-select category-description">
+                                        {% for cat in categories %}
+                                            <option  {% if description.Category == cat.id %}selected{% endif %} value="{{ cat.id }}">{{ cat.name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </span>
+                                <div class="lockForEdit" style="position:absolute;left: 0;top: -20%;width: 100%;height: 100%;" >
+                                    <span class="left" style="width: 50%;height: 140%;float: left;opacity: 0.2;background-color: black;border-top-left-radius: 10px;border-bottom-left-radius: 10px;">&nbsp;</span>
+                                    <span class="right" style="width: 50%;height: 140%;float: right;opacity: 0.2;background-color: black;border-top-right-radius: 10px;border-bottom-right-radius: 10px;">&nbsp;</span>
+                                </div>
+                            </div>
+                            <div class="w-20 d-flex flex-row justify-content-around align-items-center">
+                                <i class="w-auto js_style js_style_color_blue js_style_font-size_25px js_style_cursor_pointer squre-hover fa fa-edit edit-row"></i>
+                                <i class="w-auto js_style d-none js_style_color_green js_style_font-size_25px js_style_cursor_pointer squre-hover fa fa-save save-row"></i>
+                                <i class="w-auto js_style js_style_color_red js_style_font-size_25px js_style_cursor_pointer squre-hover fa fa-trash delete-row"></i>
+                            </div>
+
+
+                        </div>
+                    {% endfor %}
+                <!--end old data -->
+
+            </div>
+
+
+            <!-- sample row -->
+                <div class="d-none ms-2 row sampleeveryrow d-flex flex-row justify-content-between align-items-center mb-4 new-added-everyrow">
+                <div class="w-75 d-flex flex-row justify-content-between position-relative">
+                    <span class="NUMBER w-5 font-Titr font-size-20"></span>
+                    <span class="w-60">
+                        <div class="form-outline">
+                            <textarea rows="1" class="auto_height form-control fix-input-to-line" ></textarea>
+                        </div>
+                    </span>
+                    <span class=" w-30">
+                        <select class="form-select">
+                        <option selected value="0">انتخاب دسته بندی</option>
+                            {% for cat in categories %}
+                                <option value="{{ cat.id }}">{{ cat.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </span>
+                    <div class="lockForEdit d-none" style="position:absolute;left: 0;top: -20%;width: 100%;height: 100%;" >
+                        <span class="left" style="width: 0%;height: 140%;float: left;opacity: 0.2;background-color: black;border-top-left-radius: 10px;border-bottom-left-radius: 10px;">&nbsp;</span>
+                        <span class="right" style="width: 0%;height: 140%;float: right;opacity: 0.2;background-color: black;border-top-right-radius: 10px;border-bottom-right-radius: 10px;">&nbsp;</span>
+                    </div>
+                </div>
+                <div class="w-20 d-flex flex-row justify-content-around align-items-center">
+                    <i class="w-auto js_style js_style_color_blue js_style_font-size_25px js_style_cursor_pointer squre-hover fa fa-edit edit-row"></i>
+                    <i class="w-auto js_style js_style_color_green js_style_font-size_25px js_style_cursor_pointer squre-hover fa fa-save save-row"></i>
+                    <i class="w-auto js_style js_style_color_red js_style_font-size_25px js_style_cursor_pointer squre-hover fa fa-trash delete-row"></i>
+                </div>
+                </div>
+            <!-- end sample row-->
+
+
+        </div>
+
+    </div>
+</div>
+</div>
+
+
+
+{% include 'Duties/static_role_level.html' %}

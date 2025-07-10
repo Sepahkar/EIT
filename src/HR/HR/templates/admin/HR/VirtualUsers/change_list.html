@@ -1,0 +1,94 @@
+{% extends "admin/base_site.html" %}
+{% load i18n admin_urls static admin_list %}
+
+{% block extrastyle %}
+    {{ block.super }}
+{% endblock %}
+
+{% block extrahead %}
+    {% include 'admin/HR/base_admin.html' %}
+    <script src="{% static 'admin/HR/js/change_list.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+    <script>
+        var ALL_APPS = {{ all_apps|safe }};
+    </script>
+    <div x-data="initXData(ALL_APPS)" >
+    {% include 'admin/HR/loading.html' %}
+    <div class="col-3">
+        <input x-on:input="searchInTable($event)"  type="text" class="mb-2 mx-2" id="search_input" placeholder="جستجو">
+    </div>
+    <table x-show="!showLoading" class="table table-hover" >
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>نام کاربری</th>
+                <th>نام خانوادگی</th>
+                <th>نمایش</th>
+            </tr>
+        </thead>
+        <tbody>
+            <template x-for="(user,index) in users" :key="index">
+                <tr>
+                    <td x-html="index+1"></td>
+                    <td ><a x-html="user.UserName" x-bind:href="`/admin/HR/virtualusers/${user.UserName}/change/`"></a></td>
+                    <td x-html="user.FullName"></td>
+                    <td>
+                        <select x-on:change="changeApp($event)">
+                            <option value="0">انتخاب برنامه</option>
+                            {% for item in all_apps %}
+                            <option value="{{ item.AppName }}">{{ item.AppName }}</option>
+                            {% endfor %}
+                        </select>
+                        <br>
+                        <button x-on:click="setUserToSelectedUser(`${user.UserName}`)" type="button" class="mt-1 btn btn-primary" data-mdb-toggle="modal" data-mdb-target="#exampleModal">نمایش اطلاعات کاربر</button>
+                    </td>
+                </tr>
+            </template>
+        </tbody>
+</table>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" x-html="selectedUser.FullName" id="exampleModalLabel"></h5>
+        <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body d-flex flex-column">
+          <img onerror="this.src='/static_eit/EIT/images/noprofile.png'" :src="`${selectedUser.user_image_name}`" class="rounded-circle z-depth-2" width="100" height="100" />
+          <div class="d-flex flex-row align-items-center">
+              <span>سن</span>:
+              <span x-html="selectedUser.age"></span>
+          </div>
+          <div class="d-flex flex-row align-items-center">
+              <span>سابقه در فناوران</span>:
+              <span x-html="selectedUser.contract"></span>
+          </div>
+          <div class="d-flex flex-row align-items-center">
+              <span>مدرک تحصیلی</span>:
+              <span x-html="selectedUser.degree"></span>
+          </div>
+          <div class="d-flex flex-row align-items-center">
+              <span>فعال بودن کاربر</span>:
+              <input x-on:change="changeChecked($event,'active')" type="checkbox" x-model="accessDataUser.is_active">
+          </div>
+          <div class="d-flex flex-row align-items-center">
+              <span>کارمند بودن کاربر</span>:
+              <input x-on:change="changeChecked($event,'staff')" type="checkbox" x-model="accessDataUser.is_staff">
+          </div>
+          <div class="d-flex flex-row align-items-center">
+              <span>مدیر بودن کاربر</span>:
+              <input x-on:change="changeChecked($event,'superuser')" type="checkbox" x-model="accessDataUser.is_superuser">
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">بستن</button>
+        <button x-on:click="changeUserAccessData()" type="button" class="btn btn-primary" >ذخیره</button>
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+
+{% endblock %}

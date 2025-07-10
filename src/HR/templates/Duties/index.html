@@ -1,0 +1,784 @@
+{% extends "Duties/base.html" %}
+{% load static %}
+{% load custom_tags_duties %}
+{% block  content %}
+<div class="container-fluid main-all p-4">
+    <div order="1" class="page"  id="page_select_role">
+        {% include 'Duties/select_role.html' %}
+    </div>
+
+    <div order="2" class="page" style="display: none;" id="page_select_level">
+        {% include 'Duties/select_level.html' %}
+    </div>
+
+    <div order="3" class="page" style="display: none;" id="page_show_users_in_role">
+        {% include 'Duties/show_users_in_role.html' %}
+    </div>
+
+    <div order="4" class="page" style="display: none;" id="page_insert_description">
+        {% include 'Duties/insert_description.html' %}
+    </div>
+
+    <div class="w-100 position-fixed bottom-0 end-0">
+        <div class="position-relative w-100">
+            <div class="position-absolute prevnextbtn actionprev btnPrevPage d-none">
+                <img src="{% static '/Duties/images/back.svg' %}"   />
+                <span class="d-block mx-auto font-Homa">مرحله قبل</span>
+            </div>
+            <div class="position-absolute prevnextbtn actionnext btnNextPage d-none">
+                <img src="{% static '/Duties/images/back.svg' %}" style="transform: rotate(180deg);" class="d-block mx-auto" />
+                <span class="d-block mx-auto font-Homa">مرحله بعد</span>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+
+
+jQuery(function($){
+
+    var firstteam = '{{ firstteam }}';
+    var arrWidths = [];
+    var clonedSample = $(".sampleeveryrow").clone();
+    var role_level_superior = JSON.parse('{{ role_level_superior|safe }}');
+    var role_users = JSON.parse('{{ role_users|safe }}');
+    var users_study_degree = JSON.parse('{{ users_study_degree|safe }}');
+    var roleName = "";
+    var current_role_level = 0;
+    var curOrderPage = 1;
+    var curLevel = 0;
+    var curLevelName = "";
+    var teamcode = '{{ team.TeamCode }}';
+    var username = '{{ username }}';
+    var current_role_level_image = "";
+
+    check_page_parameter();
+    $(".circlenot").each(function(){
+        arrWidths.push(parseInt($(this).width()))
+    });
+    var maxWidth = Math.max.apply(null,arrWidths);
+    maxWidth+=15;
+    $(".circlenot").each(function(){
+
+        $(this).css("width",maxWidth.toString() + "px");
+        $(this).css("height",maxWidth.toString() + "px");
+        $(this).css("padding","8px");
+    });
+
+    $(".imglevelnum").on('click',function(){
+        if(curLevel == parseInt($(this).attr("data-level-id")))
+            return;
+        var tmp = $(this).parent().find(".sp-users-in-level").clone();
+        $(this).parent().find(".sp-users-in-level").remove();
+        curLevel = $(this).attr("data-level-id");
+        curLevelName = $(this).attr("data-level-name");
+        var elm = $(this);
+        var divelm = $(".spimglevelbeforshow");
+        divelm.empty();
+        var resetSelfElm = elm.clone();
+        var resetElm = elm.prev().prev().clone(true);
+        var jqueryObj = $(".txtlevelname");
+        jqueryObj.fadeOut().promise().done(function(){jqueryObj.html('');jqueryObj.show();});
+        var left1 = parseInt(elm[0].getBoundingClientRect().left).toString();
+        var top1 = parseInt(elm[0].getBoundingClientRect().top).toString();
+
+        var obj = jqueryObj[0];
+        var positions = obj.getBoundingClientRect();
+        var left2 = parseInt(positions.left).toString();
+        var top2 = parseInt(positions.top).toString();
+        var newElm = elm.prev().prev();
+        newElm.css("position","fixed").css("left",left1+"px").css("top",top1+"px");
+        newElm.removeClass("d-none");
+        newElm.animate({
+            left:left2+"px",
+            top:top2+"px",
+            fontSize:jqueryObj.css("font-size"),
+            color:'white',
+        },1000,function(){
+            jqueryObj.html(newElm.html());
+            newElm.remove();
+            elm.parent().prepend(resetElm);
+            ///run this line after done
+
+            var pos = divelm[0].getBoundingClientRect();
+            var left3 = parseInt(pos.left).toString();
+            var top3 = parseInt(pos.top).toString();
+            resetSelfElm.removeClass("imglevelnum").removeClass("btnLevel").removeClass("end-0")
+            resetSelfElm.css("position","fixed").css("left",parseInt(elm.offset().left)).css("top",parseInt(elm.offset().top)).css("z-index","501");
+            $("body").append(resetSelfElm);
+            resetSelfElm.animate({
+                left:left3+"px",
+                top:top3+"px",
+                width:'40px',
+                height:'40px'
+            },1000,function(){
+                resetSelfElm.remove();
+                divelm.append(elm.clone().css("position","initial").css("width","100%").css("height","100%"));
+            });
+
+        //end call
+
+
+        });
+        $(this).parent().prepend(tmp);
+        updateRoles();
+        updateUsers();
+
+    });
+
+    var currentimglevelnum ;
+
+    $(".imglevelnum").on('mouseenter',function(){
+        if(currentimglevelnum != undefined)
+            return;
+        currentimglevelnum = $(this);
+        var elm = currentimglevelnum;
+        elm.prev().css("visibility","hidden").removeClass("d-none");
+        var w = elm.prev().width();
+        elm.prev().attr("data-width",w);
+        elm.prev().css("width","10px");
+        elm.prev().css("visibility","visible");
+        elm.prev().animate({
+            left:'89px',
+            width:w,
+        },500,function(){});
+
+    });
+
+    $(".imglevelnum").on('mouseout',function(){
+        if(currentimglevelnum == undefined)
+            return;
+        //var elm = $(this);
+        var elm = currentimglevelnum;
+        var w = elm.prev().attr("data-width");
+        $(this).prev().animate({
+            left:'10px',
+            width:'10px',
+        },500,function(){elm.prev().addClass("d-none").css("width",w); currentimglevelnum = undefined; });
+    });
+
+
+
+    $(".parent-level-img").on('mouseenter',function(){
+        var src = $(this).attr("src").replace("-Gray","");
+        $(this).attr("src",src);
+    });
+
+    $(".parent-level-img").on('mouseout',function(){
+        var src = $(this).attr("src").replace(".png","-Gray.png");
+        $(this).attr("src",src);
+    });
+
+
+    $(".parent-level-img").on('click',function(){
+        $(".divsuperiorlevel").hide();
+        current_role_level = $(this).attr("data-id");
+        roleName = $(this).attr("data-role-name");
+        current_role_level_image = $(this).attr("src");
+        current_role_level_image = current_role_level_image.replaceAll("-Gray","");
+        if(Object.keys(role_level_superior).indexOf(current_role_level) > -1 ){
+            if(role_level_superior[current_role_level]['HasSuperior']===false && role_level_superior[current_role_level]['HasLevel']===false){
+                nextPage(true);
+                $(".txtrolename").find("span:first-child").html(role_level_superior[current_role_level]['name']);
+            }
+            else {
+
+                if (role_level_superior[current_role_level]['HasSuperior'] == true) {
+
+                    $(".divsuperior").show();
+                }
+                if (role_level_superior[current_role_level]['HasLevel'] == true) {
+
+                    $(".divlevel").show();
+                }
+                nextPage();
+                $(".txtrolename").find("span:first-child").html(role_level_superior[current_role_level]['name']);
+            }
+
+        }
+
+        updateInsertDescriptionwithRoleLevel();
+        updateLevelCount();
+        updateSuperiorCount();
+
+    });
+
+
+    $(".btnSuperior").on('click',function(){
+        if(parseInt($(this).attr("isSuperior")) == 0){
+            $(this).attr("isSuperior","1");
+            $(this).css("opacity","1");
+            $(".txtsuperior").removeClass("d-none");
+            /*$(".spmovable").removeClass("d-none");
+            var pos1 = $(".spmovable")[0].getBoundingClientRect();
+            var left1 = parseInt(pos1.left).toString();
+            var top1 = parseInt(pos1.top).toString();
+            $(".spmovable").animate({
+                left:'100%',
+                top:'100%',
+            },1500,function(){ $(".spmovable").addClass("d-none");$(".spmovable").css({ 'left':left1+"px", 'top':top1+"px"}); $(".txtsuperior").removeClass("d-none");});*/
+        }
+        else{
+            $(this).attr("isSuperior","0");
+            $(this).css("opacity","0.4");
+            $(".txtsuperior").addClass("d-none");
+        }
+        updateRoles();
+        updateUsers();
+
+    });
+
+
+    $(".btnNextPage").on('click',function(){
+        nextPage();
+    });
+
+    $(".btnPrevPage").on('click',function(){
+        prevPage();
+    });
+
+    $(".auto_height").on('input',function (){
+        var elm = $(this)[0];
+        elm.style.height = "1px";
+        elm.style.height = (elm.scrollHeight)+"px";
+    });
+
+
+    $(".change-cd-du").on('click',function(){
+        var urlParams = new URLSearchParams(window.location.search);
+        var newUrl = "?view="+$(this).attr("data-view");
+        newUrl += "&order="+curOrderPage;
+        newUrl += "&level="+curLevel;
+        newUrl += "&role="+current_role_level;
+        newUrl += "&superior="+$(".btnSuperior").attr("issuperior");
+        newUrl += (urlParams.has('team')) ? "&team="+urlParams.get('team') : "&team="+firstteam;
+        window.location.href = newUrl;
+    });
+
+    $(document).delegate(".save-row",'click',function(){
+        var btn = $(this);
+        var parent = $(this).parent().parent().find("div:first-child");
+        var dataId = parent.parent().attr("data-id");
+        var isUpdate = (dataId != null && dataId != undefined && dataId != "undefined" && parseInt(dataId)>0) ? "1" : 0;
+        if(isUpdate==false)
+            dataId = 0;
+        var category_description = parent.find(":nth-child(3)").find("select").val();
+        var title_description = parent.find(":nth-child(2)").find(":nth-child(1)").find(":nth-child(1)").val();
+        var isSuperior = parseInt($(".btnSuperior").attr("isSuperior"));
+        if(title_description == "" || parseInt(category_description) == 0){
+            if(title_description==""){
+                parent.find(":nth-child(2)").find(":nth-child(1)").find(":nth-child(1)").after(`<div class="nowalert alert alert-danger mt-1 p-1 font-size-14" role="alert">پر کردن این فیلد الزامی است</div>`);
+            }
+            if(parseInt(category_description) == 0){
+                parent.find(":nth-child(3)").find("select").after(`<div class="nowalert alert alert-danger mt-1 p-1 font-size-14" role="alert">انتخاب  این فیلد الزامی است</div>`);
+            }
+            setTimeout(function(){ $(".nowalert").remove();},5000)
+            return false;
+        }
+        if(current_role_level==0){
+            $.alert("هیچ سمتی انتخاب نشده است.");
+            return false;
+        }
+        $.ajax({
+            'headers': {'X-CSRFToken':'{{ csrf_token }}'},
+            'url':'{% url 'Duties:insert_description' %}',
+            'type':'POST',
+            'data':{
+                'title':title_description,
+                'category':category_description,
+                'level':curLevel,
+                'role':current_role_level,
+                'superior':isSuperior,
+                'teamcode':teamcode,
+                'username':username,
+                'isupdate':isUpdate,
+                'id':dataId,
+            },
+            'success':function(res){
+                if(res.state == "ok"){
+                    var msg = "با موفقیت ثبت شد";
+                    if(parseInt(isUpdate)==1)
+                        msg = "ویرایش انجام شد";
+                    //$.alert(msg);
+                    parent.parent().attr("data-id",res.id);
+                    sortRows(true);
+                    btn.parent().parent().find("div:first-child").find(".lockForEdit").removeClass("d-none");
+                    btn.parent().parent().find("div:first-child").find(".lockForEdit").each(function(){
+                        var elm = $(this);
+                        elm.find(".left").animate({
+                            width:'50%'
+                        },1000);
+
+                        elm.find(".right").animate({
+                            width:'50%'
+                        },1000).promise().done(function(){
+                            btn.parent().find(".save-row").addClass("d-none");
+                            btn.parent().find(".edit-row,.delete-row").removeClass("d-none");
+                            btn.parent().find(".edit-row,.delete-row").show();
+                        });
+                    });
+                }
+            },
+        });
+    });
+
+
+    $(document).delegate(".delete-row",'click',function(){
+        var parent = $(this).parent().parent();
+        var id = parent.attr("data-id");
+
+
+        $.confirm({
+            title: 'تایید حذف',
+            content: 'آیا از حذف این مورد اطمینان دارید؟',
+            rtl: true,
+            backgroundDismiss: true,
+            autoClose: 'confirm|8000',
+            buttons: {
+                confirm:
+                    {
+                        btnClass:'btn-success',
+                        text: 'تایید',
+                        action:function () {
+                                    $.ajax({
+                                    'headers': {'X-CSRFToken':'{{ csrf_token }}'},
+                                    'url':'{% url 'Duties:delete_description' %}',
+                                    'type':'POST',
+                                    'data':{
+                                        'id':id,
+                                    },
+                                    'success':function(res){
+                                        if(res.state == "ok"){
+                                            //$.alert("با موفقیت حذف شد");
+                                            parent.remove();
+                                            sortRows(true);
+                                        }
+                                    },
+                                });
+                        }
+                    },
+                cancel:
+                    {
+                        btnClass:'btn-danger',
+                        text: 'لغو',
+                        action:function () {
+                        }
+                    },
+                }
+        });
+
+
+
+    });
+
+
+    $(document).delegate(".edit-row","click",function(){
+        var btn = $(this);
+        btn.parent().parent().find("div").find(".lockForEdit").each(function(){
+            var elm = $(this);
+            elm.find(".left").animate({
+                width:0
+            },1000);
+
+            elm.find(".right").animate({
+                width:0
+            },1000).promise().done(function(){
+                btn.parent().find(".save-row").removeClass("d-none");
+                btn.parent().find(".edit-row,.delete-row").addClass("d-none");
+                elm.addClass("d-none");
+            });
+        });
+    });
+
+    $(".all-c-d-count").each(function(){
+        var numberCount = parseInt($(this).find("span").html().length);
+        var w = (numberCount * 10).toString();
+        if (w<25)
+            w = 25;
+        var elm = $(this);
+        elm.css({
+            width: w+'px',
+            height: w+'px'
+        });
+        if(w>40){
+            var margin = (numberCount * 3).toString();
+            elm.css("margin-bottom",margin+"px");
+        }
+    });
+
+
+    var _urlParams = new URLSearchParams(window.location.search);
+    $(".change-team").on("change",function(){
+        var team = $(this).val();
+        var newUrl = (window.location.href.indexOf("?") == -1) ? window.location.href + "?team="+team : window.location.href + "&team="+team;
+        if(_urlParams.has('team')){
+            _urlParams.set('team',team);
+            if(_urlParams.has('order'))
+                _urlParams.delete('order')
+            if(_urlParams.has('level'))
+                _urlParams.delete('level')
+            if(_urlParams.has('role'))
+                _urlParams.delete('role')
+            if(_urlParams.has('superior'))
+                _urlParams.delete('superior')
+
+            newUrl = window.location.href.replace(window.location.search,"");
+            newUrl += "?" + _urlParams.toString();
+        }
+        window.location.href = newUrl;
+    });
+
+
+    function check_page_parameter(){
+        var urlParams = new URLSearchParams(window.location.search);
+        if(urlParams.has('order')){
+            var order = parseInt(urlParams.get('order'));
+            var level = parseInt(urlParams.get('level'));
+            var role = parseInt(urlParams.get('role'));
+            var superior = parseInt(urlParams.get('superior'));
+            current_role_level = role;
+            curLevel = level;
+            curOrderPage = order;
+            if(level != 0){
+                $(".imglevelnum").each(function(){
+                    if(parseInt($(this).attr("data-level-id")) == level){
+                        $(this).trigger("click");
+                    }
+                });
+            }
+            if(current_role_level != 0){
+                $(".parent-level-img").each(function(){
+                    if(parseInt($(this).attr("data-id")) == current_role_level){
+                        $(this).trigger("click");
+                    }
+                });
+            }
+            if(parseInt(superior) === 1){
+                $(".btnSuperior").trigger("click");
+            }
+
+            updateRoles();
+            updateUsers();
+            updateInsertDescriptionwithRoleLevel();
+
+            if(role_level_superior[current_role_level] != undefined)
+                $(".txtrolename").find("span:first-child").html(role_level_superior[current_role_level]['name']);
+            checkShowHidePrevNextBtns(curOrderPage,1,$(".page").length);
+            updateRolesInInsertDescription();
+            $(".page").hide();
+            $(`.page[order=${order}]`).show();
+            sortRows(true);
+
+        }
+    }
+
+    function updateSuperiorCount(){
+
+            var count = 0;
+            role_users.forEach(function(item){
+                if(parseInt(item.Superior) === 1 & item.RoleId == parseInt(current_role_level))
+                    count++;
+            });
+            if(count>0){
+                $(".sp-superior-in-users").html(count);
+                $(".sp-superior-in-users").removeClass("d-none");
+            }
+            else{
+                $(".sp-superior-in-users").addClass("d-none");
+            }
+    }
+
+
+    function updateLevelCount(){
+        $(".sp-users-in-level").each(function(){
+            var level = parseInt($(this).parent().find(".imglevelnum").attr("data-level-id"));
+            var count = 0;
+            role_users.forEach(function(item){
+                if(item.LevelId == level & item.RoleId == parseInt(current_role_level))
+                    count++;
+            });
+
+            if(count>0){
+                $(this).html(count);
+                $(this).removeClass("d-none");
+            }
+            else{
+                $(this).addClass("d-none");
+            }
+        });
+    }
+
+
+    function addRow(){
+        var parent = $(".parentitemsdescription");
+        var count = parent.children().not(".d-none").length;
+        count++;
+        var everyrow = clonedSample.clone();
+        everyrow.attr("data-role-id",current_role_level);
+        everyrow.removeClass("sampleeveryrow").addClass("everyrow");
+        everyrow.find(":nth-child(1)").find(".NUMBER").html(count);
+        everyrow.find(":nth-child(2)").find(".edit-row,.delete-row").hide();
+        everyrow.removeClass("d-none");
+        parent.append(everyrow);
+    }
+
+    function getUsers(){
+
+        var newArr = [];
+        var isSuperior = parseInt($(".btnSuperior").attr("isSuperior"));
+        role_users.forEach(function(item){
+            if(parseInt(item.RoleId) == parseInt(current_role_level)){
+
+                var add = true;
+
+                if(isSuperior != parseInt(item.Superior)){
+                    add = false;
+                }
+
+                if(parseInt(curLevel) != 0){
+                    if(parseInt(item.LevelId) != curLevel){
+                        add = false;
+                    }
+                }
+
+
+                if (add)
+                    newArr.push(item);
+            }
+        });
+
+        return newArr;
+    }
+
+
+    function updateRolesInInsertDescription(){
+        $(".parentlistusers").empty();
+        var arr = getUsers();
+        arr.forEach(function(item) {
+            var divitemlistsusers = $(".samplelistuseritem").clone();
+            divitemlistsusers = $(divitemlistsusers[0]);
+            divitemlistsusers.find(".NAME").html(item.name);
+            divitemlistsusers.find(".IMGSRC").attr("src", divitemlistsusers.find(".IMGSRC").attr("src")+item.img);
+            divitemlistsusers.removeClass("d-none");
+            divitemlistsusers.removeClass("samplelistuseritem");
+            $(".parentlistusers").append(divitemlistsusers);
+        });
+        fixBrokenImage();
+    }
+
+
+    function updateRoles(){
+        $(".parentlistusers").empty();
+        var divitemlistsusers = $(".samplelistuseritem").clone();
+        divitemlistsusers = $(divitemlistsusers[0]);
+        divitemlistsusers.find(".NAME").html(roleName);
+        divitemlistsusers.find(".IMGSRC").attr("src",current_role_level_image);
+        divitemlistsusers.removeClass("d-none");
+        divitemlistsusers.removeClass("samplelistuseritem");
+        $(".parentlistusers").append(divitemlistsusers);
+        fixBrokenImage();
+    }
+
+    function updateInsertDescriptionwithRoleLevel(){
+        $(".everyrow").removeClass("d-none");
+        $(".everyrow").each(function(){
+            if(parseInt($(this).attr("data-role-id")) != parseInt(current_role_level)){
+                if($(this).attr("class").indexOf("new-added-everyrow") < 0)
+                    $(this).addClass("d-none");
+            }
+        });
+        sortRows(true);
+    }
+
+    function updateUsers(){
+        $(".parentusersdiv").empty();
+        var cl = $(".sampleuserdiv").clone();
+        var arr = getUsers();
+        arr.forEach(function(item){
+            var divitem = cl.clone();
+            divitem.find(".NAME").html(item.name);
+            divitem.find(".IMGSRC").attr("src",divitem.find(".IMGSRC").attr("src")+item.img);
+            divitem.find(".AGE").html(item.age);
+            if(users_study_degree[item.username.toString()] != undefined){
+                divitem.find(".DEGREE").html(users_study_degree[item.username.toString()].degree);
+                divitem.find(".FIELDOFSTUDY").html(users_study_degree[item.username.toString()].study);
+            }
+            divitem.find(".CONTRACT").html(item.contract);
+            divitem.removeClass("d-none");
+            $(".parentusersdiv").append(divitem);
+        });
+
+        fixBrokenImage();
+
+    }
+
+    function updateVerticalUsersList(){
+        arr.forEach(function(item) {
+            var divitemlistsusers = $(".samplelistuseritem").clone();
+            divitemlistsusers = $(divitemlistsusers[0]);
+            var oldsrc = divitemlistsusers.find(".samplelistuseritem-img").attr("src");
+            divitemlistsusers.find(".NAME").html(item.name);
+            divitemlistsusers.find(".IMGSRC").attr("src",oldsrc+item.img);
+            divitemlistsusers.removeClass("d-none");
+            divitemlistsusers.removeClass("samplelistuseritem");
+            $(".parentlistusers").append(divitemlistsusers);
+
+        });
+    }
+
+    function fixBrokenImage(){
+        $(".replaceDefaultImg").each(function(){
+            var defaultSrc = $(this).attr("defaultSrc");
+            $(this).attr("onerror","this.src=`"+defaultSrc+"`");
+        });
+    }
+
+    function sortRows(add_row=false){
+        if($(".parentitemsdescription").children().length>0) {
+            var start = 1;
+            $(".parentitemsdescription").children().each(function () {
+                if(!$(this).hasClass("d-none")) {
+                    $(this).find(":nth-child(1)").find(".NUMBER").html(start);
+                    start++;
+                }
+            });
+            if(add_row)
+                addRow();
+        }
+        else{
+            addRow();
+        }
+
+        var arrEveryoRows = [];
+        $(".everyrow").each(function(){
+            if($(this).attr("data-id") == undefined || $(this).attr("data-id") == null){
+                arrEveryoRows.push($(this));
+            }
+        });
+
+        for(var i=1;i<arrEveryoRows.length;i++){
+            arrEveryoRows[i].remove();
+        }
+
+
+    }
+
+    function nextPage(check_next_page=false){
+        $(".divsuperior").show();
+        $(".divlevel").show();
+        var maxPage = $(".page").length;
+        curOrderPage++;
+        if(curOrderPage>maxPage){
+            curOrderPage = 1;
+        }
+
+        $(".page").hide();
+        $(`.page[order=${curOrderPage}]`).show();
+        updateRoles();
+        updateUsers();
+        $(".txtrolename").find("span:first-child").html(roleName);
+
+        if(current_role_level==0)
+            return;
+        if(role_level_superior[current_role_level].HasSuperior == false & role_level_superior[current_role_level].HasLevel == false & check_next_page == true){
+            nextPage(false);
+        }
+
+        else if(role_level_superior[current_role_level].HasSuperior == false & role_level_superior[current_role_level].HasLevel == false & check_next_page == true & curOrderPage == 3 ){
+            nextPage(false);
+        }
+
+        if(curOrderPage == maxPage){
+            updateRolesInInsertDescription();
+        }
+
+        checkShowHidePrevNextBtns(curOrderPage,1,maxPage);
+
+        if(curOrderPage ==2 && parseInt(current_role_level) == 58){
+            $(".btnSuperior").trigger("click");
+            nextPage();
+        }
+
+
+    }
+
+    function prevPage(){
+        $(".divsuperior").show();
+        $(".divlevel").show();
+        var minPage = 1;
+        var maxPage = $(".page").length;
+        curOrderPage--;
+        if(curOrderPage<minPage){
+            curOrderPage = 1;
+        }
+
+        $(".page").hide();
+        $(`.page[order=${curOrderPage}]`).show();
+        updateRoles();
+        updateUsers();
+        checkShowHidePrevNextBtns(curOrderPage,minPage,maxPage);
+        if(role_level_superior[current_role_level].HasSuperior == false & role_level_superior[current_role_level].HasLevel == false & curOrderPage == 2){
+            prevPage();
+        }
+
+        if(curOrderPage == 3 && parseInt(current_role_level) == 58){
+            $(".btnSuperior").trigger("click");
+            prevPage();
+            prevPage();
+        }
+        else if(curOrderPage == 2 && parseInt(current_role_level) == 58){
+            $(".btnSuperior").trigger("click");
+            prevPage();
+        }
+        else if(curOrderPage == 1){
+            var urlParams = new URLSearchParams(window.location.search);
+            if(urlParams.has('order')){
+                var url = window.location.href;
+                var newUrl = url.split('?')[0];
+                newUrl += "?view="+urlParams.get('view');
+                window.history.replaceState(null, null, newUrl);
+            }
+
+            window.location.reload();
+
+
+        }
+
+    }
+
+
+    function checkShowHidePrevNextBtns(curOrderPage,minPage,maxPage){
+        $(".btnPrevPage,.btnNextPage").removeClass("d-none");
+        if(curOrderPage == 1){
+            $(".btnPrevPage").addClass("d-none");
+            $(".btnNextPage").addClass("d-none");
+        }
+        if(curOrderPage == maxPage){
+            $(".btnNextPage").addClass("d-none");
+        }
+    }
+
+
+    setTimeout(checkImageNotExists,200);
+    function checkImageNotExists(){
+        $(".parent-level-img").each(function(){
+            var img = $(this);
+            var src = img.attr("default-src");
+            if(img[0].naturalWidth ==0 ) {
+                img.attr("src",src);
+            }
+        });
+    }
+
+    //css with jquery
+    $(".parent-right-sidebar").css("height",(($(document).height()*82)/100)+"px");
+
+});
+</script>
+{% endblock %}
+

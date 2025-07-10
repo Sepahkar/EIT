@@ -1,0 +1,38 @@
+{% load static %}
+{% load custom_tags_duties %}
+
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6 d-flex flex-column">
+            {% include 'Duties/common_header.html' %}
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <span class="w-100 text-center font-Sepahbod font-size-20" style="color:midnightblue;">لطفا سمت را انتخاب نمایید</span>
+    </div>
+
+
+    <div class="row mt-2 p-5 d-flex flex-row justify-content-center align-items-baseline">
+        {% for role in qs_roles_list %}
+        <div class="parent-level mx-4 my-3">
+            <div class="d-flex flex-column align-items-center w-100">
+                <span class="w-100 position-relative">
+                    <img data-role-name="{{ role.RoleName }}" default-src="/static_eit/EIT/images/noprofile.png" src="/static_eit/EIT/images/Roles/Role-{{role.RoleId}}-Gray.png" data-id="{{ role.RoleId }}" class="parent-level-img w-100 position-relative " style="z-index: 10;" />
+
+
+                    <span class="circlenot bot-left" style="background-color: #FFAFFF">
+                        <span class="text-white">{{ role.RoleId|get_dict_key_c:roles_conditions_duties }}</span>
+                    </span>
+                    <span class="circlenot bot-right" style="background-color: #b104b1;">
+                        <span class="text-white">{{ role.RoleId|get_dict_key_d:roles_conditions_duties }}</span>
+                    </span>
+                </span>
+                <span class="font-Farnaz mt-2 title-level text-center">
+                    {{ role.RoleName }} ({{ role.RoleId|get_dict:abundance_role_list }})
+                </span>
+            </div>
+
+        </div>
+        {% endfor %}
+    </div>

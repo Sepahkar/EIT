@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% load static %}
+{% load tag_library %}
+<html dir="rtl" lang="fa-IR">
+
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}{% endblock title %}</title>
+    <link href="{% static 'HR/css/styleOrg.css' %}" type="text/css" rel="stylesheet" />
+    <link href="{% static 'HR/css/teamStyleOrg.css' %}" type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'HR/css/vazir.css' %}">
+    <script src="/static/HR/js/tailwind.js"></script>
+    {% block Head %}{% endblock %}
+</head>
+
+<body dir="rtl" class="{% block bodystyle %}{% endblock bodystyle %} overflow-x-hidden">
+    {% block MainContent %}{% endblock %}
+</body>
+{% block Script%}{% endblock %}
+
+</html>

@@ -1,0 +1,25 @@
+{% load static %}
+<!doctype html>
+<html>
+  <head>
+    <title>نمودار گردش مدرک {{doc_id}}</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <script src="{% static '/Cartable/js/tailwind.js' %}"></script>
+    <script>
+      localStorage.theme = 'light'
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Vazirmatn', sans-serif;
+    }
+  </style>
+  </head>
+  <body>  
+    <div id="root" data-id={{doc_id}}></div>
+    <script src="{% static '/Cartable/js/workflow.js' %}"></script>
+  </body>
+</html>

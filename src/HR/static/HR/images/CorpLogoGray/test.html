@@ -1,0 +1,61 @@
+<ul>
+    <li data-active="d">
+        <img class="org" src="ALB.png"/>
+        <img class="gray" src="ALB-Gray.png"/>
+    </li>
+    <li data-active="d">
+        <img class="org" src="ARM.png"/>
+        <img class="gray" src="ARM-Gray.png"/>
+    </li>
+    <li data-active="d">
+        <img class="org" src="ASI.png"/>
+        <img class="gray" src="ASI-Gray.png"/>
+    </li>
+</ul>
+
+
+<style>
+
+
+ul {
+    list-style: none;
+}
+li {
+    display: inline-block;
+    margin-right: 15px;
+}
+img.org,img.gray {
+    cursor: pointer;
+    width: 70px;
+}
+img.org{
+    display: none;
+}
+
+</style>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function(){
+        $("img.gray").click(function(){
+            if($(this).parent().attr("data-active") == "d"){
+                $(this).parent().attr("data-active","a");
+                $("img.org").css("border","none").hide();
+                $(this).hide();
+                $(this).parent().find("img.org").css("border","3px solid blue").show();
+            }
+            else if($(this).parent().attr("data-active") == "a"){
+                $(this).parent().attr("data-active","d");
+                $("img.org").css("border","none").hide();
+                $(this).parent().find("img.org").show();
+            }
+        });
+
+        $("img.org").click(function(){
+            //$(this).parent().find("img.gray").attr("data-active","d");
+            $("img.gray").attr("data-active","d");
+            $("img.gray").show();
+            $("img.org").css("border","none").hide();
+        });
+    });
+</script>

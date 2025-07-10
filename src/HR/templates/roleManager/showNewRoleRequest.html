@@ -1,0 +1,265 @@
+{% extends 'roleManager/base.html' %}
+{% load static %}
+{% block title%}درخواست سمت جدید{% endblock %}
+{%block style%}
+  <link href="{% static 'roleManager/css/showNewRoleRequest.css' %}" rel="stylesheet"/>
+{%endblock%}
+{% block content %}
+
+<form id="roleRequestForm" action="" >
+  <div id="pageContent">
+    <!-- قسمت بالایی (عنوان سمت و اطلاعات تکمیلی) -->
+    <div id="topSection">
+      <!-- بخش عنوان سمت و مدیر مربوطه -->
+      <div id="topSection_rightSide">
+        <div id="roleTitleInputContainer" class="flexRowContainer">
+          <img class="headerIcon" src="{% static 'roleManager/images/Icons/NewRoleRequest/role_title_icon.png'%}" alt="Role Title Icon">
+          <p class="headerTitle">عنوان سمت :</p>
+          <input id="roleTitleInput" type="text" value="{{request.RoleTitle}}">
+        </div>
+
+        <div id="roleTypeContainer" class="flexRowContainer">
+          <div id="roleType_title" class="flexRowContainer">
+            <img class="headerIcon" src="{% static 'roleManager/images/Icons/NewRoleRequest/role_type_icon.png' %}" alt="Role Type Icon">
+            <p class="headerTitle">نوع سمت :</p>
+          </div>
+
+          <div id="roleType_icons" class="flexRowContainer">
+            {% for type in roleType %}
+              <div>
+                <img class="circleIcon roleTypeIcons" isDisabled="false" data-objectid="{{type.id}}"
+                  {% if  type.Code == request.RoleType.Code %}
+                  isClicked="true"
+                  src="{% static 'roleManager/images/Icons/NewRoleRequest/'|add:type.Code|add:'_clicked_icon.png' %}"
+                  {% else %}
+                  src="{% static 'roleManager/images/Icons/NewRoleRequest/'|add:type.Code|add:'_default_icon.png' %}"
+                  isClicked="false"
+                  {% endif %}
+                  {% if type.Code == 'Role_Other' %}
+                  id="otherRoleTypeIcon"
+                  {% endif %}
+                  data-staticAddress="{% static 'roleManager/images/Icons/NewRoleRequest' %}" data-iconName="{{type.Code}}"
+                  alt="{{type.Code}} Icon">
+                <input type="radio" name="roleType" {% if type.Caption == request.RoleType.Caption %} checked {% endif %}>
+                <p>{{type.Caption}}</p>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+
+        <div id="roleTypeInputContainer" class="flexRowContainer">
+          <img class="headerIcon" src="{% static 'roleManager/images/Icons/NewRoleRequest/role_type_icon.png' %}" alt="Role Title Icon">
+          <p class="headerTitle">نوع سمت جدید :</p>
+          <input id="roleTypeTitleInput" isVisible="false" type="text" placeholder="عنوان نوع سمت را وارد کنید" value="{{request.NewRoleTypeTitle}}">
+        </div>
+      </div>
+  
+      <!-- بخش اطلاعات تکمیلی -->
+      <div id="topSection_leftSide">
+        <div id="selectManagerContainer" class="flexRowContainer">
+          <div id="selectManagerTitle" class="flexRowContainer">
+            <img class="headerIcon" src="{% static 'roleManager/images/Icons/NewRoleRequest/manager_icon.png'%}"
+              alt="Manager Icon">
+            <p class="headerTitle">مدیر مربوطه :</p>
+          </div>
+          <div id="relevantManager_icons" class="flexRowContainer">
+            {% for manager in managerType %}
+              <div> 
+                <img class="circleIcon relevantManagerIcon" isDisabled="false" data-objectid="{{manager.id}}"
+                  data-staticAddress="{% static 'roleManager/images/Icons/NewRoleRequest' %}" data-iconName="{{manager.Code}}"
+                  {% if manager.Caption == request.ManagerType.Caption %}
+                  src="{% static 'roleManager/images/Icons/NewRoleRequest/'|add:manager.Code|add:'_clicked_icon.png' %}"
+                  isClicked="true"
+                  {% else %}
+                  src="{% static 'roleManager/images/Icons/NewRoleRequest/'|add:manager.Code|add:'_default_icon.png' %}"
+                  isClicked="false"
+                  {% endif %}
+                  alt="{{manager.Code}} icon">
+                <p>{{manager.Caption}}</p>  
+                <input type="radio" name="relevantManager"  {% if manager.Caption == request.ManagerType.Caption %} checked {% endif %}>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+
+        <div id="headerContainer" class="flexRowContainer">
+          <img class="headerIcon" src="{% static 'roleManager/images/Icons/NewRoleRequest/information_icon.png'%}" alt="Information Icon">
+          <p class="headerTitle">اطلاعات تکمیلی :</p>
+        </div>
+
+        <div id="radioButton_gridContainer">
+          <!-- ردیف ۱: ارشد دارد -->
+          <div><p class="subHeaderTitle radioHeader">ارشد دارد</p></div>
+          <div id="radioButtonContainer">
+              <img
+              id="hasSuperior_yes_image" 
+              class="subHeaderCheckIcon" 
+              {% if request.HasSuperior %}
+              src="{% static 'roleManager/images/Icons/NewRoleRequest/check_clicked_icon.png'%}" 
+              {% else %}
+              src="{% static 'roleManager/images/Icons/NewRoleRequest/check_default_icon.png'%}" 
+              {% endif %}
+              alt="Has Superior Yes Icon"
+              data-clicked="{% static 'roleManager/images/Icons/NewRoleRequest/check_clicked_icon.png'%}"
+              data-default="{% static 'roleManager/images/Icons/NewRoleRequest/check_default_icon.png'%}"
+              isDisabled = "false">
+              <input type="radio" name="hasSuperior" id="hasSuperior_yes_input">
+              <p class="subHeaderTitle">بله</p>
+          </div>
+
+          <div id="radioButtonContainer">
+              <img 
+              id="hasSuperior_no_image" 
+              class="subHeaderDeclineIcon" 
+              {% if request.HasSuperior %}
+              src="{% static 'roleManager/images/Icons/NewRoleRequest/decline_default_icon.png'%}" 
+              {% else %}
+              src="{% static 'roleManager/images/Icons/NewRoleRequest/decline_clicked_icon.png'%}" 
+              {% endif %}
+              alt="Has Superior No Icon"
+              data-clicked="{% static 'roleManager/images/Icons/NewRoleRequest/decline_clicked_icon.png'%}"
+              data-default="{% static 'roleManager/images/Icons/NewRoleRequest/decline_default_icon.png'%}">
+              <input type="radio" name="hasSuperior" id="hasSuperior_no_input">
+              <p class="subHeaderTitle">خیر</p>
+          </div>
+  
+        
+          <!-- ردیف ۲: سطح بندی دارد -->
+          <div><p class="subHeaderTitle">سطح بندی دارد</p></div>
+          <div id="radioButtonContainer">
+              <img 
+              id="hasLevel_yes_image" 
+              class="subHeaderCheckIcon" 
+              {% if request.HasLevel %}
+              src="{% static 'roleManager/images/Icons/NewRoleRequest/check_clicked_icon.png'%}" 
+              {% else %}
+              src="{% static 'roleManager/images/Icons/NewRoleRequest/check_default_icon.png'%}" 
+              {% endif %}
+              alt="Has Level Yes Icon"
+              data-clicked="{% static 'roleManager/images/Icons/NewRoleRequest/check_clicked_icon.png'%}"
+              data-default="{% static 'roleManager/images/Icons/NewRoleRequest/check_default_icon.png'%}"
+              isDisabled = "false">
+              <input id="hasLevel_yes_input" type="radio" name="hasLevel">
+              <p class="subHeaderTitle">بله</p>
+          </div>
+          <div id="radioButtonContainer">
+              <img 
+              id="hasLevel_no_image" 
+              class="subHeaderDeclineIcon" 
+              {% if request.HasLevel %}
+              src="{% static 'roleManager/images/Icons/NewRoleRequest/decline_default_icon.png'%}" 
+              {% else %}
+              src="{% static 'roleManager/images/Icons/NewRoleRequest/decline_clicked_icon.png'%}" 
+              {% endif %}
+              alt="Has Level No Icon"
+              data-clicked="{% static 'roleManager/images/Icons/NewRoleRequest/decline_clicked_icon.png'%}"
+              data-default="{% static 'roleManager/images/Icons/NewRoleRequest/decline_default_icon.png'%}">
+              <input id="hasLevel_no_input" type="radio" name="hasLevel">
+              <p class="subHeaderTitle">خیر</p>
+          </div>
+  
+        </div>
+      </div>
+
+      <!-- بخش انتخاب کردن تیم  -->
+      <!-- این بخش در وسط صفحه قرار دارد ولی برای جاگیری بهتر در این بخش قرار میگیرد-->
+    
+    {%if permisionData.status == "EDIT"%}
+      <div id="middleSection_topSide">
+        <img src="{% static 'roleManager/images/Icons/NewRoleRequest/team_title_icon.png'%}" alt="Team Title Icon" >
+        <p class="headerTitle">تیم ها :</p>
+        <select class="form-control select2" id="teamSelect">
+          <option></option>
+          {% for team in teams %}
+            <option data-image-src="{% static 'roleManager/images/TeamIcon/'%}" teamCode="{{ team.TeamCode }}">{{ team.TeamName }}</option>
+          {% endfor %}
+        </select>
+        <div id="topSide_button" isDisabled="false">
+          <i class="fa-solid fa-plus"></i>
+          <p class="subHeaderTitle">اضافه کردن تیم</p>
+        </div>
+      </div>
+    {%endif%}
+    </div>
+  
+    <!-- قسمت وسط بخش تیم ها و اضافه کردن آن  -->
+    <div id="middleSection">
+      <!-- بخش نشان دادن تیم های انتخاب شده -->
+      <div id="showSelectedTeam_gridContainer">
+        {%for team in request.AllowedTeams%}
+        <div teamCode="{{team.TeamCode}}" class="team-card" data-image-src="{%static 'roleManager/images/TeamIcon/'%}">
+          <div class="item-card_icon-group">
+            <img src="{% static 'roleManager/images/TeamIcon/' %}{{ team.TeamCode }}.png" alt="Team Icon" class="item-card_icon">
+            <p class="subHeaderTitle">{{team.TeamName}}</p>
+          </div>
+          <div class="item-card_quantity">
+            <label for="roleNumberInput" class="subHeaderTitle">تعداد : </label>
+            <input type="number" id="roleNumberInput" min="1" max="100" class="item-card_input" value="{{team.RoleCount}}" teamCode="{{team.TeamCode}}">
+          </div>
+          <i class="fa-solid fa-trash-can item-card_close" isDisabled="false"></i>
+        </div>
+        {%endfor%}
+      </div>
+  
+    </div>
+    
+    <!-- قسمت پایین (شرایط احراز، شرح شغل) -->
+     <div id="bottomSection">
+       <!-- بخش شرایط احراز -->
+       <div>
+         <div class="bottomSection_headerContainer">
+           <img class="headerIcon" src="{% static 'roleManager/images/Icons/NewRoleRequest/contract_icon.png'%}" alt="Qualification Icon">
+           <p class="headerTitle">شرایط احراز :</p>
+           <input type="text" class="bottomSection_input" id="conditionsInput">
+           <div class="bottomSection_plusContainer" id="conditionsPlusIcon" isDisabled="false">
+            <i class="fa-solid fa-plus"></i>
+           </div>
+         </div>
+         <div class="bottomSection_textArea">
+          {%for textItem in request.ConditionsText%}
+          <div class="textCard conditionsText">
+            <p>{{textItem.text}}</p>
+            <i class="fa-solid fa-trash-can textContainer_deleteIcon" isDisabled="false"></i>
+          </div>
+          {%endfor%}
+         </div>
+       </div>
+
+       <!-- بخش شرح شغل -->
+       <div>
+         <div class="bottomSection_headerContainer">
+           <img class="headerIcon" src="{% static 'roleManager/images/Icons/NewRoleRequest/contract_icon.png'%}" alt="Job Description Icon">
+           <p class="headerTitle">شرح شغل :</p>
+           <input type="text" class="bottomSection_input" id="dutiesInput">
+           <div class="bottomSection_plusContainer" id="dutiesPlusIcon" isDisabled="false">
+            <i class="fa-solid fa-plus"></i>
+           </div>
+         </div>
+         <div class="bottomSection_textArea">
+          {%for textItem in request.DutiesText%}
+          <div class="textCard dutiesText">
+            <p>{{textItem.text}}</p>
+            <i class="fa-solid fa-trash-can textContainer_deleteIcon" isDisabled="false"></i>
+          </div>
+          {%endfor%}
+         </div>
+  
+       </div>
+     </div>
+  
+    <!-- آخرین قسمت (بخش دکمه ساخت سمت جدید) -->
+    {%if permisionData.status == "EDIT" and request.StatusCode not in deniedAccessStatus%}
+    <div id="finalSection">
+      <button type="button" id="acceptRequest">تایید درخواست</button>
+      <button type="button" id="rejectRequest">رد درخواست</button>
+    </div>
+    {%endif%}
+  </div>
+</form>
+
+<script>
+    window.permisionDataJson = JSON.parse('{{ permisionDataJson|escapejs }}');
+    window.relevantManager = "{{request.RelevantManager}}"
+</script>
+<script src="{% static 'roleManager/js/showNewRoleRequest.js'%}"></script>
+{% endblock %}

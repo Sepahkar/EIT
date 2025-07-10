@@ -1,0 +1,40 @@
+{% load static %}
+
+<div class="row">
+<div class="col-2 parent-right-sidebar position-relative">
+    {% include 'Duties/right_sidebar.html' %}
+</div>
+<div class="col-1">
+
+</div>
+<div class="col-6 d-flex flex-column ">
+    {% include 'Duties/common_header.html' %}
+
+        <div class="div-item w-50 mb-2 sampleuserdiv d-none" >
+            <div class="item-header position-relative w-100 p-2" >
+                <span class="w-65 text-header text-white font-Sepahbod font-size-16 NAME"></span>
+                <img width="75" height="75" defaultSrc="/static_eit/EIT/images/noprofile.png"  class="IMGSRC replaceDefaultImg rounded-circle position-absolute" src="/media_hr/HR/PersonalPhoto/" style="border-radius: 50%;border:4px solid white;left:10px;top: 10px;"/>
+            </div>
+            <div class="item-content d-flex flex-row justify-content-between bg-info">
+
+                <span class="text-content w-100 ps-2 pb-2 text-white font-Koodak">
+                    <div class="d-block">سن:<span class="AGE"></span></div>
+                    <div class="d-block">رشته:<span class="FIELDOFSTUDY"></span></div>
+                    <div class="d-block">سابقه در فناروان:<span class="CONTRACT"></span></div>
+                </span>
+            </div>
+        </div>
+
+    <div class="row d-flex flex-row justify-content-center flex-wrap mt-5 parentusersdiv" style="max-height: 400px;overflow: auto;padding-bottom: 50px;">
+
+
+
+    </div>
+</div>
+</div>
+
+
+
+
+
+{% include 'Duties/static_role_level.html' %}

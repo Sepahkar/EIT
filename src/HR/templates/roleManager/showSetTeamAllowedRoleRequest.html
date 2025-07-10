@@ -1,0 +1,124 @@
+{% extends 'roleManager/base.html' %}
+{% load static %}
+{% block title%}فناوران{% endblock %}
+{%block style%}
+    <link href="{% static 'roleManager/css/showSetTeamAllowedRoleRequest.css' %}" rel="stylesheet"/>
+{%endblock%}
+
+{% block content %}
+
+    <table>
+      <thead>
+        <tr id="table_header">
+          <th id="role_team_header">
+            <small id="role_text">سمت</small>
+            <small id="team_text">تیم</small>
+          </th>  
+          {% for team in request.TeamAllowedRoles%}
+          <th teamCode={{team.TeamCode}}>
+            <div class="teamContainer">
+                <i class="fa-solid fa-xmark icon" id="deleteTeam" teamCode={{team.TeamCode}} isDisabled="false"></i>
+              <div class="teamInfo">
+                <img
+                  alt="Team Image"
+                  src="{% static 'roleManager/images/TeamIcon/'|add:team.TeamCode|add:'.png' %}"
+                  style="width: 50px"
+                />
+                <p id="teamName">{{team.TeamName}}</p>
+              </div>
+            </div>
+          </th>
+          {% endfor %}
+        </tr>
+      </thead>
+      <tbody id="tbody">
+        {% regroup request.TeamAllowedRoles.0.Roles by RoleId as unique_roles %}
+        {% for role in unique_roles %}
+        <tr roleId= "{{role.grouper}}">
+            <td>
+                <div class="roleContainer">
+                    <i class="fa-solid fa-xmark icon" id="deleteRole" roleId= {{role.grouper}}></i>                
+                    <div class="textContainer"><p id="roleID">{{role.list.0.RoleName}}</p></div>
+                </div>
+            </td>
+            {% for team in request.TeamAllowedRoles %}
+            <td teamCode= {{team.TeamCode}}>
+                {% for team_role in team.Roles %}
+                    {% if team_role.RoleId == role.grouper %}
+                        <div id="allowedParent">
+                            <div class="itemContainer">
+                                <div><p>ظرفیت کل</p></div>
+                                <img
+                                src="{% static 'roleManager/images/Icons/blueUserIcon.png' %}"
+                                class="allowedParentIcon"
+                                /><input
+                                class="allowedParentInput"
+                                type="number"
+                                value= {{team_role.RoleCount}}
+                                disabled="disabled"
+                                /><img
+                                src="{% static 'roleManager/images/Icons/editIcon.png' %}"
+                                id="editIcon"
+                                class="editIcon"
+                                teamCode= {{team.TeamCode}}
+                                roleId= {{team_role.RoleId}}
+                                isDisabled="false"
+                                />
+                            </div>
+                            <div class="itemContainer" id="hiddenContainer">
+                                <div><p>تغییر ظرفیت کل</p></div>
+                                <img
+                                src="{% static 'roleManager/images/Icons/blueUserIcon.png' %}"
+                                class="allowedParentIcon"
+                                /><input
+                                class="allowedParentInput allowedParentChangeInput"
+                                type="number"
+                                value= {{team_role.RoleCount}}
+                                prevvalue={{team_role.PrevRoleCount}}
+                                modified="true"
+                                teamCode= {{team.TeamCode}}
+                                roleId= {{team_role.RoleId}}
+                                min="0"
+                                max="100"
+                                />
+                            </div>
+                            <div class="itemContainer">
+                                <div><p>نفرات فعلی</p></div>
+                                <input
+                                class="allowedParentInput"
+                                type="number"
+                                value= {{team_role.EntryCount}}
+                                disabled="disabled"
+                                /><img
+                                src="{% static 'roleManager/images/Icons/yellowUserIcon.png' %}"
+                                class="allowedParentIcon"
+                                />
+                            </div>
+                            <div class="itemContainer" id="lowerContainer">
+                                <div><p>ظرفیت باقی مانده</p></div>
+                                <input class="allowedParentInput" type="number" disabled="disabled" /><img
+                                src="{% static 'roleManager/images/Icons/greenUserIcon.png' %}"
+                                class="allowedParentIcon"
+                                />
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% if request.StatusCode not in deniedAccessStatus and permisionData.status == "EDIT" %}
+    <div id="finalSection">
+      <button type="button" id="acceptRequest">تایید درخواست</button>
+      <button type="button" id="rejectRequest">رد درخواست</button>
+    </div>
+    {% endif %}
+
+<script>
+  window.permisionDataJson = JSON.parse('{{ permisionDataJson|escapejs }}');
+</script>
+<script src="{% static 'roleManager/js/showSetTeamAllowedRoleRequest.js' %}"></script>
+{% endblock %}

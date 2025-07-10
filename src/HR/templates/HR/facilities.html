@@ -1,0 +1,160 @@
+{% extends "HR/year-layout.html" %}
+{% load tag_library %}
+{% block legend %}تسهیلات{% endblock %}
+{% block form_name1 %}facilities{% endblock %}
+{% block form_name2 %}facilities{% endblock %}
+{% block form_name3 %}facilities{% endblock %}
+{% block form_name4 %}facilities{% endblock %}
+{% block form_name5 %}facilities{% endblock %}
+{% block form_name6 %}facilities{% endblock %}
+{% block fieldes %}
+
+       <div class="filter">
+            <div class="navigation">
+                <span data-key="payment-count-chart" {% if current_chart == 'payment-count-chart' %}class="active"{% endif %}>
+                   بیمه
+                </span>
+                <span data-key="role-payment-count-chart" {% if current_chart == 'role-payment-count-chart' %}class="active"{% endif %}>
+                   وام
+                </span>
+                <span data-key="role-payment-count-chart" {% if current_chart == 'role-payment-count-chart' %}class="active"{% endif %}>
+                  ناهارتایم
+                </span>
+                {% if has_more_than_one_year %}
+
+                {% endif %}
+
+            </div>
+{#            <div class="years {% if not has_more_than_one_year %}hidden{% endif %}">#}
+{#                {% for year in year_list %}#}
+{#                <span {% if year.0 == year_number %}class="active"{% endif %}>{{ year.0}}</span>#}
+{#                {% endfor %}#}
+{#            </div>#}
+            {% if has_more_than_one_role %}
+                <div class="roles ">
+                    {% for role in role_list %}
+                        <span {% if role.0 == role_id %}class="active"{% endif %} data-level="{{ role.2 }}">
+                            {{ role.1 }} {{ role.3|default:'' }}
+                        </span>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+
+
+        <div class="view-chart">
+                {#    //////////وام///////////////#}
+            <div class="result-facilities loan">
+                <div class="result-one-facilities">
+                    <div class="icon-result-facilities"><img src="/static/HR/images/mablaq-vam.png" id=""></div>
+                    <div class="name-result-facilities">مبلغ وام</div>
+                    <div class="number-result-facilities">
+                       30,000,000 ریال
+                    </div>
+                </div>
+
+                <div class="result-one-facilities">
+                    <div class="icon-result-facilities"><img src="/static/HR/images/tarikh-darkhst.png" id=""></div>
+                    <div class="name-result-facilities">تاریخ درخواست</div>
+                    <div class="number-result-facilities">
+                        1401/11/12
+                    </div>
+                </div>
+
+                <div class="result-one-facilities">
+                    <div class="icon-result-facilities"><img src="/static/HR/images/tarikh-tasviye.png" id=""></div>
+                    <div class="name-result-facilities">تاریخ تسویه</div>
+                    <div class="number-result-facilities">
+                        1402/11/12
+                    </div>
+                </div>
+
+                <div class="result-one-facilities">
+                    <div class="icon-result-facilities"><img src="/static/HR/images/mablaq-baqimande.png" id=""></div>
+                    <div class="name-result-facilities">مبلغ باقی مانده</div>
+                    <div class="number-result-facilities">
+                        30,000,000 ریال
+                    </div>
+                </div>
+
+                <div class="result-one-facilities">
+                    <div class="icon-result-facilities"><img src="/static/HR/images/jame-kol-daryafti.png" id=""></div>
+                    <div class="name-result-facilities">جمع کل دریافتی</div>
+                    <div class="number-result-facilities">
+                        30,000,000 ریال
+                    </div>
+                </div>
+            </div>
+
+                 {#    //////////وام///////////////#}
+                 {#    //////////بیمه///////////////#}
+
+            <div class="result-facilities insurance">
+                <div class="result-one-facilities">
+                    <div class="icon-result-facilities"><img src="/static/HR/images/mablaq-vam.png" id=""></div>
+                    <div class="name-result-facilities">مبلغ پرداختی شرکت</div>
+                    <div class="number-result-facilities">
+                       30,000,000 ریال
+                    </div>
+                </div>
+
+                <div class="result-one-facilities">
+                    <div class="icon-result-facilities"><img src="/static/HR/images/tarikh-darkhst.png" id=""></div>
+                    <div class="name-result-facilities">مبلغ پرداختی کارمند</div>
+                    <div class="number-result-facilities">
+                        30,000,000 ریال
+                    </div>
+                </div>
+
+                <div class="result-one-facilities">
+                    <div class="icon-result-facilities"><img src="/static/HR/images/mablaq-baqimande.png" id=""></div>
+                    <div class="name-result-facilities">هزینه ها</div>
+                    <div class="number-result-facilities">
+                        30,000,000 ریال
+                    </div>
+                </div>
+
+            </div>
+
+                 {#    //////////بیمه///////////////#}
+                 {#    //////////ناهارتایم///////////////#}
+
+                <div class="result-facilities nahartime">
+                <div class="result-one-facilities">
+                    <div class="icon-result-facilities"><img src="/static/HR/images/mablaq-baqimande.png" id=""></div>
+                    <div class="name-result-facilities">تعداد سفارشات</div>
+                    <div class="number-result-facilities">
+                       124
+                    </div>
+                </div>
+
+                <div class="result-one-facilities">
+                    <div class="icon-result-facilities"><img src="/static/HR/images/mablaq-vam.png" id=""></div>
+                    <div class="name-result-facilities">مبلغ پرداختی شرکت</div>
+                    <div class="number-result-facilities">
+                        30,000,000 ریال
+                    </div>
+                </div>
+
+                <div class="result-one-facilities">
+                    <div class="icon-result-facilities"><img src="/static/HR/images/tarikh-darkhst.png" id=""></div>
+                    <div class="name-result-facilities">مبلغ پرداختی کارمند</div>
+                    <div class="number-result-facilities">
+                        30,000,000 ریال
+                    </div>
+                </div>
+
+                <div class="result-one-facilities">
+                    <div class="icon-result-facilities"><img src="/static/HR/images/jame-kol-daryafti.png" id=""></div>
+                    <div class="name-result-facilities">جمع کل</div>
+                    <div class="number-result-facilities">
+                        30,000,000 ریال
+                    </div>
+                </div>
+
+            </div>
+                 {#    //////////ناهارتایم///////////////#}
+        </div>
+
+{% endblock %}
+

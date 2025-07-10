@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Grant Access > {{ title }}</title>
+    <style>
+        * {
+            direction: rtl;
+            text-align: right;
+        }
+
+        body {
+            margin: 200px;
+            margin-top:32px;
+        }
+
+        td {
+            padding: 5px 0px 5px 0px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .new-user{
+            background-color: #e4e4e4;
+            padding: 12px 25px 25px 25px;
+            border-radius: 5px;
+        }
+
+    </style>
+</head>
+<body>
+
+<h1>دسترسی های کاربران > <a href="/AccessControl/ListAppPermissions/">دسترسی های میزکار</a> > {{ title }}</h1>
+
+{% if users %}
+    <ul>
+        {% for user in users %}
+            <li>{{ user }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <h3 style="color: darkred">کاربری با این دسترسی یافت نشد</h3>
+{% endif %}
+
+
+<div class="new-user" >
+    <h3>اضافه کردن کاربر جدید</h3>
+    <ul>
+        <li>نام کاربری ای که وارد می کنید با سیستم HR چک نمیشه بنابراین در وارد کردنش دقت کنید</li>
+                <li>به بزرگ و کوچکی حساسم</li>
+
+    </ul>
+    <form action="{% url 'AccessControl:grant_access' %}" METHOD="post">
+        {% csrf_token %}
+        <input type="text" placeholder="همراه با @eit" name="username"/>
+        <input type="hidden" value="{{ permission }}" name="permission">
+        <input type="hidden" value="{{ title }}" name="title">
+
+        <input type="submit" value="اعطای دسترسی">
+    </form>
+    {% if error %}
+        <h2 style="color: darkred">خطا: {{ error }}</h2>
+    {% endif %}
+    {% if success %}
+        <h2 style="color: green">با موفقیت به میز کار اضافه شد</h2>
+    {% endif %}
+</div>
+</body>
+</html>

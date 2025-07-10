@@ -1,0 +1,37 @@
+CREATE TABLE [dbo].[TEMP_Users](
+	[UserName] [varchar](100) NOT NULL,
+	[Username2]  AS (left([Username],charindex('@',[UserName])-(1))),
+	[FirstName] [nvarchar](200) NOT NULL,
+	[LastName] [nvarchar](200) NOT NULL,
+	[FatherName] [nvarchar](200) NULL,
+	[FirstNameEnglish] [nvarchar](80) NULL,
+	[LastNameEnglish] [nvarchar](100) NULL,
+	[ContractDate] [date] NULL,
+	[ContractEndDate] [date] NULL,
+	[ContractType_id] [bigint] NULL,
+	[About] [nvarchar](1000) NULL,
+	[CVFile] [nvarchar](100) NULL,
+	[Gender] [bit] NOT NULL,
+	[NationalCode] [nvarchar](10) NULL,
+	[NumberOfChildren] [smallint] NULL,
+	[DegreeType_id] [bigint] NULL,
+	[MilitaryStatus_id] [bigint] NULL,
+	[Religion_id] [bigint] NULL,
+	[LivingAddress_id] [bigint] NULL,
+	[BirthDate] [date] NULL,
+	[BirthCity_id] [bigint] NULL,
+	[IdentityNumber] [nvarchar](10) NULL,
+	[IdentitySerialNumber] [nvarchar](20) NULL,
+	[IdentityCity_id] [bigint] NULL,
+	[IdentityRegisterDate] [date] NULL,
+	[InsuranceNumber] [nvarchar](20) NULL,
+	[IsActive] [bit] NOT NULL,
+	[UserStatus_id] [bigint] NULL,
+	[MarriageStatus_id] [bigint] NULL,
+	[LastBuilding_id] [bigint] NULL,
+	[LastFloor_id] [bigint] NULL,
+ CONSTRAINT [PK__Users__C9F284573283E9761] PRIMARY KEY CLUSTERED 
+(
+	[UserName] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]

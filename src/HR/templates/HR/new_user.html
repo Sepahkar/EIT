@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+{%  load static %}
+<html dir="rtl" lang="fa-IR">
+<head>
+    <meta charset="utf-8">
+    <title>پرونده پرسنلی</title>
+    <link href="{% static 'HR/css/bootstrap.css' %}" type="text/css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'HR/css/fontawesome.css' %}" >
+    <link href="{% static 'HR/css/bootstrap.rtl.css' %}" type="text/css" rel="stylesheet"/>
+    <link href="{% static 'HR/css/bootstrap-grid.css' %}" type="text/css" rel="stylesheet"/>
+    <link href="{% static 'HR/css/bootstrap-utilities.css' %}" type="text/css" rel="stylesheet"/>
+    <link href="{% static 'HR/css/bootstrap-utilities.rtl.css' %}" type="text/css" rel="stylesheet"/>
+    <link href="{% static 'HR/css/bootstrap-reboot.css' %}" type="text/css" rel="stylesheet"/>
+    <link href="{% static 'HR/css/bootstrap-reboot.rtl.css' %}" type="text/css" rel="stylesheet"/>
+    <link href="{% static 'HR/css/bootstrap-theme.min.css' %}" type="text/css" rel="stylesheet"/>
+    <link href="{% static 'HR/css/bootstrap-grid.rtl.css' %}" type="text/css" rel="stylesheet"/>
+    <link href="{% static 'HR/css/style.css' %}" type="text/css" rel="stylesheet"/>
+    <link rel="stylesheet" href="{% static 'HR/css/persian-datepicker.min.css'%}" />
+    <link rel="stylesheet" href="{% static 'HR/css/jquery-confirm.css' %}" >
+    <meta name="robots" content="max-image-preview:large">
+    {% block Head %}{% endblock %}
+    {% include 'HR/font-style.html' %}
+</head>
+<body class="body">
+    <div class="background">
+        <div class="content">
+            <div class="information">
+                <div class="container">
+                    <form action="/HR/save/i" method="post">
+                        <div class="row">
+                            <div class="col-4">
+                                <label for="username">نام کاربری</label>
+                                <input name="username" placeholder="نام کاربری" type="email">
+                            </div>
+                            <div class="col-4">
+                                <label for="national_code">کد ملی</label>
+                                <input name="national_code" placeholder="کد ملی" type="text">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">
+                                <label for="first_name">نام</label>
+                                <input name="first_name" placeholder="نام" type="text">
+                            </div>
+                            <div class="col-4">
+                                <label for="last_name">نام خانوادگی</label>
+                                <input name="last_name" placeholder="نام خانوادگی" type="text">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">
+                                <label for="role">سمت</label>
+                                <select name="role">
+                                    {% for role in role_list %}
+                                    <option value="{{ role.id }}">{{ role.RoleName }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="col-4">
+                                <label for="level">سطح</label>
+                                <br/>
+                                <select name="level">
+                                    {% for level in level_list %}
+                                    <option value="{{ level.id }}">{{ level.LevelName }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="col-4">
+                                <label for="team">تیم</label>
+                                <select name="team">
+                                    {% for team in team_list %}
+                                    <option value="{{ team.TeamCode }}">{{ team.TeamName }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        <div class=" w-100 d-flex flex-row  justify-content-end " >
+                            <input type="reset" name="cancel" class="col-2 button cancel mx-4 my-2" value="انصراف"
+                                   data-type="{% block form_name4 %}{% endblock %}">
+                            <input type="submit" name="save" class="col-2 button save mx-4 my-2" value="ثبت"
+                                   data-type="{% block form_name5 %}{% endblock %}" >
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="{% static '/HR/js/jquery-3.6.0.min.js' %}"></script>
+<script src="{% static '/HR/js/bootstrap.bundle.js' %}"></script>
+<script src="{% static '/HR/js/fontawesome.js' %}"></script>
+<script src="{% static '/HR/js/jquery-confirm.js' %}"></script>
+<script src="{% static '/HR/js/FarsiType.js' %}"></script>
+<script src="{% static '/HR/js/select2.js' %}" type='text/javascript'></script>
+<script type="text/javascript" src="{% static 'HR/js/persian-date.min.js'%}"></script>
+<script type="text/javascript" src="{% static 'HR/js/persian-datepicker.min.js'%}"></script>
+<script src="{% static '/HR/js/MyCode.js' %}" type="text/javascript"></script>
+<script type="text/javascript">
+{% block Script%}{% endblock %}
+</script>
+</html>

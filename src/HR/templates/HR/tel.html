@@ -1,0 +1,87 @@
+{% extends "HR/detail-layout.html" %}
+{%  load static %}
+{% block legend %}شماره تماس {% endblock %}
+{% block form_name1 %}PhoneNumber{% endblock %}
+{% block form_name2 %}PhoneNumber{% endblock %}
+{% block form_name3 %}PhoneNumber{% endblock %}
+{% block form_name4 %}PhoneNumber{% endblock %}
+{% block form_name5 %}PhoneNumber{% endblock %}
+{% block form_name6 %}PhoneNumber{% endblock %}
+{% block form_name7 %}PhoneNumber{% endblock %}
+{% block form_name8 %}PhoneNumber{% endblock %}
+{% block form_name9 %}PhoneNumber{% endblock %}
+{% block form_name10 %}PhoneNumber{% endblock %}
+
+{% block table_header %}
+    <th class="Textlist" data-field="AddressTitle">عنوان</th>
+    <th class="Textlist" data-field="PostalCode">شماره تماس</th>
+    <th class="Textlist" data-field="IsDefault">پیش فرض </th>
+{% endblock %}
+{% block table_body %}
+        {% for obj in phones %}
+         <tr data-key="{{ obj.id }}">
+             <td>{{ obj.Title}}</td>
+             <td>{{ obj.TelNumber }}</td>
+            <td>{% if obj.IsDefault %}
+{#               <img class="img icon_check"  src="/static/HR/images/Icon/Confirm.png">#}
+                <i class="fa-solid fa-user"></i>
+            {% else %}
+{#                <img class="img icon_check" src="/static/HR/images/Icon/Cancel.png">#}
+            {% endif %}</td>
+             <td class="hidden">
+                 <input type="hidden" name="DetailType" value="PhoneNumber">
+                 <input type="hidden" name="PhoneNumberId" value="{{ obj.id }}"/>
+                 <input type="hidden" name="TelNumber" value="{{ obj.TelNumber }}"/>
+                 <input type="hidden" name="TelType" value="{{ obj.TelType_id }}"/>
+                 <input type="hidden" name="PhoneTitle" value="{{ obj.Title }}"/>
+                 <input type="hidden" name="TelCity" value="{{ obj.City.id  }}">
+                 <input type="hidden" name="TelProvince" value="{{ obj.Province.id  }}">
+                 <input type="hidden" name="IsDefault" {% if obj.IsDefault %} checked {% endif %} value="on">
+             </td>
+            {% include "HR/gird-button.html" with form_name='PhoneNumber' %}
+         </tr>
+    {% endfor %}
+{% endblock %}
+{% block fieldes %}
+        <div class="row main-content">
+            <div class="row">
+                <div class="col-4 mt-3">
+                    <label for="TelNumber" class="Required">شماره تماس: </label>
+                    <input type="text" class='insert_text' id="TelNumber" name="TelNumber"/>
+                </div>
+                <div class="col-4 mt-3">
+                     <label for="TelType" class="Required">نوع: </label>
+                            <select name="TelType" id="TelType">
+                                <option value="0">انتخاب کنید</option>
+                                      {% for ut in tel_type %}
+                                          <option  value="{{ ut.id }}" {% if obj_uni.TelType_id == ut.id %} selected {% endif %}>{{ ut.Caption}}</option>
+                                     {{ obj_uni.TelType_id }}
+                                      {% endfor %}
+                            </select>
+                </div>
+                <div class="col-4 mt-3">
+                    <label for="TelProvince" >استان : </label>
+                        <select class="ParentCombo" name="TelProvince" id="TelProvince" data-child="TelCity">
+                            <option  value="0">انتخاب کنید</option>
+                            {% for p in province %}
+                            <option  value="{{ p.id }}">{{ p.ProvinceTitle }}</option>
+                            {% endfor %}
+                        </select>
+                </div>
+
+            </div>
+            <div class="row">
+
+                <div class="col-4 mt-3">
+                    <label for="PhoneTitle" >عنوان : </label>
+                    <input type="text" minlength="2" maxlength="50" class='insert_text' id="PhoneTitle" name="PhoneTitle" />
+                </div>
+
+               <div class="col-6 d-flex flex-row justify-content-star mt-3 align-items-md-center">
+                    <input type="checkbox" class="is_default" class='IsDefault' id="IsDefault" name="IsDefault" >
+                    <label for="IsDefault" >تلفن پیش فرض می باشد؟</label>
+                </div>
+
+            </div>
+        </div>
+{% endblock %}

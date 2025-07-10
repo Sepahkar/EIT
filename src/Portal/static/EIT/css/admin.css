@@ -1,0 +1,16 @@
+#id_Question
+{
+    font-family: Tahoma;
+    width: 100%;
+    height: 50px;
+    font-size: 11pt;
+}
+#id_Answer
+{
+    font-family: Tahoma;
+    width: 100%;
+    height: 100%;
+    font-size: 10pt;
+    color: blue;
+
+}

@@ -1,0 +1,8266 @@
+[
+{
+    "model": "AccessControl.server",
+    "pk": 1,
+    "fields": {
+        "IPAddress": "192.168.50.15",
+        "DNSName": null,
+        "ServerName": "سرور سنجمان"
+    }
+},
+{
+    "model": "AccessControl.server",
+    "pk": 2,
+    "fields": {
+        "IPAddress": "192.168.20.81",
+        "DNSName": null,
+        "ServerName": "سرور موقت"
+    }
+},
+{
+    "model": "AccessControl.server",
+    "pk": 4,
+    "fields": {
+        "IPAddress": "eit-app",
+        "DNSName": null,
+        "ServerName": "سرور اصلی"
+    }
+},
+{
+    "model": "AccessControl.system",
+    "pk": "ACS",
+    "fields": {
+        "Title": "کنترل دسترسی",
+        "PortNumber": 13000,
+        "Logo": "",
+        "Server": 2
+    }
+},
+{
+    "model": "AccessControl.system",
+    "pk": "COP",
+    "fields": {
+        "Title": "سیستم بهای تمام شده",
+        "PortNumber": 25000,
+        "Logo": "",
+        "Server": 2
+    }
+},
+{
+    "model": "AccessControl.system",
+    "pk": "CTS",
+    "fields": {
+        "Title": "راهنمای کاربر و سوالات متداول",
+        "PortNumber": 63000,
+        "Logo": "",
+        "Server": 2
+    }
+},
+{
+    "model": "AccessControl.system",
+    "pk": "DOC",
+    "fields": {
+        "Title": "مستندات",
+        "PortNumber": 27000,
+        "Logo": "",
+        "Server": 2
+    }
+},
+{
+    "model": "AccessControl.system",
+    "pk": "EIT",
+    "fields": {
+        "Title": "EIT",
+        "PortNumber": 17000,
+        "Logo": "",
+        "Server": 4
+    }
+},
+{
+    "model": "AccessControl.system",
+    "pk": "EVA",
+    "fields": {
+        "Title": "ارزیابی",
+        "PortNumber": 42000,
+        "Logo": "",
+        "Server": 1
+    }
+},
+{
+    "model": "AccessControl.system",
+    "pk": "FAQ",
+    "fields": {
+        "Title": "FAQ",
+        "PortNumber": 8000,
+        "Logo": "",
+        "Server": 2
+    }
+},
+{
+    "model": "AccessControl.system",
+    "pk": "HLP",
+    "fields": {
+        "Title": "راهنمای کاربر",
+        "PortNumber": 20000,
+        "Logo": "",
+        "Server": 1
+    }
+},
+{
+    "model": "AccessControl.system",
+    "pk": "LES",
+    "fields": {
+        "Title": "مصاحبه خروج",
+        "PortNumber": 51000,
+        "Logo": "",
+        "Server": 2
+    }
+},
+{
+    "model": "AccessControl.system",
+    "pk": "ORG",
+    "fields": {
+        "Title": "ساختار سازمانی",
+        "PortNumber": 14000,
+        "Logo": "",
+        "Server": 4
+    }
+},
+{
+    "model": "AccessControl.system",
+    "pk": "PES",
+    "fields": {
+        "Title": "امکانات رفاهی",
+        "PortNumber": 26000,
+        "Logo": "",
+        "Server": 2
+    }
+},
+{
+    "model": "AccessControl.system",
+    "pk": "SLM",
+    "fields": {
+        "Title": "مهندسی فروش",
+        "PortNumber": 42000,
+        "Logo": "",
+        "Server": 4
+    }
+},
+{
+    "model": "AccessControl.system",
+    "pk": "SRB",
+    "fields": {
+        "Title": "کتاب های خدمات ارائه شده به شرکت های بیمه",
+        "PortNumber": 10000,
+        "Logo": "",
+        "Server": 4
+    }
+},
+{
+    "model": "AccessControl.system",
+    "pk": "SUR",
+    "fields": {
+        "Title": "نظرسنجی",
+        "PortNumber": 8000,
+        "Logo": "",
+        "Server": 2
+    }
+},
+{
+    "model": "AccessControl.system",
+    "pk": "TFS",
+    "fields": {
+        "Title": "فعال سازی قابلیت های جدید",
+        "PortNumber": 30000,
+        "Logo": "",
+        "Server": 2
+    }
+},
+{
+    "model": "AccessControl.system",
+    "pk": "TWP",
+    "fields": {
+        "Title": "سیستم کار",
+        "PortNumber": 11000,
+        "Logo": "",
+        "Server": 2
+    }
+},
+{
+    "model": "AccessControl.system",
+    "pk": "WFE",
+    "fields": {
+        "Title": "موتور گردش کار",
+        "PortNumber": 50000,
+        "Logo": "",
+        "Server": 4
+    }
+},
+{
+    "model": "AccessControl.permissionvariable",
+    "pk": 2,
+    "fields": {
+        "Code": "YERN",
+        "Title": "yearnumber",
+        "VariableDescription": "سال"
+    }
+},
+{
+    "model": "AccessControl.permissionvariable",
+    "pk": 3,
+    "fields": {
+        "Code": "CORP",
+        "Title": "corp",
+        "VariableDescription": "شرکت"
+    }
+},
+{
+    "model": "AccessControl.permissionvariable",
+    "pk": 6,
+    "fields": {
+        "Code": "TEAM",
+        "Title": "team",
+        "VariableDescription": "تیم"
+    }
+},
+{
+    "model": "AccessControl.permissionvariable",
+    "pk": 7,
+    "fields": {
+        "Code": "ROLE",
+        "Title": "role",
+        "VariableDescription": "سمت"
+    }
+},
+{
+    "model": "AccessControl.permissionvariable",
+    "pk": 8,
+    "fields": {
+        "Code": "ROLEG",
+        "Title": "rolegroup",
+        "VariableDescription": "گروه سمت"
+    }
+},
+{
+    "model": "AccessControl.permissionvariable",
+    "pk": 9,
+    "fields": {
+        "Code": "USER",
+        "Title": "username",
+        "VariableDescription": "نام کاربری"
+    }
+},
+{
+    "model": "AccessControl.permissionvariablevalue",
+    "pk": 3,
+    "fields": {
+        "PermissionVariable": 2,
+        "App": "COPREP",
+        "OwnerVariableRole": null,
+        "OwnerVariableGroup": 1,
+        "OwnerVariableUser": null
+    }
+},
+{
+    "model": "AccessControl.permissionvariablevalue",
+    "pk": 4,
+    "fields": {
+        "PermissionVariable": 2,
+        "App": "COPREP",
+        "OwnerVariableRole": null,
+        "OwnerVariableGroup": 11,
+        "OwnerVariableUser": null
+    }
+},
+{
+    "model": "AccessControl.variablevaluerelated",
+    "pk": 1,
+    "fields": {
+        "ValueTitle": "1400",
+        "VariableValue": 3
+    }
+},
+{
+    "model": "AccessControl.variablevaluerelated",
+    "pk": 2,
+    "fields": {
+        "ValueTitle": "1401",
+        "VariableValue": 3
+    }
+},
+{
+    "model": "AccessControl.variablevaluerelated",
+    "pk": 3,
+    "fields": {
+        "ValueTitle": "1400",
+        "VariableValue": 4
+    }
+},
+{
+    "model": "AccessControl.variablevaluerelated",
+    "pk": 4,
+    "fields": {
+        "ValueTitle": "1401",
+        "VariableValue": 4
+    }
+},
+{
+    "model": "AccessControl.app",
+    "pk": "ACSACS",
+    "fields": {
+        "Title": "کنترل دسترسی",
+        "SystemCode": "ACS",
+        "AppLabel": "AccessControl"
+    }
+},
+{
+    "model": "AccessControl.app",
+    "pk": "COPDAT",
+    "fields": {
+        "Title": "ورود اطلاعات مالی",
+        "SystemCode": "COP",
+        "AppLabel": "CostPrice"
+    }
+},
+{
+    "model": "AccessControl.app",
+    "pk": "COPREP",
+    "fields": {
+        "Title": "بهای تمام شده",
+        "SystemCode": "COP",
+        "AppLabel": "CostPrice"
+    }
+},
+{
+    "model": "AccessControl.app",
+    "pk": "CTSFAQ",
+    "fields": {
+        "Title": "سوالات متداول",
+        "SystemCode": "CTS",
+        "AppLabel": "faq"
+    }
+},
+{
+    "model": "AccessControl.app",
+    "pk": "CTSHLP",
+    "fields": {
+        "Title": "راهنمای کاربر",
+        "SystemCode": "CTS",
+        "AppLabel": "SystemHelp"
+    }
+},
+{
+    "model": "AccessControl.app",
+    "pk": "DOCDJP",
+    "fields": {
+        "Title": "مستندات سیستم جنگو",
+        "SystemCode": "DOC",
+        "AppLabel": "DjangoProject"
+    }
+},
+{
+    "model": "AccessControl.app",
+    "pk": "DOCWKI",
+    "fields": {
+        "Title": "سیستم مدیریت دانش",
+        "SystemCode": "DOC",
+        "AppLabel": "KnowledgeManagementSystem"
+    }
+},
+{
+    "model": "AccessControl.app",
+    "pk": "EITEIT",
+    "fields": {
+        "Title": "EIT",
+        "SystemCode": "EIT",
+        "AppLabel": "EIT"
+    }
+},
+{
+    "model": "AccessControl.app",
+    "pk": "EVAADV",
+    "fields": {
+        "Title": "ارزش افزوده",
+        "SystemCode": "EVA",
+        "AppLabel": "AddedValue"
+    }
+},
+{
+    "model": "AccessControl.app",
+    "pk": "EVACOI",
+    "fields": {
+        "Title": "موارد عدم تایید صورت صورت حساب",
+        "SystemCode": "EVA",
+        "AppLabel": "CorpIssue"
+    }
+},
+{
+    "model": "AccessControl.app",
+    "pk": "EVAOKR",
+    "fields": {
+        "Title": "OKR",
+        "SystemCode": "EVA",
+        "AppLabel": "OKR"
+    }
+},
+{
+    "model": "AccessControl.app",
+    "pk": "FAQINS",
+    "fields": {
+        "Title": "ورود اطلاعات FAQ",
+        "SystemCode": "FAQ",
+        "AppLabel": "faq"
+    }
+},
+{
+    "model": "AccessControl.app",
+    "pk": "HLPINS",
+    "fields": {
+        "Title": "ورود اطلاعات راهنمای کاربر",
+        "SystemCode": "HLP",
+        "AppLabel": "SystemHelp"
+    }
+},
+{
+    "model": "AccessControl.app",
+    "pk": "LESWFE",
+    "fields": {
+        "Title": "مصاحبه خروج",
+        "SystemCode": "LES",
+        "AppLabel": "LeavingSession"
+    }
+},
+{
+    "model": "AccessControl.app",
+    "pk": "ORGDUT",
+    "fields": {
+        "Title": "شرح وظایف",
+        "SystemCode": "ORG",
+        "AppLabel": "Duties"
+    }
+},
+{
+    "model": "AccessControl.app",
+    "pk": "ORGNRL",
+    "fields": {
+        "Title": "تعریف سمت جدید",
+        "SystemCode": "ORG",
+        "AppLabel": "roleManager"
+    }
+},
+{
+    "model": "AccessControl.app",
+    "pk": "ORGRCM",
+    "fields": {
+        "Title": "سمت های مجاز تیم",
+        "SystemCode": "ORG",
+        "AppLabel": "roleManager"
+    }
+},
+{
+    "model": "AccessControl.app",
+    "pk": "ORGUSR",
+    "fields": {
+        "Title": "پرونده پرسنلی",
+        "SystemCode": "ORG",
+        "AppLabel": "USER"
+    }
+},
+{
+    "model": "AccessControl.app",
+    "pk": "PESGYM",
+    "fields": {
+        "Title": "ثبت نام باشگاه",
+        "SystemCode": "PES",
+        "AppLabel": "PersonnelService"
+    }
+},
+{
+    "model": "AccessControl.app",
+    "pk": "PESNAH",
+    "fields": {
+        "Title": "نظردهی ناهار",
+        "SystemCode": "PES",
+        "AppLabel": "PersonnelService"
+    }
+},
+{
+    "model": "AccessControl.app",
+    "pk": "PESPOS",
+    "fields": {
+        "Title": "سفارش غذا",
+        "SystemCode": "PES",
+        "AppLabel": "PersonnelService"
+    }
+},
+{
+    "model": "AccessControl.app",
+    "pk": "SLMCRP",
+    "fields": {
+        "Title": "موارد عدم تایید صورت حساب",
+        "SystemCode": "SLM",
+        "AppLabel": "CorpIssue"
+    }
+},
+{
+    "model": "AccessControl.app",
+    "pk": "SLMTFE",
+    "fields": {
+        "Title": "فعال سازی قابلیت جدید",
+        "SystemCode": "SLM",
+        "AppLabel": "TeamFeature"
+    }
+},
+{
+    "model": "AccessControl.app",
+    "pk": "SRBINS",
+    "fields": {
+        "Title": "ورود اطلاعات کتاب های پشتیبانی",
+        "SystemCode": "SRB",
+        "AppLabel": "ServiceBook"
+    }
+},
+{
+    "model": "AccessControl.app",
+    "pk": "SURCNT",
+    "fields": {
+        "Title": "نظرسنجی رضایت شغلی",
+        "SystemCode": "SUR",
+        "AppLabel": "Sanjeman"
+    }
+},
+{
+    "model": "AccessControl.app",
+    "pk": "TFSTFE",
+    "fields": {
+        "Title": "فعال سازی قابلیت جدید",
+        "SystemCode": "TFS",
+        "AppLabel": "TeamFeature"
+    }
+},
+{
+    "model": "AccessControl.app",
+    "pk": "TWPADM",
+    "fields": {
+        "Title": "سیستم ثبت فعالیت ها",
+        "SystemCode": "TWP",
+        "AppLabel": "teamworkplan"
+    }
+},
+{
+    "model": "AccessControl.app",
+    "pk": "WFECTR",
+    "fields": {
+        "Title": "تغیرات جایگاه سازمانی",
+        "SystemCode": "WFE",
+        "AppLabel": "ChangeTeamRole"
+    }
+},
+{
+    "model": "AccessControl.appurl",
+    "pk": 1,
+    "fields": {
+        "AppCode": "EVAADV",
+        "URL": "/AddedValue/",
+        "IsPublic": false
+    }
+},
+{
+    "model": "AccessControl.appurl",
+    "pk": 5,
+    "fields": {
+        "AppCode": "CTSHLP",
+        "URL": "/SystemHelp/InsertHelp/",
+        "IsPublic": false
+    }
+},
+{
+    "model": "AccessControl.appurl",
+    "pk": 6,
+    "fields": {
+        "AppCode": "ORGDUT",
+        "URL": "/Duties/@username",
+        "IsPublic": false
+    }
+},
+{
+    "model": "AccessControl.appurl",
+    "pk": 7,
+    "fields": {
+        "AppCode": "WFECTR",
+        "URL": "/ProcessManagement/ChangeTeamRole/",
+        "IsPublic": true
+    }
+},
+{
+    "model": "AccessControl.appurl",
+    "pk": 8,
+    "fields": {
+        "AppCode": "SRBINS",
+        "URL": "/ServiceBook/",
+        "IsPublic": true
+    }
+},
+{
+    "model": "AccessControl.appurl",
+    "pk": 9,
+    "fields": {
+        "AppCode": "SURCNT",
+        "URL": "/Sanjeman/AutoLogin",
+        "IsPublic": false
+    }
+},
+{
+    "model": "AccessControl.appurl",
+    "pk": 10,
+    "fields": {
+        "AppCode": "EVAOKR",
+        "URL": "/OKR/",
+        "IsPublic": false
+    }
+},
+{
+    "model": "AccessControl.appurl",
+    "pk": 11,
+    "fields": {
+        "AppCode": "SRBINS",
+        "URL": "/admin/",
+        "IsPublic": false
+    }
+},
+{
+    "model": "AccessControl.appurl",
+    "pk": 12,
+    "fields": {
+        "AppCode": "FAQINS",
+        "URL": "/admin",
+        "IsPublic": false
+    }
+},
+{
+    "model": "AccessControl.appurl",
+    "pk": 13,
+    "fields": {
+        "AppCode": "FAQINS",
+        "URL": "FAQ/Main",
+        "IsPublic": false
+    }
+},
+{
+    "model": "AccessControl.appurl",
+    "pk": 14,
+    "fields": {
+        "AppCode": "EVAADV",
+        "URL": "/admin",
+        "IsPublic": false
+    }
+},
+{
+    "model": "AccessControl.appurl",
+    "pk": 15,
+    "fields": {
+        "AppCode": "TWPADM",
+        "URL": "/TeamWorkPlan/172",
+        "IsPublic": false
+    }
+},
+{
+    "model": "AccessControl.appurl",
+    "pk": 16,
+    "fields": {
+        "AppCode": "COPREP",
+        "URL": "/admin/autologin/",
+        "IsPublic": false
+    }
+},
+{
+    "model": "AccessControl.appurl",
+    "pk": 20,
+    "fields": {
+        "AppCode": "COPREP",
+        "URL": "CostPrice/1400",
+        "IsPublic": false
+    }
+},
+{
+    "model": "AccessControl.appurl",
+    "pk": 21,
+    "fields": {
+        "AppCode": "COPREP",
+        "URL": "@yearnumber/Corp/@corp/Cost/",
+        "IsPublic": false
+    }
+},
+{
+    "model": "AccessControl.appurl",
+    "pk": 22,
+    "fields": {
+        "AppCode": "COPREP",
+        "URL": "@yearnumber/Corp/@corp/Income/",
+        "IsPublic": false
+    }
+},
+{
+    "model": "AccessControl.appurl",
+    "pk": 23,
+    "fields": {
+        "AppCode": "COPREP",
+        "URL": "@yearnumber/Team/@team/Cost/@rolegroup",
+        "IsPublic": false
+    }
+},
+{
+    "model": "AccessControl.appurl",
+    "pk": 24,
+    "fields": {
+        "AppCode": "COPREP",
+        "URL": "@yearnumber/Team/@team/Income/ ",
+        "IsPublic": false
+    }
+},
+{
+    "model": "AccessControl.appurl",
+    "pk": 25,
+    "fields": {
+        "AppCode": "COPREP",
+        "URL": "@yearnumber/Corp/",
+        "IsPublic": false
+    }
+},
+{
+    "model": "AccessControl.appurl",
+    "pk": 26,
+    "fields": {
+        "AppCode": "COPREP",
+        "URL": "@yearnumber/Team/",
+        "IsPublic": false
+    }
+},
+{
+    "model": "AccessControl.appurl",
+    "pk": 27,
+    "fields": {
+        "AppCode": "COPREP",
+        "URL": "@yearnumber/Information/",
+        "IsPublic": false
+    }
+},
+{
+    "model": "AccessControl.appurl",
+    "pk": 28,
+    "fields": {
+        "AppCode": "COPREP",
+        "URL": "@yearnumber/",
+        "IsPublic": false
+    }
+},
+{
+    "model": "AccessControl.appurl",
+    "pk": 29,
+    "fields": {
+        "AppCode": "COPREP",
+        "URL": "@yearnumber/@username/",
+        "IsPublic": false
+    }
+},
+{
+    "model": "AccessControl.appurl",
+    "pk": 31,
+    "fields": {
+        "AppCode": "WFECTR",
+        "URL": "/ProcessManagement/ChangeTeamRole/Report/",
+        "IsPublic": false
+    }
+},
+{
+    "model": "AccessControl.appurl",
+    "pk": 32,
+    "fields": {
+        "AppCode": "ORGUSR",
+        "URL": "/HR/List/",
+        "IsPublic": false
+    }
+},
+{
+    "model": "AccessControl.appurl",
+    "pk": 33,
+    "fields": {
+        "AppCode": "TFSTFE",
+        "URL": "/TeamFeature/feature-view/",
+        "IsPublic": false
+    }
+},
+{
+    "model": "AccessControl.appurl",
+    "pk": 35,
+    "fields": {
+        "AppCode": "WFECTR",
+        "URL": "/ProcessManagement/ChangeTeamRole/ReportSpecial/",
+        "IsPublic": false
+    }
+},
+{
+    "model": "AccessControl.appurl",
+    "pk": 36,
+    "fields": {
+        "AppCode": "PESGYM",
+        "URL": "/PersonnelService/Gym/",
+        "IsPublic": true
+    }
+},
+{
+    "model": "AccessControl.appurl",
+    "pk": 37,
+    "fields": {
+        "AppCode": "PESNAH",
+        "URL": "/PersonnelService/NaharTime/",
+        "IsPublic": true
+    }
+},
+{
+    "model": "AccessControl.appurl",
+    "pk": 38,
+    "fields": {
+        "AppCode": "PESNAH",
+        "URL": "/PersonnelService/NaharTime/action/",
+        "IsPublic": true
+    }
+},
+{
+    "model": "AccessControl.appurl",
+    "pk": 39,
+    "fields": {
+        "AppCode": "DOCDJP",
+        "URL": "/admin",
+        "IsPublic": true
+    }
+},
+{
+    "model": "AccessControl.appurl",
+    "pk": 40,
+    "fields": {
+        "AppCode": "DOCDJP",
+        "URL": "/PhotoGallery/insertphoto/",
+        "IsPublic": false
+    }
+},
+{
+    "model": "AccessControl.appurl",
+    "pk": 41,
+    "fields": {
+        "AppCode": "EVACOI",
+        "URL": "/CorpIssue/",
+        "IsPublic": false
+    }
+},
+{
+    "model": "AccessControl.appurl",
+    "pk": 43,
+    "fields": {
+        "AppCode": "EVACOI",
+        "URL": "/CorpIssue/fp/",
+        "IsPublic": true
+    }
+},
+{
+    "model": "AccessControl.appurl",
+    "pk": 44,
+    "fields": {
+        "AppCode": "SRBINS",
+        "URL": "/ServiceBook/Session/",
+        "IsPublic": true
+    }
+},
+{
+    "model": "AccessControl.appurl",
+    "pk": 45,
+    "fields": {
+        "AppCode": "SRBINS",
+        "URL": "/ServiceBook/TeamDescription/",
+        "IsPublic": true
+    }
+},
+{
+    "model": "AccessControl.appurl",
+    "pk": 46,
+    "fields": {
+        "AppCode": "SRBINS",
+        "URL": "/ServiceBook/UserStory/",
+        "IsPublic": true
+    }
+},
+{
+    "model": "AccessControl.appurl",
+    "pk": 49,
+    "fields": {
+        "AppCode": "SRBINS",
+        "URL": "/ServiceBook/ImportantWork/",
+        "IsPublic": true
+    }
+},
+{
+    "model": "AccessControl.appurl",
+    "pk": 50,
+    "fields": {
+        "AppCode": "SRBINS",
+        "URL": "/ServiceBook/Session/Delete/@pk/",
+        "IsPublic": true
+    }
+},
+{
+    "model": "AccessControl.appurl",
+    "pk": 51,
+    "fields": {
+        "AppCode": "SRBINS",
+        "URL": "/ServiceBook/Session/Edit/@pk/",
+        "IsPublic": true
+    }
+},
+{
+    "model": "AccessControl.appurl",
+    "pk": 52,
+    "fields": {
+        "AppCode": "SRBINS",
+        "URL": "/ServiceBook/ImportantWork/Edit/@pk/",
+        "IsPublic": true
+    }
+},
+{
+    "model": "AccessControl.appurl",
+    "pk": 53,
+    "fields": {
+        "AppCode": "SRBINS",
+        "URL": "/ServiceBook/ImportantWork/Delete/@pk/",
+        "IsPublic": true
+    }
+},
+{
+    "model": "AccessControl.appurl",
+    "pk": 54,
+    "fields": {
+        "AppCode": "SRBINS",
+        "URL": "/ServiceBook/UserStory/Delete/@pk/",
+        "IsPublic": true
+    }
+},
+{
+    "model": "AccessControl.appurl",
+    "pk": 55,
+    "fields": {
+        "AppCode": "SRBINS",
+        "URL": "/ServiceBook/UserStory/Edit/@pk/",
+        "IsPublic": false
+    }
+},
+{
+    "model": "AccessControl.appurl",
+    "pk": 56,
+    "fields": {
+        "AppCode": "SRBINS",
+        "URL": "/ServiceBook/TeamDescription/Delete/@pk/",
+        "IsPublic": true
+    }
+},
+{
+    "model": "AccessControl.appurl",
+    "pk": 57,
+    "fields": {
+        "AppCode": "SRBINS",
+        "URL": "/ServiceBook/TeamDescription/Edit/@pk/",
+        "IsPublic": true
+    }
+},
+{
+    "model": "AccessControl.appurl",
+    "pk": 58,
+    "fields": {
+        "AppCode": "EVACOI",
+        "URL": "/CorpIssue/insert-corp-issue/",
+        "IsPublic": true
+    }
+},
+{
+    "model": "AccessControl.appurl",
+    "pk": 59,
+    "fields": {
+        "AppCode": "TWPADM",
+        "URL": "/TeamWorkPlan",
+        "IsPublic": true
+    }
+},
+{
+    "model": "AccessControl.appurl",
+    "pk": 60,
+    "fields": {
+        "AppCode": "TWPADM",
+        "URL": "/TeamWorkPlan/@pk/",
+        "IsPublic": true
+    }
+},
+{
+    "model": "AccessControl.appurl",
+    "pk": 62,
+    "fields": {
+        "AppCode": "TWPADM",
+        "URL": "/TeamWorkPlan/jwttest/",
+        "IsPublic": true
+    }
+},
+{
+    "model": "AccessControl.appurl",
+    "pk": 63,
+    "fields": {
+        "AppCode": "PESNAH",
+        "URL": "/PersonnelService/NaharTime/hello/",
+        "IsPublic": true
+    }
+},
+{
+    "model": "AccessControl.appurl",
+    "pk": 64,
+    "fields": {
+        "AppCode": "DOCWKI",
+        "URL": "/KMS/",
+        "IsPublic": true
+    }
+},
+{
+    "model": "AccessControl.appurl",
+    "pk": 65,
+    "fields": {
+        "AppCode": "LESWFE",
+        "URL": "/LeavingSession/LeavingSessionMember/",
+        "IsPublic": true
+    }
+},
+{
+    "model": "AccessControl.appurl",
+    "pk": 69,
+    "fields": {
+        "AppCode": "CTSFAQ",
+        "URL": "/Main",
+        "IsPublic": true
+    }
+},
+{
+    "model": "AccessControl.appurl",
+    "pk": 71,
+    "fields": {
+        "AppCode": "CTSHLP",
+        "URL": "/Main",
+        "IsPublic": true
+    }
+},
+{
+    "model": "AccessControl.appurl",
+    "pk": 72,
+    "fields": {
+        "AppCode": "SLMCRP",
+        "URL": "/SalesManagement/CorpIssue/",
+        "IsPublic": false
+    }
+},
+{
+    "model": "AccessControl.appurl",
+    "pk": 73,
+    "fields": {
+        "AppCode": "SLMTFE",
+        "URL": "/SalesManagement/TeamFeature/feature-view/",
+        "IsPublic": false
+    }
+},
+{
+    "model": "AccessControl.appurl",
+    "pk": 74,
+    "fields": {
+        "AppCode": "CTSFAQ",
+        "URL": "admin/autologin/",
+        "IsPublic": false
+    }
+},
+{
+    "model": "AccessControl.appurl",
+    "pk": 75,
+    "fields": {
+        "AppCode": "CTSFAQ",
+        "URL": "/FAQ/Confirm",
+        "IsPublic": false
+    }
+},
+{
+    "model": "AccessControl.appurl",
+    "pk": 76,
+    "fields": {
+        "AppCode": "ACSACS",
+        "URL": "/AccessControl/ListAppPermissions/",
+        "IsPublic": false
+    }
+},
+{
+    "model": "AccessControl.appurl",
+    "pk": 77,
+    "fields": {
+        "AppCode": "PESPOS",
+        "URL": "/PersonnelService/Pors/auth-gateway/",
+        "IsPublic": true
+    }
+},
+{
+    "model": "AccessControl.appurl",
+    "pk": 82,
+    "fields": {
+        "AppCode": "COPDAT",
+        "URL": "/Finance/Import",
+        "IsPublic": false
+    }
+},
+{
+    "model": "AccessControl.appurl",
+    "pk": 84,
+    "fields": {
+        "AppCode": "WFECTR",
+        "URL": "/ProcessManagement/ChangeTeamRole/HistoryReport/",
+        "IsPublic": false
+    }
+},
+{
+    "model": "AccessControl.appurl",
+    "pk": 86,
+    "fields": {
+        "AppCode": "PESPOS",
+        "URL": "/admin/",
+        "IsPublic": false
+    }
+},
+{
+    "model": "AccessControl.appurl",
+    "pk": 88,
+    "fields": {
+        "AppCode": "TWPADM",
+        "URL": "/admin/",
+        "IsPublic": false
+    }
+},
+{
+    "model": "AccessControl.appurl",
+    "pk": 89,
+    "fields": {
+        "AppCode": "EITEIT",
+        "URL": "/admin/",
+        "IsPublic": false
+    }
+},
+{
+    "model": "AccessControl.appurl",
+    "pk": 90,
+    "fields": {
+        "AppCode": "ORGNRL",
+        "URL": "/RoleManager/NewRoleRequest/",
+        "IsPublic": false
+    }
+},
+{
+    "model": "AccessControl.appurl",
+    "pk": 96,
+    "fields": {
+        "AppCode": "ORGRCM",
+        "URL": "/RoleManager/AllowRoleTeamRequest/",
+        "IsPublic": false
+    }
+},
+{
+    "model": "AccessControl.permissiongroup",
+    "pk": 1,
+    "fields": {
+        "Title": "مدیران ارشد"
+    }
+},
+{
+    "model": "AccessControl.permissiongroup",
+    "pk": 2,
+    "fields": {
+        "Title": "کارشناسان کنترل پروژه"
+    }
+},
+{
+    "model": "AccessControl.permissiongroup",
+    "pk": 3,
+    "fields": {
+        "Title": "اعضای تیم سامانه ستادی"
+    }
+},
+{
+    "model": "AccessControl.permissiongroup",
+    "pk": 4,
+    "fields": {
+        "Title": "مدیران پروژه"
+    }
+},
+{
+    "model": "AccessControl.permissiongroup",
+    "pk": 5,
+    "fields": {
+        "Title": "ادمین سیستم راهنمای کاربر"
+    }
+},
+{
+    "model": "AccessControl.permissiongroup",
+    "pk": 6,
+    "fields": {
+        "Title": "ورود اطلاعات سیستم راهنمای کاربر"
+    }
+},
+{
+    "model": "AccessControl.permissiongroup",
+    "pk": 7,
+    "fields": {
+        "Title": "اعضای تیم مستند سازی"
+    }
+},
+{
+    "model": "AccessControl.permissiongroup",
+    "pk": 8,
+    "fields": {
+        "Title": "دسترسی عمومی"
+    }
+},
+{
+    "model": "AccessControl.permissiongroup",
+    "pk": 9,
+    "fields": {
+        "Title": "ورود اطلاعات FAQ"
+    }
+},
+{
+    "model": "AccessControl.permissiongroup",
+    "pk": 10,
+    "fields": {
+        "Title": "ورود اطلاعات بهای تمام شده"
+    }
+},
+{
+    "model": "AccessControl.permissiongroup",
+    "pk": 11,
+    "fields": {
+        "Title": "گزارش مدیریتی"
+    }
+},
+{
+    "model": "AccessControl.permissiongroup",
+    "pk": 12,
+    "fields": {
+        "Title": "گزارش فرایند تغییر تیم و سمت"
+    }
+},
+{
+    "model": "AccessControl.permissiongroup",
+    "pk": 13,
+    "fields": {
+        "Title": "ورود اطلاعات پرونده پرسنلی"
+    }
+},
+{
+    "model": "AccessControl.permissiongroup",
+    "pk": 14,
+    "fields": {
+        "Title": "گزارش ویژه فرایند تغییر تیم و سمت"
+    }
+},
+{
+    "model": "AccessControl.permissiongroup",
+    "pk": 15,
+    "fields": {
+        "Title": "لانچ بتا سیستم پرس(بچه های اداری)"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 1,
+    "fields": {
+        "PermissionCode": "EVAADVMANG",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": 2,
+        "OwnerPermissionUser": null
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 2,
+    "fields": {
+        "PermissionCode": "EVAADVEII",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": 1,
+        "OwnerPermissionUser": null
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 3,
+    "fields": {
+        "PermissionCode": "EVAADVMANG",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": 4,
+        "OwnerPermissionUser": null
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 4,
+    "fields": {
+        "PermissionCode": "EVAADVEII",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": 3,
+        "OwnerPermissionUser": null
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 5,
+    "fields": {
+        "PermissionCode": "EVAADVMANG",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": 3,
+        "OwnerPermissionUser": null
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 8,
+    "fields": {
+        "PermissionCode": "HLPINSCGED",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": 3,
+        "OwnerPermissionUser": null
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 9,
+    "fields": {
+        "PermissionCode": "HLPINSCGED",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": 5,
+        "OwnerPermissionUser": null
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 10,
+    "fields": {
+        "PermissionCode": "HLPINSSHAT",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": 5,
+        "OwnerPermissionUser": null
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 11,
+    "fields": {
+        "PermissionCode": "HLPINSSHAT",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": 3,
+        "OwnerPermissionUser": null
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 12,
+    "fields": {
+        "PermissionCode": "EVAADVMANG",
+        "OwnerPermissionRole": 61,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": null
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 13,
+    "fields": {
+        "PermissionCode": "HLPINSUSER",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": 6,
+        "OwnerPermissionUser": null
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 14,
+    "fields": {
+        "PermissionCode": "SRBINSADMN",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": 7,
+        "OwnerPermissionUser": null
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 15,
+    "fields": {
+        "PermissionCode": "SRBINSADMN",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": 3,
+        "OwnerPermissionUser": null
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 16,
+    "fields": {
+        "PermissionCode": "SURCNTADMN",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": 3,
+        "OwnerPermissionUser": null
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 17,
+    "fields": {
+        "PermissionCode": "FAQINSADMN",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": 3,
+        "OwnerPermissionUser": null
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 18,
+    "fields": {
+        "PermissionCode": "FAQINSUSER",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": 3,
+        "OwnerPermissionUser": null
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 19,
+    "fields": {
+        "PermissionCode": "ORGDUTADMN",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": 3,
+        "OwnerPermissionUser": null
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 20,
+    "fields": {
+        "PermissionCode": "ORGDUTUSER",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": 4,
+        "OwnerPermissionUser": null
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 21,
+    "fields": {
+        "PermissionCode": "ORGDUTUSER",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": 7,
+        "OwnerPermissionUser": null
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 22,
+    "fields": {
+        "PermissionCode": "EVAADVMANG",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": 7,
+        "OwnerPermissionUser": null
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 23,
+    "fields": {
+        "PermissionCode": "EVAADVADMN",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": 3,
+        "OwnerPermissionUser": null
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 24,
+    "fields": {
+        "PermissionCode": "EVAADVADMN",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": 7,
+        "OwnerPermissionUser": null
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 25,
+    "fields": {
+        "PermissionCode": "ORGDUTADMN",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "m.azizkhani@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 26,
+    "fields": {
+        "PermissionCode": "TWPADMADMN",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": 3,
+        "OwnerPermissionUser": null
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 27,
+    "fields": {
+        "PermissionCode": "ORGDUTADMN",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "m.arastooi@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 28,
+    "fields": {
+        "PermissionCode": "FAQINSADMN",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": 9,
+        "OwnerPermissionUser": null
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 29,
+    "fields": {
+        "PermissionCode": "COPREPMUSR",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": 10,
+        "OwnerPermissionUser": null
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 30,
+    "fields": {
+        "PermissionCode": "COPREPMANG",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": 1,
+        "OwnerPermissionUser": null
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 31,
+    "fields": {
+        "PermissionCode": "COPREPMANG",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": 11,
+        "OwnerPermissionUser": null
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 32,
+    "fields": {
+        "PermissionCode": "ORGDUTADMN",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "m.mahoo@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 34,
+    "fields": {
+        "PermissionCode": "WFECTEREPT",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": 12,
+        "OwnerPermissionUser": null
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 35,
+    "fields": {
+        "PermissionCode": "ORGUSRUSER",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": 13,
+        "OwnerPermissionUser": null
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 36,
+    "fields": {
+        "PermissionCode": "SLMTFEUSER",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": 7,
+        "OwnerPermissionUser": null
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 37,
+    "fields": {
+        "PermissionCode": "SLMTFEUSER",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": 3,
+        "OwnerPermissionUser": null
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 38,
+    "fields": {
+        "PermissionCode": "SLMTFEUSER",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": 1,
+        "OwnerPermissionUser": null
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 39,
+    "fields": {
+        "PermissionCode": "SLMTFEUSER",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "s.dokhanchi@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 40,
+    "fields": {
+        "PermissionCode": "WFECTRUSRP",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": 3,
+        "OwnerPermissionUser": null
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 41,
+    "fields": {
+        "PermissionCode": "WFECTRUSRP",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "K.Hosseinpour@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 42,
+    "fields": {
+        "PermissionCode": "PESNAHUSER",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": 3,
+        "OwnerPermissionUser": null
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 43,
+    "fields": {
+        "PermissionCode": "SLMTFEUSER",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": 4,
+        "OwnerPermissionUser": null
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 44,
+    "fields": {
+        "PermissionCode": "SLMTFEUSER",
+        "OwnerPermissionRole": 61,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": null
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 45,
+    "fields": {
+        "PermissionCode": "WFECTRUSRP",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "f.yousefi@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 48,
+    "fields": {
+        "PermissionCode": "HLPINSUSER",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": 3,
+        "OwnerPermissionUser": null
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 49,
+    "fields": {
+        "PermissionCode": "WFECTRUSRP",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "s.khodaparast@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 50,
+    "fields": {
+        "PermissionCode": "HLPINSADMN",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": 5,
+        "OwnerPermissionUser": null
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 51,
+    "fields": {
+        "PermissionCode": "EVAADVMANG",
+        "OwnerPermissionRole": 52,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": null
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 54,
+    "fields": {
+        "PermissionCode": "SRBINSUSER",
+        "OwnerPermissionRole": 61,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": null
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 55,
+    "fields": {
+        "PermissionCode": "SRBINSUSER",
+        "OwnerPermissionRole": 52,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": null
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 56,
+    "fields": {
+        "PermissionCode": "SLMTFEUSER",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "f.moghadam@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 57,
+    "fields": {
+        "PermissionCode": "EVAADVMANG",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "y.ghalati@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 58,
+    "fields": {
+        "PermissionCode": "SRBINSUSER",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "h.ezzati@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 59,
+    "fields": {
+        "PermissionCode": "SRBINSUSER",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "m.amerehei@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 60,
+    "fields": {
+        "PermissionCode": "EVAOKRADMN",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "m.asgari@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 61,
+    "fields": {
+        "PermissionCode": "DOCDJPADMN",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": 3,
+        "OwnerPermissionUser": null
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 62,
+    "fields": {
+        "PermissionCode": "DOCDJPADMN",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "b.ghasemi@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 63,
+    "fields": {
+        "PermissionCode": "WFECTEREPT",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "a.oryan@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 64,
+    "fields": {
+        "PermissionCode": "WFECTEREPT",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "a.khamoosh@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 65,
+    "fields": {
+        "PermissionCode": "WFECTEREPT",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "h.goudarzi@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 66,
+    "fields": {
+        "PermissionCode": "SLMTFEUSER",
+        "OwnerPermissionRole": 52,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": null
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 67,
+    "fields": {
+        "PermissionCode": "DOCDJPADMN",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "e.rezaee@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 68,
+    "fields": {
+        "PermissionCode": "SLMTFEUSER",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "m.moghaddami@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 69,
+    "fields": {
+        "PermissionCode": "DOCDJPADMN",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "m.morsali@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 70,
+    "fields": {
+        "PermissionCode": "SRBINSUSER",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "o.moshashai@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 71,
+    "fields": {
+        "PermissionCode": "SRBINSUSER",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "sh.haghighi@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 72,
+    "fields": {
+        "PermissionCode": "SRBINSUSER",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "b.ghasemi@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 73,
+    "fields": {
+        "PermissionCode": "SRBINSUSER",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "sh.mohammadhelmi@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 74,
+    "fields": {
+        "PermissionCode": "PESNAHUSER",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "a.jahanii@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 75,
+    "fields": {
+        "PermissionCode": "WFECTEREPT",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "m.arastooi@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 81,
+    "fields": {
+        "PermissionCode": "DOCWKIDAEN",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": 3,
+        "OwnerPermissionUser": null
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 83,
+    "fields": {
+        "PermissionCode": "DOCWKIDAEN",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": 7,
+        "OwnerPermissionUser": null
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 84,
+    "fields": {
+        "PermissionCode": "COPREPMUSR",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "Ma.Ahmadi@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 85,
+    "fields": {
+        "PermissionCode": "SLMTFEUSER",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "sh.haghighi@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 86,
+    "fields": {
+        "PermissionCode": "SLMTFEUSER",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "e.rezaee@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 87,
+    "fields": {
+        "PermissionCode": "SLMTFEUSER",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "m.arabpoor@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 88,
+    "fields": {
+        "PermissionCode": "SLMTFEUSER",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "a.nikpour@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 89,
+    "fields": {
+        "PermissionCode": "EVAOKRADMN",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": 3,
+        "OwnerPermissionUser": null
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 90,
+    "fields": {
+        "PermissionCode": "EVAOKRADMN",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": 1,
+        "OwnerPermissionUser": null
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 91,
+    "fields": {
+        "PermissionCode": "EVAOKRADMN",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": 2,
+        "OwnerPermissionUser": null
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 92,
+    "fields": {
+        "PermissionCode": "EVAOKRADMN",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": 4,
+        "OwnerPermissionUser": null
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 93,
+    "fields": {
+        "PermissionCode": "CTSFAQDSPL",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": 3,
+        "OwnerPermissionUser": null
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 94,
+    "fields": {
+        "PermissionCode": "CTSHLPDSPL",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": 3,
+        "OwnerPermissionUser": null
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 95,
+    "fields": {
+        "PermissionCode": "SLMCRPDSPL",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": 3,
+        "OwnerPermissionUser": null
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 96,
+    "fields": {
+        "PermissionCode": "TFSTFEOUSR",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "m.moghaddami@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 97,
+    "fields": {
+        "PermissionCode": "TFSTFEOUSR",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "e.rezaee@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 98,
+    "fields": {
+        "PermissionCode": "SLMTFEUSER",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "e.rezaee@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 100,
+    "fields": {
+        "PermissionCode": "SLMTFEUSER",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "f.khoshdel@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 101,
+    "fields": {
+        "PermissionCode": "SLMTFEUSER",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "h.ezzati@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 102,
+    "fields": {
+        "PermissionCode": "CTSFAQADMN",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": 3,
+        "OwnerPermissionUser": null
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 103,
+    "fields": {
+        "PermissionCode": "CTSFAQADMN",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": 9,
+        "OwnerPermissionUser": null
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 104,
+    "fields": {
+        "PermissionCode": "CTSFAQCFRM",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "m.mahoo@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 128,
+    "fields": {
+        "PermissionCode": "ACSACSADMN",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "e.rezaee@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 129,
+    "fields": {
+        "PermissionCode": "ACSACSADMN",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "m.sepahkar@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 135,
+    "fields": {
+        "PermissionCode": "DOCWKIDAEN",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "z.esfandiyari@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 136,
+    "fields": {
+        "PermissionCode": "CTSHLPDSPL",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "m.vafaei@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 137,
+    "fields": {
+        "PermissionCode": "SLMTFEUSER",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "fr.arastooi@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 138,
+    "fields": {
+        "PermissionCode": "SLMTFEUSER",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "fh.arastooi@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 150,
+    "fields": {
+        "PermissionCode": "PESPOSGNRL",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": 15,
+        "OwnerPermissionUser": null
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 151,
+    "fields": {
+        "PermissionCode": "PESPOSGNRL",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": 3,
+        "OwnerPermissionUser": null
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 152,
+    "fields": {
+        "PermissionCode": "PESPOSGNRL",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": 7,
+        "OwnerPermissionUser": null
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 153,
+    "fields": {
+        "PermissionCode": "SRBINSUSER",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "e.ebadattalab@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 154,
+    "fields": {
+        "PermissionCode": "SLMTFEUSER",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "f.fazlali@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 155,
+    "fields": {
+        "PermissionCode": "SLMTFEUSER",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "m.hatami@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 156,
+    "fields": {
+        "PermissionCode": "SLMTFEUSER",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "r.asadi@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 157,
+    "fields": {
+        "PermissionCode": "SLMTFEUSER",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "ma.mohammadi@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 158,
+    "fields": {
+        "PermissionCode": "SLMTFEUSER",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "m.ahmadzadeh@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 159,
+    "fields": {
+        "PermissionCode": "PESPOSGNRL",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "m.khakvar@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 160,
+    "fields": {
+        "PermissionCode": "COPDATUSER",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "e.rezaee@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 161,
+    "fields": {
+        "PermissionCode": "COPDATUSER",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "m.sepahkar@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 164,
+    "fields": {
+        "PermissionCode": "COPDATUSER",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "z.esfandiyari@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 165,
+    "fields": {
+        "PermissionCode": "COPDATUSER",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "m.saeidipanah@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 169,
+    "fields": {
+        "PermissionCode": "PESPOSGNRL",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "b.ghasemi@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 170,
+    "fields": {
+        "PermissionCode": "PESPOSGNRL",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "b.zangeneh@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 171,
+    "fields": {
+        "PermissionCode": "PESPOSGNRL",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "e.taeidi@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 172,
+    "fields": {
+        "PermissionCode": "PESPOSGNRL",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "f.rafatpour@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 173,
+    "fields": {
+        "PermissionCode": "PESPOSGNRL",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "f.yousefi@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 174,
+    "fields": {
+        "PermissionCode": "PESPOSGNRL",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "k.hosseinpour@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 175,
+    "fields": {
+        "PermissionCode": "PESPOSGNRL",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "m.abangah@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 176,
+    "fields": {
+        "PermissionCode": "PESPOSGNRL",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "M.Morsali@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 177,
+    "fields": {
+        "PermissionCode": "PESPOSGNRL",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "m.saeidipanah@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 178,
+    "fields": {
+        "PermissionCode": "PESPOSGNRL",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "Ma.Ahmadi@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 179,
+    "fields": {
+        "PermissionCode": "PESPOSGNRL",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "ma.ghafari@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 180,
+    "fields": {
+        "PermissionCode": "PESPOSGNRL",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "mo.ahmadi@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 181,
+    "fields": {
+        "PermissionCode": "PESPOSGNRL",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "mo.zarei@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 182,
+    "fields": {
+        "PermissionCode": "PESPOSGNRL",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "s.khodaparast@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 185,
+    "fields": {
+        "PermissionCode": "PESPOSGNRL",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "z.esfandiyari@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 187,
+    "fields": {
+        "PermissionCode": "PESPOSGNRL",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "mo.shabani@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 188,
+    "fields": {
+        "PermissionCode": "SLMTFEUSER",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "f.nazari@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 189,
+    "fields": {
+        "PermissionCode": "WFECTRREPP",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "E.Rezaee@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 190,
+    "fields": {
+        "PermissionCode": "WFECTRREPP",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "m.sepahkar@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 191,
+    "fields": {
+        "PermissionCode": "WFECTRREPP",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "A.salar@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 192,
+    "fields": {
+        "PermissionCode": "WFECTRREPP",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "H.Ghiasian@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 193,
+    "fields": {
+        "PermissionCode": "WFECTRREPP",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "m.khakvar@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 194,
+    "fields": {
+        "PermissionCode": "PESPOSADMN",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "f.yousefi@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 195,
+    "fields": {
+        "PermissionCode": "PESPOSADMN",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "s.khodaparast@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 196,
+    "fields": {
+        "PermissionCode": "PESPOSADMN",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "k.hosseinpour@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 198,
+    "fields": {
+        "PermissionCode": "TWPADMRNT",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "E.Rezaee@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 199,
+    "fields": {
+        "PermissionCode": "HLPINSCGED",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "b.ghasemi@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 200,
+    "fields": {
+        "PermissionCode": "HLPINSUSER",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "b.ghasemi@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 201,
+    "fields": {
+        "PermissionCode": "WFECTRREPP",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "b.ghasemi@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 202,
+    "fields": {
+        "PermissionCode": "WFECTRREPP",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "f.yousefi@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 203,
+    "fields": {
+        "PermissionCode": "WFECTRREPP",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "s.khodaparast@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 204,
+    "fields": {
+        "PermissionCode": "WFECTRREPP",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "k.hosseinpour@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 205,
+    "fields": {
+        "PermissionCode": "WFECTRUSRP",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "ma.ghafari@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 206,
+    "fields": {
+        "PermissionCode": "WFECTRREPP",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "ma.ghafari@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 207,
+    "fields": {
+        "PermissionCode": "SRBINSUSER",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "m.morady@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 208,
+    "fields": {
+        "PermissionCode": "SRBINSUSER",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "ma.mohammadi@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 209,
+    "fields": {
+        "PermissionCode": "SLMTFEUSER",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "e.taeidi@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 210,
+    "fields": {
+        "PermissionCode": "TFSTFEUSER",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "e.taeidi@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 211,
+    "fields": {
+        "PermissionCode": "EITEITADMN",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "b.ghasemi@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 212,
+    "fields": {
+        "PermissionCode": "EITEITADMN",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "e.rezaee@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 213,
+    "fields": {
+        "PermissionCode": "SRBINSUSER",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "e.rezaee@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 214,
+    "fields": {
+        "PermissionCode": "ORGRLMARTR",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "m.sepahkar@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 215,
+    "fields": {
+        "PermissionCode": "ORGRLMNRRQ",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "m.sepahkar@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 216,
+    "fields": {
+        "PermissionCode": "ORGRLMNRRQ",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "e.rezaee@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 217,
+    "fields": {
+        "PermissionCode": "ORGRLMARTR",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "e.rezaee@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 218,
+    "fields": {
+        "PermissionCode": "ORGRLMNRRQ",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "m.khakvar@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 219,
+    "fields": {
+        "PermissionCode": "ORGRLMARTR",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "m.khakvar@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 220,
+    "fields": {
+        "PermissionCode": "SLMCRPDSPL",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "m.khakvar@eit"
+    }
+},
+{
+    "model": "AccessControl.userrolegrouppermission",
+    "pk": 221,
+    "fields": {
+        "PermissionCode": "SLMCRPDSPL",
+        "OwnerPermissionRole": null,
+        "OwnerPermissionGroup": null,
+        "OwnerPermissionUser": "e.rezaee@eit"
+    }
+},
+{
+    "model": "AccessControl.permission",
+    "pk": "ACSACSADMN",
+    "fields": {
+        "Title": "کنترل دسترسی موردی افراد به برنامه های میزکار",
+        "AppCode": "ACSACS",
+        "PermissionType": "D"
+    }
+},
+{
+    "model": "AccessControl.permission",
+    "pk": "COPDATUSER",
+    "fields": {
+        "Title": "ورود اطلاعات مالی",
+        "AppCode": "COPDAT",
+        "PermissionType": "D"
+    }
+},
+{
+    "model": "AccessControl.permission",
+    "pk": "COPREPMANG",
+    "fields": {
+        "Title": "گزارش مدیریتی",
+        "AppCode": "COPREP",
+        "PermissionType": "D"
+    }
+},
+{
+    "model": "AccessControl.permission",
+    "pk": "COPREPMUSR",
+    "fields": {
+        "Title": "ورود اطلاعات بهای تمام شده",
+        "AppCode": "COPREP",
+        "PermissionType": "D"
+    }
+},
+{
+    "model": "AccessControl.permission",
+    "pk": "COPREPUCCI",
+    "fields": {
+        "Title": "سود شرکت",
+        "AppCode": "COPREP",
+        "PermissionType": "U"
+    }
+},
+{
+    "model": "AccessControl.permission",
+    "pk": "COPREPUCCO",
+    "fields": {
+        "Title": "هزینه شرکت",
+        "AppCode": "COPREP",
+        "PermissionType": "U"
+    }
+},
+{
+    "model": "AccessControl.permission",
+    "pk": "COPREPUCOR",
+    "fields": {
+        "Title": "شرکت",
+        "AppCode": "COPREP",
+        "PermissionType": "U"
+    }
+},
+{
+    "model": "AccessControl.permission",
+    "pk": "COPREPUINC",
+    "fields": {
+        "Title": "اطلاعات",
+        "AppCode": "COPREP",
+        "PermissionType": "U"
+    }
+},
+{
+    "model": "AccessControl.permission",
+    "pk": "COPREPUSER",
+    "fields": {
+        "Title": "هزینه پرسنل",
+        "AppCode": "COPREP",
+        "PermissionType": "U"
+    }
+},
+{
+    "model": "AccessControl.permission",
+    "pk": "COPREPUTCU",
+    "fields": {
+        "Title": "هزینه هر تیم (سمت)",
+        "AppCode": "COPREP",
+        "PermissionType": "U"
+    }
+},
+{
+    "model": "AccessControl.permission",
+    "pk": "COPREPUTEA",
+    "fields": {
+        "Title": "تیم",
+        "AppCode": "COPREP",
+        "PermissionType": "U"
+    }
+},
+{
+    "model": "AccessControl.permission",
+    "pk": "COPREPUTEI",
+    "fields": {
+        "Title": "تیم سود",
+        "AppCode": "COPREP",
+        "PermissionType": "U"
+    }
+},
+{
+    "model": "AccessControl.permission",
+    "pk": "COPREPUYEA",
+    "fields": {
+        "Title": "سال",
+        "AppCode": "COPREP",
+        "PermissionType": "U"
+    }
+},
+{
+    "model": "AccessControl.permission",
+    "pk": "CTSFAQADMN",
+    "fields": {
+        "Title": "ورود اطلاعات FAQ",
+        "AppCode": "CTSFAQ",
+        "PermissionType": "D"
+    }
+},
+{
+    "model": "AccessControl.permission",
+    "pk": "CTSFAQCFRM",
+    "fields": {
+        "Title": "تایید FAQ",
+        "AppCode": "CTSFAQ",
+        "PermissionType": "D"
+    }
+},
+{
+    "model": "AccessControl.permission",
+    "pk": "CTSFAQDSPL",
+    "fields": {
+        "Title": "نمایش FAQ",
+        "AppCode": "CTSFAQ",
+        "PermissionType": "D"
+    }
+},
+{
+    "model": "AccessControl.permission",
+    "pk": "CTSHLPDSPL",
+    "fields": {
+        "Title": "نمایش HELP",
+        "AppCode": "CTSHLP",
+        "PermissionType": "D"
+    }
+},
+{
+    "model": "AccessControl.permission",
+    "pk": "DOCDJPADMN",
+    "fields": {
+        "Title": "ورود اطلاعات پنل ادمین مستندات جنگو",
+        "AppCode": "DOCDJP",
+        "PermissionType": "D"
+    }
+},
+{
+    "model": "AccessControl.permission",
+    "pk": "DOCWKIDAEN",
+    "fields": {
+        "Title": "ورود اطلاعات ویکی",
+        "AppCode": "DOCWKI",
+        "PermissionType": "D"
+    }
+},
+{
+    "model": "AccessControl.permission",
+    "pk": "EITEITADMN",
+    "fields": {
+        "Title": "ادمین EIT",
+        "AppCode": "EITEIT",
+        "PermissionType": "D"
+    }
+},
+{
+    "model": "AccessControl.permission",
+    "pk": "EVAADVADMN",
+    "fields": {
+        "Title": "پنل ادمین ارزش افزوده",
+        "AppCode": "EVAADV",
+        "PermissionType": "D"
+    }
+},
+{
+    "model": "AccessControl.permission",
+    "pk": "EVAADVEII",
+    "fields": {
+        "Title": "دسترسی وارد کردن ضریب اهمیت",
+        "AppCode": "EVAADV",
+        "PermissionType": "D"
+    }
+},
+{
+    "model": "AccessControl.permission",
+    "pk": "EVAADVMANG",
+    "fields": {
+        "Title": "دسترسی ورود اطلاعات مدیران پروژه",
+        "AppCode": "EVAADV",
+        "PermissionType": "D"
+    }
+},
+{
+    "model": "AccessControl.permission",
+    "pk": "EVAOKRADMN",
+    "fields": {
+        "Title": "ادمین سیستم OKR",
+        "AppCode": "EVAOKR",
+        "PermissionType": "D"
+    }
+},
+{
+    "model": "AccessControl.permission",
+    "pk": "FAQINSADMN",
+    "fields": {
+        "Title": "ادمین سیستم FAQ",
+        "AppCode": "FAQINS",
+        "PermissionType": "D"
+    }
+},
+{
+    "model": "AccessControl.permission",
+    "pk": "FAQINSUSER",
+    "fields": {
+        "Title": "نمایش FAQ",
+        "AppCode": "FAQINS",
+        "PermissionType": "D"
+    }
+},
+{
+    "model": "AccessControl.permission",
+    "pk": "HLPINSADMN",
+    "fields": {
+        "Title": "ادمین سیستم راهنما",
+        "AppCode": "HLPINS",
+        "PermissionType": "D"
+    }
+},
+{
+    "model": "AccessControl.permission",
+    "pk": "HLPINSCGED",
+    "fields": {
+        "Title": "مجوز ویرایش سراسری فیلدها",
+        "AppCode": "HLPINS",
+        "PermissionType": "D"
+    }
+},
+{
+    "model": "AccessControl.permission",
+    "pk": "HLPINSSHAT",
+    "fields": {
+        "Title": "نمایش کل تیم ها",
+        "AppCode": "HLPINS",
+        "PermissionType": "D"
+    }
+},
+{
+    "model": "AccessControl.permission",
+    "pk": "HLPINSUSER",
+    "fields": {
+        "Title": "مجوز ورود اطلاعات سیستم راهنمای کاربر",
+        "AppCode": "HLPINS",
+        "PermissionType": "D"
+    }
+},
+{
+    "model": "AccessControl.permission",
+    "pk": "ORGDUTADMN",
+    "fields": {
+        "Title": "ادمین شرح وظایف",
+        "AppCode": "ORGDUT",
+        "PermissionType": "D"
+    }
+},
+{
+    "model": "AccessControl.permission",
+    "pk": "ORGDUTUSER",
+    "fields": {
+        "Title": "ورود اطلاعات شرح وظایف",
+        "AppCode": "ORGDUT",
+        "PermissionType": "D"
+    }
+},
+{
+    "model": "AccessControl.permission",
+    "pk": "ORGRLMARTR",
+    "fields": {
+        "Title": "تعداد سمت های مجاز تیم",
+        "AppCode": "ORGRCM",
+        "PermissionType": "D"
+    }
+},
+{
+    "model": "AccessControl.permission",
+    "pk": "ORGRLMNRRQ",
+    "fields": {
+        "Title": "درخواست سمت جدید",
+        "AppCode": "ORGRCM",
+        "PermissionType": "D"
+    }
+},
+{
+    "model": "AccessControl.permission",
+    "pk": "ORGUSRUSER",
+    "fields": {
+        "Title": "وروداطلاعات پرونده پرسنلی",
+        "AppCode": "ORGUSR",
+        "PermissionType": "D"
+    }
+},
+{
+    "model": "AccessControl.permission",
+    "pk": "PESGYMUSER",
+    "fields": {
+        "Title": "ثبت نام باشگاه",
+        "AppCode": "PESGYM",
+        "PermissionType": "D"
+    }
+},
+{
+    "model": "AccessControl.permission",
+    "pk": "PESNAHUSER",
+    "fields": {
+        "Title": "نظردهی ناهارتایم",
+        "AppCode": "PESNAH",
+        "PermissionType": "D"
+    }
+},
+{
+    "model": "AccessControl.permission",
+    "pk": "PESPOSADMN",
+    "fields": {
+        "Title": "ادمین پرس",
+        "AppCode": "PESPOS",
+        "PermissionType": "D"
+    }
+},
+{
+    "model": "AccessControl.permission",
+    "pk": "PESPOSGNRL",
+    "fields": {
+        "Title": "پرس",
+        "AppCode": "PESPOS",
+        "PermissionType": "D"
+    }
+},
+{
+    "model": "AccessControl.permission",
+    "pk": "SLMCRPDSPL",
+    "fields": {
+        "Title": "ورود اطلاعات موارد تایید نشده فروش",
+        "AppCode": "SLMCRP",
+        "PermissionType": "D"
+    }
+},
+{
+    "model": "AccessControl.permission",
+    "pk": "SLMTFEUSER",
+    "fields": {
+        "Title": "ورود اطلاعات قابلیت های جدید",
+        "AppCode": "SLMTFE",
+        "PermissionType": "D"
+    }
+},
+{
+    "model": "AccessControl.permission",
+    "pk": "SRBINSADMN",
+    "fields": {
+        "Title": "آماده سازیث جهت چاپ",
+        "AppCode": "SRBINS",
+        "PermissionType": "D"
+    }
+},
+{
+    "model": "AccessControl.permission",
+    "pk": "SRBINSUSER",
+    "fields": {
+        "Title": "ورود اطلاعات تیم ها",
+        "AppCode": "SRBINS",
+        "PermissionType": "D"
+    }
+},
+{
+    "model": "AccessControl.permission",
+    "pk": "SURCNTADMN",
+    "fields": {
+        "Title": "ادمین نظر سنجی",
+        "AppCode": "SURCNT",
+        "PermissionType": "D"
+    }
+},
+{
+    "model": "AccessControl.permission",
+    "pk": "TFSTFEOUSR",
+    "fields": {
+        "Title": "ورود اطلاعات قابلیت های جدید نسخه قبلی",
+        "AppCode": "TFSTFE",
+        "PermissionType": "D"
+    }
+},
+{
+    "model": "AccessControl.permission",
+    "pk": "TFSTFEUSER",
+    "fields": {
+        "Title": "وروداطلاعات قابلیت های جدید - نسخه قدیمی",
+        "AppCode": "TFSTFE",
+        "PermissionType": "D"
+    }
+},
+{
+    "model": "AccessControl.permission",
+    "pk": "TWPADMADMN",
+    "fields": {
+        "Title": "ادمین سیستم کار",
+        "AppCode": "TWPADM",
+        "PermissionType": "D"
+    }
+},
+{
+    "model": "AccessControl.permission",
+    "pk": "TWPADMRNT",
+    "fields": {
+        "Title": "ادمین ریلیزنوت",
+        "AppCode": "TWPADM",
+        "PermissionType": "D"
+    }
+},
+{
+    "model": "AccessControl.permission",
+    "pk": "WFECTEREPT",
+    "fields": {
+        "Title": "گزارش فرایندتغییر تیم و سمت",
+        "AppCode": "WFECTR",
+        "PermissionType": "D"
+    }
+},
+{
+    "model": "AccessControl.permission",
+    "pk": "WFECTRREPP",
+    "fields": {
+        "Title": "گزارش تغییر تیم و سمت (سوابق)",
+        "AppCode": "WFECTR",
+        "PermissionType": "D"
+    }
+},
+{
+    "model": "AccessControl.permission",
+    "pk": "WFECTRUSER",
+    "fields": {
+        "Title": "کاربران جایگاه شغلی",
+        "AppCode": "WFECTR",
+        "PermissionType": "D"
+    }
+},
+{
+    "model": "AccessControl.permission",
+    "pk": "WFECTRUSRP",
+    "fields": {
+        "Title": "گزارش ویژه فرایند تغییر تیم و سمت",
+        "AppCode": "WFECTR",
+        "PermissionType": "D"
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 1,
+    "fields": {
+        "User": "Sh.MohammadHelmi@eit",
+        "Group": 3
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 2,
+    "fields": {
+        "User": "a.jahani@eit",
+        "Group": 3
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 3,
+    "fields": {
+        "User": "m.sepahkar@eit",
+        "Group": 3
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 4,
+    "fields": {
+        "User": "fa.asadi@eit",
+        "Group": 5
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 5,
+    "fields": {
+        "User": "sh.mohammadhelmi@eit",
+        "Group": 1
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 6,
+    "fields": {
+        "User": "m.khakvar@eit",
+        "Group": 5
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 7,
+    "fields": {
+        "User": "y.ghalati@eit",
+        "Group": 5
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 8,
+    "fields": {
+        "User": "s.askari@eit",
+        "Group": 6
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 9,
+    "fields": {
+        "User": "M.Dehvari@EIT",
+        "Group": 6
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 10,
+    "fields": {
+        "User": "l.naserizadeh@eit",
+        "Group": 6
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 11,
+    "fields": {
+        "User": "m.abbasi@eit",
+        "Group": 6
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 12,
+    "fields": {
+        "User": "S.Bavaghar@EIT",
+        "Group": 6
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 13,
+    "fields": {
+        "User": "E.Behnia@EIT",
+        "Group": 6
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 14,
+    "fields": {
+        "User": "n.latifi@eit",
+        "Group": 6
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 15,
+    "fields": {
+        "User": "s.behboodi@eit",
+        "Group": 6
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 16,
+    "fields": {
+        "User": "Sh.Tanbakooie@EIT",
+        "Group": 6
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 17,
+    "fields": {
+        "User": "KH.Oryan@eit",
+        "Group": 6
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 18,
+    "fields": {
+        "User": "e.shiri@eit",
+        "Group": 6
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 20,
+    "fields": {
+        "User": "Sh.Khansalar@eit",
+        "Group": 6
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 21,
+    "fields": {
+        "User": "n.monemian@eit",
+        "Group": 6
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 22,
+    "fields": {
+        "User": "f.fazlali@EIT",
+        "Group": 6
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 23,
+    "fields": {
+        "User": "m.arastooi@eit",
+        "Group": 5
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 24,
+    "fields": {
+        "User": "b.ghasemi@eit",
+        "Group": 7
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 25,
+    "fields": {
+        "User": "e.taeidi@eit",
+        "Group": 7
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 26,
+    "fields": {
+        "User": "F.Rezaei@eit",
+        "Group": 7
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 27,
+    "fields": {
+        "User": "B.Zangeneh@eit",
+        "Group": 7
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 28,
+    "fields": {
+        "User": "Sh.MohammadHelmi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 30,
+    "fields": {
+        "User": "m.sepahkar@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 31,
+    "fields": {
+        "User": "A.Abdinejad@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 32,
+    "fields": {
+        "User": "A.Alavi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 33,
+    "fields": {
+        "User": "a.alipanah@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 34,
+    "fields": {
+        "User": "A.Amirparsi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 35,
+    "fields": {
+        "User": "A.Azarkamand@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 36,
+    "fields": {
+        "User": "A.Bagherinia@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 37,
+    "fields": {
+        "User": "a.barkhi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 38,
+    "fields": {
+        "User": "a.bayat@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 39,
+    "fields": {
+        "User": "A.Bazhdan@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 40,
+    "fields": {
+        "User": "A.Darvish@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 41,
+    "fields": {
+        "User": "A.Einollahi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 42,
+    "fields": {
+        "User": "a.faraji@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 43,
+    "fields": {
+        "User": "a.golchin@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 44,
+    "fields": {
+        "User": "a.Hajikhani@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 45,
+    "fields": {
+        "User": "a.hajizadeh@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 46,
+    "fields": {
+        "User": "a.hassani@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 47,
+    "fields": {
+        "User": "A.Hosseinpour@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 48,
+    "fields": {
+        "User": "A.Hosseiny@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 49,
+    "fields": {
+        "User": "A.Janati@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 50,
+    "fields": {
+        "User": "a.khalaj@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 51,
+    "fields": {
+        "User": "a.khalifani@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 52,
+    "fields": {
+        "User": "A.Kheirabadi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 53,
+    "fields": {
+        "User": "A.Koroorian@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 54,
+    "fields": {
+        "User": "A.Mahmoodian@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 55,
+    "fields": {
+        "User": "a.mehrabi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 56,
+    "fields": {
+        "User": "a.mohammadi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 57,
+    "fields": {
+        "User": "A.Mohammadinejad@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 58,
+    "fields": {
+        "User": "A.MohammadREzaei@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 59,
+    "fields": {
+        "User": "a.nikpour@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 60,
+    "fields": {
+        "User": "A.Nikyar@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 61,
+    "fields": {
+        "User": "A.niyazi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 62,
+    "fields": {
+        "User": "a.norozi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 63,
+    "fields": {
+        "User": "A.Ojaghi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 64,
+    "fields": {
+        "User": "a.oryan@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 65,
+    "fields": {
+        "User": "a.parhizkar@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 66,
+    "fields": {
+        "User": "A.Rafei@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 67,
+    "fields": {
+        "User": "a.rahimi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 68,
+    "fields": {
+        "User": "A.Rasoulian@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 69,
+    "fields": {
+        "User": "A.Sadeghian@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 70,
+    "fields": {
+        "User": "a.safardoust@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 71,
+    "fields": {
+        "User": "A.salar@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 72,
+    "fields": {
+        "User": "A.TahanNejad@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 73,
+    "fields": {
+        "User": "a.zahmatkesh@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 74,
+    "fields": {
+        "User": "Am.Mohammadi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 75,
+    "fields": {
+        "User": "B.Afshin@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 76,
+    "fields": {
+        "User": "B.Ahmadvand@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 77,
+    "fields": {
+        "User": "b.arab@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 78,
+    "fields": {
+        "User": "B.Ghasedi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 79,
+    "fields": {
+        "User": "B.Ghasemi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 80,
+    "fields": {
+        "User": "b.irani@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 81,
+    "fields": {
+        "User": "B.Kazeminia@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 82,
+    "fields": {
+        "User": "B.Khodaghadir@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 83,
+    "fields": {
+        "User": "B.KordMostafapour@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 84,
+    "fields": {
+        "User": "b.rashid@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 85,
+    "fields": {
+        "User": "b.sorouri@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 86,
+    "fields": {
+        "User": "B.Zangeneh@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 87,
+    "fields": {
+        "User": "d.karimi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 88,
+    "fields": {
+        "User": "d.mirshahi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 89,
+    "fields": {
+        "User": "E.Azadi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 90,
+    "fields": {
+        "User": "E.Balooch@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 91,
+    "fields": {
+        "User": "e.Bayat@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 92,
+    "fields": {
+        "User": "E.Behnia@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 93,
+    "fields": {
+        "User": "E.Chivaee@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 94,
+    "fields": {
+        "User": "e.delavari@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 95,
+    "fields": {
+        "User": "e.ebadattalab@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 96,
+    "fields": {
+        "User": "e.hamidifard@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 97,
+    "fields": {
+        "User": "e.hashemi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 98,
+    "fields": {
+        "User": "E.Khanlarpour@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 99,
+    "fields": {
+        "User": "E.Movaghari@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 100,
+    "fields": {
+        "User": "e.rayati@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 101,
+    "fields": {
+        "User": "E.Safari@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 102,
+    "fields": {
+        "User": "e.shiri@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 103,
+    "fields": {
+        "User": "e.taeidi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 104,
+    "fields": {
+        "User": "e.zand@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 105,
+    "fields": {
+        "User": "F.Aeeni@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 106,
+    "fields": {
+        "User": "f.asadi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 107,
+    "fields": {
+        "User": "F.Bigdeli@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 108,
+    "fields": {
+        "User": "f.boghrati@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 109,
+    "fields": {
+        "User": "F.Eslami@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 110,
+    "fields": {
+        "User": "f.fazlali@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 111,
+    "fields": {
+        "User": "f.forotan@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 112,
+    "fields": {
+        "User": "f.hadi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 113,
+    "fields": {
+        "User": "f.haseli@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 114,
+    "fields": {
+        "User": "f.khoshdel@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 115,
+    "fields": {
+        "User": "f.maghrebi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 116,
+    "fields": {
+        "User": "f.mirzaee@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 117,
+    "fields": {
+        "User": "f.moghadam@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 118,
+    "fields": {
+        "User": "f.mohammadi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 119,
+    "fields": {
+        "User": "F.MohammadiBarzegar@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 120,
+    "fields": {
+        "User": "F.Nazari@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 121,
+    "fields": {
+        "User": "f.rafatpour@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 122,
+    "fields": {
+        "User": "F.Rezaei@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 123,
+    "fields": {
+        "User": "f.sadeghi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 124,
+    "fields": {
+        "User": "f.sadri@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 125,
+    "fields": {
+        "User": "f.safari@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 126,
+    "fields": {
+        "User": "F.Shahbazi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 127,
+    "fields": {
+        "User": "f.shamim@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 128,
+    "fields": {
+        "User": "F.Solouki@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 129,
+    "fields": {
+        "User": "F.Taghavipoor@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 130,
+    "fields": {
+        "User": "f.torkani@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 131,
+    "fields": {
+        "User": "F.Yousefi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 132,
+    "fields": {
+        "User": "F.Zarei@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 133,
+    "fields": {
+        "User": "fa.asadi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 134,
+    "fields": {
+        "User": "fa.eslami@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 135,
+    "fields": {
+        "User": "Fa.Rahimi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 136,
+    "fields": {
+        "User": "Fa.Sadeghi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 137,
+    "fields": {
+        "User": "fh.arastooi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 138,
+    "fields": {
+        "User": "fr.arastooi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 139,
+    "fields": {
+        "User": "G.Sheidaei@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 140,
+    "fields": {
+        "User": "gh.hoseinkhani@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 141,
+    "fields": {
+        "User": "gh.mohammadi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 142,
+    "fields": {
+        "User": "gh.mosadeghi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 143,
+    "fields": {
+        "User": "GH.Yousefi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 144,
+    "fields": {
+        "User": "GHA.Mohammadi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 145,
+    "fields": {
+        "User": "H.Abedi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 146,
+    "fields": {
+        "User": "H.Asadi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 147,
+    "fields": {
+        "User": "H.Azadi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 148,
+    "fields": {
+        "User": "h.ezzati@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 149,
+    "fields": {
+        "User": "H.GHahremanipor@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 150,
+    "fields": {
+        "User": "H.Ghiasian@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 151,
+    "fields": {
+        "User": "H.Ghorbani@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 152,
+    "fields": {
+        "User": "H.Golmohammadi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 153,
+    "fields": {
+        "User": "h.goudarzi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 154,
+    "fields": {
+        "User": "H.Kheirabadi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 155,
+    "fields": {
+        "User": "H.Maynavimehr@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 156,
+    "fields": {
+        "User": "H.Nasrolahi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 157,
+    "fields": {
+        "User": "H.NooriAzad@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 158,
+    "fields": {
+        "User": "H.Nosratniya@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 159,
+    "fields": {
+        "User": "H.Peik@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 160,
+    "fields": {
+        "User": "h.razzaghi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 161,
+    "fields": {
+        "User": "H.saneei@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 162,
+    "fields": {
+        "User": "H.Shahsavani@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 163,
+    "fields": {
+        "User": "H.Tirdad@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 164,
+    "fields": {
+        "User": "H.Zakeri@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 165,
+    "fields": {
+        "User": "h.zare@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 166,
+    "fields": {
+        "User": "h.zomorrodi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 167,
+    "fields": {
+        "User": "I.Cheraghi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 168,
+    "fields": {
+        "User": "J.Adel@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 169,
+    "fields": {
+        "User": "K.Akhavan@eit ",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 170,
+    "fields": {
+        "User": "K.Hosseinpour@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 171,
+    "fields": {
+        "User": "K.Taeifeh@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 172,
+    "fields": {
+        "User": "KH.Oryan@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 173,
+    "fields": {
+        "User": "KH.Pakdel@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 174,
+    "fields": {
+        "User": "L.Akbari@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 175,
+    "fields": {
+        "User": "L.Fayyaz@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 176,
+    "fields": {
+        "User": "l.naserizadeh@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 177,
+    "fields": {
+        "User": "l.saneei@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 178,
+    "fields": {
+        "User": "m.abangah@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 179,
+    "fields": {
+        "User": "M.Abbasi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 180,
+    "fields": {
+        "User": "M.Abiri@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 181,
+    "fields": {
+        "User": "M.Aghanoori@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 182,
+    "fields": {
+        "User": "m.ahmadi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 183,
+    "fields": {
+        "User": "M.Ahmadzadeh@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 184,
+    "fields": {
+        "User": "m.alinezhad@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 185,
+    "fields": {
+        "User": "m.amerehei@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 186,
+    "fields": {
+        "User": "m.amiri@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 187,
+    "fields": {
+        "User": "M.Arabpoor@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 188,
+    "fields": {
+        "User": "m.arastooi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 189,
+    "fields": {
+        "User": "m.arya@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 190,
+    "fields": {
+        "User": "M.Asgari@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 191,
+    "fields": {
+        "User": "m.asghari@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 192,
+    "fields": {
+        "User": "m.askar@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 193,
+    "fields": {
+        "User": "m.ayoubi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 194,
+    "fields": {
+        "User": "m.azizkhani@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 195,
+    "fields": {
+        "User": "m.bafkar@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 196,
+    "fields": {
+        "User": "m.bagheri@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 197,
+    "fields": {
+        "User": "m.bagherpour@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 198,
+    "fields": {
+        "User": "M.BakhtiariMoghadam@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 199,
+    "fields": {
+        "User": "m.barzegar@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 200,
+    "fields": {
+        "User": "m.chehreh@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 201,
+    "fields": {
+        "User": "M.Damghani@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 202,
+    "fields": {
+        "User": "M.Dehghan@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 203,
+    "fields": {
+        "User": "M.Dehvari@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 204,
+    "fields": {
+        "User": "M.Dodange@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 205,
+    "fields": {
+        "User": "M.Ebrahimi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 206,
+    "fields": {
+        "User": "M.Ebrahimzade@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 207,
+    "fields": {
+        "User": "m.fathiyan@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 208,
+    "fields": {
+        "User": "M.ghasemi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 209,
+    "fields": {
+        "User": "m.ghasemzadeh@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 210,
+    "fields": {
+        "User": "m.gholipour@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 211,
+    "fields": {
+        "User": "M.Hasanlo@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 212,
+    "fields": {
+        "User": "m.hatami@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 213,
+    "fields": {
+        "User": "M.Hekmat@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 214,
+    "fields": {
+        "User": "M.Hojati@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 215,
+    "fields": {
+        "User": "m.hoseinzadeh@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 216,
+    "fields": {
+        "User": "m.hoseyni@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 217,
+    "fields": {
+        "User": "m.hosseiny@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 218,
+    "fields": {
+        "User": "M.Imanimehr@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 219,
+    "fields": {
+        "User": "M.Jadidi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 220,
+    "fields": {
+        "User": "m.jafari@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 221,
+    "fields": {
+        "User": "M.Jalilzadeh@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 222,
+    "fields": {
+        "User": "M.Kargar@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 223,
+    "fields": {
+        "User": "M.Kashani@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 224,
+    "fields": {
+        "User": "m.khakvar@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 225,
+    "fields": {
+        "User": "M.Khashkhashi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 226,
+    "fields": {
+        "User": "m.mahoo@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 227,
+    "fields": {
+        "User": "m.majani@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 228,
+    "fields": {
+        "User": "M.Makarem@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 229,
+    "fields": {
+        "User": "M.Memari@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 230,
+    "fields": {
+        "User": "m.mobini@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 231,
+    "fields": {
+        "User": "m.moeini@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 232,
+    "fields": {
+        "User": "m.Mohammadi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 233,
+    "fields": {
+        "User": "m.molaei@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 234,
+    "fields": {
+        "User": "M.MousaviMoghaddam@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 235,
+    "fields": {
+        "User": "m.najafi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 236,
+    "fields": {
+        "User": "m.nasiri@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 237,
+    "fields": {
+        "User": "M.Nateghi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 238,
+    "fields": {
+        "User": "m.nilechi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 239,
+    "fields": {
+        "User": "m.nosrati@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 240,
+    "fields": {
+        "User": "M.Ohadi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 241,
+    "fields": {
+        "User": "m.osuli@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 242,
+    "fields": {
+        "User": "m.Parvaneh@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 243,
+    "fields": {
+        "User": "M.Piryaee@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 244,
+    "fields": {
+        "User": "M.Radpour@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 245,
+    "fields": {
+        "User": "M.Rafati@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 246,
+    "fields": {
+        "User": "M.rafiee@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 247,
+    "fields": {
+        "User": "M.Rahmati@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 248,
+    "fields": {
+        "User": "M.Rajai@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 249,
+    "fields": {
+        "User": "M.Rezaei@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 250,
+    "fields": {
+        "User": "m.sabzeh@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 251,
+    "fields": {
+        "User": "m.saeidipanah@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 252,
+    "fields": {
+        "User": "M.Safaie@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 253,
+    "fields": {
+        "User": "M.Salarvandian@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 254,
+    "fields": {
+        "User": "M.Salehi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 255,
+    "fields": {
+        "User": "m.sanaei@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 256,
+    "fields": {
+        "User": "M.sepahvand@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 257,
+    "fields": {
+        "User": "m.shahbazi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 258,
+    "fields": {
+        "User": "m.shahi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 259,
+    "fields": {
+        "User": "m.shahmaleki@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 260,
+    "fields": {
+        "User": "m.soltani@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 261,
+    "fields": {
+        "User": "m.tajik@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 262,
+    "fields": {
+        "User": "m.torabi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 263,
+    "fields": {
+        "User": "m.vafaei@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 264,
+    "fields": {
+        "User": "M.Yami@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 265,
+    "fields": {
+        "User": "m.yousefi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 266,
+    "fields": {
+        "User": "M.yousefiyan@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 267,
+    "fields": {
+        "User": "M.Zaeri@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 268,
+    "fields": {
+        "User": "m.zal@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 269,
+    "fields": {
+        "User": "m.zare@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 270,
+    "fields": {
+        "User": "M.Zeynali@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 271,
+    "fields": {
+        "User": "m.ziyaei@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 272,
+    "fields": {
+        "User": "Ma.Ahmadi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 273,
+    "fields": {
+        "User": "Ma.Eftekhari@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 274,
+    "fields": {
+        "User": "MA.Mohammadi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 275,
+    "fields": {
+        "User": "ma.osuli@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 276,
+    "fields": {
+        "User": "Ma.Sadeghi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 277,
+    "fields": {
+        "User": "Ma.Ziyaei@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 278,
+    "fields": {
+        "User": "mh.hosseiny@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 279,
+    "fields": {
+        "User": "mo.barzegar@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 280,
+    "fields": {
+        "User": "Mo.Salehi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 281,
+    "fields": {
+        "User": "Mo.Torabi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 282,
+    "fields": {
+        "User": "Moh.Rezaei@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 283,
+    "fields": {
+        "User": "N.Ahmadipour@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 284,
+    "fields": {
+        "User": "N.Arabi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 285,
+    "fields": {
+        "User": "n.bagheri@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 286,
+    "fields": {
+        "User": "n.binaei@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 287,
+    "fields": {
+        "User": "N.Emami@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 288,
+    "fields": {
+        "User": "n.kabirkoohi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 289,
+    "fields": {
+        "User": "n.khoshbakht@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 290,
+    "fields": {
+        "User": "N.Latifi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 291,
+    "fields": {
+        "User": "n.monemian@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 292,
+    "fields": {
+        "User": "N.Nasiri@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 293,
+    "fields": {
+        "User": "N.Pouladi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 294,
+    "fields": {
+        "User": "N.Rahimzadeh@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 295,
+    "fields": {
+        "User": "N.RashidiFar@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 296,
+    "fields": {
+        "User": "N.Saeedi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 297,
+    "fields": {
+        "User": "n.shahbazi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 298,
+    "fields": {
+        "User": "n.soltanpour@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 299,
+    "fields": {
+        "User": "n.soori@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 300,
+    "fields": {
+        "User": "na.moradi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 301,
+    "fields": {
+        "User": "Na.SHahbazi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 302,
+    "fields": {
+        "User": "o.khabbaz@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 303,
+    "fields": {
+        "User": "o.Moshashai@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 304,
+    "fields": {
+        "User": "p.Aliabadi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 305,
+    "fields": {
+        "User": "p.allahdadi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 306,
+    "fields": {
+        "User": "p.behinaein@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 307,
+    "fields": {
+        "User": "P.Farzanehnia@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 308,
+    "fields": {
+        "User": "P.Ghandvar@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 309,
+    "fields": {
+        "User": "p.isazade@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 310,
+    "fields": {
+        "User": "p.jabbari@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 311,
+    "fields": {
+        "User": "p.kiaei@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 312,
+    "fields": {
+        "User": "p.mehrabi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 313,
+    "fields": {
+        "User": "p.mirzaei@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 314,
+    "fields": {
+        "User": "p.pourjafari@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 315,
+    "fields": {
+        "User": "P.Roshan@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 316,
+    "fields": {
+        "User": "P.Yazdani@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 317,
+    "fields": {
+        "User": "R.Arefi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 318,
+    "fields": {
+        "User": "r.asadi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 319,
+    "fields": {
+        "User": "R.Azadi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 320,
+    "fields": {
+        "User": "R.Azimi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 321,
+    "fields": {
+        "User": "r.basereh@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 322,
+    "fields": {
+        "User": "r.ensafy@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 323,
+    "fields": {
+        "User": "R.Esfandiyari@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 324,
+    "fields": {
+        "User": "R.Goudarzi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 325,
+    "fields": {
+        "User": "r.jamshidi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 326,
+    "fields": {
+        "User": "R.Lavaf@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 327,
+    "fields": {
+        "User": "r.mokhtar@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 328,
+    "fields": {
+        "User": "R.Naghibi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 329,
+    "fields": {
+        "User": "r.pirbonieh@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 330,
+    "fields": {
+        "User": "r.pourzadi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 331,
+    "fields": {
+        "User": "r.rezaei@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 332,
+    "fields": {
+        "User": "r.rezvani@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 333,
+    "fields": {
+        "User": "r.rozbahani@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 334,
+    "fields": {
+        "User": "r.zolfaghari@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 335,
+    "fields": {
+        "User": "s.alidoost@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 336,
+    "fields": {
+        "User": "S.Askari@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 337,
+    "fields": {
+        "User": "S.Bavaghar@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 338,
+    "fields": {
+        "User": "s.behboodi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 339,
+    "fields": {
+        "User": "s.besia@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 340,
+    "fields": {
+        "User": "s.dokhanchi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 341,
+    "fields": {
+        "User": "s.elyasazar@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 342,
+    "fields": {
+        "User": "s.faraji@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 343,
+    "fields": {
+        "User": "S.Farhadi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 344,
+    "fields": {
+        "User": "s.feizi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 345,
+    "fields": {
+        "User": "s.ghasemi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 346,
+    "fields": {
+        "User": "s.gholamzadeh@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 347,
+    "fields": {
+        "User": "S.Ghorbanzad@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 348,
+    "fields": {
+        "User": "S.Hatami@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 349,
+    "fields": {
+        "User": "S.Homayooni@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 350,
+    "fields": {
+        "User": "S.Hoseiny@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 351,
+    "fields": {
+        "User": "S.Jalali@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 352,
+    "fields": {
+        "User": "s.jamei@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 353,
+    "fields": {
+        "User": "s.kargaran@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 354,
+    "fields": {
+        "User": "S.Khodaparast@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 355,
+    "fields": {
+        "User": "S.Mahdiyoon@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 356,
+    "fields": {
+        "User": "S.Maleki@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 357,
+    "fields": {
+        "User": "S.Merrikhi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 358,
+    "fields": {
+        "User": "S.Mirmohammadi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 359,
+    "fields": {
+        "User": "S.Mirsaeedi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 360,
+    "fields": {
+        "User": "s.moradian@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 361,
+    "fields": {
+        "User": "S.Ordoni@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 362,
+    "fields": {
+        "User": "s.parvaz@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 363,
+    "fields": {
+        "User": "S.Rahimi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 364,
+    "fields": {
+        "User": "S.Rayeji@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 365,
+    "fields": {
+        "User": "S.Shafaq@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 366,
+    "fields": {
+        "User": "S.Sogand@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 367,
+    "fields": {
+        "User": "S.Sohrabi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 368,
+    "fields": {
+        "User": "S.Zaker@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 369,
+    "fields": {
+        "User": "S.Zarnegar@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 370,
+    "fields": {
+        "User": "s.zoormand@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 371,
+    "fields": {
+        "User": "sh.alizade@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 372,
+    "fields": {
+        "User": "sh.haghighi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 373,
+    "fields": {
+        "User": "sh.jahangir@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 374,
+    "fields": {
+        "User": "sh.jooyandeh@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 375,
+    "fields": {
+        "User": "Sh.Khansalar@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 376,
+    "fields": {
+        "User": "sh.montakhab@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 377,
+    "fields": {
+        "User": "Sh.MousaviMatin@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 378,
+    "fields": {
+        "User": "sh.roveisi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 379,
+    "fields": {
+        "User": "sh.Shamsoddin@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 380,
+    "fields": {
+        "User": "sh.soltanpour@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 381,
+    "fields": {
+        "User": "Sh.Tanbakooie@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 382,
+    "fields": {
+        "User": "sh.zarkesh@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 383,
+    "fields": {
+        "User": "so.rezaei@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 384,
+    "fields": {
+        "User": "t.azarmi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 385,
+    "fields": {
+        "User": "t.bagheri@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 386,
+    "fields": {
+        "User": "T.Barzegar@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 387,
+    "fields": {
+        "User": "t.kafi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 388,
+    "fields": {
+        "User": "T.Maleki@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 389,
+    "fields": {
+        "User": "t.safaei@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 390,
+    "fields": {
+        "User": "t.semnani@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 391,
+    "fields": {
+        "User": "y.amiri@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 392,
+    "fields": {
+        "User": "Y.Galvani@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 393,
+    "fields": {
+        "User": "y.ghalati@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 394,
+    "fields": {
+        "User": "Y.Gohari@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 395,
+    "fields": {
+        "User": "Y.Sahragard@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 396,
+    "fields": {
+        "User": "y.shakermi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 397,
+    "fields": {
+        "User": "Z.Alikhani@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 398,
+    "fields": {
+        "User": "z.atarodi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 399,
+    "fields": {
+        "User": "z.bidar@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 400,
+    "fields": {
+        "User": "Z.Borji@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 401,
+    "fields": {
+        "User": "z.davoudi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 402,
+    "fields": {
+        "User": "z.esfandiyari@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 403,
+    "fields": {
+        "User": "Z.esmaieili@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 404,
+    "fields": {
+        "User": "z.haddad@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 405,
+    "fields": {
+        "User": "z.karimi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 406,
+    "fields": {
+        "User": "z.mirzaki@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 407,
+    "fields": {
+        "User": "z.moeini@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 408,
+    "fields": {
+        "User": "Z.SadeghiMehr@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 409,
+    "fields": {
+        "User": "z.safari@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 410,
+    "fields": {
+        "User": "Z.SoleymaniAghdam@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 411,
+    "fields": {
+        "User": "z.tavakoli@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 412,
+    "fields": {
+        "User": "z.zohrabi@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 414,
+    "fields": {
+        "User": "a.jahani@eit@eit",
+        "Group": 9
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 415,
+    "fields": {
+        "User": "a.khalifani@eit",
+        "Group": 9
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 416,
+    "fields": {
+        "User": "a.nikpour@eit",
+        "Group": 9
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 417,
+    "fields": {
+        "User": "E.Safari@eit",
+        "Group": 9
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 418,
+    "fields": {
+        "User": "h.zare@eit",
+        "Group": 9
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 419,
+    "fields": {
+        "User": "M.Ahmadzadeh@eit",
+        "Group": 9
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 420,
+    "fields": {
+        "User": "m.arya@eit",
+        "Group": 9
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 421,
+    "fields": {
+        "User": "M.Dodange@eit",
+        "Group": 9
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 422,
+    "fields": {
+        "User": "m.mahoo@eit",
+        "Group": 9
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 423,
+    "fields": {
+        "User": "m.nilechi@eit",
+        "Group": 9
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 424,
+    "fields": {
+        "User": "m.sepahkar@eit",
+        "Group": 9
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 425,
+    "fields": {
+        "User": "m.torabi@eit",
+        "Group": 9
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 426,
+    "fields": {
+        "User": "m.yousefi@eit",
+        "Group": 9
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 427,
+    "fields": {
+        "User": "MA.Mohammadi@eit",
+        "Group": 9
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 428,
+    "fields": {
+        "User": "ma.osuli@eit",
+        "Group": 9
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 429,
+    "fields": {
+        "User": "n.binaei@eit",
+        "Group": 9
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 430,
+    "fields": {
+        "User": "p.kiaei@eit",
+        "Group": 9
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 431,
+    "fields": {
+        "User": "R.Arefi@eit",
+        "Group": 9
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 432,
+    "fields": {
+        "User": "R.Azadi@eit",
+        "Group": 9
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 433,
+    "fields": {
+        "User": "R.Esfandiyari@eit",
+        "Group": 9
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 434,
+    "fields": {
+        "User": "r.rezvani@eit",
+        "Group": 9
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 435,
+    "fields": {
+        "User": "s.jamei@eit",
+        "Group": 9
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 436,
+    "fields": {
+        "User": "S.Mirmohammadi@eit",
+        "Group": 9
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 437,
+    "fields": {
+        "User": "s.parvaz@eit",
+        "Group": 9
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 438,
+    "fields": {
+        "User": "sh.haghighi@eit",
+        "Group": 9
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 439,
+    "fields": {
+        "User": "sh.mohammadhelmi@eit",
+        "Group": 9
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 440,
+    "fields": {
+        "User": "z.bidar@eit",
+        "Group": 9
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 441,
+    "fields": {
+        "User": "Sh.MohammadHelmi@eit",
+        "Group": 10
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 442,
+    "fields": {
+        "User": "m.sepahkar@eit",
+        "Group": 10
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 443,
+    "fields": {
+        "User": "z.esfandiyari@eit",
+        "Group": 10
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 444,
+    "fields": {
+        "User": "m.khakvar@eit",
+        "Group": 1
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 445,
+    "fields": {
+        "User": "m.sepahkar@eit",
+        "Group": 1
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 446,
+    "fields": {
+        "User": "y.ghalati@eit",
+        "Group": 1
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 447,
+    "fields": {
+        "User": "m.khakvar@eit",
+        "Group": 9
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 450,
+    "fields": {
+        "User": "z.esfandiyari@eit",
+        "Group": 11
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 451,
+    "fields": {
+        "User": "a.ojaghi@eit",
+        "Group": 10
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 452,
+    "fields": {
+        "User": "a.ojaghi@eit",
+        "Group": 11
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 453,
+    "fields": {
+        "User": "Sh.MohammadHelmi@eit",
+        "Group": 12
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 454,
+    "fields": {
+        "User": "m.sepahkar@eit",
+        "Group": 12
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 455,
+    "fields": {
+        "User": "K.Hosseinpour@eit",
+        "Group": 12
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 456,
+    "fields": {
+        "User": "Sh.MohammadHelmi@eit",
+        "Group": 13
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 457,
+    "fields": {
+        "User": "m.sepahkar@eit",
+        "Group": 13
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 458,
+    "fields": {
+        "User": "K.Hosseinpour@eit",
+        "Group": 13
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 459,
+    "fields": {
+        "User": "h.ghiasian@eit",
+        "Group": 12
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 461,
+    "fields": {
+        "User": "M.Morsali@eit",
+        "Group": 7
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 463,
+    "fields": {
+        "User": "o.khabbaz@eit",
+        "Group": 12
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 464,
+    "fields": {
+        "User": "F.Yousefi@eit",
+        "Group": 12
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 465,
+    "fields": {
+        "User": "m.mozaffari@eit",
+        "Group": 3
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 466,
+    "fields": {
+        "User": "f.yousefi@eit",
+        "Group": 13
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 467,
+    "fields": {
+        "User": "s.khodaparast@eit",
+        "Group": 13
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 468,
+    "fields": {
+        "User": "m.vafaei@eit",
+        "Group": 6
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 469,
+    "fields": {
+        "User": "m.vafaei@eit",
+        "Group": 5
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 471,
+    "fields": {
+        "User": "S.Bavaghar@eit",
+        "Group": 5
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 472,
+    "fields": {
+        "User": "S.Askari@eit",
+        "Group": 5
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 474,
+    "fields": {
+        "User": "N.Latifi@eit",
+        "Group": 5
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 476,
+    "fields": {
+        "User": "m.moghaddami@eit",
+        "Group": 7
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 477,
+    "fields": {
+        "User": "m.moghaddami@eit",
+        "Group": 3
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 481,
+    "fields": {
+        "User": "z.alizadeh@eit",
+        "Group": 3
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 482,
+    "fields": {
+        "User": "e.rezaee@eit",
+        "Group": 3
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 483,
+    "fields": {
+        "User": "e.rezaee@eit",
+        "Group": 1
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 484,
+    "fields": {
+        "User": "e.rezaee@eit",
+        "Group": 2
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 485,
+    "fields": {
+        "User": "e.rezaee@eit",
+        "Group": 4
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 486,
+    "fields": {
+        "User": "e.rezaee@eit",
+        "Group": 5
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 487,
+    "fields": {
+        "User": "e.rezaee@eit",
+        "Group": 6
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 488,
+    "fields": {
+        "User": "e.rezaee@eit",
+        "Group": 7
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 489,
+    "fields": {
+        "User": "e.rezaee@eit",
+        "Group": 8
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 490,
+    "fields": {
+        "User": "e.rezaee@eit",
+        "Group": 9
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 491,
+    "fields": {
+        "User": "e.rezaee@eit",
+        "Group": 10
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 492,
+    "fields": {
+        "User": "e.rezaee@eit",
+        "Group": 11
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 495,
+    "fields": {
+        "User": "e.rezaee@eit",
+        "Group": 12
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 496,
+    "fields": {
+        "User": "e.rezaee@eit",
+        "Group": 13
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 497,
+    "fields": {
+        "User": "e.rezaee@eit",
+        "Group": 14
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 498,
+    "fields": {
+        "User": "m.saeidipanah@eit",
+        "Group": 10
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 499,
+    "fields": {
+        "User": "F.Yousefi@eit",
+        "Group": 15
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 500,
+    "fields": {
+        "User": "K.Hosseinpour@eit",
+        "Group": 15
+    }
+},
+{
+    "model": "AccessControl.groupuser",
+    "pk": 501,
+    "fields": {
+        "User": "S.Khodaparast@eit",
+        "Group": 15
+    }
+},
+{
+    "model": "AccessControl.relatedpermissionappurl",
+    "pk": 2,
+    "fields": {
+        "Permission": "EVAADVMANG",
+        "AppURL": 1
+    }
+},
+{
+    "model": "AccessControl.relatedpermissionappurl",
+    "pk": 3,
+    "fields": {
+        "Permission": "HLPINSCGED",
+        "AppURL": 5
+    }
+},
+{
+    "model": "AccessControl.relatedpermissionappurl",
+    "pk": 4,
+    "fields": {
+        "Permission": "HLPINSUSER",
+        "AppURL": 5
+    }
+},
+{
+    "model": "AccessControl.relatedpermissionappurl",
+    "pk": 5,
+    "fields": {
+        "Permission": "EVAADVMANG",
+        "AppURL": 6
+    }
+},
+{
+    "model": "AccessControl.relatedpermissionappurl",
+    "pk": 6,
+    "fields": {
+        "Permission": "SRBINSUSER",
+        "AppURL": 8
+    }
+},
+{
+    "model": "AccessControl.relatedpermissionappurl",
+    "pk": 7,
+    "fields": {
+        "Permission": "SURCNTADMN",
+        "AppURL": 9
+    }
+},
+{
+    "model": "AccessControl.relatedpermissionappurl",
+    "pk": 8,
+    "fields": {
+        "Permission": "EVAOKRADMN",
+        "AppURL": 10
+    }
+},
+{
+    "model": "AccessControl.relatedpermissionappurl",
+    "pk": 9,
+    "fields": {
+        "Permission": "SRBINSADMN",
+        "AppURL": 11
+    }
+},
+{
+    "model": "AccessControl.relatedpermissionappurl",
+    "pk": 10,
+    "fields": {
+        "Permission": "WFECTRUSER",
+        "AppURL": 7
+    }
+},
+{
+    "model": "AccessControl.relatedpermissionappurl",
+    "pk": 11,
+    "fields": {
+        "Permission": "EVAOKRADMN",
+        "AppURL": 12
+    }
+},
+{
+    "model": "AccessControl.relatedpermissionappurl",
+    "pk": 12,
+    "fields": {
+        "Permission": "FAQINSADMN",
+        "AppURL": 12
+    }
+},
+{
+    "model": "AccessControl.relatedpermissionappurl",
+    "pk": 13,
+    "fields": {
+        "Permission": "ORGDUTADMN",
+        "AppURL": 6
+    }
+},
+{
+    "model": "AccessControl.relatedpermissionappurl",
+    "pk": 14,
+    "fields": {
+        "Permission": "ORGDUTUSER",
+        "AppURL": 6
+    }
+},
+{
+    "model": "AccessControl.relatedpermissionappurl",
+    "pk": 15,
+    "fields": {
+        "Permission": "EVAADVADMN",
+        "AppURL": 14
+    }
+},
+{
+    "model": "AccessControl.relatedpermissionappurl",
+    "pk": 16,
+    "fields": {
+        "Permission": "TWPADMADMN",
+        "AppURL": 15
+    }
+},
+{
+    "model": "AccessControl.relatedpermissionappurl",
+    "pk": 17,
+    "fields": {
+        "Permission": "COPREPMUSR",
+        "AppURL": 16
+    }
+},
+{
+    "model": "AccessControl.relatedpermissionappurl",
+    "pk": 18,
+    "fields": {
+        "Permission": "COPREPMANG",
+        "AppURL": 20
+    }
+},
+{
+    "model": "AccessControl.relatedpermissionappurl",
+    "pk": 20,
+    "fields": {
+        "Permission": "WFECTEREPT",
+        "AppURL": 31
+    }
+},
+{
+    "model": "AccessControl.relatedpermissionappurl",
+    "pk": 22,
+    "fields": {
+        "Permission": "ORGUSRUSER",
+        "AppURL": 32
+    }
+},
+{
+    "model": "AccessControl.relatedpermissionappurl",
+    "pk": 23,
+    "fields": {
+        "Permission": "TFSTFEUSER",
+        "AppURL": 33
+    }
+},
+{
+    "model": "AccessControl.relatedpermissionappurl",
+    "pk": 25,
+    "fields": {
+        "Permission": "WFECTRUSRP",
+        "AppURL": 35
+    }
+},
+{
+    "model": "AccessControl.relatedpermissionappurl",
+    "pk": 27,
+    "fields": {
+        "Permission": "PESNAHUSER",
+        "AppURL": 37
+    }
+},
+{
+    "model": "AccessControl.relatedpermissionappurl",
+    "pk": 29,
+    "fields": {
+        "Permission": "DOCDJPADMN",
+        "AppURL": 39
+    }
+},
+{
+    "model": "AccessControl.relatedpermissionappurl",
+    "pk": 31,
+    "fields": {
+        "Permission": "DOCDJPADMN",
+        "AppURL": 40
+    }
+},
+{
+    "model": "AccessControl.relatedpermissionappurl",
+    "pk": 33,
+    "fields": {
+        "Permission": "PESNAHUSER",
+        "AppURL": 38
+    }
+},
+{
+    "model": "AccessControl.relatedpermissionappurl",
+    "pk": 35,
+    "fields": {
+        "Permission": "DOCWKIDAEN",
+        "AppURL": 64
+    }
+},
+{
+    "model": "AccessControl.relatedpermissionappurl",
+    "pk": 38,
+    "fields": {
+        "Permission": "CTSFAQDSPL",
+        "AppURL": 69
+    }
+},
+{
+    "model": "AccessControl.relatedpermissionappurl",
+    "pk": 40,
+    "fields": {
+        "Permission": "CTSHLPDSPL",
+        "AppURL": 71
+    }
+},
+{
+    "model": "AccessControl.relatedpermissionappurl",
+    "pk": 41,
+    "fields": {
+        "Permission": "SLMCRPDSPL",
+        "AppURL": 72
+    }
+},
+{
+    "model": "AccessControl.relatedpermissionappurl",
+    "pk": 45,
+    "fields": {
+        "Permission": "SLMTFEUSER",
+        "AppURL": 73
+    }
+},
+{
+    "model": "AccessControl.relatedpermissionappurl",
+    "pk": 51,
+    "fields": {
+        "Permission": "CTSFAQADMN",
+        "AppURL": 74
+    }
+},
+{
+    "model": "AccessControl.relatedpermissionappurl",
+    "pk": 53,
+    "fields": {
+        "Permission": "CTSFAQCFRM",
+        "AppURL": 75
+    }
+},
+{
+    "model": "AccessControl.relatedpermissionappurl",
+    "pk": 54,
+    "fields": {
+        "Permission": "ACSACSADMN",
+        "AppURL": 76
+    }
+},
+{
+    "model": "AccessControl.relatedpermissionappurl",
+    "pk": 59,
+    "fields": {
+        "Permission": "PESPOSGNRL",
+        "AppURL": 77
+    }
+},
+{
+    "model": "AccessControl.relatedpermissionappurl",
+    "pk": 61,
+    "fields": {
+        "Permission": "COPDATUSER",
+        "AppURL": 82
+    }
+},
+{
+    "model": "AccessControl.relatedpermissionappurl",
+    "pk": 62,
+    "fields": {
+        "Permission": "WFECTRREPP",
+        "AppURL": 84
+    }
+},
+{
+    "model": "AccessControl.relatedpermissionappurl",
+    "pk": 63,
+    "fields": {
+        "Permission": "PESPOSADMN",
+        "AppURL": 86
+    }
+},
+{
+    "model": "AccessControl.relatedpermissionappurl",
+    "pk": 64,
+    "fields": {
+        "Permission": "TWPADMRNT",
+        "AppURL": 88
+    }
+},
+{
+    "model": "AccessControl.relatedpermissionappurl",
+    "pk": 65,
+    "fields": {
+        "Permission": "ORGRLMNRRQ",
+        "AppURL": 90
+    }
+},
+{
+    "model": "AccessControl.relatedpermissionappurl",
+    "pk": 66,
+    "fields": {
+        "Permission": "ORGRLMARTR",
+        "AppURL": 96
+    }
+},
+{
+    "model": "AccessControl.appteam",
+    "pk": 2,
+    "fields": {
+        "AppCode": "HLPINS",
+        "TeamCode": "BIN"
+    }
+},
+{
+    "model": "AccessControl.appteam",
+    "pk": 3,
+    "fields": {
+        "AppCode": "HLPINS",
+        "TeamCode": "CAR"
+    }
+},
+{
+    "model": "AccessControl.appteam",
+    "pk": 4,
+    "fields": {
+        "AppCode": "HLPINS",
+        "TeamCode": "COM"
+    }
+},
+{
+    "model": "AccessControl.appteam",
+    "pk": 5,
+    "fields": {
+        "AppCode": "HLPINS",
+        "TeamCode": "ENG"
+    }
+},
+{
+    "model": "AccessControl.appteam",
+    "pk": 6,
+    "fields": {
+        "AppCode": "HLPINS",
+        "TeamCode": "FIN"
+    }
+},
+{
+    "model": "AccessControl.appteam",
+    "pk": 7,
+    "fields": {
+        "AppCode": "HLPINS",
+        "TeamCode": "FIR"
+    }
+},
+{
+    "model": "AccessControl.appteam",
+    "pk": 8,
+    "fields": {
+        "AppCode": "HLPINS",
+        "TeamCode": "LIF"
+    }
+},
+{
+    "model": "AccessControl.appteam",
+    "pk": 9,
+    "fields": {
+        "AppCode": "HLPINS",
+        "TeamCode": "MED"
+    }
+},
+{
+    "model": "AccessControl.appteam",
+    "pk": 10,
+    "fields": {
+        "AppCode": "HLPINS",
+        "TeamCode": "PMA"
+    }
+},
+{
+    "model": "AccessControl.appteam",
+    "pk": 12,
+    "fields": {
+        "AppCode": "HLPINS",
+        "TeamCode": "RES"
+    }
+},
+{
+    "model": "AccessControl.appteam",
+    "pk": 13,
+    "fields": {
+        "AppCode": "HLPINS",
+        "TeamCode": "RIN"
+    }
+},
+{
+    "model": "AccessControl.appteam",
+    "pk": 14,
+    "fields": {
+        "AppCode": "HLPINS",
+        "TeamCode": "TOL"
+    }
+},
+{
+    "model": "AccessControl.appteam",
+    "pk": 15,
+    "fields": {
+        "AppCode": "HLPINS",
+        "TeamCode": "Web"
+    }
+},
+{
+    "model": "AccessControl.appteam",
+    "pk": 16,
+    "fields": {
+        "AppCode": "ORGDUT",
+        "TeamCode": "ACC"
+    }
+},
+{
+    "model": "AccessControl.appteam",
+    "pk": 17,
+    "fields": {
+        "AppCode": "ORGDUT",
+        "TeamCode": "ACM"
+    }
+},
+{
+    "model": "AccessControl.appteam",
+    "pk": 18,
+    "fields": {
+        "AppCode": "ORGDUT",
+        "TeamCode": "ADM"
+    }
+},
+{
+    "model": "AccessControl.appteam",
+    "pk": 19,
+    "fields": {
+        "AppCode": "ORGDUT",
+        "TeamCode": "BIN"
+    }
+},
+{
+    "model": "AccessControl.appteam",
+    "pk": 20,
+    "fields": {
+        "AppCode": "ORGDUT",
+        "TeamCode": "CAR"
+    }
+},
+{
+    "model": "AccessControl.appteam",
+    "pk": 21,
+    "fields": {
+        "AppCode": "ORGDUT",
+        "TeamCode": "CCO"
+    }
+},
+{
+    "model": "AccessControl.appteam",
+    "pk": 22,
+    "fields": {
+        "AppCode": "ORGDUT",
+        "TeamCode": "COM"
+    }
+},
+{
+    "model": "AccessControl.appteam",
+    "pk": 23,
+    "fields": {
+        "AppCode": "ORGDUT",
+        "TeamCode": "CRM"
+    }
+},
+{
+    "model": "AccessControl.appteam",
+    "pk": 24,
+    "fields": {
+        "AppCode": "ORGDUT",
+        "TeamCode": "DOA"
+    }
+},
+{
+    "model": "AccessControl.appteam",
+    "pk": 25,
+    "fields": {
+        "AppCode": "ORGDUT",
+        "TeamCode": "DOC"
+    }
+},
+{
+    "model": "AccessControl.appteam",
+    "pk": 26,
+    "fields": {
+        "AppCode": "ORGDUT",
+        "TeamCode": "EDU"
+    }
+},
+{
+    "model": "AccessControl.appteam",
+    "pk": 27,
+    "fields": {
+        "AppCode": "ORGDUT",
+        "TeamCode": "ENG"
+    }
+},
+{
+    "model": "AccessControl.appteam",
+    "pk": 28,
+    "fields": {
+        "AppCode": "ORGDUT",
+        "TeamCode": "EVA"
+    }
+},
+{
+    "model": "AccessControl.appteam",
+    "pk": 29,
+    "fields": {
+        "AppCode": "ORGDUT",
+        "TeamCode": "FIA"
+    }
+},
+{
+    "model": "AccessControl.appteam",
+    "pk": 30,
+    "fields": {
+        "AppCode": "ORGDUT",
+        "TeamCode": "FIN"
+    }
+},
+{
+    "model": "AccessControl.appteam",
+    "pk": 32,
+    "fields": {
+        "AppCode": "ORGDUT",
+        "TeamCode": "GEN"
+    }
+},
+{
+    "model": "AccessControl.appteam",
+    "pk": 33,
+    "fields": {
+        "AppCode": "ORGDUT",
+        "TeamCode": "ITT"
+    }
+},
+{
+    "model": "AccessControl.appteam",
+    "pk": 34,
+    "fields": {
+        "AppCode": "ORGDUT",
+        "TeamCode": "KAR"
+    }
+},
+{
+    "model": "AccessControl.appteam",
+    "pk": 35,
+    "fields": {
+        "AppCode": "ORGDUT",
+        "TeamCode": "LIF"
+    }
+},
+{
+    "model": "AccessControl.appteam",
+    "pk": 36,
+    "fields": {
+        "AppCode": "ORGDUT",
+        "TeamCode": "MAN"
+    }
+},
+{
+    "model": "AccessControl.appteam",
+    "pk": 37,
+    "fields": {
+        "AppCode": "ORGDUT",
+        "TeamCode": "MED"
+    }
+},
+{
+    "model": "AccessControl.appteam",
+    "pk": 38,
+    "fields": {
+        "AppCode": "ORGDUT",
+        "TeamCode": "OFF"
+    }
+},
+{
+    "model": "AccessControl.appteam",
+    "pk": 39,
+    "fields": {
+        "AppCode": "ORGDUT",
+        "TeamCode": "PDE"
+    }
+},
+{
+    "model": "AccessControl.appteam",
+    "pk": 40,
+    "fields": {
+        "AppCode": "ORGDUT",
+        "TeamCode": "PMA"
+    }
+},
+{
+    "model": "AccessControl.appteam",
+    "pk": 41,
+    "fields": {
+        "AppCode": "ORGDUT",
+        "TeamCode": "PMO"
+    }
+},
+{
+    "model": "AccessControl.appteam",
+    "pk": 42,
+    "fields": {
+        "AppCode": "ORGDUT",
+        "TeamCode": "POD"
+    }
+},
+{
+    "model": "AccessControl.appteam",
+    "pk": 43,
+    "fields": {
+        "AppCode": "ORGDUT",
+        "TeamCode": "PRE"
+    }
+},
+{
+    "model": "AccessControl.appteam",
+    "pk": 44,
+    "fields": {
+        "AppCode": "ORGDUT",
+        "TeamCode": "PRO"
+    }
+},
+{
+    "model": "AccessControl.appteam",
+    "pk": 45,
+    "fields": {
+        "AppCode": "ORGDUT",
+        "TeamCode": "RAD"
+    }
+},
+{
+    "model": "AccessControl.appteam",
+    "pk": 46,
+    "fields": {
+        "AppCode": "ORGDUT",
+        "TeamCode": "RES"
+    }
+},
+{
+    "model": "AccessControl.appteam",
+    "pk": 47,
+    "fields": {
+        "AppCode": "ORGDUT",
+        "TeamCode": "RIN"
+    }
+},
+{
+    "model": "AccessControl.appteam",
+    "pk": 48,
+    "fields": {
+        "AppCode": "ORGDUT",
+        "TeamCode": "SEL"
+    }
+},
+{
+    "model": "AccessControl.appteam",
+    "pk": 49,
+    "fields": {
+        "AppCode": "ORGDUT",
+        "TeamCode": "SUP"
+    }
+},
+{
+    "model": "AccessControl.appteam",
+    "pk": 50,
+    "fields": {
+        "AppCode": "ORGDUT",
+        "TeamCode": "TEA"
+    }
+},
+{
+    "model": "AccessControl.appteam",
+    "pk": 51,
+    "fields": {
+        "AppCode": "ORGDUT",
+        "TeamCode": "TES"
+    }
+},
+{
+    "model": "AccessControl.appteam",
+    "pk": 52,
+    "fields": {
+        "AppCode": "ORGDUT",
+        "TeamCode": "TOL"
+    }
+},
+{
+    "model": "AccessControl.appteam",
+    "pk": 54,
+    "fields": {
+        "AppCode": "ORGDUT",
+        "TeamCode": "VER"
+    }
+},
+{
+    "model": "AccessControl.appteam",
+    "pk": 55,
+    "fields": {
+        "AppCode": "ORGDUT",
+        "TeamCode": "WEB"
+    }
+},
+{
+    "model": "InternalAccess.appinfo",
+    "pk": 14,
+    "fields": {
+        "AppName": "EIT",
+        "AppTitle": "EIT",
+        "ENGINE": "mssql",
+        "NAME": "EIT",
+        "USER": "sa",
+        "PASSWORD": "Master123",
+        "HOST": "EIT-DJANGO-DB\\DJANGODB",
+        "PORT": "",
+        "OPTIONS": {
+            "driver": "ODBC Driver 17 for SQL Server"
+        },
+        "APPIP": null,
+        "APPPORT": 17000,
+        "APPSCHEMA": "http://"
+    }
+},
+{
+    "model": "InternalAccess.appinfo",
+    "pk": 15,
+    "fields": {
+        "AppName": "Evaluation",
+        "AppTitle": "Evaluation",
+        "ENGINE": "mssql",
+        "NAME": "Evaluation",
+        "USER": "sa",
+        "PASSWORD": "Master123",
+        "HOST": "EIT-DJANGO-DB\\DJANGODB",
+        "PORT": "",
+        "OPTIONS": {
+            "driver": "ODBC Driver 17 for SQL Server"
+        },
+        "APPIP": null,
+        "APPPORT": null,
+        "APPSCHEMA": "http://"
+    }
+},
+{
+    "model": "InternalAccess.appinfo",
+    "pk": 16,
+    "fields": {
+        "AppName": "FAQ",
+        "AppTitle": "FAQ",
+        "ENGINE": "mssql",
+        "NAME": "FAQ",
+        "USER": "sa",
+        "PASSWORD": "Master123",
+        "HOST": "EIT-DJANGO-DB\\DJANGODB",
+        "PORT": "",
+        "OPTIONS": {
+            "driver": "ODBC Driver 17 for SQL Server"
+        },
+        "APPIP": null,
+        "APPPORT": null,
+        "APPSCHEMA": "http://"
+    }
+},
+{
+    "model": "InternalAccess.appinfo",
+    "pk": 17,
+    "fields": {
+        "AppName": "HR",
+        "AppTitle": "HR",
+        "ENGINE": "mssql",
+        "NAME": "HR",
+        "USER": "sa",
+        "PASSWORD": "Master123",
+        "HOST": "EIT-DJANGO-DB\\DJANGODB",
+        "PORT": null,
+        "OPTIONS": {
+            "driver": "ODBC Driver 17 for SQL Server"
+        },
+        "APPIP": "192.168.20.81",
+        "APPPORT": 14000,
+        "APPSCHEMA": "http://"
+    }
+},
+{
+    "model": "InternalAccess.appinfo",
+    "pk": 18,
+    "fields": {
+        "AppName": "LeavingSession",
+        "AppTitle": "LeavingSession",
+        "ENGINE": "mssql",
+        "NAME": "LeavingSession",
+        "USER": "sa",
+        "PASSWORD": "Master123",
+        "HOST": "EIT-DJANGO-DB\\DJANGODB",
+        "PORT": "",
+        "OPTIONS": {
+            "driver": "ODBC Driver 17 for SQL Server"
+        },
+        "APPIP": null,
+        "APPPORT": null,
+        "APPSCHEMA": "http://"
+    }
+},
+{
+    "model": "InternalAccess.appinfo",
+    "pk": 19,
+    "fields": {
+        "AppName": "Portal",
+        "AppTitle": "Portal",
+        "ENGINE": "mssql",
+        "NAME": "Portal",
+        "USER": "sa",
+        "PASSWORD": "Master123",
+        "HOST": "EIT-DJANGO-DB\\DJANGODB",
+        "PORT": "",
+        "OPTIONS": {
+            "driver": "ODBC Driver 17 for SQL Server"
+        },
+        "APPIP": "192.168.20.81",
+        "APPPORT": 23000,
+        "APPSCHEMA": "http://"
+    }
+},
+{
+    "model": "InternalAccess.appinfo",
+    "pk": 20,
+    "fields": {
+        "AppName": "ProcessManagement",
+        "AppTitle": "ProcessManagement",
+        "ENGINE": "mssql",
+        "NAME": "ProcessManagement",
+        "USER": "sa",
+        "PASSWORD": "Master123",
+        "HOST": "EIT-DJANGO-DB\\DJANGODB",
+        "PORT": "",
+        "OPTIONS": {
+            "driver": "ODBC Driver 17 for SQL Server"
+        },
+        "APPIP": "192.168.20.81",
+        "APPPORT": 50000,
+        "APPSCHEMA": "http://"
+    }
+},
+{
+    "model": "InternalAccess.appinfo",
+    "pk": 21,
+    "fields": {
+        "AppName": "ServiceBook",
+        "AppTitle": "ServiceBook",
+        "ENGINE": "mssql",
+        "NAME": "ServiceBook",
+        "USER": "sa",
+        "PASSWORD": "Master123",
+        "HOST": "EIT-DJANGO-DB\\DJANGODB",
+        "PORT": "",
+        "OPTIONS": {
+            "driver": "ODBC Driver 17 for SQL Server"
+        },
+        "APPIP": null,
+        "APPPORT": null,
+        "APPSCHEMA": "http://"
+    }
+},
+{
+    "model": "InternalAccess.appinfo",
+    "pk": 22,
+    "fields": {
+        "AppName": "SystemHelp",
+        "AppTitle": "SystemHelp",
+        "ENGINE": "mssql",
+        "NAME": "SystemHelp",
+        "USER": "sa",
+        "PASSWORD": "Master123",
+        "HOST": "EIT-DJANGO-DB\\DJANGODB",
+        "PORT": "",
+        "OPTIONS": {
+            "driver": "ODBC Driver 17 for SQL Server"
+        },
+        "APPIP": null,
+        "APPPORT": null,
+        "APPSCHEMA": "http://"
+    }
+},
+{
+    "model": "InternalAccess.appinfo",
+    "pk": 23,
+    "fields": {
+        "AppName": "TeamWorkPlan",
+        "AppTitle": "TeamWorkPlan",
+        "ENGINE": "mssql",
+        "NAME": "TeamWorkPlan",
+        "USER": "sa",
+        "PASSWORD": "Master123",
+        "HOST": "EIT-DJANGO-DB\\DJANGODB",
+        "PORT": "",
+        "OPTIONS": {
+            "driver": "ODBC Driver 17 for SQL Server"
+        },
+        "APPIP": null,
+        "APPPORT": null,
+        "APPSCHEMA": "http://"
+    }
+},
+{
+    "model": "InternalAccess.appinfo",
+    "pk": 24,
+    "fields": {
+        "AppName": "Test",
+        "AppTitle": "Test",
+        "ENGINE": "mssql",
+        "NAME": "TestSystem",
+        "USER": "sa",
+        "PASSWORD": "Master123",
+        "HOST": "EIT-DJANGO-DB\\DJANGODB",
+        "PORT": "",
+        "OPTIONS": {
+            "driver": "ODBC Driver 17 for SQL Server"
+        },
+        "APPIP": null,
+        "APPPORT": null,
+        "APPSCHEMA": "http://"
+    }
+},
+{
+    "model": "InternalAccess.appinfo",
+    "pk": 25,
+    "fields": {
+        "AppName": "AccessControl",
+        "AppTitle": "AccessControl",
+        "ENGINE": "mssql",
+        "NAME": "AccessControl",
+        "USER": "sa",
+        "PASSWORD": "Master123",
+        "HOST": "EIT-DJANGO-DB\\DJANGODB",
+        "PORT": null,
+        "OPTIONS": {
+            "driver": "ODBC Driver 17 for SQL Server"
+        },
+        "APPIP": "192.168.20.81",
+        "APPPORT": 13000,
+        "APPSCHEMA": "http://"
+    }
+},
+{
+    "model": "InternalAccess.appinfo",
+    "pk": 26,
+    "fields": {
+        "AppName": "CostPrice",
+        "AppTitle": "CostPrice",
+        "ENGINE": "mssql",
+        "NAME": "CostPrice",
+        "USER": "sa",
+        "PASSWORD": "Master123",
+        "HOST": "EIT-DJANGO-DB\\DJANGODB",
+        "PORT": "",
+        "OPTIONS": {
+            "driver": "ODBC Driver 17 for SQL Server"
+        },
+        "APPIP": null,
+        "APPPORT": null,
+        "APPSCHEMA": "http://"
+    }
+},
+{
+    "model": "InternalAccess.appinfo",
+    "pk": 27,
+    "fields": {
+        "AppName": "Negotiate",
+        "AppTitle": "Negotiate",
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": "D:\\DJANGO\\Negotiate\\db.sqlite3",
+        "USER": null,
+        "PASSWORD": null,
+        "HOST": null,
+        "PORT": null,
+        "OPTIONS": null,
+        "APPIP": null,
+        "APPPORT": null,
+        "APPSCHEMA": "http://"
+    }
+},
+{
+    "model": "InternalAccess.appinfo",
+    "pk": 28,
+    "fields": {
+        "AppName": "ChangeTeamRole",
+        "AppTitle": "ChangeTeamRole",
+        "ENGINE": "mssql",
+        "NAME": "ChangeTeamrole",
+        "USER": "sa",
+        "PASSWORD": "Master123",
+        "HOST": "EIT-DJANGO-DB\\DJANGODB",
+        "PORT": null,
+        "OPTIONS": {
+            "driver": "ODBC Driver 17 for SQL Server"
+        },
+        "APPIP": "192.168.20.81",
+        "APPPORT": 50000,
+        "APPSCHEMA": "http://"
+    }
+},
+{
+    "model": "InternalAccess.appinfo",
+    "pk": 31,
+    "fields": {
+        "AppName": "CustomerService",
+        "AppTitle": "CustomerService",
+        "ENGINE": "mssql",
+        "NAME": "CustomerService",
+        "USER": "sa",
+        "PASSWORD": "Master123",
+        "HOST": "EIT-DJANGO-DB\\DJANGODB",
+        "PORT": null,
+        "OPTIONS": null,
+        "APPIP": "192.168.20.81",
+        "APPPORT": 63000,
+        "APPSCHEMA": "http://"
+    }
+}
+]

@@ -1,0 +1,62 @@
+{% load static %}
+{% load custom_tags_duties %}
+
+              <div class="w-100 d-flex flex-row align-items-center justify-content-between bg-white p-2 position-relative" >
+                    <!-- m left -->
+                        <div style="width: 200px;height: 100%;background-color: white;-webkit-transform: skew(20deg);-moz-transform: skew(20deg);transform:skew(20deg);-o-transform: skew(20deg);transform: rotateX(180deg) skew(45deg);position: absolute;left: -80px;z-index: 1;"></div>
+                        <div style="width: 15px;height: 95%;background-color: midnightblue;-webkit-transform: skew(20deg);-moz-transform: skew(20deg);transform:skew(20deg);-o-transform: skew(20deg);transform: rotateX(180deg) skew(45deg);position: absolute;left: -90px;top: 0;z-index: 1;"></div>
+                    <!-- -->
+                    <!-- m right -->
+                        <div style="width: 200px;height: 100%;background-color: white;-webkit-transform: skew(20deg);-moz-transform: skew(20deg);transform:skew(20deg);-o-transform: skew(20deg);transform: skew(45deg);position: absolute;right: -80px;z-index: 1;"></div>
+                        <div style="width: 15px;height: 95%;background-color: midnightblue;-webkit-transform: skew(20deg);-moz-transform: skew(20deg);transform:skew(20deg);-o-transform: skew(20deg);transform:  skew(45deg);position: absolute;right: -90px;top: 0;z-index: 1;"></div>
+
+                    <!-- -->
+
+
+
+                    <div data-view="du" class="w-20 text-center js_style font-MTNIrancellBd font-size-18 squre-hover {% if "view" in request.GET  %}{% if request.GET.view == "cd" %} opacity-50 {% endif %}{% endif %}js_style_cursor_pointer change-cd-du " style="z-index: 2;">شرح وظیفه</div>
+                    <div syncsize="1" background="#b104b1" color="white" size="25"  class="all-c-d-count circle-csutom-notif">
+                        <span class="font-Baseet">{{ duties_count }}</span>
+                    </div>
+                    <div class="w-15">
+                        <img src="{{ team.TeamCode|check_img_ex }}" class="position-relative img-thumbnail rounded-circle w-100 " style="z-index: 10;"/>
+                    </div>
+                    <div syncsize="1" background="#FFAFFF" color="white" size="25"   class="all-c-d-count circle-csutom-notif ">
+                        <span class="font-Baseet">{{ conditions_count }}</span>
+                    </div>
+                    <div data-view="cd" class="w-20 js_style text-center font-MTNIrancellBd font-size-18 squre-hover{% if "view" in request.GET  %}{% if request.GET.view == "du" %} opacity-50 {% endif %}{% else %} opacity-50 {% endif %}change-cd-du js_style_cursor_pointer" style="z-index: 2;">شرایط احراز</div>
+            </div>
+            <div class="w-95 d-flex flex-row align-items-center justify-content-between px-3 align-self-center">
+                <div class="w-10 d-flex flex-row justify-content-between align-self-start">
+                    <span class="badge badge-dot" style="background-color: #b104b1;position: inherit;"></span>
+                    <span class="badge badge-dot" style="background-color: #b104b1;position: inherit;"></span>
+                    <span class="badge badge-dot" style="background-color: #b104b1;position: inherit;"></span>
+                    <span class="badge badge-dot" style="background-color: #b104b1;position: inherit;"></span>
+                    <span class="badge badge-dot" style="background-color: #b104b1;position: inherit;"></span>
+                    <span class="badge badge-dot" style="background-color: #b104b1;position: inherit;"></span>
+                </div>
+                <div class="w-60 p-2 d-flex flex-row justify-content-between align-items-baseline" style="border-radius: 15px;background-color: midnightblue;margin-top: -12px;position: relative;z-index: 9;">
+                    <span class="text-white font-Bardiya col-5 text-center">معماری سازمانی</span>
+                        {% if my_teams|length > 1 %}
+                            <span class="text-white font-Bardiya col-5 d-flex flex-row align-items-center">
+                                <span class="mx-1 w-15">تیم</span>
+                                <select class="w-85 text-center font-Bardiya change-team" style="border-radius: 10px;">
+                                    <option hidden>تغیر تیم</option>
+                                    {% for item in my_teams %}
+                                        <option {% if "team" not in request.GET and team.TeamCode == item.TeamCode %} selected {% endif %} {% if "team" in request.GET and request.GET.team == item.TeamCode %} selected {% endif %} value="{{ item.TeamCode }}">{{  item.TeamName }}</option>
+                                    {% endfor %}
+                                </select>
+                            </span>
+                        {% else %}
+                            <span class="text-white font-Bardiya col-5 text-center">{{ team.TeamName }}</span>
+                        {% endif %}
+                </div>
+                <div class="w-10 d-flex flex-row justify-content-between align-self-start" >
+                    <span class="badge badge-dot" style="background-color: #FFAFFF;position: inherit;"></span>
+                    <span class="badge badge-dot" style="background-color: #FFAFFF;position: inherit;"></span>
+                    <span class="badge badge-dot" style="background-color: #FFAFFF;position: inherit;"></span>
+                    <span class="badge badge-dot" style="background-color: #FFAFFF;position: inherit;"></span>
+                    <span class="badge badge-dot" style="background-color: #FFAFFF;position: inherit;"></span>
+                    <span class="badge badge-dot" style="background-color: #FFAFFF;position: inherit;"></span>
+                </div>
+            </div>

@@ -1,0 +1,228 @@
+﻿{% extends "HR/profile-base.html" %}
+{% load tag_library %}
+{% block title %}{{user.FullName}}{% endblock title %}
+{% block bodystyle %}primaryColorBg{% endblock bodystyle %}
+{% block MainContent %}
+
+<section class="header-sec w-screen h-24 flex flex-row ">
+    <div class="w-3/4"></div>
+    <div class="searchBar flex w-1/4 h-full justify-center items-center pe-5">
+        <form class="flex items-center w-full" action="/HR/user-profile/search/" method="get">
+            <label for="simple-search" class="sr-only">Search</label>
+            <div class="relative w-full">
+                <input type="text" id="simple-search"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 placeholder: text-right"
+                    placeholder="جستجو..." required name="search">
+            </div>
+            <button type="submit" class="primaryButton p-2.5 ms-2 text-sm font-medium text-white  rounded-lg ">
+                <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 20 20">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                </svg>
+                <span class="sr-only">Search</span>
+            </button>
+        </form>
+    </div>
+</section>
+<section class="hero-sec bg-white w-screen h-60 flex flex-row px-5 pt-5">
+    <div class="w-1/4 flex justify-center items-center">
+        <div class="bg-white absolute top-16 profile-container w-64 h-64 flex justify-center items-center">
+            <a href="/HR/{{user.UserName}}/" target="_blank">
+                <img src="{{user.StaticPhotoURL}}" alt="" class="profile-pic"
+                    onerror="this.onerror=null; this.src='{{PROCESS_MANAGEMENT_STATIC_IMAGES}}no-profile-mr.png'">
+            </a>
+        </div>
+    </div>
+    <div class="w-3/4 ">
+        <div class=" w-full">
+            <h1 class="UserName font-bold">{{user.FullName}}</h1>
+        </div>
+        <div class="w-full mt-3 ">
+            <h1 class="UserTitle">
+                {% for role in roles %}
+                <span>
+                    {{role}} {% if not forloop.last %}<span class="text-gray-300">|</span>{% endif %}
+                </span>
+                {% endfor %}
+            </h1>
+        </div>
+        <div class="w-full flex h-30 flex-row mt-10 items-center">
+            {% if not check_others %}
+            <label for="degree" class="primaryColor me-1">مدرک تحصیلی </label>
+            <span class="inputs me-5 w-fit">{{ user.get_degree|to_persian }} {{ user.get_study }}</span>
+            <label for="degree" class="primaryColor me-1">تاریخ تولد </label>
+            <span class="inputs w-fit me-5">{{ user.jalali_birth_date|to_persian }}</span>
+            {% endif %}
+            {% if user.get_contract %}
+            <label for="degree" class="primaryColor me-1">سابقه در فناوران </label>
+            <span class="inputs w-fit">{{ user.get_contract|to_persian }}</span>
+            {% endif %}
+            {% if not check_others %}
+            <div class="flex items-center">
+                <input type="file" id="avatar-upload" accept=".jpg,.jpeg" class="hidden" onchange="validateAndUploadImage(this)">
+                <button onclick="document.getElementById('avatar-upload').click()" class="primaryButton px-4 py-2 text-sm flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                    </svg>
+                    تغییر تصویر
+                </button>
+                <span id="upload-error" class="text-red-500 text-sm mr-2 hidden"></span>
+            </div>
+            {% endif %}
+
+        </div>
+    </div>
+</section>
+<section class="px-5 w-full bg-white flex justify-center pb-10">
+    {% if team_roles or pre_team_roles%}
+
+    <div class="w-[90%] overflow-x-auto shadow-md sm:rounded-lg flex justify-center items-center">
+        <table class="w-full text-sm text-left rtl:text-center text-gray-500">
+            <thead class="text-xs text-gray-700 uppercase primaryColorBg">
+                <tr>
+                    <th scope="col" class="px-6 py-3">
+                        سمت
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        تیم
+                    </th>
+                    {% if not check_others %}
+                        <th scope="col" class="px-6 py-3">
+                            سطح
+                        </th>
+                    {% endif %}   
+                    <th scope="col" class="px-6 py-3">
+                        ارشد
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        تاریخ شروع
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        تاریخ پایان
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for team_role in team_roles %}
+                <tr class="bg-white border-b">
+                    <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        {{team_role.RoleId|to_persian}}
+                    </td>
+                    <td class="px-6 py-4">
+                        <a href="/HR/profile/team/{{team_role.TeamCode.TeamCode}}" target="_blank"
+                            rel="noopener noreferrer">
+                            {{team_role.TeamCode|to_persian}}
+                        </a>
+                    </td>
+                    {% if not check_others %}
+                        <td class="px-6 py-4">
+                            {% if team_role.LevelId %}
+                            {{team_role.LevelId|to_persian}}
+                            {% endif %}
+                        </td>
+                    {% endif %}
+                    <td class="flex justify-center px-6 py-4">
+                        {% if team_role.Superior %}
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-green-500" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        {% else %}
+                        {% endif %}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{team_role.StartDate|to_persian}}
+                    </td>
+                    <td class="px-6 py-4">
+                        {% if team_role.EndDate %}
+                        {{team_role.EndDate|to_persian}}
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+
+            
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+    <div class="bg-red-500 text-white p-4 rounded" role="alert">
+        {{ "سابقه کاری یافت نشد" }}
+    </div>
+    {% endif %}
+
+</section>
+<script>
+    function validateAndUploadImage(input) {
+        const file = input.files[0];
+        const errorElement = document.getElementById('upload-error');
+        
+        // Reset error message
+        errorElement.classList.add('hidden');
+        errorElement.textContent = '';
+
+        // Validate file type
+        const validTypes = ['image/jpeg', 'image/jpg'];
+        if (!validTypes.includes(file.type)) {
+            errorElement.textContent = 'فقط فرمت JPG پذیرفته می‌شود';
+            errorElement.classList.remove('hidden');
+            input.value = '';
+            return;
+        }
+
+        // Validate file size (2MB = 2 * 1024 * 1024 bytes)
+        if (file.size > 2 * 1024 * 1024) {
+            errorElement.textContent = 'حجم فایل باید کمتر از ۲ مگابایت باشد';
+            errorElement.classList.remove('hidden');
+            input.value = '';
+            return;
+        }
+
+        // If validation passes, create FormData and send to server
+        const formData = new FormData();
+        formData.append('avatar-file', file);
+        formData.append('user_name', '{{ user.UserName }}');
+
+        fetch('/HR/profile/picture/save/', {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'X-CSRFToken': getCookie('csrftoken')
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // Refresh the profile image
+                location.reload(true);
+            } else {
+                errorElement.textContent = data.message || 'خطا در آپلود فایل';
+                errorElement.classList.remove('hidden');
+            }
+        })
+        .catch(error => {
+            errorElement.textContent = 'خطا در ارسال فایل';
+            errorElement.classList.remove('hidden');
+        });
+    }
+
+    // Helper function to get CSRF token
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+</script>
+{% include 'HR/team-list-profile.html' %}
+{% endblock MainContent %}
+

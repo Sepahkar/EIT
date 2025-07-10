@@ -1,0 +1,188 @@
+{% load cartable_tags %}
+    <!-- Tab content -->
+    <div class="tab-content" id="v-tabs-tabContent">
+      <div
+        class="tab-pane fade {% if activeid == "v-tabs-home" %}show active{% endif %}"
+        id="v-tabs-home"
+        role="tabpanel"
+        aria-labelledby="v-tabs-home-tab"
+      >
+      {% if rows %}
+        <table class="table table-bordered table-catable w-100 inbox" >
+        <tr>
+            <th>وضعیت</th>
+            <th>شناسه مدرک</th>
+            <th>عنوان مدرک</th>
+            <th>نوع مدرک</th>
+            <th style="width: 12% !important;">تاریخ دریافت</th>
+            <th style="width: 12% !important;">ارسال کننده</th>
+            <th>مهلت زمان پاسخ</th>
+            <th>اولویت</th>
+            <th>مرحله</th>
+            <th>عملیات</th>
+        </tr>
+        {% for row in rows %}
+        <tr class="{% if row.IsRead == False %}tr-unread{% else %}tr-read{% endif %}" >
+            <td>
+                {% if row.IsRead == False %}
+                    <div class="div-read" >
+                        <img src="/static/Cartable/images/unread.png"  />
+                        <span>&nbsp;</span>
+                    </div>
+                {% else %}
+                    <img src="/static/Cartable/images/read.png" style="width: 40px;height: 40px;" />
+                {% endif %}</td>
+            <td>{{ row.DocumentId.AppDocId }}</td>
+            <td>{{ row.DocumentId.DocumentTitle|default_if_none:"" }}</td>
+            <td>{{ row.DocumentId.AppCode.Title }}</td>
+            <td style="width: 12% !important;">{{ row.PersianReciveDate }}</td>
+            <td class="sender-name-from-cache"  data-value="{{ row.SenderUser|lower }}" style="width: 12% !important;"></td>
+            <td>{{ row.DueDate|default_if_none:"" }}</td>
+            {#<td>{{ row.DocumentId.Priority }}</td>#}<td>عادی</td>
+            <td>{{ row.DocumentId.DocState }}</td>
+            <td>
+                <a class="a-show-req" target="_blank" data-docflow="{{row.id}}" href="http://{% if row.DocumentId.AppCode not in 'WFECTRSLMCRPORGRCMORGNRL' %}{{server_ip}}{% else %}eit-app{% endif %}:{{all_apps_urls|get_system_port:row.DocumentId.AppCode}}{{ all_apps_urls|get_app_url:row.DocumentId.AppCode }}Inbox/{{ row.DocumentId.AppDocId }}/?doc_flow={{row.id}}&role_id={{row.RoleId}}&team_code={{row.TeamCode}}"></a>
+{#                    <img style="width: 40px;height: 40px;" src="/static/Cartable/images/view.png" />#}
+{#                    <b>مشاهده</b>#}
+                <div class="dropdown">
+                  <button
+                    class="btn btn-primary dropdown-toggle"
+                    type="button"
+                    id="dropdownMenuButton"
+                    data-mdb-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    عملیات
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <li><a class="dropdown-item" target="_blank" href="http://{% if row.DocumentId.AppCode not in 'WFECTRSLMCRPORGRCMORGNRL' %}{{server_ip}}{% else %}eit-app{% endif %}:{{all_apps_urls|get_system_port:row.DocumentId.AppCode}}{{ all_apps_urls|get_app_url:row.DocumentId.AppCode }}Inbox/{{ row.DocumentId.AppDocId }}/?doc_flow={{row.id}}&role_id={{row.RoleId}}&team_code={{row.TeamCode}}">مشاهده</a></li>
+                        <li><a class="dropdown-item" target="_blank" href="{% url 'Cartable:workflow_visual' doc_id=row.DocumentId_id %}">گردش مدرک</a></li>
+                        <li><b class="dropdown-item" href="#">تایید</b></li>
+                        <li><b class="dropdown-item exit-from-cartable" data-id="{{ row.id }}" >خروج از کارتابل</b></li>
+                  </ul>
+                </div>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+        {% else %}
+            <p class="text-center notfound">موردی یافت نشد</p>
+      {% endif %}
+      </div>
+      <div
+        class="tab-pane fade {% if activeid == "v-tabs-profile" %}show active{% endif %}"
+        id="v-tabs-profile"
+        role="tabpanel"
+        aria-labelledby="v-tabs-profile-tab"
+      >
+        {% if sender_rows %}
+            <table class="table table-bordered w-95" >
+        <tr>
+            <th>شناسه مدرک</th>
+            <th>عنوان مدرک</th>
+            <th>نوع مدرک</th>
+            <th style="width: 12% !important;" style="width: 12% !important;">تاریخ ارسال</th>
+            <th style="width: 12% !important;" style="width: 12% !important;">ارسال شده به</th>
+            <th>مهلت زمان پاسخ</th>
+            <th>اولویت</th>
+            <th>مرحله</th>
+            <th>عملیات</th>
+        </tr>
+        {% for row in sender_rows %}
+        <tr class="trtr" >
+            <td>{{ row.DocumentId.AppDocId }}</td>
+            <td>{{ row.DocumentId.DocumentTitle|default_if_none:"" }}</td>
+            <td>{{ row.DocumentId.AppCode.Title }}</td>
+            <td style="width: 12% !important;">{% if row.is_parallel %}{{ row.PersianSendDate }}{% else %} {{ row.PersianReciveDate }} {% endif %}</td>
+            <td class="sender-name-from-cache" data-value="{% if row.is_parallel %}{{ row.parallel_user }}{% else %}{{ row.InboxOwner|lower }}{% endif %}" style="width: 12% !important;"></td>
+            <td>{{ row.DueDate|default_if_none:"" }}</td>
+            {#<td>{{ row.DocumentId.Priority }}</td>#}<td>عادی</td>
+            <td>{{ row.DocumentId.DocState }}</td>
+            <td>
+                <a class="a-show-req" target="_blank" href="http://{% if row.DocumentId.AppCode not in 'WFECTRSLMCRPORGRCMORGNRL' %}{{server_ip}}{% else %}eit-app{% endif %}:{{all_apps_urls|get_system_port:row.DocumentId.AppCode}}{{ all_apps_urls|get_app_url:row.DocumentId.AppCode }}Outbox/{{ row.DocumentId.AppDocId }}/?role_id={{row.RoleId}}&team_code={{row.TeamCode}}"></a>
+{#                    <img style="width: 40px;height: 40px;" src="/static/Cartable/images/view.png"  />#}
+{#                    <b>مشاهده</b>#}
+                <div class="dropdown">
+                  <button
+                    class="btn btn-primary dropdown-toggle"
+                    type="button"
+                    id="dropdownMenuButton"
+                    data-mdb-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    عملیات
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <li><a class="dropdown-item" target="_blank" href="http://{% if row.DocumentId.AppCode not in 'WFECTRSLMCRPORGRCMORGNRL' %}{{server_ip}}{% else %}eit-app{% endif %}:{{all_apps_urls|get_system_port:row.DocumentId.AppCode}}{{ all_apps_urls|get_app_url:row.DocumentId.AppCode }}Outbox/{{ row.DocumentId.AppDocId }}/?role_id={{row.RoleId}}&team_code={{row.TeamCode}}">مشاهده</a></li>
+                        <li><a class="dropdown-item" target="_blank" href="{% url 'Cartable:workflow_visual' doc_id=row.DocumentId_id %}">گردش مدرک</a></li>
+                        <li><b class="dropdown-item" href="#">تایید</b></li>
+                        <li><b class="dropdown-item exit-from-cartable" data-id="{{ row.id }}" >خروج از کارتابل</b></li>
+                  </ul>
+                </div>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+        {% else %}
+            <p class="text-center notfound">موردی یافت نشد</p>
+        {% endif %}
+      </div>
+      <div
+        class="tab-pane fade {% if activeid == "v-tabs-messages" %}show active{% endif %}"
+        id="v-tabs-messages"
+        role="tabpanel"
+        aria-labelledby="v-tabs-messages-tab"
+      >
+        {% if my_cartable_rows %}
+        <table class="table table-bordered w-95" >
+        <tr>
+            <th>شناسه مدرک</th>
+            <th>عنوان مدرک</th>
+            <th>نوع مدرک</th>
+            <th style="width: 12% !important;">تاریخ ایجاد</th>
+            <th style="width: 12% !important;">ایجاد کننده</th>
+            <th>اولویت</th>
+            <th>مرحله</th>
+            <th>عملیات</th>
+        </tr>
+        {% for row in my_cartable_rows %}
+        <tr class="trtr" >
+            <td>{{ row.DocumentId.AppDocId }}</td>
+            <td>{{ row.DocumentId.DocumentTitle|default_if_none:"" }}</td>
+            <td>{{ row.DocumentId.AppCode.Title }}</td>
+            <td style="width: 12% !important;">{{ row.PersianReciveDate }}</td>
+            <td class="sender-name-from-cache"  data-value="{{ row.SenderUser|lower }}" style="width: 12% !important;"></td>
+            {#<td>{{ row.DocumentId.Priority }}</td>#}<td>عادی</td>
+            <td>{{ row.DocumentId.DocState }}</td>
+            <td>
+                <a class="a-show-req" target="_blank" href="http://{% if row.DocumentId.AppCode not in 'WFECTRSLMCRPORGRCMORGNRL' %}{{server_ip}}{% else %}eit-app{% endif %}:{{all_apps_urls|get_system_port:row.DocumentId.AppCode}}{{ all_apps_urls|get_app_url:row.DocumentId.AppCode }}Mybox/{{ row.DocumentId.AppDocId }}/?role_id={{row.RoleId}}&team_code={{row.TeamCode}}"></a>
+{#                    <img style="width: 40px;height: 40px;" src="/static/Cartable/images/view.png"  />#}
+{#                    <b>مشاهده</b>#}
+                <div class="dropdown">
+                  <button
+                    class="btn btn-primary dropdown-toggle"
+                    type="button"
+                    id="dropdownMenuButton"
+                    data-mdb-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    عملیات
+                  </button>
+                  
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <li><a class="dropdown-item" target="_blank" href="http://{% if row.DocumentId.AppCode not in 'WFECTRSLMCRPORGRCMORGNRL' %}{{server_ip}}{% else %}eit-app{% endif %}:{{all_apps_urls|get_system_port:row.DocumentId.AppCode}}{{ all_apps_urls|get_app_url:row.DocumentId.AppCode }}Mybox/{{ row.DocumentId.AppDocId }}/?role_id={{row.RoleId}}&team_code={{row.TeamCode}}">مشاهده</a></li>
+                        <li><a class="dropdown-item" target="_blank" href="{% url 'Cartable:workflow_visual' doc_id=row.DocumentId_id %}">گردش مدرک</a></li>
+                        <li><b class="dropdown-item" href="#">تایید</b></li>
+                        <li><b class="dropdown-item exit-from-cartable" data-id="{{ row.id }}" >خروج از کارتابل</b></li>
+                  </ul>
+                </div>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+        {% else %}
+            <p class="text-center notfound">موردی یافت نشد</p>
+        {% endif %}
+      </div>
+    </div>
+    <!-- Tab content -->

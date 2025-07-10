@@ -1,0 +1,359 @@
+/* ------------------------------------ سلکتور های عمومی  ------------------------------------ */
+input[type="text"] {
+  outline: none;
+  border: 1px solid #9c9c9c7d;
+  border-radius: 6px;
+  font-family: "Vazirmtn";
+  font-size: 14px;
+  font-weight: 500;
+  height: 46px;
+  padding: 0 10px;
+  width: 100%;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease-in-out;
+  box-sizing: border-box;
+  color: gray;
+  flex: 1;
+}
+input[type="text"]:focus {
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+}
+.headerIcon {
+  width: 30px;
+}
+.headerTitle {
+  font-family: "IRAmir";
+  font-size: 18px;
+  margin: 0px 10px;
+}
+.subHeaderTitle {
+  font-family: "Vazirmtn";
+  font-size: 14px;
+  font-weight: 500;
+}
+.subHeaderCheckIcon {
+  width: 26px;
+  cursor: pointer;
+}
+.subHeaderDeclineIcon {
+  /* اندازش باید 12 تا بیشتر باشه از آیکون سبز */
+  width: 38px;
+  cursor: pointer;
+}
+.circleIcon{
+  width: 50px;
+}
+.circleIcon:hover{
+  cursor: pointer;
+}
+
+/* ------------------------------------ قسمت بالایی (عنوان سمت و اطلاعات تکمیلی) ------------------------------------ */
+
+#topSection {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 50px;
+  row-gap: 30px;
+}
+#topSection_rightSide, #topSection_leftSide{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+
+.flexRowContainer, #radioButton_gridContainer div{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#roleType_icons, #relevantManager_icons{
+  justify-content: space-evenly;
+  flex: 1;
+  font-family: "IRAmir";
+  font-size: 10px;
+  color: gray;
+}
+#roleType_icons div, #relevantManager_icons div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+#radioButton_gridContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+#radioButtonContainer {
+  justify-content: center;
+}
+#radioButtonContainer input , #roleTypeInputContainer, #relevantManager_icons input, #roleType_icons input{
+  display: none;
+}
+#radioButtonContainer p {
+  margin-right: 3px;
+}
+.radioHeader{
+  font-size: 18px;
+}
+
+/* ------------------------------------ قسمت وسط بخش تیم ها و اضافه کردن آن ------------------------------------ */
+#middleSection {
+  margin: 30px 0 30px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+#middleSection_topSide {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 40px;
+}
+#middleSection_topSide img {
+  width: 50px;
+}
+
+#middleSection_topSide #topSide_button {
+  width: 105px;
+  height: 100%;
+  margin-right: 10px;
+  background-color: #0077ffa3;
+  border-radius: 6px;
+  padding: 0 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+#middleSection_topSide #topSide_button:hover {
+  background-color: #0077ff;
+  color: white;
+}
+#middleSection_topSide #topSide_button img {
+  width: 18px;
+  margin-left: 10px;
+}
+
+#showSelectedTeam_gridContainer {
+  border-radius: 18px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  align-items: center;
+  text-align: center;
+  column-gap: 15px;
+  padding: 10px;
+  gap: 15px;
+  display: none;
+}
+
+.team-card {
+  display: flex;
+  flex-direction: row;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.item-card_close {
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.item-card_close:hover {
+  color: red;
+}
+
+.item-card_quantity {
+  display: flex;
+  align-items: center;
+  margin: 0 12px;
+  gap: 5px;
+}
+
+.item-card_input {
+  width: 120px;
+  height: 46px;
+  outline: none;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 0 6px;
+  font-size: 16px;
+  border-radius: 6px;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.item-card_input:focus {
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+.item-card_icon-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.item-card_icon {
+  width: 65px;
+}
+
+/* ------------------------------------ قسمت پایین (شرایط احراز، شرح شغل) ------------------------------------ */
+#bottomSection {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 50px;
+}
+.bottomSection_headerContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.bottomSection_textArea:focus {
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+}
+.bottomSection_input{
+  margin-left: 10px;
+}
+.bottomSection_plusContainer{
+  display: flex;
+  border: none;
+  border-radius: 100%;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0.5px 3px 3px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  background-color: unset;
+}
+.bottomSection_plusContainer:hover{
+  box-shadow: none;
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.2);
+  color: rgb(8, 76, 8);
+}
+.bottomSection_plusContainer i{
+  font-size: 22px;
+}
+.bottomSection_textArea {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+  gap: 15px;
+  border: none;
+  border-radius: 6px;
+  padding: 10px;
+  min-height: 250px;
+  width: 100%;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease-in-out;
+  box-sizing: border-box;
+}
+.textCard{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  padding: 8px 16px ;
+  font-family: "Vazirmtn";
+  font-weight: 400;
+  word-wrap: break-word;
+  word-break: normal
+}
+.textCard p{
+  font-family: "Vazirmtn";
+  font-size: 12px;
+  font-weight: 700;
+  flex: 1;
+  text-align: center;
+}
+.textCard i{
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+.textCard i:hover{
+  color: red;
+}
+
+
+/* ------------------------------------ آخرین قسمت (بخش دکمه ساخت سمت جدید)  ------------------------------------ */
+#finalSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+#submitButton {
+  box-shadow: 0 0 4px #00277ccc;
+  background-color: unset;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 48px;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+#submitButton:hover {
+  background-color: #00277ccc;
+  color: white;
+}
+
+/* ------------------------------------ SELECT2 OPTIONS ------------------------------------ */
+/* کانتینر کلی Select2 */
+.select2-container {
+  height: 100% !important;
+  flex: 1;
+}
+
+/* حالت single */
+.select2-container--default .select2-selection--single {
+  outline: none;
+  border: 1px solid #9c9c9c7d;
+  border-radius: 6px;
+  font-family: "Vazirmtn";
+  font-size: 16px;
+  height: 100%;
+  padding: 0 10px;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+/* متن داخل باکس */
+.select2-container--default
+  .select2-selection--single
+  .select2-selection__rendered {
+  padding: 0;
+  line-height: normal !important;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+/* آیکون فلش */
+.select2-container--default
+  .select2-selection--single
+  .select2-selection__arrow {
+  height: 100% !important;
+  display: flex;
+  align-items: center;
+  right: 10px; /* فاصله از لبه‌ی راست */
+}
+
+/* افکت زمانی که Select2 باز شده */
+.select2-container--default.select2-container--open .select2-selection--single {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  outline: none;
+}

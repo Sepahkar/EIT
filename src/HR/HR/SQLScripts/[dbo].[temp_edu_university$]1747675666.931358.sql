@@ -1,0 +1,10 @@
+CREATE TABLE [dbo].[TEMP_EDU_University$](
+	[Id] [nvarchar](255) NULL,
+	[UniversityName] [nvarchar](255) NULL,
+	[CountryId] [nvarchar](255) NULL,
+	[UniversityTypeId] [nvarchar](255) NULL,
+	[CityId] [nvarchar](255) NULL,
+	[StateId] [nvarchar](255) NULL,
+	[ProvinceId] [nvarchar](255) NULL,
+	[UnCertainty] [nvarchar](255) NULL
+) ON [PRIMARY]

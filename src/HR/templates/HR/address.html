@@ -1,0 +1,115 @@
+{% extends "HR/detail-layout.html" %}
+{%  load static %}
+{% block legend %}آدرس های پستی {% endblock %}
+{% block form_name1 %}PostalAddress{% endblock %}
+{% block form_name2 %}PostalAddress{% endblock %}
+{% block form_name3 %}PostalAddress{% endblock %}
+{% block form_name4 %}PostalAddress{% endblock %}
+{% block form_name5 %}PostalAddress{% endblock %}
+{% block form_name6 %}PostalAddress{% endblock %}
+{% block form_name7 %}PostalAddress{% endblock %}
+{% block form_name8 %}PostalAddress{% endblock %}
+{% block form_name9 %}PostalAddress{% endblock %}
+{% block form_name10 %}PostalAddress{% endblock %}
+
+{% block table_header %}
+    <th class="Textlist" data-field="AddressTitle">عنوان</th>
+    <th class="Textlist" data-field="PostalCode">کدپستی</th>
+    <th class="Textlist" data-field="AddressCityText">شهر </th>
+    <th class="Textlist" data-field="IsDefault">پیش فرض </th>
+{% endblock %}
+{% block table_body %}
+    {% for obj in addresses %}
+         <tr data-key="{{ obj.id }}">
+             <td>{{ obj.Title}}</td>
+             <td>{{ obj.PostalCode|default_if_none:'' }}</td>
+             <td>{{ obj.City.CityTitle|default_if_none:'' }}</td>
+            <td>{% if obj.IsDefault %}
+                <i class="fa-solid fa-check"></i>
+            {% else %}
+                <i class="fa-solid fa-check"></i>
+            {% endif %}</td>
+
+             <td class="hidden">
+                 <input type="hidden" name="DetailType" value="PostalAddress">
+                 <input type="hidden" name="PostalAddressId" value="{{ obj.id }}"/>
+                 <input type="hidden" name="AddressProvince" value="{{ obj.City.Province.id }}">
+                 <input type="hidden" name="AddressCity" value="{{ obj.City.id }}">
+                 <input type="hidden" name="CityDistrict" value="{{ obj.CityDistrict.id }}">
+                 <input type="hidden" name="AddressTitle" value="{{ obj.Title|default_if_none:'' }}">
+                 <input type="hidden" name="PostalCode" value="{{ obj.PostalCode|default_if_none:'' }}">
+                 <input type="hidden" name="AddressText" value="{{ obj.AddressText }}">
+                 <input type="hidden" name="No" value="{{ obj.No|default_if_none:'' }}">
+                 <input type="hidden" name="UnitNo" value="{{ obj.UnitNo|default_if_none:'' }}">
+                 <input type="hidden" name="IsDefault" {% if obj.IsDefault %} checked {% endif %} value="on">
+
+             </td>
+            {% include "HR/gird-button.html" with form_name='PostalAddress' %}
+         </tr>
+    {% endfor %}
+{% endblock %}
+{% block fieldes %}
+            <div class="row main-content">
+                <div class="row d-flex flex-row align-items-center">
+                    <div class="col-4 mt-3">
+                        <label for="AddressProvince" class="Required">استان : </label>
+                            <select class="ParentCombo" name="AddressProvince" id="AddressProvince" data-child="AddressCity">
+                                <option  value="0">انتخاب کنید</option>
+                                {% for p in province %}
+                                <option  value="{{ p.id }}">{{ p.ProvinceTitle }}</option>
+                                {% endfor %}
+                            </select>
+                    </div>
+                    <div class="col-4 mt-3">
+                        <label for="AddressCity" class="Required">شهر : </label>
+                            <select class="AddressPlace ParentCombo" name="AddressCity" id="AddressCity" data-child="CityDistrict">
+                                <option class="p" value="0">انتخاب کنید</option>
+                                {% for C in city %}
+                                <option  value="{{ C.id }}" class="p{{ C.Province_id }}"> {{ C.CityTitle }}</option>
+                                {% endfor %}
+                            </select>
+                    </div>
+                    <div class="col-4 mt-3">
+                        <label for="CityDistrict">ناحیه: </label>
+                            <select class="CityDistrict" name="CityDistrict" id="CityDistrict">
+                                <option value="0">انتخاب کنید</option>
+                                {% for CD in city_district %}
+                                <option  value="{{ CD.id }}" class="p{{ CD.City_id }}"> {{ CD.DistrictTitle }}</option>
+                                {% endfor %}
+                            </select>
+                    </div>
+                </div>
+                <div class="col-12 d-flex flex-row align-items-center justify-content-start">
+                    <div class="col-4 mt-3">
+                        <label for="AddressTitle" >عنوان: </label>
+                        <input type="text" minlength="3" maxlength="100" class='insert_text' id="AddressTitle" name="AddressTitle">
+                    </div>
+                    <div class="col-4 mt-3">
+                        <label for="PostalCode">کدپستی : </label>
+                        <input type="text" class='insert_text' id="PostalCode" name="PostalCode">
+                    </div>
+                </div>
+                <div class="mt-3">
+                    <label for="AddressText" class="Required">ادرس : </label>
+                    <input type="text" class="text-address" maxlength="500"  id="AddressText" name="AddressText">
+                </div>
+
+                <div class="col-12 d-flex flex-row align-items-center justify-content-start">
+
+                    <div class="col-4 mt-3">
+                        <label for="No" >پلاک : </label>
+                        <input type="text" minlength="3" maxlength="100" class='insert_text' id="No" name="No">
+                    </div>
+                    <div class="col-6 mt-3">
+                        <label for="UnitNo">شماره واحد : </label>
+                        <input type="text" class='insert_text' id="UnitNo" name="UnitNo">
+                    </div>
+
+                </div>
+                <div class="col-6 mt-3">
+                        <input type="checkbox" class="is_default" class='IsDefault' id="IsDefault" name="IsDefault">
+                        <label for="IsDefault" >آدرس پیش فرض می باشد؟</label>
+                </div>
+
+            </div>
+{% endblock %}

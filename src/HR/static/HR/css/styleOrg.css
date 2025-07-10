@@ -1,0 +1,70 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header-sec {
+  background: url(/static/HR/images/gradient.png);
+  background-size: cover;
+}
+
+.hero-sec .UserName {
+  font-size: 42px;
+}
+
+.primaryColor {
+  color: #0B99E9;
+}
+
+.secondaryColor {
+  color: rgb(54, 108, 144);
+}
+
+.primaryColorBg {
+  background: rgba(192, 225, 246, 0.45);
+}
+
+.inputs {
+  border: 0;
+  outline: 0;
+  color: rgb(60, 66, 87);
+  background-color: rgba(240, 240, 240, 0.583);
+  box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(60, 66, 87, 0.16) 0px 0px 0px 1px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  padding: 4px 8px;
+  min-height: 28px;
+  vertical-align: middle;
+  transition: background-color 0.24s, box-shadow 0.24s;
+  transition-property: background-color, box-shadow;
+  transition-duration: 0.24s, 0.24s;
+  transition-timing-function: ease, ease;
+  transition-delay: 0s, 0s;
+}
+.inputs :focus {
+  box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(58, 151, 212, 0.36) 0px 0px 0px 4px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(60, 66, 87, 0.16) 0px 0px 0px 1px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px;
+}
+
+.profile-container {
+  border-radius: 25% 25% 25% 25%/40% 41% 39% 39%;
+}
+
+.profile-pic {
+  border-radius: 25% 25% 25% 25%/40% 41% 39% 39%;
+  /* background-color: #0B99E9; */
+  width: 234px;
+  height: 234px;
+}
+
+.team-profile img {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.teamBanner {
+  background: #6990AB;
+  height: 30px;
+}/*# sourceMappingURL=style.css.map */

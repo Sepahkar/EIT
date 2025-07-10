@@ -1,0 +1,10 @@
+CREATE TABLE [dbo].[TEMP_ORG_Organization$](
+	[ID] [nvarchar](255) NULL,
+	[OrganizationName] [nvarchar](255) NULL,
+	[OrganizationCode] [nvarchar](255) NULL,
+	[ParentOrganizationCode] [nvarchar](255) NULL,
+	[OrganizationTypeId] [nvarchar](255) NULL,
+	[Cityid] [nvarchar](255) NULL,
+	[OrganizationLevel] [nvarchar](255) NULL,
+	[OrganizationClass] [nvarchar](255) NULL
+) ON [PRIMARY]

@@ -1,0 +1,1282 @@
+body
+{
+    direction: rtl;
+    background-color: #f1f1f1;
+    text-align: center;
+}
+
+.container {
+    width: 100%;
+    z-index: 200;
+    clear: both;
+ }
+
+.Logo
+{
+    height: 50px;
+}
+
+.hide
+{
+    display: none!important;
+}
+
+.arrow {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+.arrow-right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.arrow-left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
+.arrow-up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+
+.arrow-down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+.Keywords b
+{
+    font-family: Titr;
+    font-size: 11pt
+}
+.Keywords i
+{
+    font-family: Homa;
+    font-size: 10pt;
+}
+
+
+/*************************Comment Start*******************************/
+.imessage {
+ /* border: 1px solid #e5e5ea;*/
+    border: none;
+    border-radius: 0.25rem;
+    display: flex;
+    flex-direction: column;
+    font-family: Koodak;
+    font-size: 10pt!important;
+    margin: 0 auto 1rem;
+    padding: 0.5rem 1.5rem;
+}
+
+.imessage p {
+  border-radius: 1.15rem;
+  line-height: 1.25;
+  max-width: 100%;
+  padding: 0.5rem .875rem;
+  position: relative;
+  word-wrap: break-word;
+}
+
+.imessage p::before,
+.imessage p::after {
+  bottom: -0.1rem;
+  content: "";
+  height: 1rem;
+  position: absolute;
+}
+
+p.from-me {
+  align-self: flex-end;
+  background-color: #248bf5;
+    color: #fbfaf9!important;
+    margin-top: 10px!important;
+    text-align: right!important;
+    direction: rtl;
+    font-size: 10pt!important;
+
+}
+
+
+p[class^="from-"] {
+  margin: 0.5rem 0;
+  width: fit-content;
+}
+
+p.from-me ~ p.from-me {
+  margin: 0.25rem 0 0;
+}
+
+p.from-me ~ p.from-me:not(:last-child) {
+  margin: 0.25rem 0 0;
+}
+
+p.from-me ~ p.from-me:last-child {
+  margin-bottom: 0.5rem;
+}
+
+p.from-them {
+  align-items: flex-start;
+  background-color:#e9f5ff;
+  color: #000;
+    font-size: 10pt!important;
+}
+
+
+.comment-container {
+    margin: 0 auto;
+    max-width: 600px;
+    direction: ltr;
+    line-height: 1.5;
+    margin-bottom: 1.25rem;
+    padding: 0;
+    cursor: text;
+
+}
+.comment-container .row
+{
+    background: none!important;
+    box-shadow: none!important;
+    display: -webkit-box;
+}
+
+.comment-container img
+{
+    width: 50px!important;
+    height: 50px!important;
+    cursor: none!important;
+}
+.comment-container .EIT
+{
+    text-align: left;
+    display: table;
+    padding-bottom: 30px;
+}
+.comment-container .EIT .EIT-Icon
+{
+    display: table-cell;
+    vertical-align: bottom;
+}
+.comment-container .User .User-Icon
+{
+    display: table-cell;
+    vertical-align: top;
+}
+
+.comment-container .User
+{
+    text-align: right;
+    display: table;
+}
+.comment-container .row-comment
+{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-direction: row;
+    box-shadow: none;
+}
+/*************************Comment End*******************************/
+
+
+
+
+/****************************Menu Start****************************/
+.Menu-Row
+{
+    background-color: #ffffff;
+    box-shadow: grey 5px 2px 5px;
+}
+.Menu
+{
+    text-align: center!important;
+    font-family: Titr;
+    display: inline-block!important;
+
+}
+.Menu ul {
+    list-style-type: none;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #e7e7e7;
+    background-color: #ffffff;
+    display: inline;
+    text-align: center!important;
+    height: 60px;
+
+}
+
+.Menu li {
+  float: left;
+  padding : 0px 5px 0px 5px;
+}
+
+.Menu li a {
+  display: block;
+  color: #666;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+
+}
+
+.Menu li a:hover:not(.active) {
+    background-color: #ddd;
+    height: 60px;
+}
+
+.Menu li a.active {
+    color: white;
+    background-color: #04AA6D;
+    height: 60px;
+}
+.marquee img
+{
+    height: 50px;
+    padding-right: 20px;
+}
+ .marquee {
+            height: 50px;
+            overflow: hidden;
+            position: relative;
+         /*   background: #fefefe;*/
+            color: #333;
+            /*border: 1px solid #4a4a4a;*/
+        }
+
+        .marquee p {
+            position: absolute;
+            /*width: 100%;*/
+            height: 100%;
+            margin: 0;
+            line-height: 50px;
+            text-align: center;
+           /* -moz-transform: translateX(100%);
+            -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+            -moz-animation: scroll-left 2s linear infinite;
+            -webkit-animation: scroll-left 2s linear infinite;
+            animation: scroll-left 60s linear infinite;*/
+        }
+
+        @-moz-keyframes scroll-left {
+            0% {
+                -moz-transform: translateX(100%);
+            }
+            100% {
+                -moz-transform: translateX(-100%);
+            }
+        }
+
+        @-webkit-keyframes scroll-left {
+            0% {
+                -webkit-transform: translateX(100%);
+            }
+            100% {
+                -webkit-transform: translateX(-100%);
+            }
+        }
+
+        @keyframes scroll-left {
+            0% {
+                -moz-transform: translateX(100%);
+                -webkit-transform: translateX(100%);
+                transform: translateX(100%);
+            }
+            100% {
+                -moz-transform: translateX(-100%);
+                -webkit-transform: translateX(-100%);
+                transform: translateX(-100%);
+            }
+        }
+
+
+/****************************Menu End****************************/
+
+/**************************Index Start****************************/
+.MainPage .Background
+    {
+       background-color: #efefef;
+        height: 700px;
+    }
+.MainPage .Background .img
+{
+    box-shadow: 0 0 20px 30px #f1f1f1 inset;
+    height: 540px;
+    background-repeat: no-repeat;
+    width: 1024px;
+    display: inline-block;
+}
+.MainPage .Main
+{
+    position: relative;
+    top: -500px;
+}
+.MainPage .Title
+{
+    font-size: 30pt;
+    font-family:Titr;
+    text-align: center;
+
+}
+
+.MainPage .MainTitle
+{
+    margin-top: 10px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    line-height: 1;
+    font-size: 42px;
+    font-family: Jadid;
+    text-shadow: 2px 2px 4px #000000;
+    color: #ffffff;
+}
+.MainPage  .SubTitle
+{
+    color:rgba(37, 37, 37, .7);
+    font-size: 15px;
+    font-weight: 300;
+    text-align: center;
+    margin: 0 auto;
+    line-height: 1.5;
+    max-width: 800px;
+    font-family: Koodak;
+    padding-bottom: 20px;
+    color: #ffffff;
+}
+.MainPage .container
+{
+    top: -100px;
+    position: relative;
+}
+.MainPage .Hand
+{
+    border: none;
+    box-shadow: none;
+}
+
+
+/**********************************************/
+
+
+/*            Animation  Start          */
+.w3-container,.w3-panel{padding:0.01em 16px}
+
+.w3-center
+{
+    text-align:center!important
+}
+.w3-container:after,.w3-container:before
+{
+    content:"";
+    display:table;
+    clear:both
+}
+.w3-animate-opacity
+{
+    animation:opac 2s
+}@keyframes opac{from{opacity:0} to{opacity:1}}
+
+.w3-animate-bottom
+{
+    position:relative;
+    animation:animatebottom 2s
+}@keyframes animatebottom{
+     from
+     {bottom:-300px;opacity:0}
+     to{bottom:0;opacity:1}
+ }
+/*            Animation  End          */
+
+
+
+/*              Search box style start  */
+.MainPage .Search {
+    margin: 50px 100px;
+    display: inline-block;
+    position: relative;
+    height: 60px;
+
+    padding: 0;
+    /*right: 300px;*/
+    top:-50px
+}
+
+.MainPage #search
+{
+  height: 45px;
+  font-size: 20px;
+  display: inline-block;
+  font-family: Koodak;
+  font-weight: 60;
+  border: solid gray 1px;
+  outline: none;
+  color: #555;
+  background-color: #ffffff;
+  padding: 3px;
+    padding-right: 10px;
+  z-index: 3;
+  transition: width .4s cubic-bezier(0.000, 0.795, 0.000, 1.000);
+  cursor: pointer;
+  width: 500px;
+    opacity: 0.8;
+}
+
+.MainPage #search :focus:hover {
+  border-bottom: 1px solid #BBB;
+    opacity: 1.0;
+}
+
+.MainPage #search :focus {
+  z-index: 1;
+  border-bottom: 1px solid #BBB;
+  cursor: text;
+        opacity: 1.0;
+}
+.MainPage #search_submit  {
+  width: 50px;
+  height: 45px;
+  float: right;
+  text-indent: -10000px;
+  z-index: 2;
+  cursor: pointer;
+    border: none;
+}
+
+
+/*              Search box style end    */
+
+/*              Team Box Start              */
+.TeamBoxContainer
+{
+    margin-top:50px;
+    text-align: center;
+}
+.TeamBox
+{
+    width: 200px;
+    background-color: #ffffff;
+    max-height: 600px;
+    margin-left: 20px;
+    padding-top: 10px;
+    border-radius: 40px;
+    box-shadow: 5px 10px 18px #888888;
+    margin-top:20px;
+
+}
+.Main .container
+{
+    width: 880px;
+}
+/***********************************************/
+.Team-Container
+{
+    font-family: Homa;
+    display: inline-block;
+    border: 1px #c1bfbf solid;
+    width: 100px;
+    height: 30px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    vertical-align: middle;
+    border-radius: 40px;
+    color: #92c0ff;
+    box-shadow: #bababa 3px 3px 5px;
+}
+.Team-Container:hover
+{
+    background-color: #3978a4;
+    transition: background-color 0.5s;
+    color: #fffcec;
+    transform-style: revert;
+    box-shadow: none;
+    border: 1px #787676 solid;
+}
+.TeamBox a
+{
+   text-decoration: none;
+}
+.TeamBox .Title
+{
+    font-family: Farnaz;
+    font-size: 20pt;
+    color: #3978a4;
+    text-shadow: 0 0 2px #888888;
+
+}
+.TeamBox .Text
+{
+    font-family: Nazanin;
+    padding-bottom: 20px;
+    padding-right: 5px;
+    padding-left: 5px;
+    color: #3333d4;
+    font-size: 11pt;
+}
+
+.TeamBox .TeamIcon
+{
+    width: 75px;
+    -webkit-filter: drop-shadow(5px 5px 7px #888888);
+    filter: drop-shadow(5px 5px 7px #888888);
+}
+.TeamBox .TeamIcon:hover
+{
+    width: 80px;
+}
+.TeamBox.Last
+{
+    box-shadow: none;
+    border:none;
+    opacity: 0;
+}
+.Hand
+{
+    text-align: left;
+    position: relative;
+    top: -300px;
+    left: 400px;
+}
+/*              Team Box End              */
+
+/*//////////////////////////////////////////////////////////////////////////
+                            FAQ Page
+//////////////////////////////////////////////////////////////////////////*/
+.FAQ
+{
+    display: flex;
+    vertical-align: top;
+    margin-top: 15px;
+}
+.FAQ .Inline
+{
+    display: flex;
+    margin:10px;
+}
+.FAQ .Title
+{
+font-family: Jadid;
+    margin-bottom: 15px;
+    font-size: 20pt;
+    color: #023321;
+}
+.FAQ .Menu
+{
+    background-color: #ffffff;
+    box-shadow: 0 3px 10px rgb(0 0 0);;
+    text-align: center!important;
+    font-family: Titr;
+    display: inline;
+    width: 210px;
+    height: 100%!important;
+    position: relative;
+    top: -73px!important;
+    padding-top: 70px;
+    padding-bottom: 30px;
+        border-bottom-left-radius: 15px;
+}
+.FAQ .Menu ul {
+    list-style-type: none;
+    overflow: hidden;
+    border: 1px solid #e7e7e7;
+    background-color: #ffffff;
+    display: inline;
+    text-align: center!important;
+    height: 60px;
+
+}
+
+.FAQ .Menu li {
+    width: 200px;
+    float: left;
+    padding : 0px 5px 0px 5px;
+    height: 60px;
+    text-align: center;
+}
+
+.FAQ .Menu li {
+  display: block;
+  color: #666;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+
+}
+
+.FAQ .Menu li:hover:not(.Active) {
+    background-color: #ddd;
+    height: 60px;
+    width: 190px;
+    left: -10px;
+    position: relative;
+    cursor: pointer;
+}
+
+.FAQ .Menu li.Active {
+    color: white;
+    background-color: #04AA6D;
+    height: 60px;
+    width: 230px;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    left: -40px;
+    position: relative;
+    cursor: auto;
+}
+
+.FAQ .Photo
+{
+
+    width: 200px;
+    height: 400px;
+}
+.FAQ .Photo img
+{
+    width: 250px;
+    height: 450px;
+	border: calc(0px + 0.2vw) solid transparent;
+	box-sizing: border-box;
+	box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.5);
+	border-radius: 30% 10%;
+
+}
+.FAQ .Question
+{
+    text-align: justify;
+    font-family: Traffic;
+    color: #002a87;
+}
+.FAQ .QA-Container
+{
+    max-height: 600px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+.FAQ .QA
+{
+    padding: 10px 10px 10px 10px;
+    background-color: #e3e2e2;
+    margin: 10px 10px 10px 0px;
+    border-radius: 10px;
+    box-shadow: 0 6px 6px -5px #727272;
+    cursor: pointer;
+}
+.FAQ .QA .row
+{
+    cursor: pointer;
+}
+.FAQ .QA .icon-set
+{
+    display: table;
+}
+.FAQ .QA .icon
+{
+    text-align: left;
+    vertical-align: middle;
+    display: table-cell;
+}
+.FAQ .QA .icon img
+{
+    width: 30px;
+}
+.FAQ .QA .icon span
+{
+    font-size: 10pt;
+    padding-right: 10px;
+}
+.SearchResult .Answer,
+.FAQ .Answer
+{
+    text-align: justify;
+    font-family: Nazanin;
+    padding: 15px 40px 5px 10px;
+    color:#255301;
+    cursor: auto;
+}
+.Keywords span
+{
+border-radius: 15px;
+    background-color: #008c9e;
+    padding: 2px 12px 5px 10px;
+    margin: 0px 5px;
+    color: #e5faf3;
+}
+
+.OperationIcon
+{
+    text-align: left;
+    margin-top: 15px;
+}
+
+.OperationIcon img
+{
+    width: 37px;
+    cursor: pointer;
+}
+
+.OperationIcon img:hover
+{
+    width: 40px;
+}
+
+.OperationIcon .Counter
+{
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    padding: 1px;
+    background: #145fa9;
+    border: 2px solid #0053a4;
+    color: #fff;
+    text-align: center;
+    font-size: 10pt;
+    font-family: Titr;
+    position: relative;
+    top: -15px;
+    left: -15px;
+    display: inline-block;
+}
+
+.comment-line
+{
+    height: 5px;
+    width: 150px;
+    background-color: #065136;
+}
+.Comment-Caption
+{
+    font-family: Titr;
+    text-align: right;
+}
+.Comment-Text input,
+.Comment-Text select,
+.Comment-Text textarea
+{
+    font-size:18px;
+    padding:5px 2px 5px 2px;
+    display:block;
+    width:200px;
+    height:40px;
+    border:none;
+    margin-bottom: 5px;
+    border-bottom:1px solid #757575;
+}
+.Comment-Text textarea
+{
+    width:675px;
+    height:200px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 10px;
+}
+.Comment-Text input:focus,
+.Comment-Text textarea:focus
+{
+    border-bottom: 1px solid gray;
+    background-color: #ece6de;
+}
+.Comment-Text input::placeholder {
+  color: #a6a6a6;
+  transform: scale(0.9);
+  transform-origin: left top;
+
+}
+.Comment-Form .row.button
+{
+    text-align: left;
+    width: 700px;
+}
+.Comment-Form button
+{
+    border: none;
+    width: 100px;
+    border-radius: 5px;
+    margin:10px;
+    box-shadow: 3px 3px 5px gray;
+}
+.Comment-Form button:hover
+{
+    border: none;
+    width: 105px;
+    box-shadow: none;
+}
+/**********************************/
+.nav {
+   list-style-type: none;
+   border-radius: 10px;
+   background: #666;
+   margin: 0;
+   padding: 0;
+   width: 1024px;
+   overflow: hidden;
+}
+
+.nav-item {
+   font-size: 20px;
+   background: #9701f0;
+   border-bottom: 1px solid rgba(63, 46, 73, 0.3);
+}
+
+.nav-item:last-child {
+   border-bottom: none;
+}
+
+.nav-link, .nav-submenu-link {
+   text-decoration: none;
+   padding: 16px 20px;
+   display: block;
+   color: #fff;
+}
+
+.nav-submenu {
+   overflow: hidden;
+   max-height: 0;
+   transition: max-height 0.5s;
+   background: #79a6fc;
+}
+.nav-submenu:target {
+   max-height: 10rem;
+}
+.nav-submenu-link {
+   font-size: 16px;
+   background: transparent;
+   transition: background 0.2s ease-in;
+}
+.nav-submenu-link:hover {
+   background: #36253f;
+}
+
+
+
+
+/*************************************************/
+
+/*******************Project Style Start******************/
+.aspect-tab {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto 10px;
+  border-radius: 4px;
+  background-color:snow;
+  box-shadow: 4px 3px 10px 5px rgba(236,236,236,1);
+}
+.aspect-input {
+  display: none;
+}
+.aspect-input:checked ~ .aspect-content + .aspect-tab-content {
+  max-height: 3000px;
+}
+.aspect-input:checked ~ .aspect-content:after {
+    transform: rotate(0);
+}
+.aspect-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  max-height: 80px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: 0;
+  z-index: 1;
+  cursor: pointer;
+}
+.aspect-content {
+  position: relative;
+  display: block;
+  height: 50px;
+  margin: 0;
+  padding: 0 20px 0 5px;
+  font-size: 0;
+  white-space: nowrap;
+  cursor: pointer;
+    background: linear-gradient(0deg, #ffffff, #d6dbf6);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    text-align: right;
+    margin-top: 10px;
+  }
+
+
+.aspect-info
+{
+    padding-top: 5px;
+    text-align: right;
+
+}
+
+.aspect-name {
+  display: inline-block;
+  width: 75%;
+  margin-left: 16px;
+  font-weight: 500;
+  white-space: normal;
+  vertical-align: middle;
+  font-family: Titr;
+  font-size: 15pt;
+    color: #0c0357;
+    padding-top: 5px;
+}
+.aspect-stat {
+  width: 40%;
+  text-align: left;
+    z-index: 10;
+    vertical-align: middle;
+}
+.aspect-stat span
+{
+    font-family: Koodak;
+    font-size: 12pt;
+    color: #0054a4;
+    padding-right: 10px;
+}
+
+.aspect-stat img, .aspect-content .icon
+{
+    height: 30px;
+}
+
+.aspect-content + .aspect-tab-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .3s;
+}
+.aspect-content > div,
+.aspect-stat > div {
+  display: inline-block;
+}
+
+.aspect-info {
+  width: 60%;
+  white-space: nowrap;
+  font-size: 0;
+
+}
+
+/*******************Project Style End******************/
+
+
+/*************Question & Answer Style Start*************/
+
+.aspect-tab input {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+}
+.accordion-wrapper {
+    border-radius: 8px;
+    overflow: hidden;
+    width: 95%;
+    margin:0 auto;
+}
+.sentiment-wrapper .accordion {
+    width: 100%;
+    color: white;
+    overflow: hidden;
+    margin-bottom: 16px;
+}
+
+.accordion-label {
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    padding: 16px;
+    background: rgba(4,57,94,.8);
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: Traffic;
+    text-align: justify;
+    color: white;
+}
+.accordion .Question
+{
+    width: 100%;
+}
+.accordion .Question td:first-child
+{
+    width:78%;
+    padding-left: 30px;
+}
+.accordion .Question td.Icon
+{
+    width: 80px;
+}
+.accordion .Question img
+{
+    height: 30px;
+}
+.accordion-label::after {
+    content: "\276F";
+    width: 16px;
+    height: 16px;
+    text-align: center;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    padding-right: 10px;
+}
+.accordion-content {
+    padding: 0 16px;
+    color: rgba(4,57,94,1);
+    background: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s;
+    text-align: justify;
+    font-family: Lotus;
+    font-size: 13pt;
+    color: #080840;
+}
+.accordion-content p{
+    margin: 0;
+    color: rgba(4,57,94,.7);
+     text-align: left;
+   font-size: 18px;
+}
+
+.aspect-tab input:checked ~ .accordion-content {
+    max-height: 100vh;
+    padding: 16px;
+}
+.comment-box
+{
+    margin-top: 40px!important;
+    width: 100%;
+    text-align: center!important;
+}
+.comment-box textarea
+{
+  width: 75%;
+  height: 150px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 16px;
+}
+.comment-box img
+{
+    height: 30px;
+    width: 30px;
+}
+.comment-box img:hover
+{
+    height: 35px;
+    width: 35px;
+}
+
+.comment-box .autosize {
+  resize: none;
+  overflow: hidden;
+}
+
+/*************Question & Answer Style End*************/
+
+
+
+/**************Search List Page Start*****************/
+.SearchResult
+{
+    padding-top: 20px;
+}
+.SearchResult .Comment-Form .row
+{
+    box-shadow: none!important;
+}
+.SearchResult .Comment-Form .row:hover
+{
+    box-shadow: none!important;
+    background: none!important;
+}
+.SearchResult .Result
+{
+    height: 500px;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    text-align: center;
+    padding-right: 20px
+}
+.SearchResult .Result .row
+{
+    width: 95%;
+}
+.SearchResult .OrgnialSearchStringTitle
+{
+    font-family: Titr;
+    color: #0c0357;
+    font-size: 20pt;
+    margin-top:20px
+}
+.SearchResult .OrgnialSearchString
+{
+    font-family: Traffic;
+    color: #002a87;
+    font-style: italic;
+    font-size: 20pt;
+    margin-bottom: 30px;
+}
+.container.SearchResult .row
+{
+    background-color: white;
+    border-radius: 30px;
+    box-shadow: #bfbfbf 5px 5px 10px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-direction: row;
+    margin-top: 10px;
+    transition-duration: 0.5s;
+
+}
+.SearchResult .row:hover
+{
+
+}
+.SearchResult .TeamCode
+{
+    vertical-align: middle;
+
+}
+.SearchResult .TeamCode img
+{
+    height: 50px;
+}
+.SearchResult .ProjectName
+{
+    font-size: 15pt;
+    font-family: Titr;
+    color: #0c0357;
+    text-align: right;
+    vertical-align: center;
+
+}
+.SearchResult .QA
+{
+    text-align: right;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    min-height: 75px;
+}
+.SearchResult .QA .Question
+{
+    font-family: Traffic;
+    font-size: 12pt;
+    cursor: pointer;
+    display: flex;
+
+}
+.SearchResult .QA .Question .icon
+{
+    width: 40px;
+}
+
+.SearchResult .QA .Question .arrow
+{
+    margin-right: 15px;
+
+}
+
+.SearchResult .QA .Answer
+{
+    font-family: Nazanin;
+    font-size: 12pt;
+    text-align: justify;
+}
+.SearchResult .ErrorMessage
+{
+    font-family: Nazanin;
+    color: #2f73c1;
+    font-size: 20pt;
+}
+.SearchResult .ErrorMessage a img
+{
+    height: 40px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+.SearchResult .OperationIcon
+{
+    text-align: left;
+}
+.SearchResult .OperationIcon img
+{
+
+    width: 40px;
+    cursor: pointer;
+}
+.SearchResult .OperationIcon img:hover
+{
+    width: 45px;
+}
+/**************Search List Page End*****************/
+
+
+/**************Confirm Page Start*****************/
+
+.Confirm .icon img
+{
+    cursor: pointer!important;
+}
+.Confirm .icon img:hover
+{
+    width: 36px!important;
+}
+.Confirm .Keywords img
+{
+    width: 25px;
+    cursor: pointer!important;
+}
+.Confirm .Keywords img:hover
+{
+    width: 28px;
+}
+.Confirm textarea
+{
+    width: 100%;
+    height: 100%;
+    border:none;
+}
+.Confirm .Edit input
+{
+    width: 95%;
+    border: none;
+}
+.Confirm .Keywords .Delete
+{
+    position: relative;
+    top: -15px;
+    right: -18px;
+    width: 18px;
+    cursor: pointer;
+}
+.Confirm .Keywords .Delete:hover
+{
+    width: 20px;
+}
+.ErrorMessage p
+{
+    font-family: Titr;
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 10px;
+    color: red;
+}
+.ErrorMessage img
+{
+    height: 50px;
+}
+
+/**************Confirm Page End*****************/
+
+
+

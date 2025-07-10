@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>{% block title %}کارتابل{% endblock %}</title>
+    <!-- MDB icon -->
+    <link rel="icon" href="/static/EIT/images/favicon.ico" type="image/x-icon" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="/static/EIT/css/all.css" />
+    <link rel="stylesheet" href="/static/EIT/css/fontawesome.css" />
+    <link rel="stylesheet" href="/static/EIT/css/mdb.rtl.min.css" />
+    <link rel="stylesheet" href="/static/EIT/css/jquery-confirm.css" />
+    <link rel="stylesheet" href="/static/EIT/css/font-style.css" />
+    <link rel="stylesheet" href="/static/EIT/css/common-style.css" />
+    <link rel="stylesheet" href="/static/EIT/css/select2.min.css" />
+    <link rel="stylesheet" href="/static/EIT/css/jquery.qtip.css" />
+    <link rel="stylesheet" href="{% static 'Cartable/css/style.css' %}" />
+    {% block importstyle %} {% endblock %}
+    <script type="text/javascript" src="/static/EIT/js/mdb.min.js"></script>
+    <script src="/static/EIT/js/jquery-3.6.0.min.js" ></script>
+    <script src="/static/EIT/js/jquery-confirm.js" ></script>
+    <script type="text/javascript" src="/static/EIT/js/common.js"></script>
+    <script type="text/javascript" src="/static/EIT/js/bootstrap-modal-js.min.js"></script>
+    <script type="text/javascript" src="/static/EIT/js/select2.min.js"></script>
+    <script type="text/javascript" src="/static/EIT/js/jquery.qtip.js"></script>
+    <script type="text/javascript" src="/static/ChangeTeamRole/js/index.js"></script>
+    <script src="{% static '/Portal/js/common-header.js' %}" type="text/javascript"></script>
+    {% block importscript %} {% endblock %}
+    {% block style %} {% endblock %}
+    {% block script %} {% endblock %}
+    {% block  jquery %} {% endblock %}
+  </head>
+  <body>
+        {% include 'Portal/common-header.html' %}
+        {% block content %}
+
+        {% endblock %}
+
+  </body>
+</html>

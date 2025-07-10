@@ -1,0 +1,4 @@
+#changelist table tbody td,
+#changelist table thead th {
+    white-space: normal !important;
+}

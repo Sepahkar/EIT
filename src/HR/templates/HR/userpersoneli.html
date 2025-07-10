@@ -1,0 +1,227 @@
+{% extends "HR/simple-layout.html" %}
+{% load tag_library %}
+{% block legend %}اطلاعات شخصی{% endblock %}
+{% block form_name1 %}person{% endblock %}
+{% block form_name2 %}person{% endblock %}
+{% block form_name3 %}person{% endblock %}
+{% block form_name4 %}person{% endblock %}
+{% block form_name5 %}person{% endblock %}
+{% block form_name6 %}person{% endblock %}
+{% block fieldes %}
+        <div class="row-information">
+            <div class="item-information">
+                <label class="Required" for="user_name">نام کاربری</label>
+                <div class="user-name">
+                    <span>eit@</span>
+                    <input type="text" id="user_name" minlength="5" maxlength="100" name="user_name" value="{{ user.username }}" >
+                </div>
+            </div>
+            <div class="item-information">
+                <label class="Required" for="first_name"> نام</label>
+                <input type="text" id="first_name" minlength="3" maxlength="200" name="first_name" value="{{ obj_person.FirstName }}">
+            </div>
+            <div class="item-information">
+                    <label class="Required" for="last_name"> نام خانوادگی</label>
+                    <input type="text" id="last_name" minlength="3" maxlength="200" name="last_name" value="{{ obj_person.LastName }}">
+            </div>
+        </div>
+
+        <div class="row-information">
+            <div class="item-information">
+                <label class="Required" for="national_code">کدملی</label>
+                <input type="text"  id="national_code"  minlength="10" maxlength="10" name="national_code" value="{{ obj_person.NationalCode }}">
+            </div>
+            <div class="item-information">
+                 <label  for="birthday"> تاریخ تولد: </label>
+                 <input type="text" class="Eventdate pdatepicker w-60 date form-control" value="{{ obj_person.BirthDateMiladi|date:'Y/m/d' }}" name="birthday"/>
+            </div>
+            <div class="item-information">
+               <label for="contract-date"  class="Required">تاریخ استخدام: </label>
+                <input type="text" value="{{ obj_person.ContractDateMiladi|date:'Y/m/d' }}" class="Eventdate pdatepicker date w-60 form-control" name="contract-date" />
+            </div>
+        </div>
+        <div class="row-information">
+            <label class="Required" for="gender">جنسیت</label>
+            <input type="hidden" name="gender" value="{% if obj_person.Gender %}1{% else %}0{% endif %}">
+             <img src='/static/HR/images/Icon/Male.png' class="gender_logo logo {% if obj_person.Gender %} active {% endif %}" value='1'  title="آقا" alt="اقا">
+             <img src='/static/HR/images/Icon/Female.png' class="gender_logo logo {% if not obj_person.Gender %} active {% endif %}" value='0' title="خانم" alt="خانم">
+        </div>
+        <div class="row-information">
+            <div class="item-information">
+                <label>نام انگلیسی </label>
+                <input type="text" id="first_name_english" minlength="3" maxlength="80" name="first_name_english" value="{{ obj_person.FirstNameEnglish|default_if_none:'' }}">
+            </div>
+            <div class="item-information">
+                <label>نام خانوادگی انگلیسی </label>
+                <input type="text" id="last_name_english" minlength="3" maxlength="100" name="last_name_english" value="{{ obj_person.LastNameEnglish|default_if_none:'' }}">
+            </div>
+            <div class="item-information">
+                <label>نام پدر </label>
+                <input type="text" id="father_name" minlength="3" maxlength="80" name="father_name" value="{{ obj_person.FatherName|default_if_none:'' }}">
+            </div>
+        </div>
+        <div class="row-information">
+
+            <div class="item-information">
+                <label  for="Religion">دین: </label>
+                <select name="religion" id="religion" >
+                    <option  value="0">انتخاب کنید</option>
+                    {% for r in religion_type %}
+                    <option value="{{ r.id }}" {% if obj_person.Religion_id == r.id %} selected {% endif %}>
+                            {{ r.Caption }}
+                    </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="item-information">
+                <label  for="birth_province">استان تولد: </label>
+                <select class="ParentCombo" name="birth_province" id="birth_province" data-child="birth_city">
+                    <option  value="0">انتخاب کنید</option>
+                    {% for p in province %}
+                    <option value="{{ p.id }}" {% if obj_person.BirthCity.Province_id == p.id %} selected {% endif %}>
+                            {{ p.ProvinceTitle }}
+                    </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="item-information">
+                <label for="BirthCity">شهر تولد: </label>
+                <select  class="BirthPlace" name="birth_city" id="birth_city">
+                    <option class="p" value="0">انتخاب کنید</option>
+                    {% for C in city %}
+                    <option value="{{ C.id }} " class="p{{ C.Province_id }}"  {% if obj_person.BirthCity_id == C.id %} selected {% endif %}>{{ C.CityTitle }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <div class="row-information">
+            <div class="item-information">
+                <label>شماره شناسنامه </label>
+                <input type="text" id="identity_number" minlength="3" maxlength="80" name="identity_number" value="{{ obj_person.IdentityNumber|default_if_none:'' }}">
+            </div>
+            <div class="item-information">
+                <label>سریال شناسنامه </label>
+                <input type="text" id="identity_serial_number" minlength="3" maxlength="100" name="identity_serial_number" value="{{ obj_person.IdentitySerialNumber|default_if_none:'' }}">
+            </div>
+            <div class="item-information">
+                <label>شماره بیمه </label>
+                <input type="text" id="insurance_number" minlength="3" maxlength="15" name="insurance_number" value="{{ obj_person.InsuranceNumber|default_if_none:'' }}">
+            </div>
+        </div>
+
+        {% if not has_any_active_role %}
+            <div class="row">
+                <div class="item-information">
+                    <label for="team" class="Required">تیم</label>
+                    <select name="team">
+                        <option value="0">انتخاب کنید</option>
+                        {% for team in team_list %}
+                        <option value="{{ team.TeamCode }}" data-target="{{team_role_list|get_dic_key:team.TeamCode}}">{{ team.TeamName }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="item-information">
+                    <label for="role" class="Required">سمت</label>
+                    <select name="role">
+                        <option value="0">انتخاب کنید</option>
+                        {% for role in role_list %}
+                        <option value="{{ role.RoleId }}" {% if role.HasLevel %} class="has_level"{% endif %} style="display: none">{{ role.RoleName }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="item-information">
+                    <label for="level">سطح</label>
+                    <select name="level" >
+                        <option value="0">انتخاب کنید</option>
+                        {% for level in level_list %}
+                        <option value="{{ level.id }}" >
+                            {{ level.LevelName }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+        {% endif %}
+{#        <div class="col-3 d-flex flex-column align-items-center mt-5">#}
+{#            {% if not valid_person %}#}
+{#                <img src="/static/HR/images/Icon/Male.png" src-m="/static/HR/images/Icon/Male.png"#}
+{#                     src-f="/static/HR/images/Icon/Female.png"  id="AvatarBoy" class="Avatar mt-4">#}
+{#             {% else %}#}
+{#                <img onerror="this.src='/static/HR/images/Icon/Male.png'" src="/media_hr/HR/PersonalPhoto/{{ obj_person.user_image_name }}" alt="{{ obj_person.UserName }}"#}
+{#                     id="AvatarBoy" class="Avatar mt-4">#}
+{#            {% endif %}#}
+{#        </div>#}
+
+       <div class="row mt-5">
+          <div class="col-4">
+            <label for="Degree" class="Required">مدرک تحصیلی: </label>
+                <select name="Degree" id="Degree">
+                    <option value="0">انتخاب کنید</option>
+                    {% for E in degree_type %}
+                    <option  value="{{ E.id }}" {% if obj_person.DegreeType_id == E.id %} selected {% endif %}>{{ E.Caption}}</option>
+                    {% endfor %}
+                </select>
+        </div>
+
+        <div class="col-4">
+            <label for="Military">نظام وظیفه: </label>
+                <select name="military" id="military">
+                    <option value="0">انتخاب کنید</option>
+                    {% for m in military_service %}
+                    <option  value="{{ m.id }}" {% if obj_person.MilitaryStatus_id == m.id %} selected {% endif %}>{{ m.Caption}}</option>
+                    {% endfor %}
+                </select>
+        </div>
+
+       <div class="col-4">
+            <label for="Marriage">وضعیت تاهل: </label>
+                <select name="marriage" id="marriage">
+                    <option value="0" class="p">انتخاب کنید</option>
+                    {% for m in marriage_status %}
+                    <option  value="{{ m.id }}" {% if obj_person.MarriageStatus_id == m.id %} selected {% endif %}>{{ m.Caption}}</option>
+                    {% endfor %}
+                </select>
+       </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <label>تعداد فرزند</label>
+            <input type="number" id="number-of-children" min="0" max="10" value="{{ obj_person.NumberOfChildren }}" name="number-of-children">
+        </div>
+    </div>
+
+     <div class="row mt-5">
+          <div class="col-4">
+            <label for="UserStatus" class="Required">وضعیت اشتغال:</label>
+                <select name="UserStatus" id="UserStatus">
+                    <option value="0">انتخاب کنید</option>
+                    {% for us in user_status %}
+                    <option  value="{{ us.id }}" {% if obj_person.UserStatus_id == us.id %} selected {% endif %}>{{ us.Caption}}</option>
+                    {% endfor %}
+                </select>
+        </div>
+
+        <div class="col-4 condition">
+            <label for="IsActive">وضعیت:</label>
+            <div class="is-active-radio">
+                <input type="radio" id="IsActive_True" name="IsActive" value="1" {% if obj_person.IsActive %}checked{% endif %} /><label for="IsActive_True">فعال</label>
+                <input type="radio" id="IsActive_False" name="IsActive" value="0" {% if not obj_person.IsActive %}checked{% endif %} /><label for="IsActive_False">غیرفعال</label>
+            </div>
+        </div>
+
+       <div class="col-4 condition">
+            <label for="ContractType" >نوع قرارداد:</label>
+                <select name="ContractType" id="ContractType">
+                    <option value="0" class="p">انتخاب کنید</option>
+                    {% for c in contract_type %}
+                    <option  value="{{ c.id }}" {% if obj_person.ContractType_id == c.id %} selected {% endif %}>{{ c.Caption}}</option>
+                    {% endfor %}
+                </select>
+       </div>
+    </div>
+
+
+{% endblock %}
+

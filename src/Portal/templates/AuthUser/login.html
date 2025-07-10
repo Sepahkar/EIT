@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>صفحه ورود</title>
+    <!-- MDB icon -->
+    <link rel="icon" href="/static/EIT/images/favicon.ico" type="image/x-icon" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="/static/EIT/css/all.css" />
+    <link rel="stylesheet" href="/static/EIT/css/fontawesome.css" />
+    <link rel="stylesheet" href="/static/EIT/css/mdb.rtl.min.css" />
+    <link rel="stylesheet" href="/static/EIT/css/font-style.css" />
+  </head>
+<body>
+    <div class="all-div">
+        <div class="all-div-second">
+            <div class="left-container">
+                <div class="login-form-custom">
+                    <img src="/static/Portal/images/login.png" />
+                    <p>ورود به سیستم</p>
+                    <form action="" method="post" class="frmlogin">
+                        {% csrf_token %}
+                        <p><input name="username" type="text" placeholder="نام کاربری" class="form-control"></p>
+                        <p><input name="password" type="password" placeholder="رمز عبور" class="form-control "></p>
+                        <p><input type="checkbox" value="1" name="rememberme" class="form-check-input">مرا به خاطر بسپار</p>
+                        <p><input type="submit" class="btn btn-primary w-100" value="ورود"></p>
+                    </form>
+                </div>
+            </div>
+            <div class="right-container">
+                <img class="upbg" src="/static/Portal/images/upbg.png" />
+                <img class="eitbg" src="/static/Portal/images/EIT.png" />
+                <img class="downbg" src="/static/Portal/images/downbg.png" />
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<style>
+    .all-div{
+        position: fixed;
+        left: 8%;
+        top: 6%;
+        width: 84%;
+        height: 88%;
+    }
+    .all-div-second{
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+    .left-container{
+        border-top-left-radius: 60px;
+        border-bottom-left-radius: 60px;
+        border-left: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+        border-top: 1px solid #ddd;
+        position: absolute;
+        z-index: 10;
+        width: 55%;
+        height: 100%;
+        left: 0;
+        top:0;
+    }
+    .right-container{
+        position: absolute;
+        z-index: 9;
+        width: 45%;
+        height: 100%;
+        right: 0;
+        top: 0;
+    }
+    .upbg{
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+    .downbg{
+        width: 100%;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+    }
+    .eitbg{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 60%;
+        width: 40%;
+    }
+    .login-form-custom{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 80%;
+        margin-left: 10%;
+    }
+    .login-form-custom > img{
+        margin-top: 33%;
+    }
+    .login-form-custom > p{
+        text-align: center;
+        color: #0d6efd;
+        font-family: Koodak;
+    }
+    .frmlogin{
+        direction: rtl;
+        margin-top: 12%;
+    }
+    .frmlogin > p > input{
+        font-family: Sepahbod;
+        font-size: 14px;
+    }
+    .frmlogin > p {
+        font-family: Homa;
+    }
+</style>

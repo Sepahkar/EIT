@@ -1,0 +1,43 @@
+{% extends "HR/detail-layout.html" %}
+{%  load static %}
+{% block legend %}سوابق کاری {% endblock %}
+{% block form_name1 %}JobHistory{% endblock %}
+{% block form_name2 %}JobHistory{% endblock %}
+{% block form_name3 %}JobHistory{% endblock %}
+{% block form_name4 %}JobHistory{% endblock %}
+{% block form_name5 %}JobHistory{% endblock %}
+{% block form_name6 %}JobHistory{% endblock %}
+{% block form_name7 %}JobHistory{% endblock %}
+{% block form_name8 %}JobHistory{% endblock %}
+{% block form_name9 %}JobHistory{% endblock %}
+{% block form_name10 %}JobHistory{% endblock %}
+{% block table_header %}
+    <th class="Textlist" data-field="Name">نام</th>
+    <th class="Textlist" data-field="Family7">نام خانوادگی</th>
+    <th class="Textlist" data-field="Role">سمت </th>
+    <th class="Textlist" data-field="Team">تیم </th>
+    <th class="Textlist" data-field="Role">سطح</th>
+    <th class="Textlist" data-field="Superior">ارشد </th>
+    <th class="Textlist" data-field="StartDate">تاریخ شروع </th>
+    <th class="Textlist" data-field="EndDate">تاریخ پایان </th>
+{% endblock %}
+{% block table_body %}
+    {% for obj in obj_History %}
+    <tr data-key="{{ obj.id }}">
+             <td>{{ obj.UserName.FirstName}}</td>
+             <td>{{ obj.UserName.LastName }}</td>
+             <td>{{ obj.RoleId.RoleName }}</td>
+             <td>{{ obj.TeamCode.TeamName }}</td>
+             <td>{{ obj.LevelId.LevelName }}</td>
+
+            {% if obj.Superior == True %}
+                 <td>بله</td>
+            {% else %}
+                <td>خیر</td>
+            {% endif %}
+            <td>{{ obj.StartDate }}</td>
+            <td>{{ obj.EndDate|default_if_none:'' }}</td>
+         </tr>
+    {% endfor %}
+
+{% endblock %}

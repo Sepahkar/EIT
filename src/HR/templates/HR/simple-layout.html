@@ -1,0 +1,20 @@
+    <fieldset>
+        <legend>
+        {% block legend %}{% endblock %}
+        </legend>
+        <form name="frm{% block form_name1 %}{% endblock %}">
+        {% csrf_token %}
+        <button type="reset" class="hidden {% block form_name2 %}{% endblock %}"></button>
+        <input type="hidden" name="username" value="{{ obj_person.UserName }}">
+        <input type="hidden" name="{% block form_name3 %}{% endblock %}Id">
+        <div class="row main-content">
+            {% block fieldes %}{% endblock %}
+            <div class=" w-100 d-flex flex-row  justify-content-end " >
+                <input type="button" name="cancel" class="col-2 button cancel mx-4 my-2" value="انصراف"
+                       data-type="{% block form_name4 %}{% endblock %}">
+                <input type="button" name="save" class="col-2 button save mx-4 my-2" value="ثبت"
+                       data-type="{% block form_name5 %}{% endblock %}" >
+            </div>
+        </div>
+        </form>
+    </fieldset>

@@ -1,0 +1,42 @@
+    <fieldset>
+        <legend>
+        {% block legend %}{% endblock %}
+        </legend>
+        <div class="select-year">1400</div>
+        <div class="select-season">
+            <div data-season-number="1" class="season spring">
+                 بهار
+                <img src="/static/HR/images/spring.png" alt="">
+            </div>
+            <div data-season-number="2" class="season summer">
+                     تابستان
+                <img src="/static/HR/images/summer.png" alt="">
+            </div>
+            <div  data-season-number="3" class="season fall">
+                   پاییز
+               <img src="/static/HR/images/fall.png" alt="">
+            </div>
+            <div data-season-number="4" class="season winter">
+                زمستان
+                <img src="/static/HR/images/winter.png" alt="">
+                </div>
+
+        </div>
+        <div class="select-season">
+            <div data-season-number="1" data-month-number="1" class="farvardin season month">
+                فروردین
+                <img src="/static/HR/images/spring.png" alt="">
+            </div>
+            <div data-season-number="1" data-month-number="2" class="ordibehesht season month">
+                اردیبهشت
+                <img src="/static/HR/images/spring.png" alt="">
+            </div>
+            <div data-season-number="1" data-month-number="3" class="khordad season month">
+                 خرداد
+                <img src="/static/HR/images/spring.png" alt="">
+            </div>
+        </div>
+        <div class="row main-content">
+            {% block fieldes %}{% endblock %}
+        </div>
+    </fieldset>

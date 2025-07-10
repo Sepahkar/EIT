@@ -1,0 +1,128 @@
+{% extends "HR/profile-base.html" %}
+{% load tag_library %}
+{% block title %} جستجو {{search_term}} {% endblock title %}
+{% block bodystyle %}primaryColorBg{% endblock bodystyle %}
+{% block MainContent %}
+    <section class="header-sec w-screen h-24 flex flex-row ">
+        <div class="w-3/4"></div>
+        <div class="searchBar flex w-1/4 h-full justify-center items-center pe-5">
+            <form class="flex items-center w-full" action="/HR/user-profile/search/" method="get">
+                <label for="simple-search" class="sr-only">Search</label>
+                <div class="relative w-full">
+                    <input
+                        type="text"
+                        id="simple-search"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 placeholder: text-right"
+                        placeholder="جستجو..."
+                        required 
+                        name="search"
+                    >
+                </div>
+                <button type="submit" class="primaryButton p-2.5 ms-2 text-sm font-medium text-white  rounded-lg ">
+                    <svg
+                        class="w-4 h-4"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 20 20"
+                    >
+                        <path
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+                        />
+                    </svg>
+                    <span class="sr-only">Search</span>
+                </button>
+            </form>
+        </div>
+    </section>
+    <section class="w-full nowMembers flex flex-col items-start">
+        <div class="w-full flex justify-center my-4">
+            <div class="w-2/5 flex items-center relative">
+                <span class="titleStyle"></span>
+            </div>
+            <div class="1/5 px-3">
+                <h3 class="text-xl text-center font-medium">نتیجه جستجو</h3>
+            </div>
+            <div class="w-2/5 flex items-center relative">
+                <span class="titleStyle"></span>
+            </div>
+        </div>
+
+        <section class="px-2 w-full flex justify-center pb-10">
+            {% if users %}
+            <div class="w-[90%] overflow-x-auto shadow-md sm:rounded-lg flex justify-center items-center">
+                <table class="w-full text-sm text-left rtl:text-center text-gray-500">
+                    <thead class="text-xs text-gray-700 uppercase primaryColorBg">
+                        <tr>
+                            <th scope="col" class="px-6 py-3 flex justify-center items-center">
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                نام
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                نام خانوادگی
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                تیم 
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                سمت
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                تاریخ شروع
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                سابقه کاری در فناوران
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for user in users %}
+                            <tr class="bg-white border-b">
+                                <td scope="col" class="px-6 py-3 flex justify-center items-center">
+                                    <div class="flex items-center py-1 text-gray-900 whitespace-nowrap team-profile">
+
+                                        <a href="/HR/profile/user/{{user.UserName.UserName}}/" target="_blank">
+                                            <img src="{{user.UserName.StaticPhotoURL}}" alt="" class="w-10 h-10 rounded-full object-contain"
+                                                onerror="this.onerror=null; this.src='{{PROCESS_MANAGEMENT_STATIC_IMAGES}}no-profile-mr.png'"
+                                            >                    
+                                        </a>
+                                    </div>
+                                </td>
+                                <td scope="row" class="px-6 py-4 font-medium whitespace-nowrap">
+                                    {{user.UserName.FirstName}}
+                                </td>
+                                <td class="px-6 py-4 font-medium">
+                                    {{user.UserName.LastName}}
+                                </td>
+                                <td class="px-6 py-4">
+                                    {{user.TeamCode}}
+                                </td>
+                                <td class="px-6 py-4">
+                                    {{user.RoleId}}
+                                </td>
+                                <td class="px-6 py-4">
+                                    {{user.StartDate|to_persian}}
+                                </td>
+                                <td class="px-6 py-4">
+                                    {{user.UserName.get_contract|to_persian}}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        
+                    </tbody>
+                </table>
+            </div>
+            {% else %}
+            <div class="bg-red-500 text-white p-4 rounded" role="alert">
+                رکوردی با این مشخصات یافت نشد
+            </div>
+        {% endif %}
+        </section>
+    </section>
+{% include 'HR/team-list-profile.html' %}
+{% endblock MainContent %}

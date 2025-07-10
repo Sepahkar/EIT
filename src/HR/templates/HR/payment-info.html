@@ -1,0 +1,183 @@
+{% extends "HR/layout.html" %}
+{% block information%}
+
+
+{#    {% include 'HR/payment.html' %}#}
+    <div class="payment-page">
+        <div class="filter">
+            <div class="navigation menu">
+                <span data-key="payment-count-chart" {% if current_chart == 'payment-count-chart' %}class="active"{% endif %}>
+                    جایگاه مالی فرد در سازمان
+                </span>
+                <span data-key="role-payment-count-chart" {% if current_chart == 'role-payment-count-chart' %}class="active"{% endif %}>
+                    جایگاه مالی فرد در گروه سمتی
+                </span>
+                {% if has_more_than_one_year %}
+                    <span data-key="person-all-year-payment-chart" {% if current_chart == '' %}class="active"{% endif %}>مبلغ دریافتی کل</span>
+                {% endif %}
+                <span data-key="person-yearly-payment-chart" {% if current_chart == 'person-yearly-payment-chart' %}class="active"{% endif %}>
+                    مبلغ دریافتی در یک سال
+                </span>
+                <span data-key="over-time-yearly-chart" {% if current_chart == 'over-time-yearly-chart' %}class="active"{% endif %}>
+                    مبلغ اضافه کار
+                </span>
+                <span data-key="reward-yearly-chart" {% if current_chart == 'reward-yearly-chart' %}class="active"{% endif %}>
+                    مبلغ پاداش
+                </span>
+                <span data-key="other-payment-yearly-chart" {% if current_chart == 'other-payment-yearly-chart' %}class="active"{% endif %}>
+                    سایر هزینه ها
+                </span>
+            </div>
+{#            <div class="years {% if not has_more_than_one_year %}hidden{% endif %}">#}
+{#                {% for year in year_list %}#}
+{#                <span {% if year.0 == year_number %}class="active"{% endif %}>{{ year.0}}</span>#}
+{#                {% endfor %}#}
+{#            </div>#}
+
+        </div>
+        <form name="chart_data" method="post">
+            {% csrf_token %}
+            <input name="year_number" type="hidden" value="{{ year_number }}">
+            <input name="role_id" type="hidden" value="{{ role_id }}">
+            <input name="role_title" type="hidden" value="{{ role_title }}">
+            <input name="level_id" type="hidden" value="{{ level_id }}">
+            <input name="level_title" type="hidden" value="{{ level_title }}">
+            <input name="current_chart" type="hidden" value="{{ current_chart }}">
+        </form>
+
+        <input name="more_payment_count" type="hidden" value="{{ more_payment_count }}">
+        <input name="less_payment_count" type="hidden" value="{{ less_payment_count }}">
+        <input name="more_role_payment_count" type="hidden" value="{{ more_role_payment_count }}">
+        <input name="less_role_payment_count" type="hidden" value="{{ less_role_payment_count }}">
+
+        <input name="person_all_year_payment" type="hidden" value="{{ all_year_payment.payment }}">
+        <input name="person_all_year_base_payment" type="hidden" value="{{ all_year_payment.base_payment }}">
+        <input name="person_all_year_average_payment" type="hidden" value="{{ all_year_average_payment.payment }}">
+        <input name="person_all_year_average_role_payment" type="hidden" value="{{ all_year_average_role_payment.payment }}">
+
+        <input name="payment_average_payment" type="hidden" value="{{ payment_average.payment }}">
+        <input name="payment_average_base_payment" type="hidden" value="{{ payment_average.base_payment }}">
+        <input name="payment_average_total_payment" type="hidden" value="{{ payment_average.total_payment }}">
+        <input name="payment_average_other_payment" type="hidden" value="{{ payment_average.other_payment }}">
+        <input name="payment_average_over_time_payment" type="hidden" value="{{ payment_average.over_time_payment }}">
+        <input name="payment_average_reward" type="hidden" value="{{ payment_average.reward }}">
+
+        <input name="role_payment_average_payment" type="hidden" value="{{ role_payment_average.payment }}">
+        <input name="role_payment_average_base_payment" type="hidden" value="{{ role_payment_average.base_payment }}">
+        <input name="role_payment_average_total_payment" type="hidden" value="{{ role_payment_average.total_payment }}">
+        <input name="role_payment_average_other_payment" type="hidden" value="{{ role_payment_average.other_payment }}">
+        <input name="role_payment_average_over_time_payment" type="hidden" value="{{ role_payment_average.over_time_payment }}">
+        <input name="role_payment_average_reward" type="hidden" value="{{ role_payment_average.reward }}">
+
+        <input name="person_payment_payment" type="hidden" value="{{ person_payment.payment }}">
+        <input name="person_payment_base_payment" type="hidden" value="{{ person_payment.base_payment }}">
+        <input name="person_payment_total_payment" type="hidden" value="{{ person_payment.total_payment }}">
+        <input name="person_payment_other_payment" type="hidden" value="{{ person_payment.other_payment }}">
+        <input name="person_payment_over_time_payment" type="hidden" value="{{ person_payment.over_time_payment }}">
+        <input name="person_payment_reward" type="hidden" value="{{ person_payment.reward }}">
+
+        <input name="month_name" type="hidden" value="{{ month_name }}">
+        <input name="year_list" type="hidden" value="{{ year_list }}">
+
+        <div class="view-chart ">
+            <div class="filter ">
+                <div class="navigation top col-12">
+                    {% if has_more_than_one_year %}
+                         <div class="years ">
+                            {% for year in year_list %}
+                            <span {% if year.0 == year_number %}class="active"{% endif %}>{{ year.0}}</span>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                    {% if has_more_than_one_role %}
+                        <div class="roles col-12">
+                            {% for role in role_list %}
+                                <span {% if role.0 == role_id %}class="active"{% endif %} data-key="{{ role.0 }}" data-level="{{ role.2 }}">
+                                    {{ role.1 }} {{ role.3|default:'' }}
+                                </span>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <figure class="highcharts-figure" pie-chart style="display: none">
+                <div id="payment-count-chart"></div>
+                <p class="highcharts-description">
+                    <ul>
+                        <li><b>افراد با حقوق بیشتر:</b>تعداد افرادی در شرکت که دریافتی آنها بیشتر از این فرد است.</li>
+                        <li><b>افراد با حقوق کمتر:</b>تعداد افرادی در شرکت که دریافتی آنها کمتر از این فرد است.</li>
+                    </ul>
+                </p>
+            </figure>
+
+            <figure class="highcharts-figure pie-chart" style="display: none">
+                <div id="role-payment-count-chart"></div>
+                <p class="highcharts-description">
+
+                    <ul>
+                        <li><b>افراد با حقوق بیشتر:</b>تعداد افرادی که با سمت  {{ role_title }} {{ level_title|default:'' }} دریافتی آنها بیشتر از این فرد است.</li>
+                        <li><b>افراد با حقوق کمتر:</b>تعداد افرادی که با سمت  {{ role_title }} {{ level_title|default:'' }} دریافتی آنها کمتر از این فرد است.</li>
+                    </ul>
+                </p>
+            </figure>
+
+
+            <figure class="highcharts-figure" style="display: none">
+                <div id="person-all-year-payment-chart"></div>
+                <p class="highcharts-description">
+                    <ul>
+                        <li><b>خالص دریافتی:</b> مبلغ خالص دریافتی فرد پس از انجام کسور بیمه و مالیات و ...</li>
+                        <li><b>مبلغ حکم:</b> مبلغ حکم معادل حقوق پایه فرد است. حقوق پایه در سه ماه دوم سال به خاطر کوتاه بودن ماه ها افزایش اندکی دارد</li>
+                        <li><b>میانگین دریافتی شرکت:</b> میانگین دریافتی حقوق پرسنل شرکت </li>
+                        <li><b>میانگین دریافتی این سمت:</b> میانگین حقوق دریافتی افرادی با سمت {{ role_title }} {{ level_title|default:'' }}</li>
+                    </ul>
+                </p>
+            </figure>
+            <figure class="highcharts-figure" style="display: none">
+                <div id="person-yearly-payment-chart"></div>
+                <p class="highcharts-description">
+                    <ul>
+                        <li><b>خالص دریافتی:</b> مبلغ خالص دریافتی فرد پس از انجام کسور بیمه و مالیات و ...</li>
+                        <li><b>مبلغ حکم:</b> مبلغ حکم معادل حقوق پایه فرد است. حقوق پایه در سه ماه دوم سال به خاطر کوتاه بودن ماه ها کاهش اندکی دارد</li>
+                        <li><b>میانگین دریافتی شرکت:</b> میانگین دریافتی حقوق پرسنل شرکت </li>
+                        <li><b>میانگین دریافتی این سمت:</b> میانگین حقوق دریافتی افرادی با سمت {{ role_title }} {{ level_title|default:'' }}</li>
+                    </ul>
+                </p>
+            </figure>
+            <figure class="highcharts-figure"  style="display: none">
+                <div id="other-payment-yearly-chart"></div>
+                <p class="highcharts-description">
+                    <ul>
+                        <li><b>سایر هزینه:</b> سایر هزینه های فرد شامل مواردی مانند هزینه بیمه تکمیلی یا ناهارتایم می شود</li>
+                        <li><b>میانگین هزینه افراد شرکت:</b> میانگین سایر هزینه ها برای پرسنل شرکت </li>
+                        <li><b>میانگین سایر هزینه های این سمت:</b> میانگین سایر هزینه ها افرادی با سمت {{ role_title }} {{ level_title|default:'' }}</li>
+                    </ul>
+                </p>
+            </figure>
+            <figure class="highcharts-figure"  style="display: none">
+                <div id="over-time-yearly-chart"></div>
+                <p class="highcharts-description">
+                    <ul>
+                        <li><b>مبلغ اضافه کاری:</b>مبلغ اضافه کاری ماهانه فرد</li>
+                        <li><b>میانگین اضافه کاری افراد شرکت:</b> میانگین اضافه کاری پرسنل شرکت </li>
+                        <li><b>میانگین اضافه کاری این سمت:</b> میانگین اضافه کاری افرادی با سمت {{ role_title }} {{ level_title|default:'' }}</li>
+                    </ul>
+                </p>
+            </figure>
+            <figure class="highcharts-figure" style="display: none">
+                <div id="reward-yearly-chart"></div>
+                <p class="highcharts-description">
+                    <ul>
+                        <li><b>مبلغ پاداش:</b>پاداش دریافتی ماهانه فرد</li>
+                        <li><b>میانگین مبلغ پاداش شرکت:</b> میانگین مبلغ پاداش پرسنل شرکت </li>
+                        <li><b>میانگین مبلغ پاداش این سمت:</b> میانگین مبلغ پاداش افرادی با سمت {{ role_title }} {{ level_title|default:'' }}</li>
+                    </ul>
+                </p>
+            </figure>
+        </div>
+
+    </div>
+
+{% endblock %}
+

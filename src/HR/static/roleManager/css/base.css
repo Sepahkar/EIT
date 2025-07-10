@@ -1,0 +1,86 @@
+@font-face {
+  font-family: "IRAmir";
+  src: url("../fonts/IRAmir/IRAmir.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Vazirmtn";
+  src: url("../fonts/Vazirmatn/Vazirmatn-Regular.woff2") format("woff2"),
+    url("../fonts/Vazirmatn/Vazirmatn-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Vazirmtn";
+  src: url("../fonts/Vazirmatn/Vazirmatn-Medium.woff2") format("woff2"),
+    url("../fonts/Vazirmatn/Vazirmatn-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Vazirmtn";
+  src: url("../fonts/Vazirmatn/Vazirmatn-Bold.woff2") format("woff2"),
+    url("../fonts/Vazirmatn/Vazirmatn-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Vazirmtn";
+  src: url("../fonts/Vazirmatn/Vazirmatn-black.woff2") format("woff2"),
+    url("../fonts/Vazirmatn/Vazirmatn-black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+.IRAmir-Font {
+  font-family: "IRAmir";
+}
+.Vazirmtn-Font {
+  font-family: "Vazirmtn";
+  font-weight: 400;
+}
+
+body {
+  direction: rtl;
+  background-color: #f4f7f9;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  margin: 1rem 5rem 1rem 5rem;
+  justify-content: space-between;
+  border-bottom: 1px solid black;
+  font-weight: bold;
+  position: relative;
+}
+
+.right-section img {
+  width: 180px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.center-section {
+  font-size: 30px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: "Vazirmtn";
+  font-weight: 700;
+}
+
+.content {
+  background-color: white;
+  height: auto;
+  margin: 1rem 5rem 1rem 5rem;
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
